@@ -1,0 +1,266 @@
+/* Shared chrome for information, demo settings and settled-round dialogs.
+   Artwork, amounts, round logic and motion remain in their original components. */
+.app-shell21.app-shell21 .odds-page {
+  color: var(--ds-paper);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+.app-shell21.app-shell21 .odds-page h1,
+.app-shell21.app-shell21 .odds-page summary {
+  color: var(--ds-paper);
+  font-family: var(--ds-font-display), Arial, sans-serif !important;
+  letter-spacing: .01em;
+}
+.app-shell21.app-shell21 .odds-page h1 { font-size: clamp(34px, 5vw, 48px); }
+.app-shell21.app-shell21 .odds-page p,
+.app-shell21.app-shell21 .odds-page .odds-footnote { color: var(--ds-muted); }
+.app-shell21.app-shell21 .odds-page .odds-lead { color: var(--ds-paper); }
+.app-shell21.app-shell21 .odds-page details {
+  margin: 16px 0;
+  padding: 20px 22px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-surface);
+}
+.app-shell21.app-shell21 .odds-page summary:focus-visible {
+  outline: 2px solid var(--ds-gold);
+  outline-offset: 6px;
+}
+.app-shell21.app-shell21 .odds-table-scroll {
+  max-width: 100%;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-bg);
+  overscroll-behavior-x: contain;
+}
+.app-shell21.app-shell21 .odds-page table { color: var(--ds-paper); line-height: 1.6; }
+.app-shell21.app-shell21 .odds-page th,
+.app-shell21.app-shell21 .odds-page td { border-color: var(--ds-line); }
+.app-shell21.app-shell21 .odds-page thead,
+.app-shell21.app-shell21 .odds-page caption {
+  background: var(--ds-panel);
+  color: var(--ds-paper);
+}
+.app-shell21.app-shell21 .odds-page a { color: var(--ds-gold); text-underline-offset: 3px; }
+
+.app-shell21.app-shell21 .hall-rules,
+.app-shell21.app-shell21 .demo-admin-panel {
+  color: var(--ds-paper);
+  background: var(--ds-surface);
+  border: 2px solid var(--ds-ink);
+  border-radius: var(--ds-radius);
+  box-shadow: var(--ds-shadow), 0 0 0 1px var(--ds-border), 0 24px 80px color-mix(in srgb, var(--ds-ink) 65%, transparent);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+  overscroll-behavior: contain;
+}
+.app-shell21.app-shell21 .hall-rules { max-height: calc(100svh - 28px); overflow-y: auto; }
+.app-shell21.app-shell21 .hall-rules::backdrop,
+.app-shell21.app-shell21 .demo-admin-panel::backdrop {
+  background: color-mix(in srgb, var(--ds-ink) 82%, transparent);
+  backdrop-filter: blur(4px);
+}
+.app-shell21.app-shell21 .hall-rules h2,
+.app-shell21.app-shell21 .demo-admin-panel h2,
+.app-shell21.app-shell21 .demo-admin-panel h3 {
+  font-family: var(--ds-font-display), Arial, sans-serif !important;
+  color: var(--ds-paper);
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+.app-shell21.app-shell21 .hall-rules p { color: var(--ds-muted); font-family: var(--ds-font-body), Arial, sans-serif; }
+.app-shell21.app-shell21 .hall-rules .eyebrow,
+.app-shell21.app-shell21 .demo-admin-kicker { color: var(--ds-gold); }
+.app-shell21.app-shell21 .hall-rules .secondary,
+.app-shell21.app-shell21 .demo-admin-actions .demo-admin-apply {
+  border: 2px solid var(--ds-ink);
+  border-radius: var(--ds-radius);
+  background: var(--ds-accent);
+  color: var(--ds-paper);
+  box-shadow: var(--ds-shadow);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+  font-weight: 700;
+}
+.app-shell21.app-shell21 .hall-rules .secondary:hover,
+.app-shell21.app-shell21 .demo-admin-actions .demo-admin-apply:not(:disabled):hover { background: var(--ds-accent-hover); }
+.app-shell21.app-shell21 .hall-rules .close-rules,
+.app-shell21.app-shell21 .demo-admin-close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-bg);
+  color: var(--ds-paper);
+}
+.app-shell21.app-shell21 .hall-rules .close-rules:hover,
+.app-shell21.app-shell21 .demo-admin-close:not(:disabled):hover { background: var(--ds-panel); border-color: var(--ds-gold); }
+.app-shell21.app-shell21 .demo-admin-panel :is(button, input, summary):focus-visible,
+.app-shell21.app-shell21 .hall-rules button:focus-visible,
+.app-shell21.app-shell21 .demo-admin-panel label:has(input:focus-visible) {
+  outline: 2px solid var(--ds-gold);
+  outline-offset: 3px;
+}
+.app-shell21.app-shell21 .demo-admin-panel :is(p, small, legend),
+.app-shell21.app-shell21 .demo-admin-panel :is(.demo-admin-field-heading label, .demo-admin-number-wrap > span, .demo-admin-range-endpoints, .demo-admin-evidence > span, .demo-admin-evidence-top > div > span, .demo-admin-source, .demo-admin-math-kind, .demo-admin-limit) {
+  color: var(--ds-muted);
+}
+.app-shell21.app-shell21 .demo-admin-panel .demo-admin-source { color: var(--ds-muted) !important; }
+.app-shell21.app-shell21 .demo-admin-session-line,
+.app-shell21.app-shell21 .demo-admin-apply-area {
+  border-color: var(--ds-line);
+  background: var(--ds-bg);
+  color: var(--ds-muted);
+}
+.app-shell21.app-shell21 .demo-admin-session-line span:first-child { color: var(--ds-positive); }
+.app-shell21.app-shell21 .demo-admin-session-line i { background: var(--ds-positive); }
+.app-shell21.app-shell21 .demo-admin-tabs button,
+.app-shell21.app-shell21 .demo-admin-game-picker button,
+.app-shell21.app-shell21 .demo-admin-actions button,
+.app-shell21.app-shell21 .demo-admin-blackjack-presets label,
+.app-shell21.app-shell21 .demo-admin-speed-presets label {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-panel);
+  color: var(--ds-paper);
+}
+.app-shell21.app-shell21 .demo-admin-tabs button:not(:disabled):hover,
+.app-shell21.app-shell21 .demo-admin-game-picker button:not(:disabled):hover { border-color: var(--ds-gold); }
+.app-shell21.app-shell21 .demo-admin-tabs button.selected,
+.app-shell21.app-shell21 .demo-admin-game-picker button.selected,
+.app-shell21.app-shell21 .demo-admin-blackjack-presets label.selected,
+.app-shell21.app-shell21 .demo-admin-speed-presets label.selected {
+  border-color: var(--ds-ink);
+  background: var(--ds-paper);
+  color: var(--ds-ink);
+  box-shadow: var(--ds-shadow);
+}
+.app-shell21.app-shell21 .demo-admin-panel :is(.demo-admin-tabs button.selected, .demo-admin-game-picker button.selected, .demo-admin-blackjack-presets label.selected, .demo-admin-speed-presets label.selected) :is(small, strong) { color: var(--ds-ink); }
+.app-shell21.app-shell21 .demo-admin-tabs small { color: inherit; opacity: 1; }
+.app-shell21.app-shell21 .demo-admin-game-picker i { background: var(--ds-accent); }
+.app-shell21.app-shell21 .demo-admin-game-title > span {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  color: var(--ds-paper);
+  background: var(--ds-panel);
+}
+.app-shell21.app-shell21 .demo-admin-number-wrap input {
+  width: 88px;
+  height: 40px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  color: var(--ds-paper);
+  background: var(--ds-bg);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.app-shell21.app-shell21 .demo-admin-panel :is(input[type='range'], input[type='radio']) { accent-color: var(--ds-gold); }
+.app-shell21.app-shell21 .demo-admin-evidence,
+.app-shell21.app-shell21 .demo-admin-change-preview {
+  background: var(--ds-bg);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+}
+.app-shell21.app-shell21 .demo-admin-evidence strong { color: var(--ds-gold); font-family: var(--ds-font-display), Arial, sans-serif; }
+.app-shell21.app-shell21 .demo-admin-measurements :is(th, td) { border-color: var(--ds-line); color: var(--ds-paper); }
+.app-shell21.app-shell21 .demo-admin-measurements :is(caption, thead th) { color: var(--ds-muted); }
+.app-shell21.app-shell21 .demo-admin-blackjack-presets strong,
+.app-shell21.app-shell21 .demo-admin-speed-presets strong { color: var(--ds-paper); }
+.app-shell21.app-shell21 .demo-admin-change-preview summary { color: var(--ds-gold); }
+.app-shell21.app-shell21 .demo-admin-change-preview ul { color: var(--ds-muted); }
+.app-shell21.app-shell21 .demo-admin-actions .demo-admin-reset { color: var(--ds-muted); background: transparent; }
+.app-shell21.app-shell21 .demo-admin-panel :is(.demo-admin-error, .demo-admin-stale) { color: var(--ds-paper); }
+.app-shell21.app-shell21 .demo-admin-panel .demo-admin-success { color: var(--ds-positive); }
+.app-shell21.app-shell21 .demo-admin-panel .demo-admin-busy,
+.app-shell21.app-shell21 .demo-admin-stale button { color: var(--ds-gold); }
+.app-shell21.app-shell21 .demo-admin-stale button { background: none; }
+.app-shell21.app-shell21 .demo-admin-entry {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-panel);
+  color: var(--ds-paper);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+
+/* A common frame sits over each game's existing raster scenery. The extra root specificity keeps lazy result CSS from restoring the old palette. */
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay {
+  --result-line: var(--ds-border);
+  --result-panel: color-mix(in srgb, var(--ds-surface) 88%, transparent);
+  --result-button: var(--ds-accent);
+  border: 2px solid var(--ds-ink);
+  border-radius: var(--ds-radius);
+  background-color: var(--ds-surface);
+  color: var(--ds-paper);
+  box-shadow: var(--ds-shadow), 0 0 0 1px var(--ds-border), 0 24px 80px color-mix(in srgb, var(--ds-ink) 65%, transparent);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay::backdrop {
+  background: color-mix(in srgb, var(--ds-ink) 82%, transparent);
+  backdrop-filter: blur(4px);
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-celebrate='true'] {
+  border-color: var(--ds-gold);
+  border-radius: var(--ds-radius);
+  box-shadow: var(--ds-shadow), 0 0 0 1px var(--ds-border), 0 24px 80px color-mix(in srgb, var(--ds-ink) 65%, transparent);
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-sheet,
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-celebrate='true'] .payout-sheet { background: var(--result-panel); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay :is(.payout-game, .payout-description, .payout-hint, .win-award-caption) {
+  color: var(--ds-muted);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-title,
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-amount {
+  font-family: var(--ds-font-display), Arial, sans-serif !important;
+  color: var(--ds-paper);
+  text-shadow: 0 3px 0 var(--ds-ink);
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-celebrate='true'] .payout-title { color: var(--ds-gold); text-shadow: 0 3px 0 var(--ds-ink); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-tone='profit'] .payout-amount { color: var(--ds-gold); text-shadow: 0 3px 0 var(--ds-ink); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-tone='receipt'] .payout-amount { color: var(--ds-paper); text-shadow: 0 3px 0 var(--ds-ink); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-tone='loss'] :is(.payout-title, .payout-amount) { color: var(--ds-muted); text-shadow: none; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-celebrate='true'] .payout-amount > span:first-child {
+  background-image: linear-gradient(105deg, var(--ds-gold) 5%, var(--ds-paper) 30%, var(--ds-paper) 45%, var(--ds-gold) 60%, var(--ds-paper) 85%);
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-currency { color: var(--ds-muted); font-family: var(--ds-font-body), Arial, sans-serif; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-mask-art { border-color: var(--ds-gold); box-shadow: none; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-accounting { background: var(--ds-bg); border-color: var(--ds-line); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-accounting > div + div { border-color: var(--ds-line); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-accounting :is(dt, dd span) { color: var(--ds-muted); font-family: var(--ds-font-body), Arial, sans-serif; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-accounting dd { color: var(--ds-paper); font-family: var(--ds-font-display), Arial, sans-serif; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-continue,
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay[data-celebrate='true'] .payout-continue {
+  border: 2px solid var(--ds-ink);
+  border-radius: var(--ds-radius);
+  background: var(--ds-accent);
+  color: var(--ds-paper);
+  box-shadow: var(--ds-shadow);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-continue:hover { background: var(--ds-accent-hover); filter: none; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-dismiss {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-bg);
+  color: var(--ds-paper);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .payout-dismiss:hover { background: var(--ds-panel); border-color: var(--ds-gold); color: var(--ds-paper); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay :is(.payout-continue, .payout-dismiss):focus-visible { outline: 2px solid var(--ds-gold); outline-offset: 3px; }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .win-flash { background: var(--ds-paper); }
+.app-shell21.app-shell21.app-shell21 .payout-dialog.payout-overlay .win-rays { background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--ds-gold) 20%, transparent) 0deg 7deg, transparent 7deg 22deg); }
+.app-shell21.app-shell21 .casino-audio-toggle {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  background: var(--ds-panel);
+  color: var(--ds-paper);
+  font-family: var(--ds-font-body), Arial, sans-serif;
+}
+.app-shell21.app-shell21 .casino-audio-toggle[aria-pressed='true'] { background: var(--ds-paper); color: var(--ds-ink); border-color: var(--ds-ink); }
+.app-shell21.app-shell21 .casino-audio-toggle:focus-visible { outline: 2px solid var(--ds-gold); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .app-shell21.app-shell21 .odds-page details { padding: 18px 14px; }
+  .app-shell21.app-shell21 .hall-rules > div { padding: 24px 20px; }
+  .app-shell21.app-shell21 .odds-page th,
+  .app-shell21.app-shell21 .odds-page td { padding: 12px; }
+}

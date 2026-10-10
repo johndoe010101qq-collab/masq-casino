@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": 393024,
+  "sections": [
+    {
+      "name": "strict detached global maps and complete public rules",
+      "passed": true
+    },
+    {
+      "name": "native70 pure ticket outcomes and RNG parity",
+      "passed": true
+    },
+    {
+      "name": "every exact map conserves tickets, actual outcomes, payout and return",
+      "passed": true
+    },
+    {
+      "name": "profiles keep all stake-grid costs and maximum liability; identity pins before RNG",
+      "passed": true
+    },
+    {
+      "name": "atomic settings validate all parts, reject stale and active updates, increment once",
+      "passed": true
+    },
+    {
+      "name": "RNG callbacks cannot change accepted settings and Blackjack preserves opaque handles",
+      "passed": true
+    }
+  ]
+}

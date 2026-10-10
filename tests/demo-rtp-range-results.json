@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": 19924,
+  "games": 9,
+  "profilesPerGame": 46,
+  "min": 50,
+  "max": 95,
+  "step": 1,
+  "blackjackPhysicalHands": 4600,
+  "coverage": "All414 catalogue/form/evidence values; integer bounds; atomic accepted future profiles; stale/busy rejection; unchanged Blackjack cap and payouts; unique finite six-deck cards; RTP control JSX; source-specific slot evidence and honest shared-calibration labels."
+}

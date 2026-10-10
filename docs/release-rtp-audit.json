@@ -1,0 +1,224 @@
+{
+  "version": "indictus-release-rtp-audit-v25",
+  "checkedAt": "2026-10-09T20:20:19.782Z",
+  "checkedSourceHead": "ad35e4e066ef78cc810b1edbf4b230a1335ccdce",
+  "comparison": {
+    "baseline": "18befca56518b154dc6a4887999f27c066273471",
+    "logoCommit": "72a0d0a99e1cb7e053edc705e33343856e3852b1",
+    "autoplayCommit": "ad35e4e066ef78cc810b1edbf4b230a1335ccdce",
+    "financialPaths": [
+      "src/game-math.js",
+      "src/demo-math.js",
+      "src/bonanza.js",
+      "src/blackjack.js",
+      "src/mask-slots.js",
+      "src/hall-session.js",
+      "src/demo-reserve.js",
+      "src/liability-terms.js",
+      "src/stake-limits.js",
+      "src/bonus-purchase-floor.js",
+      "src/classic-rtp-profiles.js",
+      "src/blackjack-rtp-profile-table.js",
+      "src/bonanza-profile-engine.js",
+      "src/bonanza-rtp-profiles.js",
+      "src/profiled-bonanza.js",
+      "src/profiled-mask-core.js",
+      "src/profiled-mask-slots.js",
+      "src/rtp-profiles.js",
+      "src/slot-rtp-profiles.js",
+      "src/universal-slot-profiles.js",
+      "src/rtp-range.js"
+    ],
+    "changedFinancialPaths": [],
+    "mathUnchanged": true
+  },
+  "defaultProfiles": {
+    "slots": {
+      "slots": 55,
+      "maskhouse": 55,
+      "lecipher": 55
+    },
+    "classics": {
+      "coinflip": 70,
+      "dice": 70,
+      "plinko": 70,
+      "roulette": 70,
+      "upgrader": 70,
+      "blackjack": 70
+    }
+  },
+  "sourceSHA256": {
+    "src/game-math.js": "2765968525cc1eb712dec386aee0a83ed4ce3686221b365942a834adbf7f50bd",
+    "src/demo-math.js": "96470b8042a1d845448fb6cced671ea31bddbb557d69b241bc6ec68e19f9f7e3",
+    "src/bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "src/blackjack.js": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+    "src/mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "src/hall-session.js": "5dfd81ecf1280a1565e54f9d40a2a9be5ad68be2bdb6741b645d7c1c5d58d812",
+    "src/demo-reserve.js": "743b0e2f923848c6bd20237bfe4269bc7c2b9dfa596432e627646d831088535d",
+    "src/liability-terms.js": "1a19963e6f6809dbc3bf49898022bf3a1361f6b4b4d46f03a3eb490b7f769156",
+    "src/stake-limits.js": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+    "src/bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "src/classic-rtp-profiles.js": "37f82b1b2ac9668cdea36b731400a95282741250dfef02114a70ebf6b2ae5dbe",
+    "src/blackjack-rtp-profile-table.js": "260291ae7201cd16af4a7b6327e0028405e28c70f75e7eaffc91750970db2081",
+    "src/bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "src/bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "src/profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "src/profiled-mask-core.js": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+    "src/profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "src/rtp-profiles.js": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6",
+    "src/slot-rtp-profiles.js": "6ef9f81ad5fc48544d3bab4420f6e2c201eb55857c82f17c322b4841e564e18b",
+    "src/universal-slot-profiles.js": "53269eaf09a6036bb845a8079641ac783dff1810c909188e3877abf43e286450",
+    "src/rtp-range.js": "e65526daf48e545b5529cb8978cafe2420f6687f73b2416afab3c325c04ca117",
+    "src/bonanza-profile-statistics.json": "76fc28592df48469a672a9c533b865cfc687751f6eb51f79e25c8c96c0a445eb",
+    "src/bonus-purchase-floor-statistics.json": "1178cebea8f57f945ad421b9b1cfb425147af2dfc5681eb03977ec58ba8fefbd",
+    "src/universal-slot-statistics.json": "4a404642d1a46a2713b6fdc402eeb97af263a80984ef42ce7a16142c29c4b4f3"
+  },
+  "publishedMeasurements": {
+    "paid": [
+      {
+        "game": "bonanza",
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 200000,
+        "meanReturnPercent": 53.80446000000099,
+        "meanReturn95CI_Percent": [
+          52.35869137405621,
+          55.250228625945766
+        ],
+        "source": "src/bonanza-profile-statistics.json:results200k.rtp55_paid"
+      },
+      {
+        "game": "maskhouse",
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 100000,
+        "meanReturnPercent": 54.1181306,
+        "meanReturn95CI_Percent": [
+          52.67139466355346,
+          55.56486653644649
+        ],
+        "source": "src/rtp-profiles.js:profiles.rtp55.offers.maskhouse:paid.measured[baseStakeAR=50]"
+      },
+      {
+        "game": "lecipher",
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 100000,
+        "meanReturnPercent": 55.700189,
+        "meanReturn95CI_Percent": [
+          54.093513892975054,
+          57.30686410702498
+        ],
+        "source": "src/rtp-profiles.js:profiles.rtp55.offers.lecipher:paid.measured[baseStakeAR=50]"
+      }
+    ],
+    "purchased": [
+      {
+        "key": "bonanza-default-rtp55-50AR",
+        "game": "bonanza",
+        "bonusTier": null,
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 20000,
+        "fullChargeAR": 2500,
+        "meanReturnPercent": 54.98508399999969,
+        "meanReturn95CI_Percent": [
+          54.6041236913792,
+          55.36604430862017
+        ],
+        "includesTenPercentPurchaseMinimum": true,
+        "source": "src/bonus-purchase-floor-statistics.json:rows.1"
+      },
+      {
+        "key": "lecipher-gold-rtp55-50AR",
+        "game": "lecipher",
+        "bonusTier": "gold",
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 20000,
+        "fullChargeAR": 1250,
+        "meanReturnPercent": 55.62479028000043,
+        "meanReturn95CI_Percent": [
+          55.23358048690897,
+          56.016000073091895
+        ],
+        "includesTenPercentPurchaseMinimum": true,
+        "source": "src/bonus-purchase-floor-statistics.json:rows.4"
+      },
+      {
+        "key": "lecipher-luck-rtp55-50AR",
+        "game": "lecipher",
+        "bonusTier": "luck",
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 20000,
+        "fullChargeAR": 1000,
+        "meanReturnPercent": 55.41240095000006,
+        "meanReturn95CI_Percent": [
+          54.98633070264479,
+          55.83847119735533
+        ],
+        "includesTenPercentPurchaseMinimum": true,
+        "source": "src/bonus-purchase-floor-statistics.json:rows.7"
+      },
+      {
+        "key": "maskhouse-sticky-rtp55-50AR",
+        "game": "maskhouse",
+        "bonusTier": "sticky",
+        "profile": 55,
+        "baseStakeAR": 50,
+        "samples": 20000,
+        "fullChargeAR": 1000,
+        "meanReturnPercent": 55.92112165000008,
+        "meanReturn95CI_Percent": [
+          55.40725109804643,
+          56.43499220195374
+        ],
+        "includesTenPercentPurchaseMinimum": true,
+        "source": "src/bonus-purchase-floor-statistics.json:rows.10"
+      }
+    ],
+    "highProfileLimit": {
+      "source": "src/universal-slot-statistics.json:rows.20",
+      "record": {
+        "game": "lecipher",
+        "mode": "paid",
+        "profile": 95,
+        "offer": "lecipher:paid",
+        "key": "rtp95:lecipher:paid",
+        "samples": 50000,
+        "meanPercent": 98.35109479999971,
+        "meanReturn95CI_Percent": [
+          95.26118190331442,
+          101.441007696685
+        ]
+      },
+      "positiveHouseEdgeProven": false
+    }
+  },
+  "verification": {
+    "readOnlyChecksPassed": [
+      "slot-playback-controller-checks.mjs",
+      "game-math-checks.mjs",
+      "game-distribution-checks.mjs",
+      "hall-security-checks.mjs",
+      "mask-cap-liability-checks.mjs",
+      "universal-slot-profile-checks.mjs",
+      "bonus-purchase-floor-checks.mjs",
+      "hall-rtp-profile-checks.mjs",
+      "feature-ledger-checks.mjs"
+    ],
+    "newWeeklyRiskSimulationPerformed": false,
+    "checksAreNotProviderApproval": true
+  },
+  "launchReadiness": {
+    "mode": "static-demo-only",
+    "realFundsBackend": false,
+    "sharedAuthoritativeLedger": false,
+    "defaultDemoHouseBankAR": 10000,
+    "weeklyLossProbability": null,
+    "oldTwoMillionWeeklyEstimateApplicable": false,
+    "profitGuarantee": false
+  },
+  "noteRu": "Текущая проверка хешей и регрессий; цифры RTP взяты из явно указанных ранее выполненных измерений. Не новая оценка вероятности убытка, не одобрение SPWorlds и не сервер финансов."
+}

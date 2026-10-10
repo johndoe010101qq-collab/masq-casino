@@ -1,0 +1,300 @@
+/* Classic rooms only: compact ink lines and paper controls. Slot art and slot controls are excluded. */
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) {
+  --game-accent:#b53e55; --game-accent-light:#c5a36a; --game-panel:#28262a;
+  --classic-ink:#242125; --classic-cream:#eee7d6; --classic-gold:#c5a36a; --classic-muted:#b5ada5;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading {
+  align-items:center; margin:0 0 22px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading h1 {
+  font-family:var(--lobby-display,var(--ui-font,Arial,sans-serif))!important;
+  font-size:38px!important; font-weight:700; line-height:1.1; letter-spacing:0; color:var(--classic-cream);
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading .rules-button {
+  min-height:44px; padding:10px 16px; border:1px solid #756e6566!important;
+  border-radius:4px; background:#28262a; color:var(--classic-cream); font-size:13px; font-weight:650; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-layout {
+  grid-template-columns:minmax(0,1fr) 290px; gap:20px; align-items:start;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-stage,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-stage:has(.mode-cabinet-backdrop),
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-stage.stage-upgrader,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-stage {
+  border:1px solid #756e6566; border-radius:6px; background-color:#171719;
+  outline:none; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .stage-label {
+  color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif); font-size:12px;
+  font-weight:650; letter-spacing:.04em;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .stage-label small {
+  color:var(--classic-muted); font-size:12px; font-weight:500; letter-spacing:0;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet:not(.blackjack-bet) {
+  padding:22px; gap:16px; border:1px solid #756e6566; border-radius:6px;
+  background:#28262a; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet>label,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet legend {
+  color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif);
+  font-size:13px; font-weight:650; letter-spacing:0;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet>label span {
+  color:var(--classic-muted); font-size:12px; font-weight:500;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet:not(.blackjack-bet) .stake-input {
+  height:56px; padding:0 14px; border:1px solid #171719; border-radius:4px;
+  background:var(--classic-cream); color:var(--classic-ink); caret-color:#8c2940;
+  font-family:var(--ui-font,Arial,sans-serif); font-size:27px; font-weight:700;
+  font-variant-numeric:tabular-nums; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input:focus {
+  border-color:var(--classic-gold); outline:2px solid var(--classic-gold); outline-offset:2px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input[aria-invalid='true'] {
+  border-color:#b53e55; outline-color:#d8798b;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-tools button,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-stake-tools button,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .blackjack-stake-tools button {
+  min-width:44px; min-height:44px; height:44px; padding:8px 10px;
+  border:1px solid #756e6566!important; border-radius:4px; background:#353137;
+  color:var(--classic-cream); font-size:15px; font-weight:650; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-tools button:hover:not(:disabled),
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-stake-tools button:hover:not(:disabled),
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .blackjack-stake-tools button:hover:not(:disabled) {
+  border-color:#b7a789!important; background:#443d43; color:#fff6e5;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .room-choices {
+  gap:8px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .room-choices label,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet:not(.blackjack-bet) .room-choices label {
+  min-height:48px; padding:11px 7px; border:1px solid #756e6566; border-radius:4px;
+  background:#211f23; color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif);
+  font-size:13px; font-weight:600; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .room-choices label.selected,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet:not(.blackjack-bet) .room-choices label.selected {
+  border-color:var(--classic-gold); background:#492c36; color:#fff2db; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .room-choices .option-red:not(.selected) {
+  color:#e996a5;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .room-choices label:has(input:focus-visible) {
+  outline:2px solid var(--classic-gold); outline-offset:3px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet fieldset:disabled .room-choices label {
+  opacity:.5; cursor:default;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet>.primary,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-layout:has(.stage-upgrader) .room-bet .primary {
+  min-height:50px; margin-top:6px; padding:13px 16px; border:1px solid #ce6a7b!important;
+  border-radius:4px; background:#b53e55; color:#fff4e4; font-family:var(--ui-font,Arial,sans-serif);
+  font-size:14px!important; font-weight:750; box-shadow:none; filter:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet>.primary:hover:enabled,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-layout:has(.stage-upgrader) .room-bet .primary:hover:enabled {
+  background:#c64c64; border-color:#e38897!important; filter:none; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet button:disabled,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result button:disabled {
+  opacity:.48; cursor:default;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet button:focus-visible,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading button:focus-visible,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result button:focus-visible {
+  outline:2px solid var(--classic-gold); outline-offset:3px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet>small,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .demo-explanation,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-limit,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-flight-status,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .blackjack-rule-copy {
+  color:var(--classic-muted); font-family:var(--ui-font,Arial,sans-serif); font-size:12px; line-height:1.65;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-stake-tools output,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .blackjack-stake-tools output {
+  min-height:44px; display:grid; place-items:center; padding:8px 4px; border:1px solid #171719;
+  border-radius:4px; background:var(--classic-cream); color:var(--classic-ink);
+  font-family:var(--ui-font,Arial,sans-serif); font-size:22px; font-weight:700; font-variant-numeric:tabular-nums;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result {
+  color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif); font-size:13px;
+  border:1px solid #756e6566; border-radius:4px; background:#242126ed; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result strong {
+  color:#e0c293; font-family:var(--ui-font,Arial,sans-serif); font-size:22px;
+  font-weight:750; font-variant-numeric:tabular-nums;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result small {
+  color:var(--classic-muted); font-size:12px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result button,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-stage:has(.mode-cabinet-backdrop) .physical-result button {
+  min-height:44px; padding:10px 14px; border:1px solid #756e6566!important; border-radius:4px;
+  background:#353137; color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif);
+  font-size:13px!important; font-weight:650; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .stage-upgrader .physical-result {
+  margin-left:20px; margin-right:20px; background:transparent; border-top-color:#756e6566; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-receipts,
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .blackjack-receipt {
+  border:1px solid #756e6566; border-radius:4px; background:#28262a; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-bin-label {
+  font-family:var(--ui-font,Arial,sans-serif); color:var(--classic-cream); font-weight:700;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .plinko-bin-edge {
+  color:#dfbf88;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-stage {
+  background:#6b283b url('/blackjack-painted-v10.png') center/cover no-repeat; border:1px solid #756e6566; border-radius:6px;
+  outline:none; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-stage::before {
+  content:none; display:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-stage::after {
+  content:none; display:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-physical-canvas {
+  z-index:1;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='roulette']) .mode-cabinet-backdrop {
+  background:url('/plinko-cabinet.png') center/contain no-repeat; border:0; border-radius:4px;
+  outline:none; box-shadow:none; pointer-events:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-hand-title {
+  gap:9px; color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif);
+  font-size:13px; font-weight:650; letter-spacing:0;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-hand-title strong {
+  border:1px solid #171719; border-radius:4px; background:var(--classic-cream);
+  color:var(--classic-ink); font-family:var(--ui-font,Arial,sans-serif); font-size:17px;
+  font-weight:750; line-height:1.1; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-felt-print {
+  font-family:var(--lobby-display,var(--ui-font,Arial,sans-serif)); color:#f2dfc1;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-felt-print strong {
+  font-family:inherit; font-size:20px; letter-spacing:.06em;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-felt-print span {
+  font-family:var(--ui-font,Arial,sans-serif); font-size:12px; font-weight:650; letter-spacing:0;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-felt-print small {
+  font-family:var(--ui-font,Arial,sans-serif); font-size:11px; letter-spacing:0;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-live-status {
+  color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif); font-size:13px;
+  font-weight:600; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-table-actions button {
+  min-height:46px; padding:10px 14px; border:1px solid #756e6566!important; border-radius:4px;
+  background:#353137; color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif);
+  font-size:14px; font-weight:700; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-table-actions button:first-child:enabled {
+  border-color:#ce6a7b!important; background:#b53e55; color:#fff4e4;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-table-actions button:last-child:enabled {
+  border-color:#d7b781!important; background:#c5a36a; color:#282126;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-table-actions button:hover:enabled {
+  filter:brightness(1.1); box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-table-actions button:disabled {
+  opacity:.45;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-table-actions button:focus-visible {
+  outline:2px solid var(--classic-gold); outline-offset:3px;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-returns {
+  border-top-color:#756e6566;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-returns dt {
+  color:var(--classic-muted); font-size:12px; font-weight:500;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-returns dd {
+  color:#e0c293; font-family:var(--ui-font,Arial,sans-serif); font-size:18px; font-weight:700;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-rules {
+  border-top-color:#756e6566; color:var(--classic-cream); font-family:var(--ui-font,Arial,sans-serif);
+  font-size:13px; font-weight:600;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-rules summary {
+  min-height:44px; padding:10px 0; cursor:pointer;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .blackjack-rules summary:focus-visible {
+  outline:2px solid var(--classic-gold); outline-offset:3px;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-empty-hand {
+  color:#e2ceb499; font-family:var(--ui-font,Arial,sans-serif); font-size:12px;
+  font-weight:600; letter-spacing:0;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-face {
+  border:1px solid #242125; border-radius:5px; background:#eee7d6; background-image:none;
+  box-shadow:none; color:#242125;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-back {
+  border:1px solid #242125; border-radius:5px;
+  background:#652b3b url('/blackjack-cardback-v16.png') center/100% 100% no-repeat; box-shadow:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-slot {
+  filter:none;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-red {
+  color:#b53e55;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-index,
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-index b {
+  font-family:var(--ui-font,Arial,sans-serif); font-weight:800; line-height:1.05;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-index i,
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-pips i {
+  font-family:Arial,sans-serif;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-court::before {
+  content:''; position:absolute; inset:0; background:url('/anonymous-mask-minimal.png') center/contain no-repeat;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-card-court i {
+  visibility:hidden;
+}
+@media(max-width:960px) {
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-layout {
+  grid-template-columns:minmax(0,1fr); gap:18px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet {
+  padding:22px;
+}
+}
+@media(max-width:650px) {
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading {
+  margin-bottom:18px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading h1 {
+  font-size:32px!important;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet {
+  padding:18px; gap:15px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input {
+  height:54px; font-size:25px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result {
+  flex-wrap:wrap; gap:9px 12px;
+}
+.indictus-app.indictus-app.indictus-app:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result strong {
+  font-size:19px;
+}
+.indictus-app.indictus-app.indictus-app[data-view='blackjack'] .bj-felt-print strong {
+  font-size:17px;
+}
+}
+

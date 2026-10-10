@@ -1,0 +1,2208 @@
+{
+  "version": "masq-github-source-v29",
+  "createdAt": "2026-10-10T12:53:17.876Z",
+  "repository": "https://github.com/johndoe010101qq-collab/masq-casino",
+  "visibility": "private",
+  "sourceBaseCommit": "5077ab2eeca2c9659f705c9771e2efa375038d7b",
+  "sourceWorkingTreeModified": true,
+  "sourceHistoryIncluded": false,
+  "serverAdminImplemented": true,
+  "serverAdminDeployed": false,
+  "financialGameplayEnabled": false,
+  "websiteDeploymentChanged": false,
+  "exclusions": [
+    "Original Git history",
+    ".openai",
+    ".env.local and all actual env files",
+    "server/data and SQLite sidecars",
+    "node_modules",
+    "dist",
+    "release archives"
+  ],
+  "files": [
+    {
+      "path": ".env.example",
+      "size": 818,
+      "sha256": "8acade23970b71d391a9e6037e09713f499b129505eb609281591291b13295f8",
+      "gitBlobSha": "17a4b504dd19d757232aa85c9f0478bd47bf49d1"
+    },
+    {
+      "path": ".gitignore",
+      "size": 180,
+      "sha256": "7eabb545fe7ef956280f61db40e66f557f0d89751eb5b027651f83365335cb54",
+      "gitBlobSha": "224eff9b0dc43893e1af233356c6f95c77044ed8"
+    },
+    {
+      "path": "README.md",
+      "size": 34505,
+      "sha256": "c9164c586cf62ec3e51b209fa8a40aad7a91d05ba5b6a378d90aa29685ab0767",
+      "gitBlobSha": "3a31dbc6f2e0b7e7b533ebceec7f8249315a8059"
+    },
+    {
+      "path": "deploy/nginx-admin.conf.example",
+      "size": 1013,
+      "sha256": "5ebc9222d6f436427f44121cf5c9f92bd6dd303d14bd8fc2c9338a0491ffd12d",
+      "gitBlobSha": "a343c0fe347a6d98d0e722fb755264f1459726dc"
+    },
+    {
+      "path": "deploy/nginx-miniapp.conf.example",
+      "size": 1382,
+      "sha256": "236c14d31676c987c24975fafefdb97c3bcba06276f218c853645aed6ef16ef8",
+      "gitBlobSha": "e12faed227f91ad1ff2f5fbb193dfb53720096ed"
+    },
+    {
+      "path": "docs/GITHUB_SOURCE.md",
+      "size": 3389,
+      "sha256": "be4aebd4fc8961dae0536fa4662590d44c68341e3f1b4667ecb76e6cb1c2c518",
+      "gitBlobSha": "f363894835370e8a9995cfc289fa403f5c2865a9"
+    },
+    {
+      "path": "docs/MINIAPP_REGISTRATION_KIT.md",
+      "size": 37377,
+      "sha256": "627202434f105c31e617f4818c58faef313abd3925b1813f363650fb185a87c3",
+      "gitBlobSha": "0062f417f89cfb4be15ae3199d24ecdf74933a1f"
+    },
+    {
+      "path": "docs/MINIAPP_RELEASE_REVIEW.md",
+      "size": 32486,
+      "sha256": "635d93a037dbf7df7321bc9ba3a0258eabed4d2f436c818148d08401f165976c",
+      "gitBlobSha": "e9ea4623950ea26c757c835563296c4df64f68d9"
+    },
+    {
+      "path": "docs/RELEASE_RTP_AUDIT.md",
+      "size": 6073,
+      "sha256": "e36fbe0d4468b2269b140d325864ed241f5a2b72ed95b6edfbec44b261123a6b",
+      "gitBlobSha": "5f0c24ea87b2bed2c05d799aa610c125fb746f2f"
+    },
+    {
+      "path": "docs/SERVER_ADMIN.md",
+      "size": 9296,
+      "sha256": "3f669dc6de4622a362d129aff68b24486155295e5a073bc421abcb23e781e2f1",
+      "gitBlobSha": "8d101edc5affc8d5d30601045272f6e311d4d5b0"
+    },
+    {
+      "path": "docs/SPWORLDS_SUBMISSION_DRAFT.md",
+      "size": 14585,
+      "sha256": "a01bfcbed680e47e310b4a20d41042728cad7cdbdcb87e079c489de0ceec5054",
+      "gitBlobSha": "8e6b304ea622159e6e03bed533b5139cad82ce32"
+    },
+    {
+      "path": "docs/app-art-v16.json",
+      "size": 25692,
+      "sha256": "b0a42b3b5d2637d03e8f612040a96d6616a6751cd9e1c32509bb35f0b6eca986",
+      "gitBlobSha": "a7e9592b634fcebb124bc53add5772d745fa7d24"
+    },
+    {
+      "path": "docs/app-design-v17.json",
+      "size": 2364,
+      "sha256": "3fc26be133ba0d570efb497d78a4dc2496c87418845566b06602bed7ce3afbcf",
+      "gitBlobSha": "62baeb096b72c0d516be8b475639cd85e2cb552f"
+    },
+    {
+      "path": "docs/blackjack-profile-holdout-v12.json",
+      "size": 2084,
+      "sha256": "37c78a218ae145c881aac2835245069f27983bd44a2fe992551560b2c08926dd",
+      "gitBlobSha": "f8d6722232ebea333044b2bfbf47ef820dd8b396"
+    },
+    {
+      "path": "docs/blackjack-rtp-50-95-holdout.json",
+      "size": 80408,
+      "sha256": "24bf3dfe211e3c1eb6e886cc5bea272d21252d02a8693054052971b637cec459",
+      "gitBlobSha": "8272dcd2ac81112bad345fb52ae8dec7e5786efe"
+    },
+    {
+      "path": "docs/bonanza-profile-checks-results-v12.json",
+      "size": 1658,
+      "sha256": "a1aa3c30886dfa605070b40f625d99b94ae00280b3d06f93d0764a53c70b4d02",
+      "gitBlobSha": "f31db31b09acc2aaec70d571574d19fd66e0625f"
+    },
+    {
+      "path": "docs/bonus-purchase-floor-holdout-files-v13.json",
+      "size": 371,
+      "sha256": "2d817c0a3996f512c6455dccf4189bd7278f59eab5705d388191e257ff220120",
+      "gitBlobSha": "dc3c4a666bec08e9c14d49be966571bc593e22a4"
+    },
+    {
+      "path": "docs/bonus-purchase-floor-provenance-v13.json",
+      "size": 3235,
+      "sha256": "4a7b3211d717196f576dce061b2e8d54bd5d5dbb2f5890cca91ffd21a2abb754",
+      "gitBlobSha": "5a12b04f436e9d0b3be6fbe965ab65ba361f5f05"
+    },
+    {
+      "path": "docs/bonus-purchase-floor-results-v13.json",
+      "size": 1677,
+      "sha256": "07a498047e6c770be2de2609b9f1bb2e40235aa2378c0ae0603d4423625e73b4",
+      "gitBlobSha": "f10c10ba6dcbb1bed08023c6dc153553ce53d25d"
+    },
+    {
+      "path": "docs/bonus-purchase-floor-rules-qa-v13.json",
+      "size": 460,
+      "sha256": "93a110e7ad671762ac7aabd0e6298744939ca3b80618724e998239fc37ab5f61",
+      "gitBlobSha": "8e6e37c4a78f0393ba2852b2a86f059704a7bf53"
+    },
+    {
+      "path": "docs/classic-profile-math-receipt-v12.json",
+      "size": 35998,
+      "sha256": "707ce448eafe1ed7a28b2a4a547c2fa232d6d5d8bf5af70e80f25a9a8e2b38d4",
+      "gitBlobSha": "05162ddf9e84555ca9f02461564cc2b34ac8dbdf"
+    },
+    {
+      "path": "docs/classic-profile-results-v12.json",
+      "size": 788,
+      "sha256": "ce180ba7d4e94a56a202d4ff3c5c03b7cb6b392cb04a4086864858dc698438fb",
+      "gitBlobSha": "6c5be08b7c2b72cea7386a9ba355ec1f7ed6e5ff"
+    },
+    {
+      "path": "docs/classic-rtp-50-95-receipt.json",
+      "size": 410268,
+      "sha256": "5ae2771aa4bb558585faa5cfe730862d58e301afb50cca8f39309db85c71035e",
+      "gitBlobSha": "8484a9c1d35e55d83c5c12163135ce57d764cdd3"
+    },
+    {
+      "path": "docs/demo-admin-review-harness-v12.json",
+      "size": 1543,
+      "sha256": "8abbaf3acbe96d1b36fe168b35a379930c4a0a5428dbac10fcf967f1b4e8aef1",
+      "gitBlobSha": "e26f2f2402111256ed35c6d6c15ce9253afb2786"
+    },
+    {
+      "path": "docs/demo-v12-provenance.json",
+      "size": 5695,
+      "sha256": "32c352ccfd93c993bf0d71e40c767ed65c400fe4f8f6f5b767ac11611aa358d2",
+      "gitBlobSha": "8d3bf7c07670ae1fe455f7c140a907b344561cdf"
+    },
+    {
+      "path": "docs/final-art-prompts-v13.json",
+      "size": 41167,
+      "sha256": "a945b2ea3072e8dc986e95c0c6a8b2e6d13dd7b1958ac5efcf4615c880f1130b",
+      "gitBlobSha": "75a53046fdf9731d789ba5a88120bc116cf77fa1"
+    },
+    {
+      "path": "docs/final-art-v13.json",
+      "size": 6235,
+      "sha256": "17954ecd9ef7916637879c1f93e0c41c06ca6b74e0af2eefc88e2c64a093ed50",
+      "gitBlobSha": "0f827225a6c712b9e72508db9a0c970052f6a579"
+    },
+    {
+      "path": "docs/hall-rtp-profile-results.json",
+      "size": 2989,
+      "sha256": "1eeb363dbc19a4b64814f1f81c178f60fe1e9cf1c44ada282a51adcb7bba2164",
+      "gitBlobSha": "b91e49df3cbd391fff88e535886988f98bdab8b8"
+    },
+    {
+      "path": "docs/miniapp-registration.json",
+      "size": 14794,
+      "sha256": "ddb3111030b3c1456ea7f853e6326b7bb159bdf5b73677ba6beb543457feabff",
+      "gitBlobSha": "d1f7020977d4bd1b28d6533b06c2e36665b5f04e"
+    },
+    {
+      "path": "docs/release-rtp-audit.json",
+      "size": 8556,
+      "sha256": "2480fd1c9a48227deb604bc3a9e2ade64869055a88f140d8e34d364edc8fb05f",
+      "gitBlobSha": "bd24374c6f4873ab35436a77816aebfbb3e4f4f6"
+    },
+    {
+      "path": "docs/release-v13-qa.json",
+      "size": 6644,
+      "sha256": "2a89d49cbc31ad509ad14f0eaf96aa966776e5a4069bf6897ada38fa01245289",
+      "gitBlobSha": "bb716c3aecfc3fc5b8cfb8f203ce1504be87ccf9"
+    },
+    {
+      "path": "docs/server-admin-verification.json",
+      "size": 2279,
+      "sha256": "8f6d2ca2975ea899c1e6732fdf1a19b5174d390298927fc41c673a0988e21d36",
+      "gitBlobSha": "eba6c92af9123ca297b12be146006cb23f073e17"
+    },
+    {
+      "path": "docs/slot-profile-rules-qa.json",
+      "size": 817,
+      "sha256": "6aa42925c48cbfcdb5f51618d21174d99bd5c382282aba4f5806d69d2fb9ba2f",
+      "gitBlobSha": "9350c86f9ec518eae8422786bb18a6e882b8b93a"
+    },
+    {
+      "path": "docs/spw-admin-readiness.json",
+      "size": 3106,
+      "sha256": "7cc42a9ad67d7d5c7d3b0b62495169a3bce47d768704970c6f1a93ba65b52b82",
+      "gitBlobSha": "d61375ecc0a3644198ce9d6ff5e2fab908fa96f0"
+    },
+    {
+      "path": "index.html",
+      "size": 488,
+      "sha256": "656cca41fb82b4f727548b937241b59dd6f5003c484a6436e8c0692382cfb7d5",
+      "gitBlobSha": "d1d45f255ec84705f5c67a16826b6dcd47b1ed18"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 35438,
+      "sha256": "000b4e2eb723923d52104f0e8a89ef996c839fce7678eef27b78afe5944acb21",
+      "gitBlobSha": "58bf2849fef74395b4bb309969055ff87064454f"
+    },
+    {
+      "path": "package.json",
+      "size": 2447,
+      "sha256": "e15fafd95a788c85ba08ec8a6a3db309d3583079a5853352ba5afb50444d357d",
+      "gitBlobSha": "b1f0408a116791aac7236b175d14bfa7f64d3f81"
+    },
+    {
+      "path": "public/_headers",
+      "size": 107,
+      "sha256": "3e33e8d12ee8a404c2dbef7e7ae2bb56008f0cc163e041dbd770deacd0aeae5f",
+      "gitBlobSha": "a7df694038977d6304aad76522e20080c1e50ccb"
+    },
+    {
+      "path": "public/anonymous-mask-minimal.png",
+      "size": 675374,
+      "sha256": "862952511058688c148ac8041f129149797931c4619f60b8ce60237a11300ca4",
+      "gitBlobSha": "24dedf24df9b8026ff5bd2903b8c7f05af66eac0"
+    },
+    {
+      "path": "public/anonymous-mask-v18.svg",
+      "size": 2732,
+      "sha256": "e9b75fdd973793d7d9442eb4962808a92fd3b370dac8698bfb7e7f110c38185b",
+      "gitBlobSha": "84d0038f6bf1cea89d428f5a2d03455b9934e40f"
+    },
+    {
+      "path": "public/app-painted-background-v16.png",
+      "size": 1938674,
+      "sha256": "121855ff6d55b66dabf2c3a63c24d5c18c9d1cd64d9b5e3ff1061f9dcd2bea86",
+      "gitBlobSha": "53f55b704e47cd01af52f8d5e57bea613327cfc3"
+    },
+    {
+      "path": "public/app-print-marks-v17.svg",
+      "size": 766,
+      "sha256": "68f3e8d340b5a40ada01194c3b3443460b69fc2fa47200bbfd256954221d0bbc",
+      "gitBlobSha": "09ca7897db6e0fc19725ec9cb990b011e02b9bce"
+    },
+    {
+      "path": "public/assets/bonanza-symbols.png",
+      "size": 48379,
+      "sha256": "5bef7885817837f74c62c6c4afdc3d0a5470b5108313b0d29e7f2d3d0db1fdb7",
+      "gitBlobSha": "d0a974f008f539f02f1f7a41ea14fcb7c97bb2bb"
+    },
+    {
+      "path": "public/assets/indictus-mask.png",
+      "size": 7696,
+      "sha256": "c89df8cca27a8728ecd8d139f5f8e98643801b810bd67820916e0238857656bf",
+      "gitBlobSha": "dafff95f2996ad4e37407a52d71166c982e1e38d"
+    },
+    {
+      "path": "public/blackjack-cardback-v16.png",
+      "size": 1732739,
+      "sha256": "f3b0c0c61859bf5ed01a4988c23ab953afef5486d6a240589fa29a3760fe0480",
+      "gitBlobSha": "60f406760cfebd9811ef0566f4f4ca0f99b47c76"
+    },
+    {
+      "path": "public/blackjack-cardback-v17.svg",
+      "size": 1647,
+      "sha256": "397e1e76f30d7e92bb434bbbcc327f0b444d8ec0ea09aff02e4df90fb6724fdc",
+      "gitBlobSha": "63dfc3752d0cf2cb037b203a1c5f1f74d76aa8fc"
+    },
+    {
+      "path": "public/blackjack-cardback-v18.svg",
+      "size": 3232,
+      "sha256": "4795abbf672f749540c02e3452c7d89d3fb38ccda8eafa4da0774d56ed86670f",
+      "gitBlobSha": "30f7d24a205aec7ae845a22338ddc73609dda8f2"
+    },
+    {
+      "path": "public/blackjack-ink.png",
+      "size": 1347055,
+      "sha256": "9ac645f3f524ac955c8fa414d0f41dade781bbfe4d55d5be6f1ab4b0489619ca",
+      "gitBlobSha": "5da2a4b7cef7a4d18beaa74bdfcc8432bf7088a8"
+    },
+    {
+      "path": "public/blackjack-minimal.png",
+      "size": 1516925,
+      "sha256": "0b112712f29587400afc7cf1c8796f98bdd544e579f37ed6e17d2b46a27e5375",
+      "gitBlobSha": "1cd478aaeaa285174db92ed3294463e73315fb52"
+    },
+    {
+      "path": "public/blackjack-painted-v10.png",
+      "size": 1631198,
+      "sha256": "2199fb06dcf87b81914a00c519452970a3fe215b6f830071a684a03a30bc826e",
+      "gitBlobSha": "adf55a2e895a95e1de43b691a1c883891b3a69df"
+    },
+    {
+      "path": "public/bonanza-anonymous-emblem.png",
+      "size": 1499076,
+      "sha256": "50fe5ae081505355eee05e65fa93687b6c53d1cc41063b2356468f8163e08301",
+      "gitBlobSha": "870f1bbeefe7c96a39a8358af23ea5308745a21b"
+    },
+    {
+      "path": "public/bonanza-commercial-atlas-v13.webp",
+      "size": 279580,
+      "sha256": "377f5a7785526417c9dbe4baab59cf509f088e17d34945404c2f1e71d0b7faf7",
+      "gitBlobSha": "d82144aecff515ea989daee5384e5dd0be945466"
+    },
+    {
+      "path": "public/bonanza-commercial-mascot-v13.webp",
+      "size": 403472,
+      "sha256": "a4fcfaf2c1e164c5d5a0f0a620bfc51d3f586b09d71984587d1f116aea0ca548",
+      "gitBlobSha": "b9e4956a7d09b772f2fdfb35dca9fe4e6b006b0a"
+    },
+    {
+      "path": "public/bonanza-commercial-scene-v13.webp",
+      "size": 189030,
+      "sha256": "20a05f3a435e865182086fd31b6af128404465fa72b2b454769bd69f132fa7f7",
+      "gitBlobSha": "9023f0585e8bbb19e16b200821abfb8d60dea5ba"
+    },
+    {
+      "path": "public/bonanza-ink-cover.png",
+      "size": 1434584,
+      "sha256": "25d646072724f787919d135d5d41bad12cc0781f47d61a4d028e05c573b6583e",
+      "gitBlobSha": "086eb63bde4cc65468f55261128c87b2637b736e"
+    },
+    {
+      "path": "public/bonanza-rooftop-flat.png",
+      "size": 1270495,
+      "sha256": "d04623b4141b2ecf7dcdd09d4ad6dc7aba50389aaff7e0267dfb912b79c52526",
+      "gitBlobSha": "49a481edd9301afc7e836c367edded0b1d85cbf1"
+    },
+    {
+      "path": "public/bonanza-rooftop.png",
+      "size": 1520719,
+      "sha256": "0efcc6a4a3c19f6e9771b009ce308769b1b1c3d1368315b3f7b4822289a3da8c",
+      "gitBlobSha": "0b8312e9fcdd7be91bb53027928067b76fa03036"
+    },
+    {
+      "path": "public/bonanza-symbols.png",
+      "size": 3146804,
+      "sha256": "6e3744934edd00ee2501070f91214cc3b0e744e3383d3b35cbc057257039126d",
+      "gitBlobSha": "cef247a1f97ba812d531a530a2e4aaaa6e05db1e"
+    },
+    {
+      "path": "public/card-surface-atlas.png",
+      "size": 3706145,
+      "sha256": "d178652268098dff422045f1e6dbc0ed126b832ce722c605aeeead266035d38e",
+      "gitBlobSha": "7c8b938d72ff071d300ff6b19de5c4fc20cad720"
+    },
+    {
+      "path": "public/coinflip-crest.png",
+      "size": 1713815,
+      "sha256": "cbd88099f4f05a1e6d1839bb042d15e40dcc33221d64694819e145509cba5b9a",
+      "gitBlobSha": "f21ae090e16f8cfb249db143d040d986463a195e"
+    },
+    {
+      "path": "public/coinflip-heads-painted.png",
+      "size": 1240463,
+      "sha256": "2a19e4dd6c79070e25328e3ffc624b4588e285410c5cf4898d684ab1e5e15bc8",
+      "gitBlobSha": "418f89821a58ed6631ee46fe36af2f8daf682502"
+    },
+    {
+      "path": "public/coinflip-ink.png",
+      "size": 1591726,
+      "sha256": "2cafb9a8d81b1e12269c0d3b5d4444caa7764fd57dc2500d746759b141c89f4d",
+      "gitBlobSha": "9d496a151508952f9c60aee8ec20f91b9b7edf6b"
+    },
+    {
+      "path": "public/coinflip-tails-painted.png",
+      "size": 1159932,
+      "sha256": "3052f2e7114245dd5ff67576acd46704254425e9a33a79fe9f5dc4ac33365f30",
+      "gitBlobSha": "d044449b9890a1ddd4de1c3a3ff95fb1ea126526"
+    },
+    {
+      "path": "public/dice-crest.png",
+      "size": 1566089,
+      "sha256": "25facc16e66e33fa4515c70df598bd88078f2e8bf5249fd5af8081698bfec173",
+      "gitBlobSha": "5a79b5b819b5832b8ba4c2fd6d3b6025bed91eb4"
+    },
+    {
+      "path": "public/dice-ink.png",
+      "size": 1316446,
+      "sha256": "40f2e2c73ff63a32df82ac479a6abdd74578aa3ff052b56398310b7f31fbc4cc",
+      "gitBlobSha": "59a6ba3d6e4da77c822a65d674b5e8ae8c396bf9"
+    },
+    {
+      "path": "public/fonts/BarlowCondensed-SemiBold.ttf",
+      "size": 109428,
+      "sha256": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+      "gitBlobSha": "9df66576492bee4bd0559066825472808fa98adc"
+    },
+    {
+      "path": "public/fonts/Manrope-OFL.txt",
+      "size": 4387,
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "gitBlobSha": "e271172a9ed0cddc895aabb6509f1c7d880b492d"
+    },
+    {
+      "path": "public/fonts/Manrope-Variable.ttf",
+      "size": 164700,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "gitBlobSha": "75274da58537d6123b14f2cd0c355ad4681fc2b3"
+    },
+    {
+      "path": "public/fonts/OFL-BarlowCondensed.txt",
+      "size": 4377,
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "gitBlobSha": "2f22ba6ca4dbc12145ae40b14c3368f387cba0e2"
+    },
+    {
+      "path": "public/fonts/README.txt",
+      "size": 851,
+      "sha256": "0ceb3d4cc9e5870ef7a45f2a9c52f959368fccfeb1d4cd25b47ff266b35a7538",
+      "gitBlobSha": "f96a3afdd74f6b5cfe7785f3a44721eafac5bab6"
+    },
+    {
+      "path": "public/fonts/Unbounded-OFL.txt",
+      "size": 4392,
+      "sha256": "31e5d4e83955e7103c34570dd49b0570ef490800bd65b42923c0dd02445263b3",
+      "gitBlobSha": "1c7db28325aa3a1e8bd8978ef1d760daf3bb357b"
+    },
+    {
+      "path": "public/fonts/Unbounded-Variable.ttf",
+      "size": 778272,
+      "sha256": "323b511be380c8d474ef030686b71aedde501f8d9cd46da558b7c40454372c3f",
+      "gitBlobSha": "e3c064ddfa3acdd3af2e0f06cd2f2288cc4fcae3"
+    },
+    {
+      "path": "public/game-cover-illustrated.png",
+      "size": 2109087,
+      "sha256": "c69494acbc3860b831a796335f2ebf99257174e052ed76f78f18fd0a1c963083",
+      "gitBlobSha": "026f8c2efe970cc22f63a61f56fc119d405ee6ac"
+    },
+    {
+      "path": "public/hall-bonanza-atlas.webp",
+      "size": 99522,
+      "sha256": "ae764b030f65a3df678554f836d12ef5e4e47afdc8ad14bd262b2d547b70ebeb",
+      "gitBlobSha": "a0fbd0ac587595054c50ecbdd1fe6fa8cd1d1a22"
+    },
+    {
+      "path": "public/hall-bonanza-cover-v11.webp",
+      "size": 58452,
+      "sha256": "165d52531194d09fdbdae869e1f7dd001bb6f5397e2d38c56a949d3fbf7b679d",
+      "gitBlobSha": "40dd64de0aa2e056c1d762edb880183f6eb24e92"
+    },
+    {
+      "path": "public/hall-bonanza-cover-v12.webp",
+      "size": 94666,
+      "sha256": "54041239a8fe4b32bcb64c2e0ea386249f6bb2096ff2548dfee258f8c5edf962",
+      "gitBlobSha": "2c4d836a4b0dd1cc9803e7234daaa689ce451c08"
+    },
+    {
+      "path": "public/hall-bonanza-scene.webp",
+      "size": 18536,
+      "sha256": "cda8c914c47fdf40c7ac1ecff2b0731d1d13194aa89b603d40f8c9214a4c0b2b",
+      "gitBlobSha": "1604b80c110119121f5ae3a338645721554c8787"
+    },
+    {
+      "path": "public/hall-lexof-atlas.webp",
+      "size": 139590,
+      "sha256": "60fc70881e0728a9a7e5d758e23490f42fa124a2ae5f7c96ec8b65952c478503",
+      "gitBlobSha": "c6278374e2efecb14c8b0376d56948e2e1ce3187"
+    },
+    {
+      "path": "public/hall-lexof-cover-v11.webp",
+      "size": 69938,
+      "sha256": "f8ebc436c6c495d19a3fa571bdd08e25eac85a572562dfabd4a808e7e6266356",
+      "gitBlobSha": "a53a91489ed57a7d59fb6678d4789417e342fed7"
+    },
+    {
+      "path": "public/hall-lexof-cover-v12.webp",
+      "size": 86432,
+      "sha256": "15964f64aa6c044ebb3f9da83d6a85f53b67f397fef6b0956fa66a66f22cbdbc",
+      "gitBlobSha": "47b46fe871050c4e7cbbac04efd8d69564be3dc8"
+    },
+    {
+      "path": "public/hall-lexof-scene.webp",
+      "size": 58816,
+      "sha256": "2203608575da7d308ab309e22ffd4d4fb39120ff8c3ae74ccd3605ba6ef1b28d",
+      "gitBlobSha": "99d16e83ba534547ccc922ab11b0f0551e09415e"
+    },
+    {
+      "path": "public/hall-maskhouse-atlas.webp",
+      "size": 116982,
+      "sha256": "969ea6385bf056470ce9aa4a6c214629ece8210341ac17282545ae034570b368",
+      "gitBlobSha": "e58a14aceb97594a7abb983afb5edca2d31afe9c"
+    },
+    {
+      "path": "public/hall-maskhouse-cover-v11.webp",
+      "size": 66386,
+      "sha256": "f383b5580dcbd2d6011fa5329ceac5134256490adef1522b90153bb686649968",
+      "gitBlobSha": "18b68568e6dafafa4a8d4bed086b0808b8aada75"
+    },
+    {
+      "path": "public/hall-maskhouse-cover-v12.webp",
+      "size": 88976,
+      "sha256": "c9d954d7148558fe3231ab2133b901a27f1694e1dc9eb8e653be42b97ee923e0",
+      "gitBlobSha": "31edb82f89c322aa3f3a9308c7bc66293c8b8ad4"
+    },
+    {
+      "path": "public/hall-maskhouse-scene.webp",
+      "size": 26398,
+      "sha256": "0b6947193282284bd817996f1caea13a3571d2d016fd626bd1648fdb72d814ca",
+      "gitBlobSha": "bbd5e57ba05c05b7dffc80b24fbbd84bfb4af32b"
+    },
+    {
+      "path": "public/indictus-icon.png",
+      "size": 262,
+      "sha256": "2aa7f1539e505c07336f1bc8eb2d61cdd814eb3bd53e7510fae6a23b24fe9052",
+      "gitBlobSha": "d61eddd87d8c03c3565d1d6bfcbcbc6585000e38"
+    },
+    {
+      "path": "public/indictus-mask.png",
+      "size": 262488,
+      "sha256": "80842cd612e45e6034d8ef71c0f6d6fa346f008e76ba9eb78fc2d469a8e0cb0f",
+      "gitBlobSha": "25d5564239caa7a34809574dfe52c8bae4ed2750"
+    },
+    {
+      "path": "public/lecipher-cover.png",
+      "size": 1483213,
+      "sha256": "d6bf484438b2a89983e9ba8bcc3d026241fa857060633951c7bc5246885dbfb5",
+      "gitBlobSha": "c5f2dedd4a43258740128300420ca14d4a352b60"
+    },
+    {
+      "path": "public/lexof-amplifier.png",
+      "size": 844672,
+      "sha256": "44c05bb45de60be3ce77a4295f76efac7a5182cc3c60cd8fab8b7c0ce002e76b",
+      "gitBlobSha": "934a9e486a64611ef1da2f624c993e0309f89b48"
+    },
+    {
+      "path": "public/lexof-archive.png",
+      "size": 772050,
+      "sha256": "b52363a25c3c9d81b6977f58030c77ee690328da4641114325c6bde8e59dd811",
+      "gitBlobSha": "6e956a53ae5482d394db61a158a6333e1558ccb5"
+    },
+    {
+      "path": "public/lexof-atelier-flat.png",
+      "size": 1353753,
+      "sha256": "fcff8fc4f28624cc3f86b9c853cf5478d678adeba7bc72eb46b98ff88f9f4813",
+      "gitBlobSha": "0a1e51cd1fa14dbf290e06b8ad877017aa6b90b5"
+    },
+    {
+      "path": "public/lexof-atelier.png",
+      "size": 1721742,
+      "sha256": "84f3f2d7433c597e3c8703c53e00a83df62d314ab3b1c44479c06d993db277ef",
+      "gitBlobSha": "7b0f3c6d49b4be11f911aa1a09952c7861fe6fed"
+    },
+    {
+      "path": "public/lexof-fox-dance-packed-v13.webp",
+      "size": 184812,
+      "sha256": "54d249189cfe716aa7d2216943a40cf88a2acc79fa38c1ccd88a43050e3b9c74",
+      "gitBlobSha": "545ef268b06ab7af15d2744db7e4250fce1ffba7"
+    },
+    {
+      "path": "public/lexof-fox-dance-packed-v13.webp.packing.json",
+      "size": 1382,
+      "sha256": "baecf7a2f7b2724219f050787868fd647d6497a41b16de1f9337f4442567764f",
+      "gitBlobSha": "05e16b8ffbbc1ad6b500ff3cae99214a9b3fa2ad"
+    },
+    {
+      "path": "public/lexof-fox-dance-v12.webp",
+      "size": 201390,
+      "sha256": "58bb29a51470e7be341faef3bfcde964bd35558c7dd4c20c226abe60a09be120",
+      "gitBlobSha": "7e9b4709675d10537575204362982bb16cb5e04c"
+    },
+    {
+      "path": "public/lexof-fox-sprites-packed-v13.webp",
+      "size": 282070,
+      "sha256": "29d6cafb35a8b92f032e6a093b22871271b49a015eb45daa477f038a656c2b6d",
+      "gitBlobSha": "9feb68ae6452334dd0072f00e2b4d6a5e3bed7ce"
+    },
+    {
+      "path": "public/lexof-fox-sprites-packed-v13.webp.packing.json",
+      "size": 1969,
+      "sha256": "bfdbb4fce4ab92bfb986b543766a992ead50684e5d958036591e1ad32155a2bc",
+      "gitBlobSha": "b051ea24f6e147338a6f8a9965c0d0893e65ab7f"
+    },
+    {
+      "path": "public/lexof-fox-sprites-v12.webp",
+      "size": 336968,
+      "sha256": "77b44dd556aa65510d3eb9e4166acee29a73028e7d3ad61ec1fffe756b02b55b",
+      "gitBlobSha": "f9c3ade5136b48500da8fec057ff5ba0c346b9f8"
+    },
+    {
+      "path": "public/lexof-paris-night.png",
+      "size": 2093140,
+      "sha256": "b4b5f500e5450be8245786ac01bbf0a73f728466684c803d13446c6ff41ce4c1",
+      "gitBlobSha": "13fab90f29e45602a70a28c99c0e3fc476114e10"
+    },
+    {
+      "path": "public/lexof-scene-v12.webp",
+      "size": 87894,
+      "sha256": "67326bfb76f7f4dd3aadb7bfd212b35259d416fa1c78efb0be029fefb20b3b48",
+      "gitBlobSha": "d5f158cee4252d56ae4f936f204427c63712fc3b"
+    },
+    {
+      "path": "public/lexof-scene-v13.webp",
+      "size": 205110,
+      "sha256": "bd227738eecc141cf82569a960145eaf11f7790ab4281ce2cdcc65cfef8063a6",
+      "gitBlobSha": "8c3b43701ec7c4aed85f282e461ef1f6639d571f"
+    },
+    {
+      "path": "public/lexof-symbols-cipher.png",
+      "size": 1187382,
+      "sha256": "3a26bb45f222b92609ed14cc256c24953753c22671b7d181a11c05214eac4824",
+      "gitBlobSha": "674a82b846a71e87c3cf48c842a4d5235babb39a"
+    },
+    {
+      "path": "public/lexof-symbols-packed-v13.webp",
+      "size": 284532,
+      "sha256": "48176a52e45e228ba1b2da431a6204c1349b249e80163a903e367a1490e8c94c",
+      "gitBlobSha": "e97f6bd95edc45cdb34c8b2403fef139345c0733"
+    },
+    {
+      "path": "public/lexof-symbols-paris.png",
+      "size": 1372274,
+      "sha256": "55bf799ef20bcec595ad490e175ff300d946f0ebe05e010099cdf800c4f04333",
+      "gitBlobSha": "6e2710a897d8865d577678680abf48cfac7da2e7"
+    },
+    {
+      "path": "public/lexof-symbols-v13.webp",
+      "size": 299838,
+      "sha256": "30e3584e820757735a62ea0731379b6f622d30296ae54652c3782dc76bd4add3",
+      "gitBlobSha": "40c645a945bd79821d963f05bd22a9c365cc28f5"
+    },
+    {
+      "path": "public/lobby-blackjack-v16.png",
+      "size": 2178938,
+      "sha256": "ec360ddd0b7705c2ab93f0e2d065b9bc62055e2e12be037a6ea2193090c27566",
+      "gitBlobSha": "9c5bf2a146f30f0d02913d948d08598f80cf3808"
+    },
+    {
+      "path": "public/lobby-coinflip-v16.png",
+      "size": 1944029,
+      "sha256": "2c6b71da651c0d995c49e602681a0d8e88e2a94e29070c6906787e09c553f36a",
+      "gitBlobSha": "a59086877789d6d73cafb484d0069ae4f804cb1d"
+    },
+    {
+      "path": "public/lobby-dice-v16.png",
+      "size": 2196200,
+      "sha256": "5abaeaef0d101d4d7880a980cab03957a1615b6984f6a39f883430c25f97bba2",
+      "gitBlobSha": "f0566498e5d552d5317d675d99d736bd2fbd885e"
+    },
+    {
+      "path": "public/lobby-plinko-v16.png",
+      "size": 2378401,
+      "sha256": "96fce6a30dff855809b584e195504c74745fff3a0840adf2f2081f6b6214c9a6",
+      "gitBlobSha": "21156109646c4a24dc607f6b6720eb5ac3e13833"
+    },
+    {
+      "path": "public/lobby-roulette-v16.png",
+      "size": 2129402,
+      "sha256": "6a5c2712c95ea4232ed3072c648ef283961c76b35a87dbdd2e2b169b76b89679",
+      "gitBlobSha": "9fd78615d6a88974b34e5fd120ca3a8bafa175f9"
+    },
+    {
+      "path": "public/lobby-upgrader-v16.png",
+      "size": 2057331,
+      "sha256": "cde0d3c71a66faa6e79139ae4c420c5698bc693b38259224113da347efa437eb",
+      "gitBlobSha": "5c3212503b4b00aacb56f5ac3827f36850c4e841"
+    },
+    {
+      "path": "public/maskhouse-cover-v13.webp",
+      "size": 105960,
+      "sha256": "3680399932007c113addbac09fbdde09e7e97a917c52f9e31b884415a3fa2be0",
+      "gitBlobSha": "6adb40fd97173d9055e8216771130c25d4dbbf41"
+    },
+    {
+      "path": "public/maskhouse-cover.png",
+      "size": 1508497,
+      "sha256": "d6dd354d1f12d32acfe342dc2111fa355be6852a7c2161be0ae389d0f2d2b1f6",
+      "gitBlobSha": "d04776aab7156a8f33c2a79ff543436c29fab1d7"
+    },
+    {
+      "path": "public/maskhouse-host-dance-packed-v13.webp",
+      "size": 256310,
+      "sha256": "4287312d70471259e8ea0f1a795b0497065955b7a7de0a194c1ffd857991f9ce",
+      "gitBlobSha": "61932b1b26f58fd8f13ef61661ae812262e3ef9a"
+    },
+    {
+      "path": "public/maskhouse-host-dance-packed-v13.webp.packing.json",
+      "size": 1391,
+      "sha256": "f9daf4dd3f9d957657be73966f96ad21b10be8d2b98a792c592614d3596c6b73",
+      "gitBlobSha": "aef4ca0380b2954439e5ece373c95cd0d91f5ec0"
+    },
+    {
+      "path": "public/maskhouse-host-dance-v13.webp",
+      "size": 271226,
+      "sha256": "d2ad6e89ed4aeee4f29a6e4bf2917a994503dea5af9eeb5cd2b4b4bf37f3e600",
+      "gitBlobSha": "3f0e0491e0ba6eeaddd68def3ef3df2e2e1de923"
+    },
+    {
+      "path": "public/maskhouse-host-sprites-packed-v13.webp",
+      "size": 247112,
+      "sha256": "9ce10061dc76028e737786094e08609aecad32a4b5e0649ea51a457c6cbe83e5",
+      "gitBlobSha": "a23e14343d5602b092cdff41ff215476850e757a"
+    },
+    {
+      "path": "public/maskhouse-host-sprites-packed-v13.webp.packing.json",
+      "size": 1978,
+      "sha256": "f949f7f46375b04c18b6a203d5d4bc9e50f5aca6edd61e512cb3dabd9c0be864",
+      "gitBlobSha": "b1bf750d5752343465a396a35f19bc04500303d7"
+    },
+    {
+      "path": "public/maskhouse-host-sprites-v13.webp",
+      "size": 407132,
+      "sha256": "2876dedde7a52256ef47878b6459c287b263107da88ac76001678a669effff5d",
+      "gitBlobSha": "f12135e22a2b25af9c8308f7d2fb9dac7d5c8abc"
+    },
+    {
+      "path": "public/maskhouse-manor-flat.png",
+      "size": 1343195,
+      "sha256": "a37c9cba7b4ecafbc78042079a0cddeddb85e280b58c1b824ab6b995b4f4818e",
+      "gitBlobSha": "0dfe2330ec46299c9a6fb692ab2763cd94d7595b"
+    },
+    {
+      "path": "public/maskhouse-manor-v13.webp",
+      "size": 159912,
+      "sha256": "9a63a22f0ed8e8161e8ed7e5c6660fbb548c08e5fda41250a749fa81a131b7f8",
+      "gitBlobSha": "38e7ffbff858653acaebdfb6f04054014cfdd2ba"
+    },
+    {
+      "path": "public/maskhouse-manor.png",
+      "size": 1627907,
+      "sha256": "e4aad47d49e8c074b8d6c3d7aa3c0498641f5c861742727cde2e64bdff324c5b",
+      "gitBlobSha": "04a65c30e18a71e4d2fa6ab6717fcffff717ae1d"
+    },
+    {
+      "path": "public/maskhouse-symbols-manor.png",
+      "size": 1065671,
+      "sha256": "d2aede7aacecaf7e16e68e86c72b1338b459a66a9a4df489cb44f137fc3ee133",
+      "gitBlobSha": "b8cb2b58d7be6be66a7e2db601e64ed79a7ea077"
+    },
+    {
+      "path": "public/maskhouse-symbols-packed-v13.webp",
+      "size": 322484,
+      "sha256": "cd8422e477bfe4cc6121b284bf2bc9b4208a3247aad5ef295f9134697210a9a1",
+      "gitBlobSha": "1a79bf7c24811b772aa256f7edfc2ce6968c1490"
+    },
+    {
+      "path": "public/maskhouse-symbols-v13.webp",
+      "size": 322484,
+      "sha256": "cd8422e477bfe4cc6121b284bf2bc9b4208a3247aad5ef295f9134697210a9a1",
+      "gitBlobSha": "1a79bf7c24811b772aa256f7edfc2ce6968c1490"
+    },
+    {
+      "path": "public/plinko-cabinet-cover.png",
+      "size": 250209,
+      "sha256": "c36227a5c86680ee59e9e0bba050ca520029730f74e56e93fb1012294a60bfc7",
+      "gitBlobSha": "efc5a377e4b761998a5e13a31b548bbcd429fa0a"
+    },
+    {
+      "path": "public/plinko-cabinet.png",
+      "size": 1469070,
+      "sha256": "e87cde283f1097893b2e454151e76054173573e2374780a004dc5487c4e1a118",
+      "gitBlobSha": "4d947b8c09b0da3970b0d307b7e2969e2adc444a"
+    },
+    {
+      "path": "public/plinko-crest.png",
+      "size": 1595207,
+      "sha256": "452d7a363f19197ae04f06c3bd9a336d3e39f261ecd360672831b79f51772991",
+      "gitBlobSha": "2e7bd4587585de9c40ca299579a019c81911e466"
+    },
+    {
+      "path": "public/plinko-ink.png",
+      "size": 1291498,
+      "sha256": "0771b0a87edd0b03968b1db7c7de097327b6e98541fb920244c93e37ceba02c2",
+      "gitBlobSha": "0d0601a431f2463e0556638f10218be6e9bebaa4"
+    },
+    {
+      "path": "public/roulette-ink.png",
+      "size": 1653114,
+      "sha256": "3ab52190c7cd6ee2fd9431e650ef3edbe7c46505b6b7235c3a9d70ba96ee66cb",
+      "gitBlobSha": "bbaa9e6929148807827607e7b365228e35d456a0"
+    },
+    {
+      "path": "public/roulette-minimal.png",
+      "size": 1661335,
+      "sha256": "8704ca7bb9c3fcd0109cbfd4fa63c3e1f18639057feff102d48b7d2cb234ff5e",
+      "gitBlobSha": "2f2a3ca4cbc398692ec7f50709d75d23d8d1960e"
+    },
+    {
+      "path": "public/roulette-painted-body.png",
+      "size": 1810403,
+      "sha256": "74965d4784858fcbae706f3f7581a97d3fa362b569b6ec60e4647b3b05a72a0b",
+      "gitBlobSha": "c7773a1cd3d6df14a910c0665b06cdf8b8f309ca"
+    },
+    {
+      "path": "public/slot-anonymous-minimal-atlas.png",
+      "size": 1058564,
+      "sha256": "75b9766e4054474ffbaf539a15c726d8a1dd4e90fe579f2dd2876679b648bf77",
+      "gitBlobSha": "ec0738dcd02224662101cceb87921072581b81ee"
+    },
+    {
+      "path": "public/slot-anonymous-scene.png",
+      "size": 1868991,
+      "sha256": "0138a1845b924752343b04b280166551741458949ae3b7862b312a3394a4c509",
+      "gitBlobSha": "e6dc95d32d6cddbf4ddef50af2bfe8c11056657f"
+    },
+    {
+      "path": "public/slot-cabinet-frame.png",
+      "size": 788379,
+      "sha256": "4d27bdfc322790bf98c3d2e9073c6df702ba06eb95b544ca0574f28b1258f0fb",
+      "gitBlobSha": "eb12d3ea12007ba9b4a4e28e185666f96a52edd8"
+    },
+    {
+      "path": "public/slot-painted-atlas.png",
+      "size": 1574708,
+      "sha256": "9fca9cbd9ef604cb3469c63ec2c252672fa97d5548ec9facab8e0f9e83c72629",
+      "gitBlobSha": "6bed4739dfe71528fc69aa811fe07bb30d2df5c4"
+    },
+    {
+      "path": "public/slot-win-celebration.png",
+      "size": 2012917,
+      "sha256": "bef34cb2029b894fcb873a2be30841a471e5dc4f6388a8b1c61b5dfdf02e75b5",
+      "gitBlobSha": "b02bec543f4b9b34b42b8c9e9db7516f6d61d3c2"
+    },
+    {
+      "path": "public/studio-mask.png",
+      "size": 1280184,
+      "sha256": "05c7737e150d632fd28c1683c1087a22f4682aa791d672a73778c4206b4722a1",
+      "gitBlobSha": "2385cf4c9360b7582e191a5f1ea74e0269250f93"
+    },
+    {
+      "path": "public/studio-symbol-atlas.png",
+      "size": 1366541,
+      "sha256": "7f22362b7ab3e4c6967b238cfa95e938eb7d7087ebb7c03a0c8b287aa24d8c43",
+      "gitBlobSha": "b3a847c34783ff07044f189958f5b7f213a91421"
+    },
+    {
+      "path": "public/table-stage.png",
+      "size": 2400723,
+      "sha256": "197c8fdfee95736aab64e2dfdc9d40d8b7c351ec7b6473c5bf74dab022a5fd1a",
+      "gitBlobSha": "c2ed4710554a8a02339260195242bed0ffbf3d1d"
+    },
+    {
+      "path": "public/upgrader-hacker-terminal.png",
+      "size": 1344758,
+      "sha256": "a19c3ac0d68fdd257dbd3941e3f9082e07f9bb155c71f9e6a7c07e399b3e07b4",
+      "gitBlobSha": "e0c543c30554b656f28f6f42ddc032666e5c2b9d"
+    },
+    {
+      "path": "public/upgrader-ink.png",
+      "size": 1552674,
+      "sha256": "acc4a0edb485b26b4b741f93972a5e916caadb6c06761aa3ebe68babc8f3b7b1",
+      "gitBlobSha": "62e14093557b17af7661c119bc656e178650cd13"
+    },
+    {
+      "path": "scripts/art/export-geometry.mjs",
+      "size": 1933,
+      "sha256": "1f8bcdd19f9e38747f7a2a2b198a3bbae0c61f5b7dd04efa8ec6ff57ff667e3f",
+      "gitBlobSha": "98d961ffc5dac497cbc85388a25161cf98a653c0"
+    },
+    {
+      "path": "scripts/art/render-atlas.py",
+      "size": 5111,
+      "sha256": "6c685e5bd976e793e31c95f736cf9c32f3e513a7b7deb906284c483b6dfafeae",
+      "gitBlobSha": "30cd24ba34ef63b83ae60323a92acd9da1e333f9"
+    },
+    {
+      "path": "scripts/package-miniapp.mjs",
+      "size": 22253,
+      "sha256": "f8234e66ff9db7d0ad21f540248a13e8108a50958fac515c1a6fd4d9687c5255",
+      "gitBlobSha": "bfc053167fa23ee43f4ed59b9073516bc68ce8c3"
+    },
+    {
+      "path": "scripts/package-review-source.mjs",
+      "size": 6315,
+      "sha256": "772fc2396a8b6f1abce6d7808b1e3c6464593285b56160091300c5031ee957d2",
+      "gitBlobSha": "d29e0713556d2d7354c94ee16dae06d557ad5963"
+    },
+    {
+      "path": "scripts/render-assets.mjs",
+      "size": 6160,
+      "sha256": "0e0edb4caeb364a67d503999bf99efc945313b588feb4c02534a0d1b770020cf",
+      "gitBlobSha": "c7b62ab27431b1e504cf4ab1202e3784cf3179bc"
+    },
+    {
+      "path": "server/admin-auth.mjs",
+      "size": 6266,
+      "sha256": "56703d5fc3d591d35fd7a43f7d450255a202763afaa03b03d385e6310d5a2177",
+      "gitBlobSha": "77673a3d7057621198ba8dd4cb081d4f179d37dd"
+    },
+    {
+      "path": "server/admin-server.mjs",
+      "size": 9002,
+      "sha256": "53a2cad8a9e11d83e5a5dfc1c480ba3ab01af17c98e64c817a33bb7659e6ba9f",
+      "gitBlobSha": "bbc7175942b3adbc0892386a2886e82a68482130"
+    },
+    {
+      "path": "server/admin-store.mjs",
+      "size": 6727,
+      "sha256": "133a92d40219b03186980b3a22ee878ed9612ffee1a03e2fa67e58bde3a01319",
+      "gitBlobSha": "93ab91758bd4d7cf804c8f21e82f18466974d08b"
+    },
+    {
+      "path": "server/spw-validate.js",
+      "size": 2494,
+      "sha256": "7df888e87f834643f600a3ab23e0d4780bb7f5dabb7ba0b503fd37b4ca400563",
+      "gitBlobSha": "6fb417f87b6adfe907302220abdf20508739484c"
+    },
+    {
+      "path": "src/AllGames.css",
+      "size": 17636,
+      "sha256": "32c9d7db566051a15c0ab12e1e02960860025a6f994f707724e722e04ed0c0f7",
+      "gitBlobSha": "59699a39396db005c143ebfc912eef9b658cf017"
+    },
+    {
+      "path": "src/AnonymousMaskV18.jsx",
+      "size": 2930,
+      "sha256": "ad15097309277b3ebf9858a51aa8a901391fbb80d2809c3b2a3039f8485afee3",
+      "gitBlobSha": "7f2743d0c018521ae23274ca2420573a773647e7"
+    },
+    {
+      "path": "src/App.css",
+      "size": 17059,
+      "sha256": "c3265ae74601c488e23553ad5074f133f8c9fe958f80b2986b6a82f6c5813559",
+      "gitBlobSha": "aa83dc9f0a2e103fddd5232266a55c724808b556"
+    },
+    {
+      "path": "src/App.jsx",
+      "size": 20981,
+      "sha256": "3b2399608d2c254ac7bca8485c451cdc5cc066ec64ebc1249fb7a80201e7d4a8",
+      "gitBlobSha": "e4d0b0d3227fda4de4884fdb7a5e399651d4b4bb"
+    },
+    {
+      "path": "src/AppShellV14.css",
+      "size": 9313,
+      "sha256": "179cad7345ab7591c29b87208de8a16af2d424f054c5c04d8828c20b2ba1eb57",
+      "gitBlobSha": "66952c5b170e9b7f27a80cfdfcf85c5aa487dcfa"
+    },
+    {
+      "path": "src/AppShellV15.css",
+      "size": 12837,
+      "sha256": "e9ee63bad51d135cec48204909d458e40ea8677d8035489b4ba81450c5ae2e46",
+      "gitBlobSha": "bc865826092c1e5aa302f35c6bcdea95ac5ba7af"
+    },
+    {
+      "path": "src/AppShellV20.css",
+      "size": 10523,
+      "sha256": "93308c906b17f07fbd4d74a996d56c1c6e0d401aab6344b333f816aa8942c134",
+      "gitBlobSha": "6ab01fb78d5a4ac3d21f922f7ca61e676625ba9e"
+    },
+    {
+      "path": "src/BlackjackRoom.css",
+      "size": 7122,
+      "sha256": "5f60ff382dec57f0524ce15fac2d2ea66412625fa3fce1d3f435fb412b8eddf1",
+      "gitBlobSha": "1509b4f0eda56bd1748c9a2bff36c8df6c43cb70"
+    },
+    {
+      "path": "src/BlackjackRoom.jsx",
+      "size": 8783,
+      "sha256": "d0594040c035f7c7abe4e05b96964c9f6099811c2d82fd7bcf63f7cbea8f3a85",
+      "gitBlobSha": "7348a581f5ce33567b9586f77e9a275aa6508511"
+    },
+    {
+      "path": "src/BlackjackScene.jsx",
+      "size": 14132,
+      "sha256": "3ed2fbfeae8e6af91b0f0a8c70c576d431e5db3c15c58c17828bd2f589843505",
+      "gitBlobSha": "e7b73248e0f7582598406b88a65bbdb05fd75cef"
+    },
+    {
+      "path": "src/BonanzaCommercial.css",
+      "size": 10241,
+      "sha256": "e0a4d1d3f91ab0fb8a4c24810c823615644293d22474f56c65d6f114c9662b15",
+      "gitBlobSha": "7a08e55278d27769cd9d41859596efe40c994de3"
+    },
+    {
+      "path": "src/BonanzaFixedProfileRules.jsx",
+      "size": 10631,
+      "sha256": "879786303f61814c12fa1c8ab1133c29300c3e39e948032d1c99b34919103d19",
+      "gitBlobSha": "c053d06a376f214d2b1aa3075eba1922ccdbc895"
+    },
+    {
+      "path": "src/BonanzaMascot.jsx",
+      "size": 1015,
+      "sha256": "0e556a9aaf7141c92c8d236c517b0e6fbf9878a4b2e92131bc066255052d2107",
+      "gitBlobSha": "5e8e6ab4c5522536846f2346c9c25d000ca3e372"
+    },
+    {
+      "path": "src/BonanzaPace.css",
+      "size": 3452,
+      "sha256": "3616fdb9e27ca82fb31466657a05d2a055dfaed82d3fc206824b86eebd1e643b",
+      "gitBlobSha": "6a2ce7bf63ebc09069b379340109f73852639b10"
+    },
+    {
+      "path": "src/BonanzaPresentation.js",
+      "size": 12280,
+      "sha256": "fb9b513305f2355816405714c3758c6213e292d3b47df77e39507341ffa1604b",
+      "gitBlobSha": "e9108934fe326b016713b51f25c5e62bbb5a59fa"
+    },
+    {
+      "path": "src/BonanzaSlot.css",
+      "size": 17072,
+      "sha256": "d1cb5e62b315733addde09cbf47264f05899e96ded0ada76048cfd1243a1e2a1",
+      "gitBlobSha": "724fe69b4cc8463d3fe3c3e3cff44d2326244fe8"
+    },
+    {
+      "path": "src/BonanzaSlot.jsx",
+      "size": 26541,
+      "sha256": "82fd07b87c170ce861b54cc6a8fbd4ea78473e0d3cdfb098e84669a13185cc38",
+      "gitBlobSha": "329d12fe15f8db2bd63def1b0e9d671b4966fd86"
+    },
+    {
+      "path": "src/BonusPurchaseFloorRules.jsx",
+      "size": 5598,
+      "sha256": "033798bb63d9e2f17bcbb769af131442c09dd490e76977e425133a358531c9df",
+      "gitBlobSha": "1e116d01475ff2ae674536e7b9ff4bc798f58702"
+    },
+    {
+      "path": "src/ClassicPosterV17.css",
+      "size": 292,
+      "sha256": "6b54701dced3a9600229596c2c8691da8429005c1ea4e66f9df6a75dea880283",
+      "gitBlobSha": "1d542d1948467f267b4dea735d9bffaf82154fd9"
+    },
+    {
+      "path": "src/ClassicPosterV17.jsx",
+      "size": 7850,
+      "sha256": "8ef0d35805063e6fcf240c2104579066b9a9f24e132674a8209a1af8d9e627ac",
+      "gitBlobSha": "21bfb277fc32f11f51446846ad8eb01a815827c0"
+    },
+    {
+      "path": "src/ClassicRoomsV22.css",
+      "size": 15938,
+      "sha256": "4294f7fd833ae140972eabf675044710395f30023e5d1c377bc5d95bd0095562",
+      "gitBlobSha": "04b0af47724634e8ca3ccee5c72fab8fc19b4cb3"
+    },
+    {
+      "path": "src/ClassicStyleV16.css",
+      "size": 24879,
+      "sha256": "0a45150aba369a5b63b35fd6dd08de074fefef09a4c30659e4f0c8efa707f0b9",
+      "gitBlobSha": "7a36392248a5d55e8f2ad9824dfe84d25040fdf4"
+    },
+    {
+      "path": "src/ClassicThemeV21.css",
+      "size": 19675,
+      "sha256": "7139c29d66b619e4336ca58ce6ace962d6dac42b06988f76c39a4d93d97c9c26",
+      "gitBlobSha": "25044b83c418608e981d18280f4f02b743233233"
+    },
+    {
+      "path": "src/DemoAdminPanel.css",
+      "size": 11114,
+      "sha256": "15019c43cf3fb6082e83d1ec5d6bf1a19d07ac9065ef9553d48943fe3cfe1aee",
+      "gitBlobSha": "b6f0aebf66e1687a5f3e54922c4118a7b929cc6d"
+    },
+    {
+      "path": "src/DemoAdminPanel.jsx",
+      "size": 17760,
+      "sha256": "0bceb0f5cdbcd1a3c516c9e1a41998b49cc9cbebf5fd1c010975fc3ce1c7867f",
+      "gitBlobSha": "0f0c7e7e54141380d15d9864f18cf20229c0de03"
+    },
+    {
+      "path": "src/DesignSystemV21.css",
+      "size": 8937,
+      "sha256": "31c9ae36d5fcb678d3dd6c60fb5017802965471282fdfcb176f1381b2ab9b921",
+      "gitBlobSha": "4935c34089919b837bfc652aef219e246d3750e6"
+    },
+    {
+      "path": "src/FeaturedGamesV16.css",
+      "size": 6116,
+      "sha256": "7a192d227f5cc12ef1e9488996565fcd013fb73f2b2bdc98dc88146d1eb79339",
+      "gitBlobSha": "058a1b79806da4a2ee186efb0fa1380519a08dc3"
+    },
+    {
+      "path": "src/FeaturedGamesV16.jsx",
+      "size": 1638,
+      "sha256": "b18a9f0ec0e332c9226d9f77ae03475c1e0147405463c28a91f46a1004f050b7",
+      "gitBlobSha": "7fc1db6c78adef3cf85a97a2e4dfc27cf94ec2b9"
+    },
+    {
+      "path": "src/GameArt.jsx",
+      "size": 2581,
+      "sha256": "b6788b86d2d78bcd2ebbd59884ac0b77712a49daf8736b67e9e4013b6aa81530",
+      "gitBlobSha": "fe6f5df3d7de60eb28c366760e4f3519d02944db"
+    },
+    {
+      "path": "src/HallFinishing.css",
+      "size": 3905,
+      "sha256": "4d43d8dece7600c39408f98916030b93364201eda6a585329069bd47dae62446",
+      "gitBlobSha": "ee6d5d8fa76f7a5cdafd81576c1ff47c60502b4f"
+    },
+    {
+      "path": "src/HallPolish.css",
+      "size": 5088,
+      "sha256": "0ce7b1e838611459806fa058324dd9b32601effa139d550d0a02955fc9b78b0f",
+      "gitBlobSha": "918eda3e2f70811c96f1b32f12b83f3c0c19568d"
+    },
+    {
+      "path": "src/HallSlotCovers.css",
+      "size": 1296,
+      "sha256": "93969a49f65957c94facf7af160b016bf9c2d9e5d8ea92b9f0a23532db6011c9",
+      "gitBlobSha": "307f5202ae30a1dfc4607aefcad2b7d75a94d203"
+    },
+    {
+      "path": "src/HallV10.css",
+      "size": 8159,
+      "sha256": "438517c6e5fde720388bc4b6bac9dc298530efaf1540bbfc793eba2ffd03d7fa",
+      "gitBlobSha": "8202ffc13b94faf00d2d693ed880b0a3416bef7a"
+    },
+    {
+      "path": "src/HouseCommercialArt.css",
+      "size": 2202,
+      "sha256": "62c0856af5ca6bbfbf36bca4aa27be7010750f4f00520aa3b213595c00855d39",
+      "gitBlobSha": "fc7ae7a703728757ea18a247145df84df2a2fa48"
+    },
+    {
+      "path": "src/HouseMascot.css",
+      "size": 3736,
+      "sha256": "b0271d91c4892c2355b5d655b478f84c4ad52368b2c64ddb4047bda90f2f9478",
+      "gitBlobSha": "289e05acb86d5184bf68bbbcf9e3f86ec3407c71"
+    },
+    {
+      "path": "src/HouseMascot.jsx",
+      "size": 1209,
+      "sha256": "5919ff15e40f8a1c80ea4c61261e28d0c56a348aa5c5fb63aa526a1ac7b64a83",
+      "gitBlobSha": "4b2846e9cd5e394810ef760ee85d0d95a6fd80b6"
+    },
+    {
+      "path": "src/LexofMascot.css",
+      "size": 5969,
+      "sha256": "86adf38574715eb83261fd5749ce19e1ce974238cfa75ff26d606be35cc3a3ea",
+      "gitBlobSha": "e809a75b87c25077e77ec8dd266f3e797cdd512a"
+    },
+    {
+      "path": "src/LexofMascot.jsx",
+      "size": 1764,
+      "sha256": "a671b7fae42e2f433472ecc6599733ae94fc71bd4d0cabeb18d37dc2c54d5227",
+      "gitBlobSha": "d1315fa6be24477514aa8039c0071a7dd726ac14"
+    },
+    {
+      "path": "src/LobbyV14.css",
+      "size": 15895,
+      "sha256": "df2827b87bfe74e6b12222fdf70cc4c4be6b83f944e0c981fd849cd54fe33dfe",
+      "gitBlobSha": "97d29ad343369255034942c490af38ffd7e5dbb7"
+    },
+    {
+      "path": "src/LobbyV14.jsx",
+      "size": 9191,
+      "sha256": "208c8be1c92099fdd24725ed0354da67438b6efa58bf18b075b98bb77a24e134",
+      "gitBlobSha": "7d9b4ac2b598961aa281563f2f8594fc65e88a21"
+    },
+    {
+      "path": "src/LobbyV15.css",
+      "size": 10779,
+      "sha256": "12c2fbf71be194053c22ed01eb67c6f81e9f8039cd28b6480d18aa909290365f",
+      "gitBlobSha": "c8126f5906d1f158464368a8a3ea7718bd2e0f9b"
+    },
+    {
+      "path": "src/LobbyV15.jsx",
+      "size": 7389,
+      "sha256": "d8dd960f30fc710c32ca228b2e1808af4ab2ffaf10638a9e7167a5d241c1e1d2",
+      "gitBlobSha": "db48d6a92c47484cde56f9eff5f8bcf686c3f1aa"
+    },
+    {
+      "path": "src/MaskSlotOddsRules.jsx",
+      "size": 24583,
+      "sha256": "9ad7a2540614ce20c61e074d3afee2060981bbb0ff40c328d68efe21ed8584fa",
+      "gitBlobSha": "3296fcf4a82e7069c80142248faa5ff72e65c0c9"
+    },
+    {
+      "path": "src/MaskSlotRoom.css",
+      "size": 17409,
+      "sha256": "1575d3c84d1fa7f33f02c0f0ea010cf9d86ed452b1c6040333e28a2d5c85fc0b",
+      "gitBlobSha": "d5e2775b16fad66a0c947230d626b0a3f9b9d181"
+    },
+    {
+      "path": "src/MaskSlotRoom.jsx",
+      "size": 20111,
+      "sha256": "b238701883daa7b0e6b77ebd46ef876f0b209484f7e1a2c0434a2ca6c04e58e9",
+      "gitBlobSha": "717c62276277f33c794572e92314fb1c6cce8b28"
+    },
+    {
+      "path": "src/MinimalCabinets.css",
+      "size": 2284,
+      "sha256": "7ab188d0fc925a02c0ade55dacb380ac8a57f1a3cf5a7d22bb9f1a8de57b0a35",
+      "gitBlobSha": "6d5f44dbbc1fe031d1feb0556e6ceb20a691a009"
+    },
+    {
+      "path": "src/OddsRules.css",
+      "size": 1157,
+      "sha256": "6be09863433df1463816e44f70cb400cc29b38bcf682f5c6458096ea68acd833",
+      "gitBlobSha": "f61e91ee88bc9083bbcb870c019ed922617f11ac"
+    },
+    {
+      "path": "src/OddsRules.jsx",
+      "size": 20081,
+      "sha256": "f4db7ecc3a795fddf588b814428c8e9202fd8a0a5627b2194a8f6f11b70527e3",
+      "gitBlobSha": "4b7b931811ff95d411272d6b9860719fb191a1b4"
+    },
+    {
+      "path": "src/OverlayThemeV21.css",
+      "size": 14789,
+      "sha256": "689e3217d62d7cd8379e973764d8cc9811181e2abd126790bc835c3a303540e1",
+      "gitBlobSha": "158ef15da4ef838c3ba33da5e5a37e3959f115dd"
+    },
+    {
+      "path": "src/PayoutFx.jsx",
+      "size": 8512,
+      "sha256": "0bc1dbd6c9332ad500eb5fdfefb5641c58f3f7dd4dc920d97d2dd51f6944bdc3",
+      "gitBlobSha": "da9e264efe6c6728880626e48c17fee814c1c074"
+    },
+    {
+      "path": "src/PayoutScene.css",
+      "size": 5613,
+      "sha256": "40673278f3a7c15e67ef97341abf4bfa29b4a741afd1721723e1bc9325a31972",
+      "gitBlobSha": "5e03570509ed33f6400f5e15aeedcc8c9af95804"
+    },
+    {
+      "path": "src/PayoutScene.jsx",
+      "size": 11593,
+      "sha256": "d508cd99df809b9cafaf03d71340f7896f8925c8376a66b3265d4cf80d5178cc",
+      "gitBlobSha": "f1b7805de1051f87bbd7cbf333f3eacb6f6178a3"
+    },
+    {
+      "path": "src/PlinkoRoom.css",
+      "size": 1927,
+      "sha256": "cb567fa4c256681c1425b47e6a4badc26b319f991784330cbb1422b800b2a52d",
+      "gitBlobSha": "522768a395f5b0bd6cabc00886d254a7d9b7d245"
+    },
+    {
+      "path": "src/PlinkoRoom.jsx",
+      "size": 4333,
+      "sha256": "5c7d1afab3b1dad7c074fb2cd8b4d1bed891a1793834ff813180df0397bd969d",
+      "gitBlobSha": "a3ca1f6f1654f369e907d8c25203343df94f7459"
+    },
+    {
+      "path": "src/PlinkoScene.jsx",
+      "size": 8490,
+      "sha256": "461ce3c8ccc24c82ec2134a6be38d543b39565649574b9e64ab7fc8faa88b867",
+      "gitBlobSha": "726360722ccb42ba979871cad6375d6812f66f8b"
+    },
+    {
+      "path": "src/ProfessionalArt.css",
+      "size": 39257,
+      "sha256": "0971373927d33cc03b1426a618d02892ce233aff06c78aa5c90121c00268c512",
+      "gitBlobSha": "b8a56aa9e79c5f69b5a6b312040ef0edddb5476e"
+    },
+    {
+      "path": "src/RasterBlackjack.jsx",
+      "size": 3443,
+      "sha256": "96de9cf7077c5e60a1d83214b9b2d97938cc890afa49c9e4e6795ef4cfd7d86d",
+      "gitBlobSha": "33605cf2bdf5b186b991b5481b0c5a57b0e5aff7"
+    },
+    {
+      "path": "src/RasterCoinflip.css",
+      "size": 829,
+      "sha256": "bd99d2322f0dc3f57b94b6135da18848d75e166b35f5cb9d89b478c9b0addc77",
+      "gitBlobSha": "33280e3c1397483d6f7532c95962bac09f6f23c7"
+    },
+    {
+      "path": "src/RasterCoinflip.jsx",
+      "size": 1012,
+      "sha256": "5fca60a22388e3832a1071300f68269e01ddd4d53b2d8f3dbf67bf8fdb7a4c90",
+      "gitBlobSha": "ad94799a76b1b5a3d785d74d2f4dde539e2e7bd4"
+    },
+    {
+      "path": "src/RasterPayout.css",
+      "size": 7232,
+      "sha256": "72389b46e8452460f88d4db485855763547d770a6bcd086a24eb71dc4504b7f5",
+      "gitBlobSha": "4d72e1ba756d2c05ad6ad687580b50bf008e1a6d"
+    },
+    {
+      "path": "src/RasterRoulette.css",
+      "size": 643,
+      "sha256": "040443d89501789cc6d20a23283ff660f2f76e6b71d02169d89cbf2567b92675",
+      "gitBlobSha": "4043e4aa1d633f010ae8fd48ffa7f030af84fb3e"
+    },
+    {
+      "path": "src/RasterRoulette.jsx",
+      "size": 1899,
+      "sha256": "878f7b221d14f5c7895ed485e140cec0c5ea99863ac2e25df852a5be2ce30912",
+      "gitBlobSha": "c289a9a921ea1edf503e08b9a6939d4ac11bd25c"
+    },
+    {
+      "path": "src/RasterSlot.css",
+      "size": 20476,
+      "sha256": "4797f2ebbd52f4e574712703272cf7ca7de7954632738810a591b7a1fd600aa7",
+      "gitBlobSha": "b6e9b3ff697469ae7ccbf4bd8cf08ea7ef7e64b7"
+    },
+    {
+      "path": "src/RasterSlotControls.css",
+      "size": 14176,
+      "sha256": "860b37b4941409abc5f0ebe003cb581bd4a3104dec2a1f5effe5490b2ed72edb",
+      "gitBlobSha": "50ca0a75c57320f7cb8a19fb7f54c8775de99c3c"
+    },
+    {
+      "path": "src/RoundArt.jsx",
+      "size": 21953,
+      "sha256": "f82aa622636bb5e95d9bcbceba4a12ea33d85917a9aa01799eb6c44e4cc108e6",
+      "gitBlobSha": "6ce3838bc44c3dda949db79d6d2438521a3c8a18"
+    },
+    {
+      "path": "src/RoundPlayback.js",
+      "size": 1275,
+      "sha256": "8facad065fd95221953b9b64a08c5d4dd1147a9d1015d55c708d0bf3419d680b",
+      "gitBlobSha": "b1a0cc2cf04913228a6922420d228102b343e598"
+    },
+    {
+      "path": "src/SceneMotion.jsx",
+      "size": 4472,
+      "sha256": "975a9b324af3f6e8bdd7226f793e597a6b7aa2237636c74a0c1ae05a2d1e4432",
+      "gitBlobSha": "38e1ad7c6a353e93b327e0a9e82e12aaef557059"
+    },
+    {
+      "path": "src/ServerAdminPage.css",
+      "size": 1355,
+      "sha256": "70c8e8883c8946bc0afc262cb5ad7850eecc84c443313e88abaf3f32076ae536",
+      "gitBlobSha": "fb56acae281be08ec3d8fd729e1eb23fe79da821"
+    },
+    {
+      "path": "src/ServerAdminPage.jsx",
+      "size": 2834,
+      "sha256": "d528aefb6bb183894082917f4932e604590d5213854180f50aaadf79388b8976",
+      "gitBlobSha": "7c5ce20cfc72f781e5fff28580d2cdae91e60fe8"
+    },
+    {
+      "path": "src/ServerAdminPanel.css",
+      "size": 2448,
+      "sha256": "a32fed0645c021152589018f1cec77273e7268729e7db9ea13f48bfc144730ff",
+      "gitBlobSha": "ffcfbd15c34e2b393f4100732230bbb54be6145a"
+    },
+    {
+      "path": "src/ServerAdminPanel.jsx",
+      "size": 18091,
+      "sha256": "e10babb4c26e97fdd1767c7d27424f317d4cf4f535540cdfb74ed6edea1bf828",
+      "gitBlobSha": "d454d45ca2adea590b105279ba0535e6892ad6ed"
+    },
+    {
+      "path": "src/SlotBonusShop.jsx",
+      "size": 3101,
+      "sha256": "c66ba4ef512a90de57cfeee221e0ba10f32daf83473df0350f0d43b6766ee4aa",
+      "gitBlobSha": "d8c659eb5e359166206dbe8c3ca48506cb155adf"
+    },
+    {
+      "path": "src/SlotControls.css",
+      "size": 14610,
+      "sha256": "52191eb2a54099c60cccb1a7ab0600d9d9df36bb290f38f99c0bcf612a24faae",
+      "gitBlobSha": "648a04d18958600a590852109e9a0788f0bc2a0a"
+    },
+    {
+      "path": "src/SlotControls.jsx",
+      "size": 8286,
+      "sha256": "044ed2992e3b851f272ef24e88bf06bdfdf8127194946c3537462bc8b8c19560",
+      "gitBlobSha": "c48ad870473819c2e5a7f3eab361efc5d3b69ad9"
+    },
+    {
+      "path": "src/SlotDock.css",
+      "size": 18812,
+      "sha256": "5f0894cddfde97e51e000e9e90b8c0b889cab60a4aa5bfd0c309993624fab383",
+      "gitBlobSha": "5c9469f947297b821ed721e2c6a1be6ea4db97ce"
+    },
+    {
+      "path": "src/SlotDock.jsx",
+      "size": 3576,
+      "sha256": "e7b4464a3350222d9cecdb776e9214ffe11d515fee1199a931626190a7a4a3b2",
+      "gitBlobSha": "5535f4dc04fe09e118f69b61f159698ba331f3fa"
+    },
+    {
+      "path": "src/SlotExperience.css",
+      "size": 12542,
+      "sha256": "35b318fe3863c0ef2aa0fd93d7c464f7a616dc94ff17a7a87bf381b238149765",
+      "gitBlobSha": "c640671ebd23d6fd79ad482010347e98721820be"
+    },
+    {
+      "path": "src/SlotHallArt.jsx",
+      "size": 733,
+      "sha256": "f16da7f959cc26479c1fec421541163f0cc294728cd5d372bb6a0cb800b401e1",
+      "gitBlobSha": "5d0d0d1758389350725464c42d4b938354938767"
+    },
+    {
+      "path": "src/SlotPlaybackOptions.css",
+      "size": 2234,
+      "sha256": "5233beb8c1cb94b3bbb51844017c28dae6033fcdf2e75530fd52fe82c243f2af",
+      "gitBlobSha": "2025d81a9c1d1c81298f97440379426a87ca3ca4"
+    },
+    {
+      "path": "src/SlotPlaybackOptions.jsx",
+      "size": 2045,
+      "sha256": "fe5e4565843b2bd689202ed83efec5e2a21e09fe53cf3ebbfcd868d515a27b50",
+      "gitBlobSha": "b8ff79f6564c99dda8933da75201d7e72001771c"
+    },
+    {
+      "path": "src/SlotPosterV18.css",
+      "size": 578,
+      "sha256": "c7821cafdf22c05e9fa5d38b8068c5fcae4b9f4b820b7044d6f40e1db6680da4",
+      "gitBlobSha": "1527541d9886f609d6c09e5962a7913863fff594"
+    },
+    {
+      "path": "src/SlotPosterV18.jsx",
+      "size": 7713,
+      "sha256": "a2830f9c87bc1042962f034b9fc1aa554a99c8715a6d2002c89d297ffb1c8e8d",
+      "gitBlobSha": "1bf78f741656aa741f562baee82070d8d8515670"
+    },
+    {
+      "path": "src/SlotRtpProfileRules.jsx",
+      "size": 13202,
+      "sha256": "54a2d9c9ee95963c1e00cd6b34e3e77d03237131cb2894c431ad0cb7f2a26bed",
+      "gitBlobSha": "0142f1fd214d1d6178a62145a211241108aa7abd"
+    },
+    {
+      "path": "src/SlotScenes.css",
+      "size": 2279,
+      "sha256": "e1684c80dd23fad4124a14416cf5b6e59fc653880a6534f3f92bd9d8b810d54e",
+      "gitBlobSha": "0018915fb0ff66f9f6aa94f0c98840ef4264ba8c"
+    },
+    {
+      "path": "src/SlotThemeV21.css",
+      "size": 19910,
+      "sha256": "7a7453eba091747941508dcdd5c4a979e978c8e345ecc233879f899b50239f04",
+      "gitBlobSha": "eb1a8070d5c014f6fd3a5223d800dd2fedd8356f"
+    },
+    {
+      "path": "src/SlotWinReadout.css",
+      "size": 3568,
+      "sha256": "aa19c051deb8b2caec08baa90cdd344671defc1f03c91d3340e6e45716e1c0f9",
+      "gitBlobSha": "9b93338ac9987f99fd453a5fdfc3546aea1cc6ac"
+    },
+    {
+      "path": "src/SlotWinReadout.jsx",
+      "size": 1451,
+      "sha256": "7a0b222a236636c2207b42eff6ebb9198c3072b73ea19654fc79a178da5d59ba",
+      "gitBlobSha": "4a171947d649246a80bc18105db6e6563844538a"
+    },
+    {
+      "path": "src/StudioEnvironment.jsx",
+      "size": 1698,
+      "sha256": "3dedfb869ee3ea1a9eb1c39bc0fbb09c9250b7358a2c7861286ed0296e9d7b20",
+      "gitBlobSha": "b30a68729fe71f3bb34067d884baa82ce41f5fe0"
+    },
+    {
+      "path": "src/StudioHero.jsx",
+      "size": 4924,
+      "sha256": "77024503c2d8784149368525696a8544f96530eeb1360bf01ed941eeb3afc86e",
+      "gitBlobSha": "ca774fd3b76e7f521cdc29c1aadb3f060596273f"
+    },
+    {
+      "path": "src/UpgraderHacker.css",
+      "size": 5046,
+      "sha256": "df5fda84ea51a0a1d228ee1ec024769ec01640a36fcb7647a756a12051ba2e6d",
+      "gitBlobSha": "675e20013ec2ed3042b017c0b221ac20a1dfff13"
+    },
+    {
+      "path": "src/UpgraderHacker.jsx",
+      "size": 2157,
+      "sha256": "07ccf0eecc8edba59769bc5f253322a001e9d9a2ba831fd92456d792008cc011",
+      "gitBlobSha": "edb227a8606c62c60ca6a8793e0641c3f23961c3"
+    },
+    {
+      "path": "src/WinCelebration.css",
+      "size": 4201,
+      "sha256": "683bc5a00508cb738a79c80fd0766961ffab0c5b9364c3558c69d2135820f0ce",
+      "gitBlobSha": "0433cc783466c76f43d9d6c2f3f47385b3cea734"
+    },
+    {
+      "path": "src/admin-access.js",
+      "size": 331,
+      "sha256": "34ca1110999922d2862216e52574e9fe2f060f8c7fc5f900233744e7b9d55c2f",
+      "gitBlobSha": "73169a24b4e5551f71756d96d6de9e7676af4c40"
+    },
+    {
+      "path": "src/art/createSlotModels.js",
+      "size": 30288,
+      "sha256": "98839aea1f15ccdb109e1ab63f346767248478155574d596da19a158af0d9bfe",
+      "gitBlobSha": "489dd8106515cd5c421a9ff7c816931fcabe79d5"
+    },
+    {
+      "path": "src/art/renderSlotAtlas.js",
+      "size": 7306,
+      "sha256": "076af2d77f2167c8bb454d7b393f93dabbff971b4df319a1a26c3b1c18fc507d",
+      "gitBlobSha": "81bd9586c52b2ecd594cb5e22e768f5cf64a0a32"
+    },
+    {
+      "path": "src/audio/GameAudio.js",
+      "size": 29282,
+      "sha256": "f8ff146e25fef21cb8e9c5f11c40df4737e7864b331d88d6e58a6752ebd7453b",
+      "gitBlobSha": "d6e4cc5f3589f9b1f2bd6faaaa88d699a73ac8a3"
+    },
+    {
+      "path": "src/audio/audioPreferences.js",
+      "size": 610,
+      "sha256": "0b3253a1d03b4d6a092f818ba5c3770618c0e933ea2a9b293597f08626107f03",
+      "gitBlobSha": "8dcadc4d46dfe92770f5e42fb2f942c34faa512e"
+    },
+    {
+      "path": "src/audio/useCasinoAudio.js",
+      "size": 1817,
+      "sha256": "b45df8cac628c26bf87cb2bc3a647048c52dc94c4b98f1efdfcf1093c10f8f27",
+      "gitBlobSha": "7bfc2dc00a9afbab9271d1f3199ff0494f10fc73"
+    },
+    {
+      "path": "src/blackjack-presentation.js",
+      "size": 4940,
+      "sha256": "da194740f9468e8aa3c79b30566180fe6c153b0662fa8adf4523f1d63209aae8",
+      "gitBlobSha": "af25d1dd8ae52d88f9bda2b16552615df9e7f283"
+    },
+    {
+      "path": "src/blackjack-rtp-profile-table.js",
+      "size": 36324,
+      "sha256": "260291ae7201cd16af4a7b6327e0028405e28c70f75e7eaffc91750970db2081",
+      "gitBlobSha": "abff8faa4a8e419334d1eee5f1a142d2473c7551"
+    },
+    {
+      "path": "src/blackjack-statistics.json",
+      "size": 4312,
+      "sha256": "2525b9acf9e9f64dfcea5a175a1658df732d1da8328096cf07e4158f5e9ec47c",
+      "gitBlobSha": "04b51d86deb3c631f212c1fd6fee198f6d720979"
+    },
+    {
+      "path": "src/blackjack.js",
+      "size": 17184,
+      "sha256": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+      "gitBlobSha": "fbc9432d245e2f34fe8476133ee46258ea3d2b06"
+    },
+    {
+      "path": "src/bonanza-mascot-presentation.js",
+      "size": 2758,
+      "sha256": "43bf2a6b0f7633227bd95a22f05baf2e6dcd3322088325972812aeb48158b025",
+      "gitBlobSha": "28535e868ff0d089ecc15c065434db64f41b0ce0"
+    },
+    {
+      "path": "src/bonanza-math-statistics.json",
+      "size": 36721,
+      "sha256": "629fbf67842edfa9b4294a2479924f786a9a312d6761842196fd53a183851905",
+      "gitBlobSha": "ce0a3c49a2a9e31f49862579c53fd5430ff229b8"
+    },
+    {
+      "path": "src/bonanza-profile-engine.js",
+      "size": 21830,
+      "sha256": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+      "gitBlobSha": "d6357be9bb3d92d994cc459e144f1ba6545c4043"
+    },
+    {
+      "path": "src/bonanza-profile-statistics.json",
+      "size": 44726,
+      "sha256": "76fc28592df48469a672a9c533b865cfc687751f6eb51f79e25c8c96c0a445eb",
+      "gitBlobSha": "0034900394a118da1fdf973e3f5ce3b6086a7655"
+    },
+    {
+      "path": "src/bonanza-rtp-profiles.js",
+      "size": 9724,
+      "sha256": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+      "gitBlobSha": "f5b3dadd6e9661d2cece9b0dc024b5fe381990f7"
+    },
+    {
+      "path": "src/bonanza.js",
+      "size": 20579,
+      "sha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+      "gitBlobSha": "03fd003e367e9c40948e85dd424066c4807901c2"
+    },
+    {
+      "path": "src/bonus-purchase-floor-measurement.js",
+      "size": 2169,
+      "sha256": "773217f919c7339a6e4e7294dc1eb31933d27cfbb688055549c5264d25f2d090",
+      "gitBlobSha": "3fe4ca50ae6536c902eca28e1548818068f75a56"
+    },
+    {
+      "path": "src/bonus-purchase-floor-statistics.json",
+      "size": 54055,
+      "sha256": "1178cebea8f57f945ad421b9b1cfb425147af2dfc5681eb03977ec58ba8fefbd",
+      "gitBlobSha": "c63151cc4db63d83d596fe886b212aeae2473532"
+    },
+    {
+      "path": "src/bonus-purchase-floor.js",
+      "size": 5008,
+      "sha256": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+      "gitBlobSha": "6aa3cf38944ddf6cac5969db9971ebc09609ed3e"
+    },
+    {
+      "path": "src/classic-rtp-profiles.js",
+      "size": 15462,
+      "sha256": "37f82b1b2ac9668cdea36b731400a95282741250dfef02114a70ebf6b2ae5dbe",
+      "gitBlobSha": "19f7576e52dd923b49deab4f705ff06425aa91bc"
+    },
+    {
+      "path": "src/demo-admin-controls.js",
+      "size": 4526,
+      "sha256": "aec4716634d26afe09255df20d810908f4322b113ab23979b31a2664fcb4835f",
+      "gitBlobSha": "9991c2b7f59ac94e05441261b5b5aa206f77a600"
+    },
+    {
+      "path": "src/demo-admin-profile-details.js",
+      "size": 7829,
+      "sha256": "68685dbf68c564448ea230740e7ab2ed6b99c89459b54c4e1b7850298bddb00e",
+      "gitBlobSha": "57931a9548414d2c123e1957f0120595b53907a5"
+    },
+    {
+      "path": "src/demo-math.js",
+      "size": 3453,
+      "sha256": "96470b8042a1d845448fb6cced671ea31bddbb557d69b241bc6ec68e19f9f7e3",
+      "gitBlobSha": "325156a8058064359c4ffb70c3f310c8308b6c2e"
+    },
+    {
+      "path": "src/demo-reserve.js",
+      "size": 3802,
+      "sha256": "743b0e2f923848c6bd20237bfe4269bc7c2b9dfa596432e627646d831088535d",
+      "gitBlobSha": "bf1c05171563586149f732ea0bd280cde59cc2bd"
+    },
+    {
+      "path": "src/demo-settings.js",
+      "size": 2925,
+      "sha256": "a10b3208ae91bc59ebcaa8a49c79fbf5c93a8ea8853381d18b7a58afe98ae5bf",
+      "gitBlobSha": "c593e5aca55c4aa0c6e9287a8024fe75f4612985"
+    },
+    {
+      "path": "src/demo-ui-settings.js",
+      "size": 1086,
+      "sha256": "8986b402f95e38b28c4629151ccdf574fc850b3951600804d95c8eb75767be3b",
+      "gitBlobSha": "6f995803597fafd3c16b60f67fc09817926598f7"
+    },
+    {
+      "path": "src/game-math.js",
+      "size": 14613,
+      "sha256": "2765968525cc1eb712dec386aee0a83ed4ce3686221b365942a834adbf7f50bd",
+      "gitBlobSha": "ea254dd18e37a5dcac8a7f09d4472769752bff11"
+    },
+    {
+      "path": "src/game-meta.js",
+      "size": 1786,
+      "sha256": "9298b279ffa73cf19e2ac82d848dd14d6353d6a7573aa2953050e299a7a47888",
+      "gitBlobSha": "e5ad13afd117acfb5ddb451fc28ac578a35cd9ee"
+    },
+    {
+      "path": "src/games/CoinDiceUpgrade.jsx",
+      "size": 14904,
+      "sha256": "5d5d02ad36a22947b727a9c9183ceb63253ea481f11678524a6f014c14e79870",
+      "gitBlobSha": "9770e554d7c6a0b5eeee2109369378dc27c70761"
+    },
+    {
+      "path": "src/games/PlinkoRoulette.jsx",
+      "size": 17088,
+      "sha256": "8254dd5cf377710a24b2b566266b1b8d39dc3eccf215b71fb88d075bb58a4343",
+      "gitBlobSha": "18936b1d2cc293ca9591fbb642dc41ab9959f78c"
+    },
+    {
+      "path": "src/hall-session.js",
+      "size": 20983,
+      "sha256": "5dfd81ecf1280a1565e54f9d40a2a9be5ad68be2bdb6741b645d7c1c5d58d812",
+      "gitBlobSha": "da6616b889e59da6317ad3c8c88040a385e395aa"
+    },
+    {
+      "path": "src/house-mascot-presentation.js",
+      "size": 1587,
+      "sha256": "bf24618260d39d538fbd48762d545b87c45fe5208056eb0bc3eb866012133e34",
+      "gitBlobSha": "046b63bf2c1f0edb4eb92ed3d5721382de0965e4"
+    },
+    {
+      "path": "src/integrations/server-admin-client.js",
+      "size": 11675,
+      "sha256": "91df0c44a078dcb6f7457e353159e61da277e097871cba6dbbdc7b8a2ec3e6ec",
+      "gitBlobSha": "02f44a313cff25d2156d7650c7263d4b8453dae9"
+    },
+    {
+      "path": "src/integrations/spw-app-config.js",
+      "size": 372,
+      "sha256": "e07ed573eef4e96847e242bdcccd77ddfb703897f8fc6974848cbfcbac67c4e8",
+      "gitBlobSha": "7749a5024de7ba845a4320811df623f97e24c6b9"
+    },
+    {
+      "path": "src/integrations/useSPWMini.js",
+      "size": 7553,
+      "sha256": "5a20da665b31d5d9533ce2a1cf18908a8313ee9950e9cedddc0beddaa2c06e38",
+      "gitBlobSha": "c030bac04d87775a3ec3acd49f444ac8f42a7056"
+    },
+    {
+      "path": "src/integrations/useSiteTools.js",
+      "size": 2812,
+      "sha256": "a1205ccafb7ebffb34e4255dc24bc6569aa49547fed7c16ab265fc7439bc8091",
+      "gitBlobSha": "59268645e3e01f67cb223c4d882ef3d12d5e0e5c"
+    },
+    {
+      "path": "src/lexof-mascot-presentation.js",
+      "size": 3877,
+      "sha256": "1100a354f4b46dcaf5c32aca24c85b8b3a5995546e4182fc24d99758b4a13c28",
+      "gitBlobSha": "4de5ac09bade79b3a8fa75a66dc88f29c62e0f39"
+    },
+    {
+      "path": "src/liability-terms.js",
+      "size": 8330,
+      "sha256": "1a19963e6f6809dbc3bf49898022bf3a1361f6b4b4d46f03a3eb490b7f769156",
+      "gitBlobSha": "af97150776bd5ecbe2c10c52ce06bbeec84716fb"
+    },
+    {
+      "path": "src/main.jsx",
+      "size": 206,
+      "sha256": "6ade990d24059cdd2471aafd4e89764d3e7d537ea9e907a5666e01a723cc5038",
+      "gitBlobSha": "c6ad000e8a27e1c352ae1399b16c2f41090df55d"
+    },
+    {
+      "path": "src/mask-profile-statistics.json",
+      "size": 72639,
+      "sha256": "a45970ad4f073de920d260b4625f0f1681f75feacdb99d4c80c291d177bfb869",
+      "gitBlobSha": "4ecb21fad8ebbee22b74e742c2e1fa03a4bb2b81"
+    },
+    {
+      "path": "src/mask-slot-presentation.js",
+      "size": 6637,
+      "sha256": "e8bbe9c9a517e2c96ee40fde0875d0855bddc65dee529cc34a5ed2080ffa6fca",
+      "gitBlobSha": "0dde90071c0e516cfd4d7c271cd88724439f9091"
+    },
+    {
+      "path": "src/mask-slot-statistics.json",
+      "size": 176121,
+      "sha256": "f021ea8a894f27729219877adfde2c5403a18ccf386d1cf3018db5cce583c0b0",
+      "gitBlobSha": "69ff5d3490f42712ae064422a6c9aa8a0d034e77"
+    },
+    {
+      "path": "src/mask-slots.js",
+      "size": 36961,
+      "sha256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+      "gitBlobSha": "a78d38374f2bdcc2a2da230fffd5776f0ce5e51d"
+    },
+    {
+      "path": "src/plinko-controller.js",
+      "size": 4786,
+      "sha256": "aa35d47591f042d1e86c0fefa1c9194155cc52d9b237de1322d72de769a79b8a",
+      "gitBlobSha": "9ef3f6ef731d99cb5290393ca4e4a759529a6a43"
+    },
+    {
+      "path": "src/plinko-motion.js",
+      "size": 565,
+      "sha256": "04ef20176b80384e5495828e767658bd8d8da88e73c731e7b8ae3ce3293f081b",
+      "gitBlobSha": "fd8accbaf143030ac156f406f6769d43588acba8"
+    },
+    {
+      "path": "src/profiled-bonanza.js",
+      "size": 943,
+      "sha256": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+      "gitBlobSha": "f332fde0a17349dc878c5459f207b2bceb8726db"
+    },
+    {
+      "path": "src/profiled-mask-core.js",
+      "size": 37558,
+      "sha256": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+      "gitBlobSha": "e6fd416019106ae264fa289c6d9dfd9acc3f5420"
+    },
+    {
+      "path": "src/profiled-mask-slots.js",
+      "size": 960,
+      "sha256": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+      "gitBlobSha": "1b822906d2741070a4b76155a054c14558e09add"
+    },
+    {
+      "path": "src/raster-coin-motion.js",
+      "size": 375,
+      "sha256": "84d24da2046d6d6f895b89fe2c5ebdc61264ca547083dc75358f1383481c7876",
+      "gitBlobSha": "959d5d7815861adbeac3070677c158b4bc93f8ed"
+    },
+    {
+      "path": "src/raster-roulette-motion.js",
+      "size": 479,
+      "sha256": "ef6e94a2923b2013782ef3b4c93054d363b9c340ebb3a31b247597a35fb3803f",
+      "gitBlobSha": "32570bf5745fed25e36fdfb0a8df5361d5a2d4ad"
+    },
+    {
+      "path": "src/rtp-profiles.js",
+      "size": 36322,
+      "sha256": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6",
+      "gitBlobSha": "334f98d8456f7dc5b78939bcb1d14579dd3c1684"
+    },
+    {
+      "path": "src/rtp-range.js",
+      "size": 382,
+      "sha256": "e65526daf48e545b5529cb8978cafe2420f6687f73b2416afab3c325c04ca117",
+      "gitBlobSha": "4da553fe236d05382bedc8a45ebc3c54f54e2f8f"
+    },
+    {
+      "path": "src/scaleSlotPresentation.js",
+      "size": 901,
+      "sha256": "499c8bd9f7ac14cbe414e5cefe90dc08aaddfb6b50b92925e6ac3f800069e518",
+      "gitBlobSha": "236d2467102bc0a18b07f58973a9c95cfdd309f6"
+    },
+    {
+      "path": "src/slot-playback-controller.js",
+      "size": 4103,
+      "sha256": "7b2a761c3f483d27e69bd9912dc7ed2bb1bc3bcc88c2a053c919275643144d93",
+      "gitBlobSha": "25fc08b2020fb07106139c39c3dfe7ff3fd44603"
+    },
+    {
+      "path": "src/slot-rtp-profiles.js",
+      "size": 1666,
+      "sha256": "6ef9f81ad5fc48544d3bab4420f6e2c201eb55857c82f17c322b4841e564e18b",
+      "gitBlobSha": "f22d56cff3801ba9c8a36282dfee98dfb288012c"
+    },
+    {
+      "path": "src/slot-themes.js",
+      "size": 879,
+      "sha256": "595c77eceb25d6a302c82924c20ef6166e6fb23ac47aba9de7fc0bc19e48e343",
+      "gitBlobSha": "c7a4be81ce639a0746633ddc652b2612f93ff5c2"
+    },
+    {
+      "path": "src/slot-win-readout.js",
+      "size": 1801,
+      "sha256": "d18e979a049419dd695a44db90884c5d92908aa323d541e85dc1b9c094aacf17",
+      "gitBlobSha": "865e9b0a47c2893a368b618d1ca5add28a953699"
+    },
+    {
+      "path": "src/slotCellPresentation.js",
+      "size": 2271,
+      "sha256": "bcb6d083ddf5d86c67f5b89eaf9a4f828c3f7c8e099b5da91d3cca21b1b7adeb",
+      "gitBlobSha": "a53fd2af2698d91a9c3f6f488b2042082bcfa4af"
+    },
+    {
+      "path": "src/stake-limits.js",
+      "size": 842,
+      "sha256": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+      "gitBlobSha": "483c23534169bfa816de95d2a0728dff39d06a2d"
+    },
+    {
+      "path": "src/universal-slot-admission.js",
+      "size": 914,
+      "sha256": "c7a14d4a8babb2ea1537ea63465d9c9815c3e5d7a55a7c40ae56fb1959e8e37c",
+      "gitBlobSha": "35d9e040a97164e422694f3382a468e4cd737304"
+    },
+    {
+      "path": "src/universal-slot-calibration.json",
+      "size": 37117,
+      "sha256": "968aee101a3d644674001f8df0d774d6ecf4207b89f1899ca17a7ad63bb34a08",
+      "gitBlobSha": "e1d1131cb8cc09033505d6e2bf5d1773c81af2e8"
+    },
+    {
+      "path": "src/universal-slot-profiles.js",
+      "size": 11957,
+      "sha256": "53269eaf09a6036bb845a8079641ac783dff1810c909188e3877abf43e286450",
+      "gitBlobSha": "dfc007e173d3b2f5e32e0b7d82aed495bb503dc7"
+    },
+    {
+      "path": "src/universal-slot-statistics.json",
+      "size": 80367,
+      "sha256": "4a404642d1a46a2713b6fdc402eeb97af263a80984ef42ce7a16142c29c4b4f3",
+      "gitBlobSha": "cb4998b83a4980d8ace74b84affe8ac4992ced42"
+    },
+    {
+      "path": "src/upgrader-presentation.js",
+      "size": 941,
+      "sha256": "2cb176551a076c3572de4aa667ca2f2dc71dcf766f5fe1ee41db6bc9dbf9fe2e",
+      "gitBlobSha": "fba878821da016a95b7b712734cc223bd955d2f2"
+    },
+    {
+      "path": "src/useSlotPlaybackControls.js",
+      "size": 1895,
+      "sha256": "41700d7b8f7629421afd5ca5db0a677982718b2f8f07b336670a7e0c01bf9762",
+      "gitBlobSha": "04fd64d4a3e6ef7bb68e8509c479b5f863258cdf"
+    },
+    {
+      "path": "tests/audio-mixer-settings-checks.mjs",
+      "size": 1850,
+      "sha256": "147c1cbbbbb3d4f88aefefbf3d1a14d2c49c1908fea70ea2bd35136a32149b75",
+      "gitBlobSha": "ae723aa96ac3f1e8e91da08298a4caad88d2d21c"
+    },
+    {
+      "path": "tests/audio-playback-checks.mjs",
+      "size": 10151,
+      "sha256": "d61adf13e7dd1706322e343d2321155012261ff0cce9f3313d5c9102747f18a7",
+      "gitBlobSha": "c935a1b99c75d333168facb90b4d94d47ca1d427"
+    },
+    {
+      "path": "tests/blackjack-checks.mjs",
+      "size": 10689,
+      "sha256": "1150220ceeb23df09ab0da554a5ffffd545ae8100773e3e47c79d7e535c47289",
+      "gitBlobSha": "1e4e1df97ad5352d4684ed7baaf14afcc85ccea6"
+    },
+    {
+      "path": "tests/blackjack-dual-selection-checks.mjs",
+      "size": 6682,
+      "sha256": "65efb55579aeaa8253b421d00c3af4b5d848584d49e24a753f0ab5b7ba22882e",
+      "gitBlobSha": "48f21955d7785a6e1f3c46fa33cb05683ebfedd3"
+    },
+    {
+      "path": "tests/blackjack-range-evidence-checks.mjs",
+      "size": 2703,
+      "sha256": "93de07f812371dfad12624bc32b822dae81005e33377e56f8b87fccea866ede3",
+      "gitBlobSha": "579888134cdc62fe3611caeac3050d5923b080bf"
+    },
+    {
+      "path": "tests/blackjack-range-evidence-results.json",
+      "size": 300,
+      "sha256": "4cccf0dde172cd61570e7ff5e1a2e2d4672064974c88d076e29d4563378f0353",
+      "gitBlobSha": "1098011aff36d9446e7fcac291576e16a31bbd4f"
+    },
+    {
+      "path": "tests/blackjack-variant-checks.mjs",
+      "size": 12598,
+      "sha256": "31226f7829635bcf0348b1710463231d3ed394793fe9aa50644a9624fb4be2f1",
+      "gitBlobSha": "4ee24a215afb0d0a6eed6f8f97fde5c3c4d2f7cb"
+    },
+    {
+      "path": "tests/bonanza-checks.mjs",
+      "size": 8366,
+      "sha256": "c262077c735b3e4e497e0e80e916a4af953ee1c947c2c9847c26c906f918fe51",
+      "gitBlobSha": "77e497b8de04250e4edef1276143540551711403"
+    },
+    {
+      "path": "tests/bonanza-fixed-weight-audit.mjs",
+      "size": 5730,
+      "sha256": "e3925fa2bf69bc62bc2281c11d72dbbe9dadc78ec7dfd94568914f987eddf09a",
+      "gitBlobSha": "498a85b18f0aa529e0ad753beb3953d0c53b5a5d"
+    },
+    {
+      "path": "tests/bonanza-mascot-checks.mjs",
+      "size": 6207,
+      "sha256": "7311d93e28fe9480e2c45d1fbe19ec973ea39e866400cb67b638cd6a489f1e8f",
+      "gitBlobSha": "73c2a054d6f6804b4c595a0fd26c7e72e5c6f4eb"
+    },
+    {
+      "path": "tests/bonanza-presentation-checks.mjs",
+      "size": 10217,
+      "sha256": "389960372b6ae123f5952ff2e65d87ade27ddfa9506db68406f4241f2c348682",
+      "gitBlobSha": "2e832e441991209e44e588b41e09d16585110011"
+    },
+    {
+      "path": "tests/bonanza-profile-checks.mjs",
+      "size": 8090,
+      "sha256": "88936980448edcb2713f406d6d8f3513878259f7203092621fb4676f50afbb4b",
+      "gitBlobSha": "9622b4413491738e0c748dd400e3bd438b32976c"
+    },
+    {
+      "path": "tests/bonanza-return-table-checks.mjs",
+      "size": 5343,
+      "sha256": "3bb1780c1ab84445f63532c11e40318655c1e6b96248c38548d659a6fbc0596f",
+      "gitBlobSha": "467d164e207ab85787a0a59827e484771653c800"
+    },
+    {
+      "path": "tests/bonus-purchase-floor-checks.mjs",
+      "size": 12705,
+      "sha256": "00f2cc4d6f7b3b9d50e2b76163cd25a90457e88d5fa64537978d01465eb2b711",
+      "gitBlobSha": "1df671e43f0ca42075f8fde00b0a70b59fba173f"
+    },
+    {
+      "path": "tests/bonus-purchase-floor-results.json",
+      "size": 1677,
+      "sha256": "07a498047e6c770be2de2609b9f1bb2e40235aa2378c0ae0603d4423625e73b4",
+      "gitBlobSha": "f10c10ba6dcbb1bed08023c6dc153553ce53d25d"
+    },
+    {
+      "path": "tests/classic-profile-checks.mjs",
+      "size": 13302,
+      "sha256": "4ed770b697bb4ca0512bb0f2687e46fba28acffcdcfb55ef4f7af742e1e6fc66",
+      "gitBlobSha": "a36ada3b0e7711db37614bbb017e3a05ed71ddce"
+    },
+    {
+      "path": "tests/classic-profile-results.json",
+      "size": 789,
+      "sha256": "086537def2ce3f2bf801ecc59ab35fac7ca74e89662f2bc432281c2ada56c54d",
+      "gitBlobSha": "4a3bb0a89f99404ed14b01a2093bb746bef70507"
+    },
+    {
+      "path": "tests/demo-rtp-range-checks.mjs",
+      "size": 7044,
+      "sha256": "6fc5c74da892077c57700c24e77db3d14956dd3ec5f33935aa432a30a00fb480",
+      "gitBlobSha": "4747e9cea79d82dc3b684e2145e5c3645a244794"
+    },
+    {
+      "path": "tests/demo-rtp-range-results.json",
+      "size": 431,
+      "sha256": "22febca3b6462a504dcf306dc0764c88d592f51955f6cc0b80e285c5102e967e",
+      "gitBlobSha": "1ad964a829ba8284772d94f3d8949ca80838b892"
+    },
+    {
+      "path": "tests/demo-ui-settings-checks.mjs",
+      "size": 7027,
+      "sha256": "1b6fd27336a145f13ed3ffc407441de087f6feec04a4e604eee6939b3d1d79a8",
+      "gitBlobSha": "d4ad3e8ff308d05ded2878080c27a37977eee32d"
+    },
+    {
+      "path": "tests/feature-ledger-checks.mjs",
+      "size": 4315,
+      "sha256": "26329fafcb69b6e68b7a5f1d5ca73689e58e9bd21422a4a3160ed2b8f0319080",
+      "gitBlobSha": "be36d1e296fff4f0ad2ae63aa0d59a5329fff8af"
+    },
+    {
+      "path": "tests/fixtures/game-math-v8.js",
+      "size": 9287,
+      "sha256": "ff145e4d740a266fb816a23b70c9812d8ced150b37fed131a1f6c8a990230338",
+      "gitBlobSha": "8e269c2230f0ffce35affd18a5387060af70ce7d"
+    },
+    {
+      "path": "tests/fixtures/game-math-v9.js",
+      "size": 12477,
+      "sha256": "0b6f617d4f5a6e4e5ae544b000334519f0248c98325dd07d687d91ba42552a43",
+      "gitBlobSha": "86448bc25bc2960b70fcd80e7969bee9936842a7"
+    },
+    {
+      "path": "tests/game-distribution-checks.mjs",
+      "size": 10991,
+      "sha256": "b2d1549539e54811c2126b7a9e3699e3a131ee28074eb0427df9399908941b5b",
+      "gitBlobSha": "f8815afff7f8a066029d99e1c09bcc6cd919fd20"
+    },
+    {
+      "path": "tests/game-math-checks.mjs",
+      "size": 7269,
+      "sha256": "43d65f1a45049b2f435a3ce760b76408e70a21cf07842c1c00dad7f7a205fc43",
+      "gitBlobSha": "2ebcd1a1224b9363a32ffed9bd186f477133b2cf"
+    },
+    {
+      "path": "tests/hall-checks.mjs",
+      "size": 12135,
+      "sha256": "6cb12633ecd4287582c125044b8932c3b98bd6e906543cbfacb97ba195be2fe6",
+      "gitBlobSha": "9a59de7ccceb1440dd5ca5ca08631a2c7931529b"
+    },
+    {
+      "path": "tests/hall-rtp-profile-checks.mjs",
+      "size": 16903,
+      "sha256": "0cfcc22048e7261a0635a90f636bd7ef7072a37643ae4e98cb34bca935892fed",
+      "gitBlobSha": "8dfa73d0f8483b77474c9b363d600a411593753e"
+    },
+    {
+      "path": "tests/hall-rtp-profile-results.json",
+      "size": 2989,
+      "sha256": "1eeb363dbc19a4b64814f1f81c178f60fe1e9cf1c44ada282a51adcb7bba2164",
+      "gitBlobSha": "b91e49df3cbd391fff88e535886988f98bdab8b8"
+    },
+    {
+      "path": "tests/hall-security-checks.mjs",
+      "size": 9120,
+      "sha256": "ef4e29e6655c9916789c87fadfb7df5f3eeef6f8f924ab69799e4a26c2ed7b64",
+      "gitBlobSha": "cb298a28e3716b9b1a06d15bab6fe707b867edd1"
+    },
+    {
+      "path": "tests/house-mascot-checks.mjs",
+      "size": 7280,
+      "sha256": "507ab096005abdc760ded6866b00826d0ca270b8758a9d03e560d62617f7b827",
+      "gitBlobSha": "88a08767154a434384cf903f18ea664cf8810c9b"
+    },
+    {
+      "path": "tests/lexof-mascot-checks.mjs",
+      "size": 6402,
+      "sha256": "807d23492d552d0e3b223a378be58db22bf287de75e29dc082340788fa7640f6",
+      "gitBlobSha": "0a0f51c8b6ea3fbda8c9aad9c6bf3d9976aa2659"
+    },
+    {
+      "path": "tests/mask-cap-liability-checks.mjs",
+      "size": 8385,
+      "sha256": "8a6b272eeba246c497be6e2e74649a9b9bb0a2dc9fca8809f008464a16b944a7",
+      "gitBlobSha": "fed8eda7546cef265a280a77117ea61a0491e373"
+    },
+    {
+      "path": "tests/mask-motion-checks.mjs",
+      "size": 23377,
+      "sha256": "dfa208f4b33d5aa9b30e032116c37f30a607c1f1734b431a9f475c85660ec1c5",
+      "gitBlobSha": "75ef4592ce145be8b893c4611a70eaa08c9c1f92"
+    },
+    {
+      "path": "tests/mask-profile-checks.mjs",
+      "size": 11705,
+      "sha256": "c97f17d49179f93116ab20d9eb3c8746c3e36fa097e055f2915048a9af3eb787",
+      "gitBlobSha": "c9238c425190187c8602ae64d5d5ed9620573125"
+    },
+    {
+      "path": "tests/mask-reel-audio-checks.mjs",
+      "size": 2172,
+      "sha256": "f6a3de36990c3149b6c3d6c7d55d65dea89bf0228efa1304646072257f0df320",
+      "gitBlobSha": "f92c1f67ea62a2d0493dad860ebfe9daa0370ca7"
+    },
+    {
+      "path": "tests/mask-slot-integration-checks.mjs",
+      "size": 36185,
+      "sha256": "c387b97b1a12f16ca38ffeb355b56718a211402564156f244bed978b97f31d4d",
+      "gitBlobSha": "b7031032771a2f14685c102cff6d57d9868eca09"
+    },
+    {
+      "path": "tests/mask-slots-checks.mjs",
+      "size": 20016,
+      "sha256": "df79a8707b3fd85cf6663b0dc94a8636f4895b5429815755e7215c894f3bd189",
+      "gitBlobSha": "a2dced635621aa7e646db2595e56a895581b2eb0"
+    },
+    {
+      "path": "tests/miniapp-package-checks.mjs",
+      "size": 16910,
+      "sha256": "82ee2a36beb2b89d6a25ebb4c021f9f96ee11e33c1c93b878231be92beeb8dae",
+      "gitBlobSha": "716d29b44e335bad59f8746aefb18f40e628f2d5"
+    },
+    {
+      "path": "tests/paid-bonus-checks.mjs",
+      "size": 10839,
+      "sha256": "a667a8cbdb4ebdb8fed80dd3cdc8202a3fa27d1e87ecc1a3dac3de09dd19fcac",
+      "gitBlobSha": "5d575a1735828824c9f8def6b33330ce94671aed"
+    },
+    {
+      "path": "tests/plinko-motion-checks.mjs",
+      "size": 1459,
+      "sha256": "0a3bf343861eddf2b6282c9303eeddb5b0150dfd74f564b8bf1384102d44ba1a",
+      "gitBlobSha": "d09cd3e7add72f88f0fdb4115614a0bbbb978a3e"
+    },
+    {
+      "path": "tests/plinko-parallel-checks.mjs",
+      "size": 8881,
+      "sha256": "ac963d3aa01aa6803ff547d6f95711d9d2f79382fe5b7488b0f0f46e764b51d0",
+      "gitBlobSha": "cd5f0693eaa37cfc1adb5bd51156fedc9d117052"
+    },
+    {
+      "path": "tests/presentation-resilience-checks.mjs",
+      "size": 13174,
+      "sha256": "0c630892fc472c8d185e772b2129339f18e53902cf6be7022738c0f8c01253e2",
+      "gitBlobSha": "81956a6f7ced2ad061449dcc60dac4941829d4ad"
+    },
+    {
+      "path": "tests/profile-checks-results.json",
+      "size": 1701,
+      "sha256": "857255c37595a2e37498d573f695c56c1d02ba2acb985f39de990d473c21b092",
+      "gitBlobSha": "a9243e19b16551b2d1fb95390108ea1bec73e9d1"
+    },
+    {
+      "path": "tests/raster-coin-checks.mjs",
+      "size": 1892,
+      "sha256": "bb4cbd81cc992ef94048e24d7f6644064019941565bd4a2349256296ed50f7ec",
+      "gitBlobSha": "27bbbe7011a2f4a010aa4e9aa6fb2b49e8244cd6"
+    },
+    {
+      "path": "tests/raster-roulette-checks.mjs",
+      "size": 1425,
+      "sha256": "7389778b5dfb830f4944a0c41c5ccd92ec887bf2128027071c63a99db5203f4c",
+      "gitBlobSha": "5529c37574f61d971916e36641430e619c20ba89"
+    },
+    {
+      "path": "tests/server-admin-checks.mjs",
+      "size": 17394,
+      "sha256": "db40951635ac857a78fab99f27fd36e214cd783efe622e9b9b010fb61a7fa6b2",
+      "gitBlobSha": "5d3e81aa38b2b2449f24e1d7480be5e7ba3135f4"
+    },
+    {
+      "path": "tests/server-admin-client-checks.mjs",
+      "size": 9813,
+      "sha256": "bcb4f0aa9fcb609ee20ee512b74777dfac75766664d7cd55099da9d45bed07f4",
+      "gitBlobSha": "cee5c82ec6336d1a6e5eac09559efd22eb4efbe5"
+    },
+    {
+      "path": "tests/slot-playback-controller-checks.mjs",
+      "size": 12678,
+      "sha256": "2d268bbe1911aee6dbc9c9b15d4bcf6ab3e6d87970103cf605d319adb300b7d8",
+      "gitBlobSha": "74766fc21a8376dd5156f92ee0a5bdcb63fff95f"
+    },
+    {
+      "path": "tests/slot-speed-checks.mjs",
+      "size": 2214,
+      "sha256": "d70a0f734be773e08b015afa4ce087b099062a164c65f58a15bb832ed556f13e",
+      "gitBlobSha": "7ca8069377d8e1ca8163c6e4f0815d53afeb3b88"
+    },
+    {
+      "path": "tests/slot-win-readout-checks.mjs",
+      "size": 2403,
+      "sha256": "af140a39acb03aa08b78c7af1e2cf4a7b760e50128081ae32c37dce1ed6be084",
+      "gitBlobSha": "a26cc16c53665461732c7768163d44b4c6709e3f"
+    },
+    {
+      "path": "tests/spw-server-session-checks.mjs",
+      "size": 11558,
+      "sha256": "88483f14a76dc0b62648853e5e73c9de75c53237727f643153f42cc61ee2a08d",
+      "gitBlobSha": "541852101dc3fe61e085124ff3f1c4b339ea7ae0"
+    },
+    {
+      "path": "tests/stake-limits-checks.mjs",
+      "size": 3830,
+      "sha256": "a072718bd636a80e09b670a02e2dccdf2f02564085e750b0db45869d37e42db8",
+      "gitBlobSha": "df7794db54399c9fcbeeeb884b1bcede7fc185a7"
+    },
+    {
+      "path": "tests/universal-slot-profile-checks.mjs",
+      "size": 14578,
+      "sha256": "7f1ba8c14e288871ea5753727151608398f5317194d8e87b9195fbc6ac6f248a",
+      "gitBlobSha": "e7338b6aa3436eb60a22fe73aab7a88d5b04f327"
+    },
+    {
+      "path": "tests/universal-slot-profile-results.json",
+      "size": 1539,
+      "sha256": "a3d33211917ec82e0947eec7919674c53bb0320f56bab40b1b6bd402fe79e694",
+      "gitBlobSha": "dff19f4102176d62d2f1b044ae7571ae85ffa416"
+    },
+    {
+      "path": "tests/upgrader-hacker-checks.mjs",
+      "size": 7994,
+      "sha256": "2717c2498318191522eda3981e59a15921500d0c216abef2f0a02a283f504891",
+      "gitBlobSha": "4af6c00bcbfecc3d1c22d90d6289862569527673"
+    },
+    {
+      "path": "vite.config.js",
+      "size": 212,
+      "sha256": "7f47d16a60e90ffc0c7374f4f650093d137c7751babff87780de73921e39156b",
+      "gitBlobSha": "a56d98820b0a242d4ed3b25aa8c39598f585b959"
+    }
+  ]
+}

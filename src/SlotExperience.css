@@ -1,0 +1,107 @@
+/* Shared cabinet geometry; each slot keeps its own raster scenery and palette. */
+.indictus-app.indictus-app .mask-slot-room .room-layout{display:block;max-width:1100px;margin:auto;}
+.indictus-app.indictus-app .mask-slot-room .room-heading{margin:0 auto 12px;max-width:1100px;}
+.indictus-app.indictus-app .mask-slot-room .room-heading h1{font-size:26px!important;}
+.indictus-app.indictus-app .mask-slot-room .mask-slot-stage{width:100%;min-width:0;max-width:100%;border-radius:12px 12px 0 0;max-height:calc(100svh - 255px);min-height:400px;}
+.indictus-app.indictus-app .mask-slot-stage { aspect-ratio:8/5; min-height:0; border:1px solid #977848; border-radius:12px; box-shadow:0 18px 48px #0006; }
+.indictus-app.indictus-app .mask-slot-cabinet { background-size:cover; background-position:center; }
+.indictus-app.indictus-app .maskhouse .mask-slot-grid { inset:24% 18.5% 18%; border:4px solid #b88944; padding:5px; gap:3px; box-shadow:0 0 0 1px #ffe3a377,0 8px 0 #200d12,0 14px 24px #0007; background:#24101cf5; }
+.indictus-app.indictus-app .lecipher .mask-slot-grid { inset:18% 9% 15% 20%; border:3px solid #c7993e; box-shadow:0 0 0 1px #f4cc6566,0 8px 0 #031b14,0 13px 24px #0008; background:#07241ded; }
+.indictus-app.indictus-app .mask-cabinet-title { top:7%; font-size:clamp(28px,3.2vw,44px); letter-spacing:.015em; text-shadow:0 3px 0 #2b100d; }
+.indictus-app.indictus-app .lecipher .mask-cabinet-title { top:5%; }
+.slot-scene-light { position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 28%,#ffd18010,transparent 60%); mix-blend-mode:screen; transition:background calc(1s / var(--slot-speed,1)); }
+.mask-slot-stage[data-bonus='sticky'] .slot-scene-light { background:radial-gradient(ellipse at 50% 45%,#ffb94c33,transparent 68%); }
+.mask-slot-stage[data-bonus='gold'] .slot-scene-light,.mask-slot-stage[data-bonus='treasure'] .slot-scene-light { background:radial-gradient(ellipse at 65% 35%,#ffc84444,transparent 75%); }
+.indictus-app.indictus-app .mask-slot-symbol { width:100%; height:auto; max-height:100%; aspect-ratio:1; }
+.mask-cell-overlay { position:absolute; z-index:3; inset:5px; display:grid; grid-template-columns:repeat(var(--cols),1fr); grid-template-rows:repeat(var(--rows),1fr); gap:2px; pointer-events:none; }
+.mask-cell-overlay i { border-radius:3px; }
+.cell-removing { border:1px solid #efc87888; background:#e9bc4322; }
+.mask-removing .mask-slot-symbol { animation:slot-symbol-dissolve calc(.65s / var(--slot-speed,1)) ease-in both; }
+.cell-trigger { border:2px solid #ffdf79; box-shadow:0 0 20px #ffc44499,inset 0 0 20px #ffc44455; animation:slot-gold-bloom calc(1s / var(--slot-speed,1)) ease-out both; }
+.cell-boosted { border:2px solid #9febaf; background:#3ee86822; animation:slot-gold-bloom calc(1.1s / var(--slot-speed,1)) ease-out both; }
+.cell-collecting { border:2px solid #ffe899; box-shadow:0 0 25px #ffd46d; animation:slot-gold-bloom calc(.65s / var(--slot-speed,1)) ease-out both; }
+.mask-paying-line { position:absolute; z-index:4; inset:5px; width:calc(100% - 10px); height:calc(100% - 10px); pointer-events:none; overflow:visible; }
+.mask-paying-line polyline { stroke:#ffe28e; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round; filter:drop-shadow(0 0 4px #e79e36); stroke-dasharray:700; animation:slot-line-draw calc(.5s / var(--slot-speed,1)) ease-out both; }
+.mask-slot-grid.phase-payline .mask-slot-cell:not(.mask-cell-win):not(.mask-sticky-fixed) { opacity:.45; }
+.mask-fixed-win::after { content:''; position:absolute; inset:2px; border:2px solid #fff0a6; border-radius:3px; box-shadow:0 0 15px #ffd85b80,inset 0 0 12px #ffd85b44; }
+.indictus-app.indictus-app .mask-sticky-fixed { transform:none!important; animation:none!important; }
+.mask-line-readout { position:absolute; z-index:5; left:23%; right:23%; bottom:17%; padding:8px 15px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; border:1px solid #e8b657; border-radius:5px; background:#2d111cf2; color:#e3c89f; font:14px/1.3 Arial,sans-serif; box-shadow:0 4px 12px #0007; }
+.mask-line-readout strong { color:#ffe599; font:600 25px/1 'Barlow Condensed',Arial,sans-serif; }
+.indictus-app.indictus-app .mask-slot-readout { bottom:3.5%; left:5%; right:5%; border-top:1px solid #ecc47835; padding-top:8px; }
+.indictus-app.indictus-app .mask-slot-readout strong { font-size:clamp(24px,2.8vw,36px); display:inline-block; animation:slot-amount-pop calc(.3s / var(--slot-speed,1)) ease-out; }
+.indictus-app.indictus-app .mask-free-count { top:3%; right:19%; min-height:58px; padding:7px 15px; background:#261321f5; border-color:#e0ac57; box-shadow:0 4px 0 #170b12,0 0 20px #e8a84222; }
+.indictus-app.indictus-app .lecipher .mask-free-count { right:9%; background:#072b20f5; }
+.indictus-app.indictus-app .mask-free-count strong { font-size:44px; }
+.indictus-app.indictus-app .mask-free-count small { font-size:14px; }
+.indictus-app.indictus-app .mask-bonus-card { inset:20% 24% auto; border:2px solid #e6b65e; border-radius:12px; background:#28121ff5; box-shadow:0 0 0 6px #e8b66420,0 12px 45px #000b; }
+.indictus-app.indictus-app .lecipher .mask-bonus-card { background:#082d20f5; }
+.indictus-app.indictus-app .mask-bonus-selection { inset:12% 25% auto; padding:18px; }
+.indictus-app.indictus-app .mask-award-tiles { max-width:215px; gap:7px; margin:10px auto; }
+.indictus-app.indictus-app .mask-award-tiles b { animation:none; font-size:32px; background:#4e2331; color:#957354; border-color:#82562f; }
+.indictus-app.indictus-app .mask-award-tiles b[data-revealed='true'] { color:#ffebbd; background:#943c45; border-color:#ebbb61; box-shadow:0 0 15px #f1b94944,inset 0 -3px 0 #48161e; }
+.indictus-app.indictus-app .mask-bonus-selection>strong { font-size:50px; }
+.indictus-app.indictus-app .lexof-rainbow-feature { top:28%; }
+.indictus-app.indictus-app .lexof-rainbow-feature .mask-slot-symbol { width:clamp(100px,13vw,155px); height:auto; }
+.indictus-app.indictus-app .lexof-rainbow-feature strong { font-size:25px; border-radius:20px; }
+.mask-slot-stage[data-playback-paused='true'] * { animation-play-state:paused!important; }
+.indictus-app.indictus-app .mask-slot-controls { border-radius:12px; box-shadow:0 12px 28px #0004; }
+.indictus-app.indictus-app .mask-slot-controls .primary { border-radius:7px; box-shadow:inset 0 1px 0 #fff3,inset 0 -4px 0 #0003,0 5px 12px #0003; }
+.indictus-app.indictus-app .mask-buy-button { position:relative; overflow:hidden; border-radius:7px; }
+.indictus-app.indictus-app .mask-buy-button::after { content:''; position:absolute; inset:0; background:linear-gradient(110deg,transparent 15%,#fff2 45%,transparent 75%); transform:translateX(-110%); pointer-events:none; }
+.indictus-app.indictus-app .mask-buy-button:hover:enabled::after { animation:slot-button-sheen calc(.65s / var(--slot-speed,1)) ease-out; }
+.indictus-app.indictus-app .mask-buy-button:disabled { opacity:.45; cursor:not-allowed; }
+.indictus-app.indictus-app .raster-slot .bonanza-cabinet { aspect-ratio:8/5; background-size:cover; }
+.indictus-app.indictus-app .raster-slot .bonanza-field-shell { left:18%; width:64%; top:16%; border:4px solid #bc9554; box-shadow:0 0 0 1px #f8db9166,0 7px 0 #051723,0 12px 22px #0008; background:#09232e; }
+.indictus-app.indictus-app .raster-slot .bonanza-heading { left:18%; right:18%; top:5%; }
+.indictus-app.indictus-app .raster-slot .bonanza-heading h2 { letter-spacing:.02em; font-size:clamp(30px,3.4vw,46px); }
+.indictus-app.indictus-app .raster-slot .bonanza-readout { left:18%; width:64%; bottom:4%; font-size:14px; }
+.indictus-app.indictus-app .raster-slot .bonanza-readout strong { font:600 clamp(24px,2.7vw,36px)/1 'Barlow Condensed',Arial,sans-serif; color:#ffe2a1; }
+.indictus-app.indictus-app .raster-slot .bonanza-status { left:auto; top:2%; right:18%; width:auto; padding:0; }
+.indictus-app.indictus-app .raster-slot .bonus-spin-counter { padding:8px 14px; background:#092936f5; }
+.indictus-app.indictus-app .raster-slot .slot-cell.winning::before { background:#eec74f1c; box-shadow:inset 0 0 20px #ffc95455; border:1px solid #f1c46199; }
+.indictus-app.indictus-app .raster-slot .slot-sprite { filter:drop-shadow(0 3px 1px #0006); }
+.indictus-app.indictus-app .raster-slot .bonanza-group-payout { border:1px solid #e5bc70; border-image:none; background:#07232df5; padding:9px 5px; border-radius:7px; box-shadow:0 0 22px #eab75333; }
+.indictus-app.indictus-app .raster-slot .bonanza-group-payout span { font-size:12px; }
+.indictus-app.indictus-app .raster-slot .bonanza-spin-summary { border:2px solid #e4bc72; border-image:none; border-radius:10px; background:#072b37f5; }
+.indictus-app.indictus-app .raster-slot .slot-controls { border:1px solid #496e76; border-image:none; border-radius:0 0 10px 10px; background:#0b222d; }
+.indictus-app.indictus-app .raster-slot .slot-buy-button { border:1px solid #c29856; border-image:none; border-radius:8px; background:#76323d!important; box-shadow:inset 0 -4px 0 #401923; }
+.indictus-app.indictus-app .raster-slot .slot-stake-control,.indictus-app.indictus-app .raster-slot .slot-totals { border-image:none; border:0; background:transparent; }
+.indictus-app.indictus-app .raster-slot .slot-purchase-dialog,.indictus-app.indictus-app .raster-slot .bonanza-entrance-dialog { background:#0c2936; border:2px solid #b79558; border-image:none; border-radius:12px; }
+.indictus-app.indictus-app .raster-slot .entrance-heading h2 { font-family:'Barlow Condensed',Arial,sans-serif; }
+.indictus-app.indictus-app .raster-slot .entrance-rule-panel { border:1px solid #4c6b70; border-image:none; border-radius:8px; background:#071f2bc9; }
+.indictus-app.indictus-app .raster-slot .entrance-continue,.indictus-app.indictus-app .raster-slot .slot-purchase-dialog button { border:1px solid #c8a86a; border-image:none; border-radius:7px; font-size:15px; }
+@keyframes slot-gold-bloom { 50%{filter:brightness(1.45);} }
+@keyframes slot-symbol-dissolve { 55%{filter:brightness(1.5);opacity:1;}to{opacity:.15;transform:scale(.65);} }
+@keyframes slot-line-draw { from{stroke-dashoffset:700;}to{stroke-dashoffset:0;} }
+@keyframes slot-amount-pop { from{transform:scale(.9);filter:brightness(1.8);}to{transform:none;filter:none;} }
+@keyframes slot-button-sheen { to{transform:translateX(110%);} }
+@media(max-width:1000px){
+ .indictus-app.indictus-app .mask-slot-stage{aspect-ratio:8/5;}
+ .indictus-app.indictus-app .maskhouse .mask-slot-grid{left:13%;right:13%;}
+ .indictus-app.indictus-app .raster-slot .bonanza-field-shell{left:12%;width:76%;top:18%;}
+}
+@media(max-width:760px){
+ .indictus-app.indictus-app .mask-slot-room .mask-slot-stage{min-height:350px;max-height:none;aspect-ratio:.95;}
+ .indictus-app.indictus-app .mask-slot-stage{aspect-ratio:1.1;min-height:340px;}
+ .indictus-app.indictus-app .maskhouse .mask-slot-grid{inset:23% 4% 19%;}
+ .indictus-app.indictus-app .lecipher .mask-slot-grid{inset:22% 4% 17%;}
+ .indictus-app.indictus-app .mask-slot-cabinet{background-size:cover;}
+ .indictus-app.indictus-app .mask-cabinet-title{left:5%;right:5%;top:7%;font-size:30px;}
+ .indictus-app.indictus-app .mask-free-count{top:3%;right:5%;min-height:55px;}
+ .indictus-app.indictus-app .mask-free-count strong{font-size:42px;}
+ .indictus-app.indictus-app .mask-free-count span{font-size:17px;}
+ .indictus-app.indictus-app .mask-bonus-card{inset:17% 12% auto;padding:16px;}
+ .indictus-app.indictus-app .mask-bonus-selection{inset:5% 14% auto;padding:12px;}
+ .indictus-app.indictus-app .mask-bonus-emblem{width:62px;height:62px;}
+ .indictus-app.indictus-app .mask-bonus-card>strong{font-size:58px;}
+ .mask-line-readout{left:10%;right:10%;bottom:18%;padding:7px;}
+ .indictus-app.indictus-app .mask-award-tiles{max-width:150px;margin:7px auto;}
+ .indictus-app.indictus-app .mask-award-tiles b{font-size:26px;}
+ .indictus-app.indictus-app .mask-bonus-selection>strong{font-size:40px;}
+ .indictus-app.indictus-app .raster-slot .bonanza-cabinet{aspect-ratio:4/4.7;background-position:25% center;}
+ .indictus-app.indictus-app .raster-slot .bonanza-field-shell{left:3%;width:94%;top:24%;}
+ .indictus-app.indictus-app .raster-slot .bonanza-heading{top:7%;left:5%;right:5%;}
+ .indictus-app.indictus-app .raster-slot .bonanza-status{right:4%;top:3%;}
+ .indictus-app.indictus-app .raster-slot .bonanza-readout{left:5%;width:90%;bottom:4%;}
+}
+@media(prefers-reduced-motion:reduce){.mask-cell-overlay i,.mask-paying-line polyline,.mask-removing .mask-slot-symbol,.mask-slot-readout strong,.mask-buy-button::after{animation:none!important;}.mask-paying-line polyline{stroke-dasharray:none;}}

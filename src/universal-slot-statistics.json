@@ -1,0 +1,2515 @@
+{
+  "status": "passed",
+  "revision": "indictus-public-whole-candidate-profiles-v13",
+  "startedAt": "2026-10-09T15:01:57.606Z",
+  "completedAt": "2026-10-09T15:09:40.592Z",
+  "calibrationSourceSHA256": "c1a66c1675650e6033253b568b4d9bea141b41437da19284c8d74edfb22d8109",
+  "engineSourceSHA256": {
+    "universal-slot-profiles.js": "53269eaf09a6036bb845a8079641ac783dff1810c909188e3877abf43e286450",
+    "universal-slot-calibration.json": "968aee101a3d644674001f8df0d774d6ecf4207b89f1899ca17a7ad63bb34a08",
+    "rtp-range.js": "e65526daf48e545b5529cb8978cafe2420f6687f73b2416afab3c325c04ca117",
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "stake-limits.js": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "profiled-mask-core.js": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+    "rtp-profiles.js": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6"
+  },
+  "scope": "Independent actual-public-sampler endpoint holdout at50ARbase: profiles50/70/95 and9offers only. Other43profiles have frozen calibration-derived estimates, not independentprofileobservations.",
+  "method": "Frozen actual public whole-candidate sampler and actual purchasefloor, nativeframes/credits reconciled, fresh independent128bit perrowseeds stored before sampling, no fast surrogate or tuning. Safety errors reject one complete request; they are counted and not retried within it.",
+  "definitions": {
+    "return": "Whole payout divided by wholechargedprice",
+    "profit": "Whole payout strictly greater than wholechargedprice",
+    "tail": "Thresholds15.8x/30x BASE stake, not buycost; totalfullroundpayout",
+    "ci": "Approximate95%mean normal confidence interval from sample variance; frequency Wilson interval; not exacttheoreticalRTP",
+    "legacy50": "Native50 RNG/outcomes, then buyfloor only"
+  },
+  "rows": [
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "gold",
+      "profile": 50,
+      "offer": "lecipher:buy:gold",
+      "key": "rtp50:lecipher:buy:gold",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "589d06c2720510e01d489d4894ad677f",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 125000,
+      "capCents": 199900,
+      "meanPercent": 50.15388651999999,
+      "ciPercent": [
+        49.79998942490892,
+        50.507783615091064
+      ],
+      "standardErrorPercent": 0.18055974239340222,
+      "payoutSumCents": 1253847163,
+      "rawPayoutSumCents": 1245485652,
+      "profitCount": 603,
+      "profitFraction": 0.03015,
+      "profitFraction95CI": [
+        0.02786880360729555,
+        0.03261165930538818
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 1523,
+      "floorTransactionFrequency": 0.07615,
+      "floorTopupSumCents": 8361511,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 6051,
+          "frequency": 0.30255,
+          "frequency95CI": [
+            0.29622198405160705,
+            0.3089538537734635
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 109,
+          "frequency": 0.00545,
+          "frequency95CI": [
+            0.0045203037361671245,
+            0.006569646106267142
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 20000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 79
+      },
+      "rng": {
+        "boundedDraws": 10454110,
+        "uint32Words": 10454110,
+        "acceptanceTickets": 0
+      },
+      "checks": 838841,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-buy-gold.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "08497e0b4bf79f014025b338ba062cf2b51d54c95e6c26e7ed067614c941fafe",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-buy-gold.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "387ff03ecf9e5a977c037883209bcffa2368a802ce599e1970621c1cfc3dbd0b",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-buy-gold.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "c455f21152952b8c9b1c6d9d25446ebeffbc4e0ccfe32086cf58e03de318d93a",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 16.613509699999998
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "luck",
+      "profile": 50,
+      "offer": "lecipher:buy:luck",
+      "key": "rtp50:lecipher:buy:luck",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "3946ccb0194d21aa1e78aa6bd0e62686",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "meanPercent": 50.89920955000006,
+      "ciPercent": [
+        50.51420985177501,
+        51.28420924822511
+      ],
+      "standardErrorPercent": 0.19642841746175962,
+      "payoutSumCents": 1017984191,
+      "rawPayoutSumCents": 1006219191,
+      "profitCount": 1218,
+      "profitFraction": 0.0609,
+      "profitFraction95CI": [
+        0.057669166251623175,
+        0.06429948600965049
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 2353,
+      "floorTransactionFrequency": 0.11765,
+      "floorTopupSumCents": 11765000,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 3266,
+          "frequency": 0.1633,
+          "frequency95CI": [
+            0.158241807342996,
+            0.16848751448886654
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 13,
+          "frequency": 0.00065,
+          "frequency95CI": [
+            0.0003799143962202306,
+            0.001111879060092681
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 20000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 4
+      },
+      "rng": {
+        "boundedDraws": 5287321,
+        "uint32Words": 5287321,
+        "acceptanceTickets": 0
+      },
+      "checks": 624993,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-buy-luck.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "3a894b704d196aaffdd33eca49e5d94e50d68d4e140e4e3d1604d57fe9cc7a22",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-buy-luck.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "cd3f024447c9b6b6c2b5bd032bfa71fb844265ce4a0f2e7b47ad89dbc28d7868",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-buy-luck.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "c455f21152952b8c9b1c6d9d25446ebeffbc4e0ccfe32086cf58e03de318d93a",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 7.9066188
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "profile": 50,
+      "offer": "lecipher:paid",
+      "key": "rtp50:lecipher:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "c09de32d1c7cc05d60af701f4e260bae",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "meanPercent": 49.89283040000015,
+      "ciPercent": [
+        47.71183359853653,
+        52.073827201463764
+      ],
+      "standardErrorPercent": 1.1127534701344992,
+      "payoutSumCents": 124732076,
+      "rawPayoutSumCents": 124732076,
+      "profitCount": 4349,
+      "profitFraction": 0.08698,
+      "profitFraction95CI": [
+        0.0845414855093022,
+        0.08948197592010927
+      ],
+      "zeroCount": 38299,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 358,
+          "frequency": 0.00716,
+          "frequency95CI": [
+            0.006457883294706562,
+            0.007937842652877433
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 178,
+          "frequency": 0.00356,
+          "frequency95CI": [
+            0.003074706774357147,
+            0.004121572321127388
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 50000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 22
+      },
+      "rng": {
+        "boundedDraws": 1869729,
+        "uint32Words": 1869729,
+        "acceptanceTickets": 0
+      },
+      "checks": 817725,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c69e66810c3765dc21cfb1caafbdd1417d9b660ecdc54f0a36ff4c8d854e1526",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c69e66810c3765dc21cfb1caafbdd1417d9b660ecdc54f0a36ff4c8d854e1526",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c71f32cf6ff6aaa985bc0cdbed38da7ce0300f0dde96e63f5c6de4f2a1f392de",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 3.1920508
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "hunt",
+      "profile": 50,
+      "offer": "lecipher:paid:hunt",
+      "key": "rtp50:lecipher:paid:hunt",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "948844bc800dbfdc48ba54c03885c594",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 15000,
+      "capCents": 199900,
+      "meanPercent": 49.27765106666639,
+      "ciPercent": [
+        47.96485292850888,
+        50.590449204823905
+      ],
+      "standardErrorPercent": 0.6697949684477109,
+      "payoutSumCents": 369582383,
+      "rawPayoutSumCents": 369582383,
+      "profitCount": 6002,
+      "profitFraction": 0.12004,
+      "profitFraction95CI": [
+        0.11722032732132932,
+        0.12291805436652882
+      ],
+      "zeroCount": 37487,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 1338,
+          "frequency": 0.02676,
+          "frequency95CI": [
+            0.02538137547763742,
+            0.028211338886932523
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 392,
+          "frequency": 0.00784,
+          "frequency95CI": [
+            0.0071038442650057055,
+            0.008651777199085962
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 50000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 379
+      },
+      "rng": {
+        "boundedDraws": 2469502,
+        "uint32Words": 2469520,
+        "acceptanceTickets": 0
+      },
+      "checks": 853126,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid-hunt.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "e3afbcffbae30083b4e67200180448476a25ad1d0373c4994782011191ca6d25",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid-hunt.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "e3afbcffbae30083b4e67200180448476a25ad1d0373c4994782011191ca6d25",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid-hunt.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c71f32cf6ff6aaa985bc0cdbed38da7ce0300f0dde96e63f5c6de4f2a1f392de",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 4.0442095
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "rainbow",
+      "profile": 50,
+      "offer": "lecipher:paid:rainbow",
+      "key": "rtp50:lecipher:paid:rainbow",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "23a95a23a6ce1be0373d35e8fd6c0b1c",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 50000,
+      "capCents": 199900,
+      "meanPercent": 50.19868952000026,
+      "ciPercent": [
+        49.304641977538985,
+        51.09273706246154
+      ],
+      "standardErrorPercent": 0.4561467053373836,
+      "payoutSumCents": 1254967238,
+      "rawPayoutSumCents": 1254967238,
+      "profitCount": 10281,
+      "profitFraction": 0.20562,
+      "profitFraction95CI": [
+        0.20210011438721007,
+        0.20918511774583473
+      ],
+      "zeroCount": 39280,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 8513,
+          "frequency": 0.17026,
+          "frequency95CI": [
+            0.16699079439410666,
+            0.17357987088053897
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 4682,
+          "frequency": 0.09364,
+          "frequency95CI": [
+            0.09111753061887405,
+            0.0962249074869214
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 50000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 741
+      },
+      "rng": {
+        "boundedDraws": 1920679,
+        "uint32Words": 1920688,
+        "acceptanceTickets": 0
+      },
+      "checks": 820779,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid-rainbow.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "e094f295a8c6cc6f4bac220daf27e7aa554da7ce7d909be93be493d518070938",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid-rainbow.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "e094f295a8c6cc6f4bac220daf27e7aa554da7ce7d909be93be493d518070938",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-lecipher-paid-rainbow.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c71f32cf6ff6aaa985bc0cdbed38da7ce0300f0dde96e63f5c6de4f2a1f392de",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 3.355939899999999
+    },
+    {
+      "game": "maskhouse",
+      "mode": "buy",
+      "bonusTier": "sticky",
+      "profile": 50,
+      "offer": "maskhouse:buy:sticky",
+      "key": "rtp50:maskhouse:buy:sticky",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "350426fc3b737ad9675d52f44eb64448",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "meanPercent": 51.575222649999844,
+      "ciPercent": [
+        51.090179941834215,
+        52.06026535816546
+      ],
+      "standardErrorPercent": 0.24747076947225646,
+      "payoutSumCents": 1031504453,
+      "rawPayoutSumCents": 1008136714,
+      "profitCount": 2327,
+      "profitFraction": 0.11635,
+      "profitFraction95CI": [
+        0.11197959195299456,
+        0.1208677627271185
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 4675,
+      "floorTransactionFrequency": 0.23375,
+      "floorTopupSumCents": 23367739,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 4186,
+          "frequency": 0.2093,
+          "frequency95CI": [
+            0.2037180077283156,
+            0.21499364613720995
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00019204311235897808
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 20000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 3563705,
+        "uint32Words": 3563732,
+        "acceptanceTickets": 0
+      },
+      "checks": 770797,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-maskhouse-buy-sticky.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "a059b905d3235d2fad93a33fbcf464919396abc06f82d23d4ec1a2891e7c7d88",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-maskhouse-buy-sticky.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "e30811af71cba829d1bfb0d050c9fc4c6bd8e970526e8c264e66559cdd92a6e7",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-maskhouse-buy-sticky.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "c455f21152952b8c9b1c6d9d25446ebeffbc4e0ccfe32086cf58e03de318d93a",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 5.780680599999999
+    },
+    {
+      "game": "maskhouse",
+      "mode": "paid",
+      "profile": 50,
+      "offer": "maskhouse:paid",
+      "key": "rtp50:maskhouse:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "a24c2d77dbd38b0186a60ed82c90cebc",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "meanPercent": 50.208953999999636,
+      "ciPercent": [
+        48.180309785137695,
+        52.23759821486158
+      ],
+      "standardErrorPercent": 1.0350225586030335,
+      "payoutSumCents": 125522385,
+      "rawPayoutSumCents": 125522385,
+      "profitCount": 3622,
+      "profitFraction": 0.07244,
+      "profitFraction95CI": [
+        0.0702005774476219,
+        0.07474511808469897
+      ],
+      "zeroCount": 36820,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 291,
+          "frequency": 0.00582,
+          "frequency95CI": [
+            0.005190158303920905,
+            0.006525773537603846
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00007682609729729246
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 50000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 807749,
+        "uint32Words": 807752,
+        "acceptanceTickets": 0
+      },
+      "checks": 806764,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-maskhouse-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "da4ab6c2e9f8a1fc2aa051ece7a94f8ebe927e1f6e5da59019cf3889416a997e",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-maskhouse-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "da4ab6c2e9f8a1fc2aa051ece7a94f8ebe927e1f6e5da59019cf3889416a997e",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-maskhouse-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c71f32cf6ff6aaa985bc0cdbed38da7ce0300f0dde96e63f5c6de4f2a1f392de",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 1.3600600999999999
+    },
+    {
+      "game": "slots",
+      "mode": "buy",
+      "profile": 50,
+      "offer": "slots:buy",
+      "key": "rtp50:slots:buy",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "b1d38254de192e6664414e8575cffc2b",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 250000,
+      "capCents": 499900,
+      "meanPercent": 50.122978999999866,
+      "ciPercent": [
+        49.796567421552,
+        50.44939057844774
+      ],
+      "standardErrorPercent": 0.1665365196162576,
+      "payoutSumCents": 2506148950,
+      "rawPayoutSumCents": 2504180500,
+      "profitCount": 648,
+      "profitFraction": 0.0324,
+      "profitFraction95CI": [
+        0.03003446606470498,
+        0.034945132653973136
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 226,
+      "floorTransactionFrequency": 0.0113,
+      "floorTopupSumCents": 1968450,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 15632,
+          "frequency": 0.7816,
+          "frequency95CI": [
+            0.7758201053991081,
+            0.7872717359200114
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 5782,
+          "frequency": 0.2891,
+          "frequency95CI": [
+            0.282857941157584,
+            0.2954230626272092
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 20000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 8063690,
+        "uint32Words": 8063691,
+        "acceptanceTickets": 0
+      },
+      "checks": 720944,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-slots-buy.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "dff28e51435cb3eaa419806d8d114f4931f528ccc5930f169b89e5dfd67e5cf6",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-slots-buy.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "2f077437b1a80339b75d5bade9bc3e28f3a12ee33f22d10276c9656f03fec0c9",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-slots-buy.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "c455f21152952b8c9b1c6d9d25446ebeffbc4e0ccfe32086cf58e03de318d93a",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 11.9145821
+    },
+    {
+      "game": "slots",
+      "mode": "paid",
+      "profile": 50,
+      "offer": "slots:paid",
+      "key": "rtp50:slots:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "150ba684af3836d8edf04b1a8b49cb4c",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 499900,
+      "meanPercent": 47.75919999999946,
+      "ciPercent": [
+        45.348047906495204,
+        50.17035209350371
+      ],
+      "standardErrorPercent": 1.2301796395429867,
+      "payoutSumCents": 119398000,
+      "rawPayoutSumCents": 119398000,
+      "profitCount": 5606,
+      "profitFraction": 0.11212,
+      "profitFraction95CI": [
+        0.10938414255435285,
+        0.11491545605888649
+      ],
+      "zeroCount": 43161,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 218,
+          "frequency": 0.00436,
+          "frequency95CI": [
+            0.0038193283209584147,
+            0.004976827852770446
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 135,
+          "frequency": 0.0027,
+          "frequency95CI": [
+            0.0022817737287277656,
+            0.0031946375076441214
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 50000,
+        "meanCandidatesPerAcceptedRound": 1,
+        "maxCandidatesInAcceptedRound": 1,
+        "rngAcceptanceTickets": 0
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 1654696,
+        "uint32Words": 1654696,
+        "acceptanceTickets": 0
+      },
+      "checks": 904340,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp50-slots-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "69915de6e5e4aecda592109ad1e3684322215e110b5f55cf45e2281427dd3999",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp50-slots-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "69915de6e5e4aecda592109ad1e3684322215e110b5f55cf45e2281427dd3999",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp50-slots-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c71f32cf6ff6aaa985bc0cdbed38da7ce0300f0dde96e63f5c6de4f2a1f392de",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 2.6509373
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "gold",
+      "profile": 70,
+      "offer": "lecipher:buy:gold",
+      "key": "rtp70:lecipher:buy:gold",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "3070f79b14701c314243669661839579",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 125000,
+      "capCents": 199900,
+      "meanPercent": 70.37247111999994,
+      "ciPercent": [
+        69.88340708501332,
+        70.86153515498657
+      ],
+      "standardErrorPercent": 0.24952246682991103,
+      "payoutSumCents": 1759311778,
+      "rawPayoutSumCents": 1753627464,
+      "profitCount": 7132,
+      "profitFraction": 0.3566,
+      "profitFraction95CI": [
+        0.3499895839943879,
+        0.3632654939702367
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 1037,
+      "floorTransactionFrequency": 0.05185,
+      "floorTopupSumCents": 5684314,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 10736,
+          "frequency": 0.5368,
+          "frequency95CI": [
+            0.5298827406619844,
+            0.5437031249649462
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 1371,
+          "frequency": 0.06855,
+          "frequency95CI": [
+            0.06513014514208124,
+            0.07213556885957334
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 231626,
+        "meanCandidatesPerAcceptedRound": 11.5813,
+        "maxCandidatesInAcceptedRound": 106,
+        "rngAcceptanceTickets": 231626
+      },
+      "spinAccounting": {
+        "unplayedSpins": 1163
+      },
+      "rng": {
+        "boundedDraws": 121511524,
+        "uint32Words": 121528790,
+        "acceptanceTickets": 231626
+      },
+      "checks": 931644,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-buy-gold.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "1fce18ee95a8f91352bea39080a0fd6df27bb730bd379ae459f05b34c571bd64",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-buy-gold.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "53c18981e33ab3cb140122e911eb69c2593337d6689e67b55ea6c627c022327b",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-buy-gold.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "ae1dc7d8f761a0d26184eed7bfa2a7250aa38dc402d6265a7aa9d5d32198169e",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 192.89108599999997
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "luck",
+      "profile": 70,
+      "offer": "lecipher:buy:luck",
+      "key": "rtp70:lecipher:buy:luck",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "d432ba5140f83fe8414021cb5e3e0b04",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "meanPercent": 71.04069569999979,
+      "ciPercent": [
+        70.53510864996923,
+        71.54628275003036
+      ],
+      "standardErrorPercent": 0.25795257654620807,
+      "payoutSumCents": 1420813914,
+      "rawPayoutSumCents": 1413093914,
+      "profitCount": 7476,
+      "profitFraction": 0.3738,
+      "profitFraction95CI": [
+        0.367119550735622,
+        0.38052892094593754
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 1544,
+      "floorTransactionFrequency": 0.0772,
+      "floorTopupSumCents": 7720000,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 8845,
+          "frequency": 0.44225,
+          "frequency95CI": [
+            0.43537847286950915,
+            0.4491437081099684
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 84,
+          "frequency": 0.0042,
+          "frequency95CI": [
+            0.0033939606697694974,
+            0.005196469280445666
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 125937,
+        "meanCandidatesPerAcceptedRound": 6.29685,
+        "maxCandidatesInAcceptedRound": 63,
+        "rngAcceptanceTickets": 125937
+      },
+      "spinAccounting": {
+        "unplayedSpins": 40
+      },
+      "rng": {
+        "boundedDraws": 33415802,
+        "uint32Words": 33425226,
+        "acceptanceTickets": 125937
+      },
+      "checks": 688973,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-buy-luck.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "8d04450ca841959287910cf8d9a09d5a37573d19c98c0d6f0c216e6a0d648559",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-buy-luck.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "49382df953703c66b22a6db90b345869a0a59fabcdec55580045341c52b498bb",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-buy-luck.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "286ccb0d934ff78e1e5caad7bc4a52a15d1f2bd6789451cae2729a1492bc8cb6",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 48.28437459999999
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "profile": 70,
+      "offer": "lecipher:paid",
+      "key": "rtp70:lecipher:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "5289f29cf70e35fd8ffa1fbfc6483af3",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "meanPercent": 72.27477400000008,
+      "ciPercent": [
+        69.60568287228375,
+        74.9438651277164
+      ],
+      "standardErrorPercent": 1.3617811876103776,
+      "payoutSumCents": 180686935,
+      "rawPayoutSumCents": 180686935,
+      "profitCount": 6354,
+      "profitFraction": 0.12708,
+      "profitFraction95CI": [
+        0.12418919943286466,
+        0.13002810054354358
+      ],
+      "zeroCount": 36688,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 549,
+          "frequency": 0.01098,
+          "frequency95CI": [
+            0.010103403303969747,
+            0.011931735692230898
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 254,
+          "frequency": 0.00508,
+          "frequency95CI": [
+            0.004493731413437103,
+            0.00574231413071165
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 74651,
+        "meanCandidatesPerAcceptedRound": 1.49302,
+        "maxCandidatesInAcceptedRound": 9,
+        "rngAcceptanceTickets": 74651
+      },
+      "spinAccounting": {
+        "unplayedSpins": 30
+      },
+      "rng": {
+        "boundedDraws": 2864564,
+        "uint32Words": 2869983,
+        "acceptanceTickets": 74651
+      },
+      "checks": 975289,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c41e4026a034f85ba0534f577061077fe62161757715ac4c2265b11e53a7ffcc",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c41e4026a034f85ba0534f577061077fe62161757715ac4c2265b11e53a7ffcc",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "e1d6cd9336f605212c1eaaab21b864e28235a9ebc5088b8bf2cb3c33f4d99418",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 4.7572727000000015
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "hunt",
+      "profile": 70,
+      "offer": "lecipher:paid:hunt",
+      "key": "rtp70:lecipher:paid:hunt",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "a8c6617acb212efe3b5d0f754ab9ff21",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 15000,
+      "capCents": 199900,
+      "meanPercent": 68.7224404000001,
+      "ciPercent": [
+        67.18696938200665,
+        70.25791141799354
+      ],
+      "standardErrorPercent": 0.7834035806089,
+      "payoutSumCents": 515418303,
+      "rawPayoutSumCents": 515418303,
+      "profitCount": 8709,
+      "profitFraction": 0.17418,
+      "profitFraction95CI": [
+        0.17088066771966665,
+        0.1775293952383762
+      ],
+      "zeroCount": 35223,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 1879,
+          "frequency": 0.03758,
+          "frequency95CI": [
+            0.03594822610681064,
+            0.039282825741013785
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 592,
+          "frequency": 0.01184,
+          "frequency95CI": [
+            0.010928684379291436,
+            0.012826322476021855
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 72038,
+        "meanCandidatesPerAcceptedRound": 1.44076,
+        "maxCandidatesInAcceptedRound": 10,
+        "rngAcceptanceTickets": 72038
+      },
+      "spinAccounting": {
+        "unplayedSpins": 489
+      },
+      "rng": {
+        "boundedDraws": 3634763,
+        "uint32Words": 3639975,
+        "acceptanceTickets": 72038
+      },
+      "checks": 1024046,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid-hunt.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "395cf75e2d05d4fb79c567a8ee3fd58ba2ce2894c82745f2b97847bb3d231211",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid-hunt.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "395cf75e2d05d4fb79c567a8ee3fd58ba2ce2894c82745f2b97847bb3d231211",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid-hunt.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "e2ae94e463a3d1ff1857703a4cf1145f53a252aef1ac25d8ac2938c8c5b656b2",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 6.306171900000002
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "rainbow",
+      "profile": 70,
+      "offer": "lecipher:paid:rainbow",
+      "key": "rtp70:lecipher:paid:rainbow",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "a5c241781a34859f50242837f7df89ad",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 50000,
+      "capCents": 199900,
+      "meanPercent": 69.98912532000013,
+      "ciPercent": [
+        68.98116483984414,
+        70.99708580015613
+      ],
+      "standardErrorPercent": 0.5142655510999965,
+      "payoutSumCents": 1749728133,
+      "rawPayoutSumCents": 1749728133,
+      "profitCount": 14361,
+      "profitFraction": 0.28722,
+      "profitFraction95CI": [
+        0.28327043420295167,
+        0.29120225991101406
+      ],
+      "zeroCount": 35287,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 11924,
+          "frequency": 0.23848,
+          "frequency95CI": [
+            0.2347647759154636,
+            0.24223540720646683
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 6610,
+          "frequency": 0.1322,
+          "frequency95CI": [
+            0.1292593290392604,
+            0.13519718423791155
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 69495,
+        "meanCandidatesPerAcceptedRound": 1.3899,
+        "maxCandidatesInAcceptedRound": 9,
+        "rngAcceptanceTickets": 69495
+      },
+      "spinAccounting": {
+        "unplayedSpins": 1019
+      },
+      "rng": {
+        "boundedDraws": 2728111,
+        "uint32Words": 2733203,
+        "acceptanceTickets": 69495
+      },
+      "checks": 976742,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid-rainbow.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "202b51be4c75c6fc3dae0a9a63d15a481a4ba65c3b9c229e1931d6ce81ff7deb",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid-rainbow.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "202b51be4c75c6fc3dae0a9a63d15a481a4ba65c3b9c229e1931d6ce81ff7deb",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-lecipher-paid-rainbow.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "c130599881db5b6fd3be86add8afe314e2bb1add19e6c4b3601f39e541495e5b",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 4.655207999999999
+    },
+    {
+      "game": "maskhouse",
+      "mode": "buy",
+      "bonusTier": "sticky",
+      "profile": 70,
+      "offer": "maskhouse:buy:sticky",
+      "key": "rtp70:maskhouse:buy:sticky",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "be6dd618414aea777b9de6da2e2efe04",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "meanPercent": 69.59671205,
+      "ciPercent": [
+        69.03524839377782,
+        70.1581757062222
+      ],
+      "standardErrorPercent": 0.2864610490929513,
+      "payoutSumCents": 1391934241,
+      "rawPayoutSumCents": 1375891734,
+      "profitCount": 7619,
+      "profitFraction": 0.38095,
+      "profitFraction95CI": [
+        0.3742431158957559,
+        0.3877026095692969
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 3211,
+      "floorTransactionFrequency": 0.16055,
+      "floorTopupSumCents": 16042507,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 8875,
+          "frequency": 0.44375,
+          "frequency95CI": [
+            0.436875800001546,
+            0.4506458048485944
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00019204311235897808
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 65180,
+        "meanCandidatesPerAcceptedRound": 3.259,
+        "maxCandidatesInAcceptedRound": 25,
+        "rngAcceptanceTickets": 65180
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 11697145,
+        "uint32Words": 11702039,
+        "acceptanceTickets": 65180
+      },
+      "checks": 836254,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-maskhouse-buy-sticky.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "f3a5cfc54aa3e5f9e47ae560751614b73989200134f9f38cfac1f43ee9896194",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-maskhouse-buy-sticky.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "821e61c496dc344cca4c15b824c6fcc580635fa6f9d3bfa15b30c82ec1cc1648",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-maskhouse-buy-sticky.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "d804925848f67f01660031351daa12a98132ff44d5d3f204b663ea0f7a0aba69",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 19.0628454
+    },
+    {
+      "game": "maskhouse",
+      "mode": "paid",
+      "profile": 70,
+      "offer": "maskhouse:paid",
+      "key": "rtp70:maskhouse:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "85cd50408c73e14a499831ab54da9d47",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "meanPercent": 68.32985879999981,
+      "ciPercent": [
+        65.99845554158541,
+        70.6612620584142
+      ],
+      "standardErrorPercent": 1.189491458374688,
+      "payoutSumCents": 170824647,
+      "rawPayoutSumCents": 170824647,
+      "profitCount": 5047,
+      "profitFraction": 0.10094,
+      "profitFraction95CI": [
+        0.09833001549286416,
+        0.10361130095191076
+      ],
+      "zeroCount": 35799,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 415,
+          "frequency": 0.0083,
+          "frequency95CI": [
+            0.007541665451160692,
+            0.009133885332921466
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00007682609729729246
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 70374,
+        "meanCandidatesPerAcceptedRound": 1.40748,
+        "maxCandidatesInAcceptedRound": 9,
+        "rngAcceptanceTickets": 70374
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 1206806,
+        "uint32Words": 1212056,
+        "acceptanceTickets": 70374
+      },
+      "checks": 959454,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-maskhouse-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "19fe7cb468926c898f576dcbe274043b67edec22d5ea9f8fd56f903754fd956d",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-maskhouse-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "19fe7cb468926c898f576dcbe274043b67edec22d5ea9f8fd56f903754fd956d",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-maskhouse-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "73a92c05009baf19e3dd06456d34706d3a30f2a1edda4265aa6531b2ba3e904b",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 2.0074987
+    },
+    {
+      "game": "slots",
+      "mode": "buy",
+      "profile": 70,
+      "offer": "slots:buy",
+      "key": "rtp70:slots:buy",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "522bf65242960b86b166993dfb4bbb16",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 250000,
+      "capCents": 499900,
+      "meanPercent": 69.91974900000024,
+      "ciPercent": [
+        69.38552997566066,
+        70.45396802433982
+      ],
+      "standardErrorPercent": 0.27256072670386167,
+      "payoutSumCents": 3495987450,
+      "rawPayoutSumCents": 3494426500,
+      "profitCount": 6313,
+      "profitFraction": 0.31565,
+      "profitFraction95CI": [
+        0.3092444823143392,
+        0.32212632398118757
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 158,
+      "floorTransactionFrequency": 0.0079,
+      "floorTopupSumCents": 1560950,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 16829,
+          "frequency": 0.84145,
+          "frequency95CI": [
+            0.8363222992775965,
+            0.8464465544809736
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 9871,
+          "frequency": 0.49355,
+          "frequency95CI": [
+            0.4866228340889586,
+            0.500479643267191
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 186373,
+        "meanCandidatesPerAcceptedRound": 9.31865,
+        "maxCandidatesInAcceptedRound": 108,
+        "rngAcceptanceTickets": 186373
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 75348536,
+        "uint32Words": 75362070,
+        "acceptanceTickets": 186373
+      },
+      "checks": 780722,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-slots-buy.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "83a35e06f6ff7b7105cb9f7c7dbf1ef0d90cc8d35c73d9ce1110ff1426037d96",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-slots-buy.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "655331f9325bd04669de49bf994956b822f9901d293d5b29185cded4565964c2",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-slots-buy.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "198eab7020ca9994cd33020b50ea52537add7b25208c895744ecc742abf5a44e",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 111.67931010000001
+    },
+    {
+      "game": "slots",
+      "mode": "paid",
+      "profile": 70,
+      "offer": "slots:paid",
+      "key": "rtp70:slots:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "952e5207fbd6f614760cc9f3fc5055e7",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 499900,
+      "meanPercent": 68.92432000000038,
+      "ciPercent": [
+        65.92388787942461,
+        71.92475212057616
+      ],
+      "standardErrorPercent": 1.5308327145794731,
+      "payoutSumCents": 172310800,
+      "rawPayoutSumCents": 172310800,
+      "profitCount": 8213,
+      "profitFraction": 0.16426,
+      "profitFraction95CI": [
+        0.16103814083912968,
+        0.16753344634868353
+      ],
+      "zeroCount": 40612,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 309,
+          "frequency": 0.00618,
+          "frequency95CI": [
+            0.005529977203360185,
+            0.006905899323374513
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 204,
+          "frequency": 0.00408,
+          "frequency95CI": [
+            0.0035580789035471387,
+            0.004678120292796208
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 71614,
+        "meanCandidatesPerAcceptedRound": 1.43228,
+        "maxCandidatesInAcceptedRound": 11,
+        "rngAcceptanceTickets": 71614
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 2443083,
+        "uint32Words": 2448178,
+        "acceptanceTickets": 71614
+      },
+      "checks": 1056080,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp70-slots-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "97bd5a632c451dc9f088dc8246393f23c61cc9d23bf6f4404c30b01614d62ab2",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp70-slots-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "97bd5a632c451dc9f088dc8246393f23c61cc9d23bf6f4404c30b01614d62ab2",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp70-slots-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "461a0c1dc6ae1de334a7ef803833a6cc5d1016dd5a905e230bc580194c4a973b",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 4.1598395
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "gold",
+      "profile": 95,
+      "offer": "lecipher:buy:gold",
+      "key": "rtp95:lecipher:buy:gold",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "6d41d2cd5581c6c7f5a612985e90d89b",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 125000,
+      "capCents": 199900,
+      "meanPercent": 95.19251211999938,
+      "ciPercent": [
+        94.78607032029291,
+        95.59895391970586
+      ],
+      "standardErrorPercent": 0.20736826515636667,
+      "payoutSumCents": 2379812803,
+      "rawPayoutSumCents": 2377682731,
+      "profitCount": 15224,
+      "profitFraction": 0.7612,
+      "profitFraction95CI": [
+        0.7552412794248737,
+        0.7670583972532299
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 388,
+      "floorTransactionFrequency": 0.0194,
+      "floorTopupSumCents": 2130072,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 16523,
+          "frequency": 0.82615,
+          "frequency95CI": [
+            0.8208350950326408,
+            0.8313396352451676
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 2881,
+          "frequency": 0.14405,
+          "frequency95CI": [
+            0.13925178695750398,
+            0.1489849285341844
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 500674,
+        "meanCandidatesPerAcceptedRound": 25.0337,
+        "maxCandidatesInAcceptedRound": 262,
+        "rngAcceptanceTickets": 500674
+      },
+      "spinAccounting": {
+        "unplayedSpins": 2315
+      },
+      "rng": {
+        "boundedDraws": 262449161,
+        "uint32Words": 262485869,
+        "acceptanceTickets": 500674
+      },
+      "checks": 970488,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-buy-gold.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "b2c92912c28b3e096c32571ff294735cb9531a3ee41a8543858fc2dd3bc7d3c5",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-buy-gold.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "066594b03dd0cbda1b8ab5f9d3b731248adbee6a434f54b2d9461a9b4901be3f",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-buy-gold.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "c38c0b6aab556b763533961a769ef6dafc279ee99be43dd49399fbb2a14f7bea",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 339.2278422
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "luck",
+      "profile": 95,
+      "offer": "lecipher:buy:luck",
+      "key": "rtp95:lecipher:buy:luck",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "25a2894fd31d73f8d9bd32f78fdf7d05",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "meanPercent": 95.87102049999999,
+      "ciPercent": [
+        95.45048753602921,
+        96.29155346397074
+      ],
+      "standardErrorPercent": 0.2145576346789576,
+      "payoutSumCents": 1917420410,
+      "rawPayoutSumCents": 1914620410,
+      "profitCount": 15298,
+      "profitFraction": 0.7649,
+      "profitFraction95CI": [
+        0.7589722821229212,
+        0.7707259734361511
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 560,
+      "floorTransactionFrequency": 0.028,
+      "floorTopupSumCents": 2800000,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 15821,
+          "frequency": 0.79105,
+          "frequency95CI": [
+            0.7853597549123182,
+            0.7966284567919778
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 146,
+          "frequency": 0.0073,
+          "frequency95CI": [
+            0.0062111359620987084,
+            0.008578103320819831
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 261671,
+        "meanCandidatesPerAcceptedRound": 13.08355,
+        "maxCandidatesInAcceptedRound": 164,
+        "rngAcceptanceTickets": 261671
+      },
+      "spinAccounting": {
+        "unplayedSpins": 84
+      },
+      "rng": {
+        "boundedDraws": 69439349,
+        "uint32Words": 69458840,
+        "acceptanceTickets": 261671
+      },
+      "checks": 695195,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-buy-luck.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "0b34357607770ed573f2db2d869a8c6ca07f1c5ee2c72b0d6626c03537d773b7",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-buy-luck.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "bc22dca94427d42e89d45af471d808ab69c5204a9ab6b07d4ed249f67e152fbe",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-buy-luck.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "11850915a47a1d1c88d573cf5c581bf76c16517fd921087bafa3f6c952e309ec",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 102.50363689999999
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "profile": 95,
+      "offer": "lecipher:paid",
+      "key": "rtp95:lecipher:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "ecf9908e30bfb4e1dadc8a1baf0ca3a1",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "meanPercent": 98.35109479999971,
+      "ciPercent": [
+        95.26118190331442,
+        101.441007696685
+      ],
+      "standardErrorPercent": 1.5764861717782124,
+      "payoutSumCents": 245877737,
+      "rawPayoutSumCents": 245877737,
+      "profitCount": 8882,
+      "profitFraction": 0.17764,
+      "profitFraction95CI": [
+        0.17431458965474506,
+        0.18101494166670445
+      ],
+      "zeroCount": 34460,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 740,
+          "frequency": 0.0148,
+          "frequency95CI": [
+            0.013778225620636124,
+            0.015896326424181168
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 358,
+          "frequency": 0.00716,
+          "frequency95CI": [
+            0.006457883294706562,
+            0.007937842652877433
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 102847,
+        "meanCandidatesPerAcceptedRound": 2.05694,
+        "maxCandidatesInAcceptedRound": 17,
+        "rngAcceptanceTickets": 102847
+      },
+      "spinAccounting": {
+        "unplayedSpins": 140
+      },
+      "rng": {
+        "boundedDraws": 3943127,
+        "uint32Words": 3950796,
+        "acceptanceTickets": 102847
+      },
+      "checks": 983680,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "699ad4b29acf6a80f72c52896ee8887a76a8f375ba70acfcdea341e36e0062c1",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "699ad4b29acf6a80f72c52896ee8887a76a8f375ba70acfcdea341e36e0062c1",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "ad6e7c35f1a4cf0c16a19aefc69c1db5a087e99eeb60dad3d226d4fc3b06b323",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 6.456613599999997
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "hunt",
+      "profile": 95,
+      "offer": "lecipher:paid:hunt",
+      "key": "rtp95:lecipher:paid:hunt",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "cffd9da911dacfb03bd5562eadf20f23",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 15000,
+      "capCents": 199900,
+      "meanPercent": 94.1094346666661,
+      "ciPercent": [
+        92.33305035769905,
+        95.88581897563316
+      ],
+      "standardErrorPercent": 0.9063185249831897,
+      "payoutSumCents": 705820760,
+      "rawPayoutSumCents": 705820760,
+      "profitCount": 12085,
+      "profitFraction": 0.2417,
+      "profitFraction95CI": [
+        0.2379673561821326,
+        0.2454723321797312
+      ],
+      "zeroCount": 32246,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 2677,
+          "frequency": 0.05354,
+          "frequency95CI": [
+            0.05160092163810039,
+            0.055547677920698306
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 847,
+          "frequency": 0.01694,
+          "frequency95CI": [
+            0.015845402700264428,
+            0.018108820528856432
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 100320,
+        "meanCandidatesPerAcceptedRound": 2.0064,
+        "maxCandidatesInAcceptedRound": 14,
+        "rngAcceptanceTickets": 100320
+      },
+      "spinAccounting": {
+        "unplayedSpins": 815
+      },
+      "rng": {
+        "boundedDraws": 5029724,
+        "uint32Words": 5037113,
+        "acceptanceTickets": 100320
+      },
+      "checks": 1049157,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid-hunt.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "7761151dac777df72f680aa3f33d17bc98df341fe9c3997ccbc734dc3421218f",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid-hunt.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "7761151dac777df72f680aa3f33d17bc98df341fe9c3997ccbc734dc3421218f",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid-hunt.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "6a88018fa4217afd7275d7c287982070d51304b6544686801218822696142bb2",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 8.245686799999996
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "rainbow",
+      "profile": 95,
+      "offer": "lecipher:paid:rainbow",
+      "key": "rtp95:lecipher:paid:rainbow",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "cebcb21cdd1fc9fff75c6e9f5f2afeed",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 50000,
+      "capCents": 199900,
+      "meanPercent": 94.64927027999941,
+      "ciPercent": [
+        93.55489014869323,
+        95.74365041130561
+      ],
+      "standardErrorPercent": 0.5583572098500916,
+      "payoutSumCents": 2366231757,
+      "rawPayoutSumCents": 2366231757,
+      "profitCount": 19500,
+      "profitFraction": 0.39,
+      "profitFraction95CI": [
+        0.38573329005919615,
+        0.3942836116822093
+      ],
+      "zeroCount": 30213,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 16165,
+          "frequency": 0.3233,
+          "frequency95CI": [
+            0.31921382202948756,
+            0.3274133283132973
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 9003,
+          "frequency": 0.18006,
+          "frequency95CI": [
+            0.17671662992449388,
+            0.18345252955864472
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 94948,
+        "meanCandidatesPerAcceptedRound": 1.89896,
+        "maxCandidatesInAcceptedRound": 16,
+        "rngAcceptanceTickets": 94948
+      },
+      "spinAccounting": {
+        "unplayedSpins": 1367
+      },
+      "rng": {
+        "boundedDraws": 3732371,
+        "uint32Words": 3739422,
+        "acceptanceTickets": 94948
+      },
+      "checks": 985410,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid-rainbow.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "f162072a2bd459ca22b7113b07ffbda7dad756977b524e6c1f6298d346bd2691",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid-rainbow.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "f162072a2bd459ca22b7113b07ffbda7dad756977b524e6c1f6298d346bd2691",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-lecipher-paid-rainbow.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "3e6c48aab08197f8799ad315ea4315a8de38e525a37d7fbd3a5d773cf7fab942",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 6.367914500000014
+    },
+    {
+      "game": "maskhouse",
+      "mode": "buy",
+      "bonusTier": "sticky",
+      "profile": 95,
+      "offer": "maskhouse:buy:sticky",
+      "key": "rtp95:maskhouse:buy:sticky",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "cb6915952cebabac3e83cac5a8aea705",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "meanPercent": 95.06161074999977,
+      "ciPercent": [
+        94.59339671054744,
+        95.5298247894521
+      ],
+      "standardErrorPercent": 0.238884714006288,
+      "payoutSumCents": 1901232215,
+      "rawPayoutSumCents": 1894577154,
+      "profitCount": 15003,
+      "profitFraction": 0.75015,
+      "profitFraction95CI": [
+        0.7441022951068953,
+        0.7561016257239915
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 1332,
+      "floorTransactionFrequency": 0.0666,
+      "floorTopupSumCents": 6655061,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 15533,
+          "frequency": 0.77665,
+          "frequency95CI": [
+            0.7708249098717268,
+            0.7823688326742049
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00019204311235897808
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 128200,
+        "meanCandidatesPerAcceptedRound": 6.41,
+        "maxCandidatesInAcceptedRound": 62,
+        "rngAcceptanceTickets": 128200
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 22995852,
+        "uint32Words": 23005489,
+        "acceptanceTickets": 128200
+      },
+      "checks": 844730,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-maskhouse-buy-sticky.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "ebee592de11b7a4d2729bc6fd9384c9f276f0db1be338e28fea85ab3e7be2dd6",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-maskhouse-buy-sticky.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "b64a4363ca3bbbc702d4405daaf82f07b8e54f559b3f0c72e595b841af9ce9d2",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-maskhouse-buy-sticky.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "9915ec85bdca1f86700e011c95a030340ef1dbfcb329cefac9401a3586cb5049",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 37.21442379999999
+    },
+    {
+      "game": "maskhouse",
+      "mode": "paid",
+      "profile": 95,
+      "offer": "maskhouse:paid",
+      "key": "rtp95:maskhouse:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "46dd7c0233253f1cfacd3d787181c672",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "meanPercent": 95.67755959999946,
+      "ciPercent": [
+        92.93207377560894,
+        98.42304542438998
+      ],
+      "standardErrorPercent": 1.4007580736686314,
+      "payoutSumCents": 239193899,
+      "rawPayoutSumCents": 239193899,
+      "profitCount": 7036,
+      "profitFraction": 0.14072,
+      "profitFraction95CI": [
+        0.13769958455869657,
+        0.14379561960177745
+      ],
+      "zeroCount": 34029,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 582,
+          "frequency": 0.01164,
+          "frequency95CI": [
+            0.010736639260115937,
+            0.012618398325636273
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00007682609729729246
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 96002,
+        "meanCandidatesPerAcceptedRound": 1.92004,
+        "maxCandidatesInAcceptedRound": 13,
+        "rngAcceptanceTickets": 96002
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 1645573,
+        "uint32Words": 1652663,
+        "acceptanceTickets": 96002
+      },
+      "checks": 962820,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-maskhouse-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "08db7d6f617c6edb3be960868859cdcaeee4360a856ae3e33cf7e6503a4f6466",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-maskhouse-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "08db7d6f617c6edb3be960868859cdcaeee4360a856ae3e33cf7e6503a4f6466",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-maskhouse-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "8caecd9d17b078c1c4942ffc012337ec5b265219aaea315f0586d3cbcd52f93f",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 2.788944699999993
+    },
+    {
+      "game": "slots",
+      "mode": "buy",
+      "profile": 95,
+      "offer": "slots:buy",
+      "key": "rtp95:slots:buy",
+      "stakeCents": 5000,
+      "requests": 20000,
+      "seedHex": "f1c785dce8b6c38cf2167b4f1095e682",
+      "accepted": 20000,
+      "samples": 20000,
+      "attemptedRequests": 20000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 250000,
+      "capCents": 499900,
+      "meanPercent": 95.52096900000018,
+      "ciPercent": [
+        94.98425403629132,
+        96.05768396370905
+      ],
+      "standardErrorPercent": 0.2738341651575863,
+      "payoutSumCents": 4776048450,
+      "rawPayoutSumCents": 4775348050,
+      "profitCount": 13424,
+      "profitFraction": 0.6712,
+      "profitFraction95CI": [
+        0.6646568854370557,
+        0.6776773590012727
+      ],
+      "zeroCount": 0,
+      "floorTransactionCount": 84,
+      "floorTransactionFrequency": 0.0042,
+      "floorTopupSumCents": 700400,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 18516,
+          "frequency": 0.9258,
+          "frequency95CI": [
+            0.9220851900098023,
+            0.9293512660757127
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 15176,
+          "frequency": 0.7588,
+          "frequency95CI": [
+            0.7528214973214247,
+            0.7646791011636185
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 392154,
+        "meanCandidatesPerAcceptedRound": 19.6077,
+        "maxCandidatesInAcceptedRound": 204,
+        "rngAcceptanceTickets": 392154
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 158550354,
+        "uint32Words": 158579502,
+        "acceptanceTickets": 392154
+      },
+      "checks": 780436,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-slots-buy.final-u32le.bin",
+          "bytes": 80000,
+          "sha256": "ca804a89690536006faea0cea659dece75de01d27b9a86f1ce1e95d17434f227",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-slots-buy.raw-u32le.bin",
+          "bytes": 80000,
+          "sha256": "aa726b82e07a64b2154d848625d29d33212dcfe6c1a0a24695eb562eb1ab7772",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-slots-buy.attempts-u32le.bin",
+          "bytes": 80000,
+          "sha256": "10f856f656925dc221cef0fb8aa342d338c14c77a77a86c63005e852364668e7",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 230.47182289999998
+    },
+    {
+      "game": "slots",
+      "mode": "paid",
+      "profile": 95,
+      "offer": "slots:paid",
+      "key": "rtp95:slots:paid",
+      "stakeCents": 5000,
+      "requests": 50000,
+      "seedHex": "a6ab33a5c4ea641d58691f4bdd79a145",
+      "accepted": 50000,
+      "samples": 50000,
+      "attemptedRequests": 50000,
+      "rejectedRequests": 0,
+      "failures": {},
+      "chargeCents": 5000,
+      "capCents": 499900,
+      "meanPercent": 93.13998000000132,
+      "ciPercent": [
+        89.73931812827671,
+        96.54064187172591
+      ],
+      "standardErrorPercent": 1.7350315672064291,
+      "payoutSumCents": 232849950,
+      "rawPayoutSumCents": 232849950,
+      "profitCount": 11047,
+      "profitFraction": 0.22094,
+      "profitFraction95CI": [
+        0.2173249309709761,
+        0.2245979472104475
+      ],
+      "zeroCount": 37826,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 466,
+          "frequency": 0.00932,
+          "frequency95CI": [
+            0.008514627047958778,
+            0.010200767010884891
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 277,
+          "frequency": 0.00554,
+          "frequency95CI": [
+            0.004926296011093069,
+            0.006229678853046169
+          ]
+        }
+      },
+      "candidateAccounting": {
+        "acceptedCandidateAttempts": 99041,
+        "meanCandidatesPerAcceptedRound": 1.98082,
+        "maxCandidatesInAcceptedRound": 23,
+        "rngAcceptanceTickets": 99041
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 3387248,
+        "uint32Words": 3394673,
+        "acceptanceTickets": 99041
+      },
+      "checks": 1059080,
+      "files": {
+        "final": {
+          "file": "universal-slot-holdout-v13-rtp95-slots-paid.final-u32le.bin",
+          "bytes": 200000,
+          "sha256": "28c82ac5c3f05949793b1ebd35ed5de8ae4b0f2aa7a8e29bf9c0cacec27b9442",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "raw": {
+          "file": "universal-slot-holdout-v13-rtp95-slots-paid.raw-u32le.bin",
+          "bytes": 200000,
+          "sha256": "28c82ac5c3f05949793b1ebd35ed5de8ae4b0f2aa7a8e29bf9c0cacec27b9442",
+          "encoding": "uint32little-endian accepted request order"
+        },
+        "attempts": {
+          "file": "universal-slot-holdout-v13-rtp95-slots-paid.attempts-u32le.bin",
+          "bytes": 200000,
+          "sha256": "14139ece94b8203b957b42e627d53503bc6b876bfa67757d53f51ae6f543a7dc",
+          "encoding": "uint32little-endian accepted request order"
+        }
+      },
+      "elapsedSeconds": 5.403589500000002
+    }
+  ],
+  "totalAttemptedRequests": 990000,
+  "totalAccepted": 990000,
+  "totalRejected": 0,
+  "totalChecks": 23718509,
+  "ignoredMeasurementImport": {
+    "file": "universal-slot-statistics.json",
+    "initialSHA256": "1efa1ca6bc9734162f99fad653ee49ab0a7c02ce0d269f832cc9e6b6c639f260",
+    "usedInSampling": false,
+    "reason": "Optional measurement helper imports initial evidence context. No measurement helper is called while sampling; weights use frozen calibration only. This evidence file is replaced by the resulting holdout, so its initial hash is not a mathematical input checksum."
+  }
+}

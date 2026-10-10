@@ -1,0 +1,116 @@
+@font-face{font-family:'Indictus Barlow';src:url('/fonts/BarlowCondensed-SemiBold.ttf') format('truetype');font-style:normal;font-weight:600;font-display:swap}
+.indictus-app.app-shell15{--lobby-display:'Indictus Barlow','Indictus Manrope',Arial,sans-serif;--shell-nav-width:218px;--print-ink:#171719;--print-panel:#28262a;--print-paper:#eee7d6;--print-wine:#b53e55;--print-gold:#c5a36a;background:#171719;color:#eee7d6;min-height:100svh}
+.indictus-app.app-shell15:is([data-view='hall'],[data-view='chance-rules'],[data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']){background-color:#171719;background-image:url('/app-print-marks-v17.svg');background-position:center 85px;background-size:860px 720px;background-repeat:repeat;background-attachment:fixed}
+.app-shell15.app-shell15 .indictus-main>.back-button{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:9px 15px!important;border:1px solid #746b6066!important;border-radius:4px;background:#28262a;color:#eee7d6!important;box-shadow:none;font-family:var(--ui-font);font-size:12px;font-weight:750}
+.app-shell15.app-shell15 .indictus-main>.back-button::before{content:'←';font-size:20px;font-weight:500;line-height:1}
+.app-shell15.app-shell15 .odds-page{font-family:var(--ui-font);color:#e5ded1}
+.app-shell15.app-shell15 .odds-page h1{font-family:var(--ui-font)!important;font-size:36px;letter-spacing:-.04em;color:#eee7d6}
+.app-shell15.app-shell15 .odds-page details,.app-shell15.app-shell15 .odds-table-scroll{border-color:#c5a36a40;border-radius:5px;background:#28262a}
+.app-shell15.app-shell15 .odds-page summary{color:#eee7d6}
+.app-shell15.app-shell15 .demo-admin-panel{background:#28262a;color:#eee7d6;font-family:var(--ui-font);border:1px solid #c5a36a60;box-shadow:5px 5px 0 #111113;border-radius:6px}
+.app-shell15.app-shell15 .demo-admin-panel h2,.app-shell15.app-shell15 .demo-admin-panel h3{font-family:var(--ui-font)!important;letter-spacing:-.035em}
+.app-shell15.app-shell15 .demo-admin-tabs button.selected{background:#b53e55;border-color:#c5a36a;color:#fff3df}
+.app-shell15.app-shell15 .demo-admin-game-picker button.selected{background:#eee7d6;border-color:#eee7d6;color:#252126}
+.app-shell15.app-shell15 .hall-rules{border:1px solid #c5a36a70;border-radius:6px;background:#28262a;color:#eee7d6;box-shadow:5px 5px 0 #101012}
+.app-shell15.app-shell15 .hall-rules h2{font-family:var(--lobby-display)!important;color:#eee7d6}
+.app-shell15.app-shell15 .hall-rules p{color:#d3c9ba}
+.app-shell15.app-shell15 .hall-rules .secondary{min-height:44px;border:1px solid #c5a36a80;border-radius:4px;background:#eee7d6;color:#252126}
+.app-shell15.app-shell15 .indictus-header{position:sticky;top:0;z-index:30;height:76px;min-height:76px;gap:26px;padding:12px 28px;background:#1c1b1ef5;border-bottom:1px solid #c5a36a40;box-shadow:none;backdrop-filter:blur(14px)}
+.app-shell15.app-shell15 .hall-brand{gap:9px;padding:0}
+.app-shell15.app-shell15 .wordmark{font-family:var(--ui-font)!important;font-size:25px;font-weight:850;line-height:1;letter-spacing:-.065em;color:#eee7d6}
+.app-shell15.app-shell15 .wordmark>span{color:#b53e55}
+.app-shell15.app-shell15 .brand-emblem{width:27px;height:35px;filter:none}
+.app-shell15 .shell14-brand-seal{display:flex;width:31px;height:37px}
+.app-shell15.app-shell15 .brand-type{display:block}
+.app-shell15.app-shell15 .header-nav{gap:22px}
+.app-shell15.app-shell15[data-view='hall'] .header-nav{display:none}
+.app-shell15.app-shell15 .header-nav button{font-size:12px;color:#b7b0a9}
+.app-shell15.app-shell15 .header-nav button.active{color:#eee7d6}
+.app-shell15 .shell14-account-tools{gap:20px;min-width:0}
+.app-shell15.app-shell15 .hall-wallet{display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:139px;min-height:49px;padding:8px 16px;border:1px solid #171719;border-radius:4px;background:#eee7d6;box-shadow:3px 3px 0 #0b0b0d}
+.app-shell15.app-shell15 .hall-wallet>span{font-size:9px!important;line-height:1;letter-spacing:0;color:#5e524a}
+.app-shell15.app-shell15 .hall-wallet strong{font-size:20px;font-weight:850;line-height:1.2;letter-spacing:-.04em;color:#292329}
+.app-shell15.app-shell15 .hall-wallet small{font-size:11px;color:#944052}
+.app-shell15 .shell14-sound-controls{gap:4px;padding-left:0;border:0}
+.app-shell15.app-shell15 .audio-button{width:40px;min-width:40px;height:40px;min-height:40px;border-radius:4px;background:#28262a;color:#aaa199;border:1px solid #c5a36a30}
+.app-shell15.app-shell15 .audio-button.active{background:#35252b;color:#edd6a6;border-color:#b53e55}
+.app-shell15.app-shell15 .audio-button:hover{background:#4c2934;color:#eee7d6}
+.app-shell15 .shell14-avatar{width:37px;height:37px;flex-basis:37px;background:#28262a;border-color:#c5a36a50;border-radius:4px}
+.app-shell15 .shell14-avatar img{width:23px;height:28px}
+.app-shell15 .shell14-profile-copy{gap:4px}
+.app-shell15.app-shell15 .profile-name{font-size:12px;color:#eee7d6}
+.app-shell15 .shell14-profile-copy small{font-size:9px;color:#b7b0a9}
+.app-shell15.app-shell15 .demo-admin-entry{color:#eee7d6;background:#38252c;border-color:#b53e55;border-radius:4px}
+.app-shell15.app-shell15[data-view='hall'] .indictus-main{width:calc(100% - var(--shell-nav-width) - 72px);max-width:1280px;margin-left:calc(var(--shell-nav-width) + max(36px,(100vw - var(--shell-nav-width) - 1280px)/2));margin-right:36px;padding:29px 0 38px}
+.shell15-desktop-nav{position:fixed;z-index:25;left:0;top:76px;bottom:0;width:var(--shell-nav-width);display:flex;flex-direction:column;gap:26px;padding:23px 14px;background:#1c1b1e;border-right:1px solid #c5a36a30;overflow-y:auto}
+.shell15-nav-categories{display:flex;flex-direction:column;gap:7px}
+.shell15-desktop-nav button{position:relative;display:flex;align-items:center;gap:11px;width:100%;min-height:56px;padding:8px 10px;background:transparent;border:1px solid transparent;border-radius:5px;color:#b7b0a9;font-family:var(--ui-font);font-size:13px;font-weight:750;line-height:1.2;text-align:left}
+.shell15-nav-art{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;overflow:hidden;border:1px solid #c5a36a30;border-radius:4px;box-shadow:none;background:#eee7d6}
+.shell15-nav-art img{display:block;width:100%;height:100%;object-fit:cover}
+.shell15-nav-art-all{background:#3b3030}
+.shell15-nav-art-all img{width:24px;height:29px;object-fit:contain}
+.shell15-nav-art-slots img{object-position:center;width:65px;max-width:none}
+.shell15-nav-art-slots .slot-artwork18{width:65px;height:auto;max-width:none}
+.shell15-nav-art-classics svg{display:block;width:33px;height:33px}
+.shell15-nav-arrow{margin-left:auto;font-size:18px;font-weight:500;opacity:.65}
+.shell15-desktop-nav button:hover:not(:disabled){background:#28262a;color:#eee7d6;border-color:#c5a36a25}
+.shell15-desktop-nav button.active{color:#262126;background:#eee7d6;border-color:#eee7d6;box-shadow:3px 3px 0 #b53e55}
+.shell15-desktop-nav button.active .shell15-nav-arrow{color:#b53e55;opacity:1}
+.shell15-nav-shortcuts{display:flex;flex-direction:column;gap:8px;padding-top:19px;border-top:1px dashed #c5a36a50}
+.shell15-nav-shortcuts button{min-height:57px;padding:7px 9px;gap:10px;color:#ddd3c7;font-size:12px}
+.shell15-shortcut-art{display:block;flex:0 0 55px;width:55px;height:39px;overflow:hidden;border-radius:3px;border:2px solid #eee7d6}
+.shell15-shortcut-art img{display:block;width:100%;height:100%;object-fit:cover}
+.shell15-shortcut-art .slot-artwork18{width:100%;height:100%}
+.shell15-desktop-nav .shell15-nav-rules{margin-top:auto;min-height:50px;color:#c8b9a7;font-size:11px;gap:12px}
+.shell15-nav-rules svg{width:21px;height:21px;flex:0 0 21px;color:#c5a36a}
+.app-shell15:not([data-view='hall']) .shell15-desktop-nav{display:none}
+.app-shell15 .shell14-connection{position:relative;z-index:26;background:#28262a;border-color:#c5a36a30}
+.app-shell15.app-shell15 .shell14-footer{width:calc(100% - 56px);max-width:1280px;padding:20px 0 23px;border-top:1px dashed #c5a36a40;font-size:10px;color:#b7b0a9}
+.app-shell15.app-shell15[data-view='hall'] .shell14-footer{width:calc(100% - var(--shell-nav-width) - 72px);margin-left:calc(var(--shell-nav-width) + max(36px,(100vw - var(--shell-nav-width) - 1280px)/2));margin-right:36px}
+.app-shell15 .shell14-footer>div:first-child{gap:14px}
+.app-shell15.app-shell15 .shell14-footer button{font-size:11px;color:#ddd3c7}
+.app-shell15.app-shell15 button:focus-visible,.app-shell15.app-shell15 input:focus-visible{outline:2px solid #e2b875;outline-offset:4px}
+@media(min-width:781px){.app-shell15 .lobby15-filters{display:none}.app-shell15 .lobby15-heading{margin-bottom:24px}.app-shell15 .lobby15-collection:first-of-type h2{margin-top:0}}
+@media(max-width:1150px){.indictus-app.app-shell15{--shell-nav-width:200px}.app-shell15.app-shell15 .indictus-header{padding-left:22px;padding-right:22px}.app-shell15 .shell14-account-tools{gap:14px}.app-shell15 .shell14-profile-copy{display:none}.app-shell15.app-shell15 .wordmark{font-size:23px}.shell15-desktop-nav{padding-left:11px;padding-right:11px}.app-shell15.app-shell15[data-view='hall'] .indictus-main,.app-shell15.app-shell15[data-view='hall'] .shell14-footer{width:calc(100% - var(--shell-nav-width) - 48px);margin-left:calc(var(--shell-nav-width) + 24px);margin-right:24px}}
+@media(max-width:780px){
+ .app-shell15.app-shell15 .indictus-header{height:70px;min-height:70px;padding:10px 18px;gap:10px}
+ .app-shell15.app-shell15 .wordmark{font-size:22px}
+ .app-shell15 .shell14-brand-seal{width:27px;height:35px}
+ .app-shell15.app-shell15 .brand-emblem{width:25px;height:32px}
+ .app-shell15.app-shell15 .hall-brand{gap:8px}
+ .app-shell15 .shell14-account-tools{gap:9px}
+ .app-shell15.app-shell15 .hall-wallet{min-width:103px;min-height:46px;padding:7px 12px;border-radius:4px}
+ .app-shell15.app-shell15 .hall-wallet strong{font-size:18px}
+ .app-shell15.app-shell15 .hall-wallet small{font-size:9px}
+ .app-shell15.app-shell15 .audio-button{width:32px;min-width:32px;height:38px;min-height:38px;border-radius:4px}
+ .app-shell15.app-shell15 .audio-button svg{width:17px;height:17px}
+ .app-shell15 .shell15-desktop-nav{display:none}
+ .app-shell15.app-shell15[data-view='hall'] .indictus-main{width:calc(100% - 36px);max-width:none;margin:0 18px;padding:22px 0 28px}
+ .app-shell15.app-shell15 .shell14-footer,.app-shell15.app-shell15[data-view='hall'] .shell14-footer{width:calc(100% - 36px);margin:0 18px;padding:19px 0 24px}
+ .app-shell15 .shell14-footer>div:first-child{gap:7px}
+ .app-shell15 .shell14-mobile-nav{left:12px;right:12px;bottom:10px;width:auto;background:#262329f2;border:1px solid #c5a36a55;border-radius:7px;padding:6px 8px calc(6px + env(safe-area-inset-bottom));gap:6px;box-shadow:3px 3px 0 #0b0b0d;backdrop-filter:blur(14px)}
+ .app-shell15 .shell14-mobile-nav button{color:#c6bbb0;font-size:10px;border-radius:4px;min-height:51px;gap:5px}
+ .app-shell15 .shell14-mobile-nav button.active{color:#282126;background:#eee7d6;box-shadow:2px 2px 0 #b53e55}
+ .app-shell15 .shell14-mobile-nav .shell15-nav-art{width:24px;height:24px;flex:none;border:0;border-radius:3px;box-shadow:none}
+ .app-shell15 .shell14-mobile-nav .shell15-nav-art-all img{width:19px;height:22px}
+ .app-shell15 .shell14-mobile-nav .shell15-nav-art-slots img{width:43px}
+ .app-shell15 .shell14-mobile-nav .shell15-nav-art-slots .slot-artwork18{width:43px}
+ .app-shell15 .shell14-mobile-nav .shell15-nav-art-classics svg{width:24px;height:24px}
+ .app-shell15.app-shell15 .demo-admin-entry{top:78px;right:18px}
+}
+@media(max-width:430px){
+ .app-shell15.app-shell15 .indictus-header{padding:10px 14px;gap:6px;height:66px;min-height:66px}
+ .app-shell15 .shell14-brand-seal{display:none}
+ .app-shell15.app-shell15 .wordmark{font-size:21px}
+ .app-shell15 .shell14-account-tools{gap:7px}
+ .app-shell15.app-shell15 .hall-wallet{min-width:85px;padding:7px 9px;min-height:43px}
+ .app-shell15.app-shell15 .hall-wallet strong{font-size:17px}
+ .app-shell15.app-shell15 .hall-wallet>span{font-size:8px!important}
+ .app-shell15 .shell14-sound-controls{gap:2px}
+ .app-shell15.app-shell15 .audio-button{width:29px;min-width:29px;min-height:35px;height:35px}
+ .app-shell15.app-shell15[data-view='hall'] .indictus-main{width:calc(100% - 28px);margin:0 14px;padding-top:19px}
+ .app-shell15.app-shell15 .shell14-footer,.app-shell15.app-shell15[data-view='hall'] .shell14-footer{width:calc(100% - 28px);margin:0 14px}
+ .app-shell15.app-shell15 .demo-admin-entry{top:74px;right:14px}
+}
+@media(max-width:350px){.app-shell15.app-shell15 .wordmark{font-size:18px}.app-shell15.app-shell15 .hall-wallet{min-width:78px;padding-left:8px;padding-right:8px}.app-shell15.app-shell15 .hall-wallet strong{font-size:16px}.app-shell15.app-shell15 .audio-button{width:26px;min-width:26px}}
+@media(prefers-reduced-motion:reduce){.app-shell15.app-shell15 .audio-button{transition:none}}

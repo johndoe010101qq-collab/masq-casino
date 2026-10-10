@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "checks": 2647,
+  "sections": [
+    {
+      "name": "default and detached global profile snapshots; revisions only change with values",
+      "passed": true
+    },
+    {
+      "name": "unsupported or per-person keys and values reject without RNG or state changes",
+      "passed": true
+    },
+    {
+      "name": "profiles preserve every offer price and cap and enter quote/idempotency identity",
+      "passed": true
+    },
+    {
+      "name": "native50 core results remain exact; bought public minimum adds only disclosed payment without RNG",
+      "passed": true
+    },
+    {
+      "name": "55 and60 full lifecycle, all slots, bought tiers, LeHunt and Rainbow",
+      "passed": true
+    },
+    {
+      "name": "actual gift alias matches forced won and missed purchase lotteries",
+      "passed": true
+    },
+    {
+      "name": "profile is pinned and hold exists before RNG; computing reentry is denied",
+      "passed": true
+    },
+    {
+      "name": "admission and wallet failures reject before profile lottery; engine failure releases hold",
+      "passed": true
+    },
+    {
+      "name": "Bonanza preview preserves chosen profile but credits neither wallet nor reserve",
+      "passed": true
+    },
+    {
+      "name": "global slot profiles do not change classic mode outcomes; active Plinko locks changes",
+      "passed": true
+    },
+    {
+      "name": "embedded DEMO admin entry fails closed regardless of query parameters",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": {
+    "hall-session.js": "59ed770fd017c23bd2e4f645978dc6f1d62363e525145d72ab0dc5fa18a49ad5",
+    "liability-terms.js": "b62d4e103da648e01fc3ffc1c80f70225e035e6fdddb1890c0e07c98551b226c",
+    "demo-reserve.js": "743b0e2f923848c6bd20237bfe4269bc7c2b9dfa596432e627646d831088535d",
+    "slot-rtp-profiles.js": "9e766ecb48da7b2703c7e3321a479ca89cf048c85d8e0689d4ae727209279270",
+    "admin-access.js": "34ca1110999922d2862216e52574e9fe2f060f8c7fc5f900233744e7b9d55c2f",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f"
+  },
+  "offers": [
+    {
+      "game": "slots",
+      "mode": "paid"
+    },
+    {
+      "game": "slots",
+      "mode": "buy"
+    },
+    {
+      "game": "maskhouse",
+      "mode": "paid"
+    },
+    {
+      "game": "maskhouse",
+      "mode": "buy",
+      "bonusTier": "sticky"
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid"
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "luck"
+    },
+    {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "gold"
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "hunt"
+    },
+    {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "rainbow"
+    }
+  ],
+  "failures": []
+}

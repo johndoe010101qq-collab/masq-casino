@@ -1,0 +1,13 @@
+/* Scene illustrations are PNGs. Values, labels and payouts are real text. */
+.indictus-app.indictus-app .raster-slot .bonanza-cabinet { aspect-ratio:8/5; background-image:url('/bonanza-rooftop-flat.png'); }
+.indictus-app.indictus-app .raster-slot .bonanza-heading { left:22%; right:22%; top:4%; }
+.indictus-app.indictus-app .raster-slot .bonanza-field-shell { left:22%; width:56%; top:16%; border:6px solid #305361; border-image:none; background:#0a2230; box-shadow:0 7px 0 #07151f,0 10px 18px #0005; }
+.indictus-app.indictus-app .raster-slot .slot-grid { background:#0a2230; }
+.indictus-app.indictus-app .raster-slot .bonanza-status { right:22%; top:3%; }
+.indictus-app.indictus-app .raster-slot .bonanza-readout { left:22%; width:56%; bottom:3%; }
+.indictus-app.indictus-app .raster-slot .bonus-spin-counter { background:#133c48; border:2px solid #b69051; border-image:none; border-radius:5px; }
+.indictus-app.indictus-app .raster-slot .bonanza-announcement { background:#0a2430f5; }
+.indictus-app.indictus-app .raster-slot .bonanza-announcement>strong { color:#ffe290; font-family:'Barlow Condensed',Arial,sans-serif !important; }
+.indictus-app.indictus-app .raster-slot .slot-purchase-dialog,.indictus-app.indictus-app .raster-slot .bonanza-entrance-dialog { border:3px solid #345a65; border-image:none; background:#102633; }
+@media(max-width:900px) { .indictus-app.indictus-app .raster-slot .bonanza-cabinet { aspect-ratio:4/3.2; } .indictus-app.indictus-app .raster-slot .bonanza-field-shell { left:13%; width:74%; top:18%; } .indictus-app.indictus-app .raster-slot .bonanza-readout { left:13%; width:74%; } .indictus-app.indictus-app .raster-slot .bonanza-heading { left:13%; right:13%; } .indictus-app.indictus-app .raster-slot .bonanza-status { right:13%; } }
+@media(max-width:620px) { .indictus-app.indictus-app .raster-slot .bonanza-cabinet { aspect-ratio:4/5; background-position:20% center; } .indictus-app.indictus-app .raster-slot .bonanza-field-shell { left:3%; width:94%; top:24%; border-width:4px; } .indictus-app.indictus-app .raster-slot .bonanza-heading { left:7%; right:7%; top:6%; } .indictus-app.indictus-app .raster-slot .bonanza-status { right:4%; top:4%; } .indictus-app.indictus-app .raster-slot .bonanza-readout { left:5%; width:90%; bottom:4%; } }

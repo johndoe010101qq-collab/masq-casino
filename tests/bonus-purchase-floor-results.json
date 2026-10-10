@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "version": "indictus-public-bonus-purchase-floor-v13",
+  "checks": 47283,
+  "sections": [
+    {
+      "name": "minimum uses full purchase price and safe whole cents; pinned descriptor distinguishes buys",
+      "passed": true
+    },
+    {
+      "name": "actual Bonanza zero, partial, above minimum, retrigger and cap fixtures reconcile",
+      "passed": true
+    },
+    {
+      "name": "paid natural bonuses and previews preserve original object and native rules",
+      "passed": true
+    },
+    {
+      "name": "all public source endpoints and tiers retain exact engine frames and RNG; existing5% is credited once",
+      "passed": true
+    },
+    {
+      "name": "unsupported purchases, charge conflicts, unsafe cents, cap conflicts and malformed results reject",
+      "passed": true
+    },
+    {
+      "name": "Hall pins minimum before RNG, reserves published cap, charges once and settles added payment once",
+      "passed": true
+    }
+  ],
+  "sourceSHA256": {
+    "bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "hall-session.js": "59ed770fd017c23bd2e4f645978dc6f1d62363e525145d72ab0dc5fa18a49ad5",
+    "slot-rtp-profiles.js": "9e766ecb48da7b2703c7e3321a479ca89cf048c85d8e0689d4ae727209279270",
+    "BonanzaPresentation.js": "fb9b513305f2355816405714c3758c6213e292d3b47df77e39507341ffa1604b",
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+  },
+  "failures": []
+}

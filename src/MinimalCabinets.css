@@ -1,0 +1,16 @@
+.indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) { min-height:600px; background:#111a20; border-color:#354049; box-shadow:0 10px 25px #0004; }
+.mode-cabinet-backdrop { position:absolute; inset:48px 14px 80px; background:url('/plinko-cabinet.png') center/contain no-repeat; pointer-events:none; }
+.indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) .physical-canvas { inset:134px 76px 134px; }
+.indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) .physical-result { border:0; background:transparent; bottom:13px; padding:10px 4px; }
+.indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) .physical-result button { background:#243a45; }
+.indictus-app.indictus-app .room-bet:not(.blackjack-bet) { background:#15252d; border-color:#38505a; }
+.indictus-app.indictus-app .room-bet:not(.blackjack-bet) .stake-input { background:#101b22; border-color:#53646a; }
+.indictus-app.indictus-app .room-bet:not(.blackjack-bet) .stake-tools button { background:#24343d; border-color:#45565d; }
+.indictus-app.indictus-app .room-bet:not(.blackjack-bet) .room-choices label { background:#22333b; border-color:#3b5058; }
+.indictus-app.indictus-app .room-bet:not(.blackjack-bet) .room-choices label.selected { background:#684a31; border-color:#d3a86b; color:#fff0cc; }
+.indictus-app.indictus-app .header-nav { display:flex; gap:20px; }
+.indictus-app.indictus-app .promo-art-painted .raster-game-cover { object-fit:contain; background:#044652; }
+.indictus-app.indictus-app .card-art { background:#044652; }
+@media(max-width:1000px) { .indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) .physical-canvas { inset:134px 52px 134px; } }
+@media(max-width:760px) { .indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) { min-height:470px; } .mode-cabinet-backdrop { inset:48px 8px 78px; } .indictus-app.indictus-app .physical-stage:has(.mode-cabinet-backdrop) .physical-canvas { inset:111px 43px 116px; } .indictus-app.indictus-app .header-nav { gap:12px; } }
+@media(max-width:650px) { .indictus-app.indictus-app .header-nav { position:absolute; top:82px; right:14px; } .indictus-app.indictus-app .indictus-main { padding-top:52px; } .indictus-app.indictus-app .header-nav button { font-size:12px; } }

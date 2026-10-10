@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-10-09T14:10:09.237Z",
+  "status": "passed",
+  "checks": 1025501,
+  "sourceHashes": {
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "fast-audit-engine.mjs": "e3925fa2bf69bc62bc2281c11d72dbbe9dadc78ec7dfd94568914f987eddf09a"
+  },
+  "parityCounts": {
+    "rtp50_paid_500": 1000,
+    "rtp50_paid_5000": 1000,
+    "rtp50_buy_500": 1000,
+    "rtp50_buy_5000": 1000,
+    "rtp50_preview_500": 100,
+    "rtp50_preview_5000": 100,
+    "rtp55_paid_500": 1000,
+    "rtp55_paid_5000": 1000,
+    "rtp55_buy_500": 1000,
+    "rtp55_buy_5000": 1000,
+    "rtp55_preview_500": 100,
+    "rtp55_preview_5000": 100,
+    "rtp60_paid_500": 1000,
+    "rtp60_paid_5000": 1000,
+    "rtp60_buy_500": 1000,
+    "rtp60_buy_5000": 1000,
+    "rtp60_preview_500": 100,
+    "rtp60_preview_5000": 100
+  },
+  "contracts": [
+    "Native50 exact result and RNG trace parity",
+    "Clone default weights reproduce native result",
+    "Only immutable public symbol/bomb weights change55/60",
+    "No profile lottery or free-spin gifts",
+    "Bought initial10; scatter-only +5 retriggers",
+    "Single charged entry and complete cent credit reconciliation",
+    "All awarded spins continue after cap with zero money",
+    "Preview zero ledger",
+    "Fast independent audit agrees with actual engine per spin and exact RNG trace"
+  ]
+}

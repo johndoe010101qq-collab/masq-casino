@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-09T14:50:45.872Z",
+  "version": "indictus-public-bonus-purchase-floor-v13",
+  "scope": "Source-specific purchased-bonus minimum10% of full charge; local source/test verification only. No publication, realAR operation or all46profile verification.",
+  "liveSourceSHA256": {
+    "src/bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "src/hall-session.js": "59ed770fd017c23bd2e4f645978dc6f1d62363e525145d72ab0dc5fa18a49ad5",
+    "src/slot-rtp-profiles.js": "9e766ecb48da7b2703c7e3321a479ca89cf048c85d8e0689d4ae727209279270",
+    "src/BonanzaPresentation.js": "fb9b513305f2355816405714c3758c6213e292d3b47df77e39507341ffa1604b",
+    "src/bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "src/bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "src/mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "src/bonus-purchase-floor-measurement.js": "773217f919c7339a6e4e7294dc1eb31933d27cfbb688055549c5264d25f2d090",
+    "src/BonusPurchaseFloorRules.jsx": "033798bb63d9e2f17bcbb769af131442c09dd490e76977e425133a358531c9df",
+    "src/BonanzaFixedProfileRules.jsx": "d51ede70b6b828db1163115399969c9693f9077cf24e0177021599855b52f591",
+    "src/bonus-purchase-floor-statistics.json": "1178cebea8f57f945ad421b9b1cfb425147af2dfc5681eb03977ec58ba8fefbd"
+  },
+  "focusedAssertions": 47283,
+  "hallAssertions": 2647,
+  "focusedRulesRenders": 6,
+  "focusedRulesChecks": 42,
+  "holdout": {
+    "fullBoughtRounds": 240000,
+    "checks": 16395747,
+    "offers": 4,
+    "referenceProfiles": [
+      50,
+      55,
+      60
+    ],
+    "baseStakeAR": 50,
+    "rows": 12,
+    "method": "Captured byte-for-byte actual public engines then frozen flooradapter; independent seeds, no surrogate/tuning",
+    "statisticsSHA256": "1178cebea8f57f945ad421b9b1cfb425147af2dfc5681eb03977ec58ba8fefbd",
+    "payoutFileVerification": {
+      "status": "passed",
+      "completedAt": "2026-10-09T14:40:49.322Z",
+      "checkedRounds": 240000,
+      "checkedBinaries": 36,
+      "reportSHA256": "1178cebea8f57f945ad421b9b1cfb425147af2dfc5681eb03977ec58ba8fefbd",
+      "verifies": "All actual-engine payout files, saved seeds, source hashes, per-round raw+topup=final,10%fullcharge floor, totals, frequencies and aggregate RTP."
+    },
+    "coverage": "Only recorded source versions50/55/60. Other settings or changed math must not reuse these as active measurements."
+  },
+  "invariants": [
+    "minimum ceil10% fullprice",
+    "paid/preview/natural original objects",
+    "zero/partial/sufficient/capped actualfixtures",
+    "noadditionalRNG/symbols/awards",
+    "separate actualpayment frame with empty cells",
+    "spins andledger reconcile",
+    "same publishedcap/liability",
+    "publicfloordescriptor before RNG",
+    "immutable idempotentadapter andHall repeatcompletion"
+  ],
+  "historicalReceipts": [
+    "docs/demo-v12-provenance.json",
+    "docs/slot-profile-rules-qa.json"
+  ],
+  "historicalReceiptNotice": "v12 receipts record source hashes at their checkedAt. They do not establish current floor-aware UI/source provenance after this change."
+}

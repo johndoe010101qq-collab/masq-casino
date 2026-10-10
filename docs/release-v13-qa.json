@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "version": "indictus-demo-v13-final-local-qa",
+  "createdAt": "2026-10-09T15:20:04.284Z",
+  "sourceSHA256": {
+    "src/hall-session.js": "5dfd81ecf1280a1565e54f9d40a2a9be5ad68be2bdb6741b645d7c1c5d58d812",
+    "src/universal-slot-admission.js": "c7a14d4a8babb2ea1537ea63465d9c9815c3e5d7a55a7c40ae56fb1959e8e37c",
+    "src/universal-slot-profiles.js": "53269eaf09a6036bb845a8079641ac783dff1810c909188e3877abf43e286450",
+    "src/universal-slot-calibration.json": "968aee101a3d644674001f8df0d774d6ecf4207b89f1899ca17a7ad63bb34a08",
+    "src/universal-slot-statistics.json": "4a404642d1a46a2713b6fdc402eeb97af263a80984ef42ce7a16142c29c4b4f3",
+    "src/bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "src/classic-rtp-profiles.js": "37f82b1b2ac9668cdea36b731400a95282741250dfef02114a70ebf6b2ae5dbe",
+    "src/blackjack-rtp-profile-table.js": "260291ae7201cd16af4a7b6327e0028405e28c70f75e7eaffc91750970db2081",
+    "src/SlotWinReadout.jsx": "7a0b222a236636c2207b42eff6ebb9198c3072b73ea19654fc79a178da5d59ba",
+    "src/SlotWinReadout.css": "aa19c051deb8b2caec08baa90cdd344671defc1f03c91d3340e6e45716e1c0f9",
+    "src/MaskSlotRoom.jsx": "168c14be27166594140dbe420c7b30bab626c8d09a3bc3e2f61b64c00b9a37db",
+    "src/OddsRules.jsx": "f4db7ecc3a795fddf588b814428c8e9202fd8a0a5627b2194a8f6f11b70527e3",
+    "src/MaskSlotOddsRules.jsx": "fa836fa239817a3000b369f2a1ea25e11b204c464526b3e30641a1326bff45c2"
+  },
+  "tests": {
+    "command": "npm.cmd test",
+    "suites": 40,
+    "files": [
+      "tests/bonanza-checks.mjs",
+      "tests/bonanza-return-table-checks.mjs",
+      "tests/paid-bonus-checks.mjs",
+      "tests/game-math-checks.mjs",
+      "tests/game-distribution-checks.mjs",
+      "tests/plinko-parallel-checks.mjs",
+      "tests/plinko-motion-checks.mjs",
+      "tests/blackjack-checks.mjs",
+      "tests/blackjack-variant-checks.mjs",
+      "tests/blackjack-dual-selection-checks.mjs",
+      "tests/hall-security-checks.mjs",
+      "tests/audio-playback-checks.mjs",
+      "tests/bonanza-presentation-checks.mjs",
+      "tests/stake-limits-checks.mjs",
+      "tests/mask-slots-checks.mjs",
+      "tests/mask-slot-integration-checks.mjs",
+      "tests/mask-motion-checks.mjs",
+      "tests/mask-reel-audio-checks.mjs",
+      "tests/upgrader-hacker-checks.mjs",
+      "tests/raster-roulette-checks.mjs",
+      "tests/raster-coin-checks.mjs",
+      "tests/mask-cap-liability-checks.mjs",
+      "tests/presentation-resilience-checks.mjs",
+      "tests/feature-ledger-checks.mjs",
+      "tests/slot-playback-controller-checks.mjs",
+      "tests/slot-speed-checks.mjs",
+      "tests/hall-rtp-profile-checks.mjs",
+      "tests/mask-profile-checks.mjs",
+      "tests/bonanza-profile-checks.mjs",
+      "tests/classic-profile-checks.mjs",
+      "tests/demo-ui-settings-checks.mjs",
+      "tests/lexof-mascot-checks.mjs",
+      "tests/audio-mixer-settings-checks.mjs",
+      "tests/house-mascot-checks.mjs",
+      "tests/bonanza-mascot-checks.mjs",
+      "tests/bonus-purchase-floor-checks.mjs",
+      "tests/slot-win-readout-checks.mjs",
+      "tests/universal-slot-profile-checks.mjs",
+      "tests/demo-rtp-range-checks.mjs",
+      "tests/blackjack-range-evidence-checks.mjs"
+    ],
+    "exitCode": 0,
+    "fullLog": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\review-drafts\\release13-full-tests.log",
+    "subsequentChanges": "Only README/release descriptions and historical floor labels; universal rules SSR and demo UI checks re-run afterwards."
+  },
+  "build": {
+    "command": "npm.cmd run build",
+    "exitCode": 0,
+    "modules": 154,
+    "warning": "Existing optional Three.js/event chunks exceed500kB; build completed."
+  },
+  "simulation": {
+    "slotCalibration": 700000,
+    "independentSlotEndpointRounds": 990000,
+    "profiles": [
+      50,
+      70,
+      95
+    ],
+    "slotIntegrityChecks": 23718509,
+    "blackjackIndependentHands": 4600000,
+    "blackjackProfiles": 46,
+    "allOtherSlotProfiles": "Shared calibration estimate, no independent per-profile run claimed."
+  },
+  "browser": {
+    "url": "http://127.0.0.1:5178/?demo-admin=1",
+    "exclusiveAgentTab": "11",
+    "userTab": "10 untouched",
+    "rtp": {
+      "slider": {
+        "min": "50",
+        "max": "95",
+        "step": "1"
+      },
+      "applied": {
+        "slots": 95,
+        "maskhouse": 95,
+        "lecipher": 95,
+        "coinflip": 51,
+        "blackjack": 83
+      },
+      "revisionChangedFrom": 1,
+      "revisionChangedTo": 2,
+      "publicRulesAt95Rendered": true,
+      "noNaNOrInfinity": true,
+      "thenRestoredDefaults": true
+    },
+    "responsive": {
+      "width": 320,
+      "houseScrollWidth": 320,
+      "bonanzaScrollWidth": 305,
+      "temporaryViewportReset": true
+    },
+    "virtualBonus": {
+      "game": "Bonanza",
+      "startingBalance": 1000,
+      "charge": 500,
+      "payout": 163.9,
+      "endingBalance": 663.9,
+      "initialSpins": 10,
+      "remainingSpins": 0,
+      "skipSettledOnce": true,
+      "minimumForThisPrice": 50
+    },
+    "proofs": [
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-maskhouse-final-footer.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-maskhouse-final-mobile.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-lexof-final-footer.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-lexof-final-mobile.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-bonanza-final-footer.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-bonanza-final-win.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-bonanza-final-mobile.png",
+      "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\qa-screenshots\\v13-admin-50-95.png"
+    ]
+  },
+  "limits": [
+    "DEMO-only browser state; no real AR custody, server authorization or platform approval.",
+    "Selected slot target is approximate. LeXof paid95 independent mean98.351%,95%CI95.261–101.441%; not proof of positive house expectation.",
+    "Historical230AR LeXof tail audit refers to ordinary complete paid rounds on native55, including free spins; exact screenshot mode was not confirmed."
+  ]
+}

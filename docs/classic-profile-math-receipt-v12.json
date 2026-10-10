@@ -1,0 +1,1020 @@
+{
+  "status": "passed",
+  "generatedAt": "2026-10-09T14:21:28.068Z",
+  "scope": "Current Site local source after v12 integration. Source audit read-only; only the classic test was copied and this receipt written.",
+  "sourceHashes": {
+    "src/classic-rtp-profiles.js": "77ad08f7957f340e148c2d98aa0f8cb1102990f77946880db072d7f24736904b",
+    "src/demo-settings.js": "a10b3208ae91bc59ebcaa8a49c79fbf5c93a8ea8853381d18b7a58afe98ae5bf",
+    "src/hall-session.js": "975b7aebf19e98f450a5ca90a5002d60add94a8d43c17b13fa28c50cdc8282d0",
+    "src/liability-terms.js": "b62d4e103da648e01fc3ffc1c80f70225e035e6fdddb1890c0e07c98551b226c",
+    "src/game-math.js": "2765968525cc1eb712dec386aee0a83ed4ce3686221b365942a834adbf7f50bd",
+    "src/blackjack.js": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+    "src/stake-limits.js": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+    "src/demo-reserve.js": "743b0e2f923848c6bd20237bfe4269bc7c2b9dfa596432e627646d831088535d",
+    "src/App.jsx": "f8c28fa377fb8a56733e21633a5ca340da92be800472371ce35c1608e6daa5f2",
+    "src/OddsRules.jsx": "e943081581bd0606c2634900e05cf559470f330a20f51b0e88607cb3fcff376d",
+    "src/demo-ui-settings.js": "8986b402f95e38b28c4629151ccdf574fc850b3951600804d95c8eb75767be3b",
+    "src/demo-admin-controls.js": "4520fb935beded15c0594876466038b62c063376d65dde3402f35f466e6482a3",
+    "src/demo-admin-profile-details.js": "e6e7a05ecbfdab5ba993317fdf6e4ced9d2e968753b401e56e9670346eaacf3f",
+    "src/DemoAdminPanel.jsx": "aa3b82e1a396261ba1204b0e63f2ee34cd3f8c1e39a71f2ff55111838e2e98fc",
+    "src/SlotControls.jsx": "044ed2992e3b851f272ef24e88bf06bdfdf8127194946c3537462bc8b8c19560",
+    "src/SlotDock.jsx": "e7b4464a3350222d9cecdb776e9214ffe11d515fee1199a931626190a7a4a3b2",
+    "src/BonanzaSlot.jsx": "244c0e937ba74976cdb416d5dd027782c29afbbf9947be076e6467ca038b70dd",
+    "src/MaskSlotRoom.jsx": "6f8b302c9344ee44db316f04f0393f9930727fa0f266fce2378004555fcf96dc",
+    "src/PlinkoRoom.jsx": "5c7d1afab3b1dad7c074fb2cd8b4d1bed891a1793834ff813180df0397bd969d",
+    "src/BlackjackRoom.jsx": "d0594040c035f7c7abe4e05b96964c9f6099811c2d82fd7bcf63f7cbea8f3a85",
+    "tests/classic-profile-checks.mjs": "e50616064dd1b444ded93a3e2b992e918d89a2bd527cb1c19efad188a466fa16",
+    "tests/hall-security-checks.mjs": "ef4e29e6655c9916789c87fadfb7df5f3eeef6f8f924ab69799e4a26c2ed7b64",
+    "tests/hall-rtp-profile-checks.mjs": "6a8a3eeeb49540d553dc4068a8a2d55480bdab3ab772358ef10fcd4f5ae14a68",
+    "tests/demo-ui-settings-checks.mjs": "1b6fd27336a145f13ed3ffc407441de087f6feec04a4e604eee6939b3d1d79a8"
+  },
+  "testResults": [
+    {
+      "command": "node tests/classic-profile-checks.mjs",
+      "passed": true,
+      "checks": 393024
+    },
+    {
+      "command": "node tests/hall-security-checks.mjs",
+      "passed": true,
+      "checks": 749
+    },
+    {
+      "command": "node tests/hall-rtp-profile-checks.mjs",
+      "passed": true,
+      "checks": 2647
+    },
+    {
+      "command": "node tests/demo-ui-settings-checks.mjs",
+      "passed": true,
+      "coverage": "Atomic/stale/busy application; mixer scaling; all nine configured limits; pinned speed; rendered boundary/Max controls; JSX parse."
+    },
+    {
+      "command": "node tests/game-math-checks.mjs",
+      "passed": true,
+      "checks": 179015
+    },
+    {
+      "command": "node tests/game-distribution-checks.mjs",
+      "passed": true,
+      "checks": 6615777
+    },
+    {
+      "command": "node tests/blackjack-dual-selection-checks.mjs",
+      "passed": true,
+      "checks": 246010
+    },
+    {
+      "command": "node tests/feature-ledger-checks.mjs",
+      "passed": true,
+      "settledFeatureCases": 6,
+      "preRngRejects": 11
+    }
+  ],
+  "totalCountedAssertions": 7437222,
+  "semantics": {
+    "globalPublicPresets": true,
+    "profileChoiceAndLimitsCommittedBeforeRng": true,
+    "noPlayerHistoryOrBankrollProbabilityInputs": true,
+    "native70TicketAndRngParity": true,
+    "unchangedPayoutMultipliersFeesAndMaximumLiabilities": true,
+    "fiveGamesHaveExactRationalTicketMaps": true,
+    "native70Upgrader1_5ActualReturnPercent": 69.99,
+    "blackjackPresetsApproximateAndStrategyDependent": true,
+    "allPlinkoPhysicalPathsRetained": true,
+    "atomicWholeSettingsApply": true,
+    "staleBusyAndComputingUpdatesRejected": true
+  },
+  "exactProfiles": {
+    "coinflip": [
+      {
+        "id": "rtp50",
+        "targetReturnPercent": 50,
+        "actualReturnPercent": 50,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 50/200; другая сторона 150/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp55",
+        "targetReturnPercent": 55,
+        "actualReturnPercent": 55.00000000000001,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 55/200; другая сторона 145/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp60",
+        "targetReturnPercent": 60,
+        "actualReturnPercent": 60,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 60/200; другая сторона 140/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp65",
+        "targetReturnPercent": 65,
+        "actualReturnPercent": 65,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 65/200; другая сторона 135/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp70",
+        "targetReturnPercent": 70,
+        "actualReturnPercent": 70,
+        "kind": "exact",
+        "sampleSize": 20,
+        "rule": "Selected face: 7/20; other face: 13/20. Choice is fixed before RNG."
+      },
+      {
+        "id": "rtp75",
+        "targetReturnPercent": 75,
+        "actualReturnPercent": 75,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 75/200; другая сторона 125/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp80",
+        "targetReturnPercent": 80,
+        "actualReturnPercent": 80,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 80/200; другая сторона 120/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp85",
+        "targetReturnPercent": 85,
+        "actualReturnPercent": 85,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 85/200; другая сторона 115/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp90",
+        "targetReturnPercent": 90,
+        "actualReturnPercent": 90,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 90/200; другая сторона 110/200. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp95",
+        "targetReturnPercent": 95,
+        "actualReturnPercent": 95,
+        "kind": "exact",
+        "sampleSize": 200,
+        "rule": "Выбранная сторона 95/200; другая сторона 105/200. Выбор и профиль фиксируются до RNG."
+      }
+    ],
+    "dice": [
+      {
+        "id": "rtp50",
+        "targetReturnPercent": 50,
+        "actualReturnPercent": 50,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 250/3000; каждая из пяти других 550/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp55",
+        "targetReturnPercent": 55,
+        "actualReturnPercent": 55.00000000000001,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 275/3000; каждая из пяти других 545/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp60",
+        "targetReturnPercent": 60,
+        "actualReturnPercent": 60,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 300/3000; каждая из пяти других 540/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp65",
+        "targetReturnPercent": 65,
+        "actualReturnPercent": 65,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 325/3000; каждая из пяти других 535/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp70",
+        "targetReturnPercent": 70,
+        "actualReturnPercent": 70,
+        "kind": "exact",
+        "sampleSize": 300,
+        "rule": "Selected face: 35/300 (7/60); each other face: 53/300. Choice is fixed before RNG."
+      },
+      {
+        "id": "rtp75",
+        "targetReturnPercent": 75,
+        "actualReturnPercent": 75,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 375/3000; каждая из пяти других 525/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp80",
+        "targetReturnPercent": 80,
+        "actualReturnPercent": 80,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 400/3000; каждая из пяти других 520/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp85",
+        "targetReturnPercent": 85,
+        "actualReturnPercent": 85,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 425/3000; каждая из пяти других 515/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp90",
+        "targetReturnPercent": 90,
+        "actualReturnPercent": 90,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 450/3000; каждая из пяти других 510/3000. Выбор и профиль фиксируются до RNG."
+      },
+      {
+        "id": "rtp95",
+        "targetReturnPercent": 95,
+        "actualReturnPercent": 95,
+        "kind": "exact",
+        "sampleSize": 3000,
+        "rule": "Выбранная грань 475/3000; каждая из пяти других 505/3000. Выбор и профиль фиксируются до RNG."
+      }
+    ],
+    "plinko": [
+      {
+        "id": "rtp50",
+        "targetReturnPercent": 50,
+        "actualReturnPercent": 50,
+        "kind": "exact",
+        "sampleSize": 70840,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 105 билетов; каждый из 70 центральных путей — ещё 628. Всего 70840 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          105,
+          840,
+          2940,
+          5880,
+          51310,
+          5880,
+          2940,
+          840,
+          105
+        ],
+        "minimumPathWeight": 105,
+        "pathWeightSHA256": "7d611c4283833c4c3547ed4fbc50125ff0cb13b67695c2e1c7c458c0e388976a"
+      },
+      {
+        "id": "rtp55",
+        "targetReturnPercent": 55,
+        "actualReturnPercent": 55.00000000000001,
+        "kind": "exact",
+        "sampleSize": 141680,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 245 билетов; каждый из 70 центральных путей — ещё 1128. Всего 141680 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          245,
+          1960,
+          6860,
+          13720,
+          96110,
+          13720,
+          6860,
+          1960,
+          245
+        ],
+        "minimumPathWeight": 245,
+        "pathWeightSHA256": "ad98e8bc28d2f5393a6fdec3859dc020e3c227bb36e955659a5e3d1d0a68fc02"
+      },
+      {
+        "id": "rtp60",
+        "targetReturnPercent": 60,
+        "actualReturnPercent": 60,
+        "kind": "exact",
+        "sampleSize": 3542,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 7 билетов; каждый из 70 центральных путей — ещё 25. Всего 3542 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          7,
+          56,
+          196,
+          392,
+          2240,
+          392,
+          196,
+          56,
+          7
+        ],
+        "minimumPathWeight": 7,
+        "pathWeightSHA256": "a456d7cbdf7c4e40894cd274fc55aabcf9bc787c810e8e9f7caebc5d167924ee"
+      },
+      {
+        "id": "rtp65",
+        "targetReturnPercent": 65,
+        "actualReturnPercent": 65,
+        "kind": "exact",
+        "sampleSize": 141680,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 315 билетов; каждый из 70 центральных путей — ещё 872. Всего 141680 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          315,
+          2520,
+          8820,
+          17640,
+          83090,
+          17640,
+          8820,
+          2520,
+          315
+        ],
+        "minimumPathWeight": 315,
+        "pathWeightSHA256": "a266666c05d5632d05272df53d4d655cab0db39831bd1cd713be8be45d195fa2"
+      },
+      {
+        "id": "rtp70",
+        "targetReturnPercent": 70,
+        "actualReturnPercent": 70,
+        "kind": "exact",
+        "sampleSize": 141680,
+        "rule": "Собственный вариант Plinko с фиксированными весами путей. Каждый из 256 восьмишаговых путей имеет 350 билетов; каждый из 70 путей в центральную лунку получает ещё 744. Всего 141 680 равновероятных билетов. Это не восемь независимых равновероятных шагов: распределение путей фиксировано до RNG и не зависит от игрока, баланса или истории. Выплата соответствует выбранному пути и реальной лунке.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          350,
+          2800,
+          9800,
+          19600,
+          76580,
+          19600,
+          9800,
+          2800,
+          350
+        ],
+        "minimumPathWeight": 350,
+        "pathWeightSHA256": "0f025b2af9ccb3e874571690fd67c3cc9eddf29c206615e8dc4f4457d0ca67dc"
+      },
+      {
+        "id": "rtp75",
+        "targetReturnPercent": 75,
+        "actualReturnPercent": 75,
+        "kind": "exact",
+        "sampleSize": 1840,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 5 билетов; каждый из 70 центральных путей — ещё 8. Всего 1840 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          5,
+          40,
+          140,
+          280,
+          910,
+          280,
+          140,
+          40,
+          5
+        ],
+        "minimumPathWeight": 5,
+        "pathWeightSHA256": "4aee06c961bd9b1e36f120a2958c5a561d1d3eedbd795fb32085c9f082b55f89"
+      },
+      {
+        "id": "rtp80",
+        "targetReturnPercent": 80,
+        "actualReturnPercent": 80,
+        "kind": "exact",
+        "sampleSize": 35420,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 105 билетов; каждый из 70 центральных путей — ещё 122. Всего 35420 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          105,
+          840,
+          2940,
+          5880,
+          15890,
+          5880,
+          2940,
+          840,
+          105
+        ],
+        "minimumPathWeight": 105,
+        "pathWeightSHA256": "cffa8d8cfb13716024feb3ceced82619d66d5ad751882f319dc7d041300d6e83"
+      },
+      {
+        "id": "rtp85",
+        "targetReturnPercent": 85,
+        "actualReturnPercent": 85,
+        "kind": "exact",
+        "sampleSize": 28336,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 91 билетов; каждый из 70 центральных путей — ещё 72. Всего 28336 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          91,
+          728,
+          2548,
+          5096,
+          11410,
+          5096,
+          2548,
+          728,
+          91
+        ],
+        "minimumPathWeight": 91,
+        "pathWeightSHA256": "a0851e1783859ffdc1890cb72a636dfb807fc411d0104f3746ff7d52a28ab871"
+      },
+      {
+        "id": "rtp90",
+        "targetReturnPercent": 90,
+        "actualReturnPercent": 90,
+        "kind": "exact",
+        "sampleSize": 70840,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 245 билетов; каждый из 70 центральных путей — ещё 116. Всего 70840 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          245,
+          1960,
+          6860,
+          13720,
+          25270,
+          13720,
+          6860,
+          1960,
+          245
+        ],
+        "minimumPathWeight": 245,
+        "pathWeightSHA256": "450dc3a3aa0889ee374c9c239cd43b53798279537be3c4c6737b0ed222d6f990"
+      },
+      {
+        "id": "rtp95",
+        "targetReturnPercent": 95,
+        "actualReturnPercent": 95,
+        "kind": "exact",
+        "sampleSize": 141680,
+        "rule": "Открытый вариант Plinko: каждый из 256 физических путей имеет 525 билетов; каждый из 70 центральных путей — ещё 104. Всего 141680 равновероятных билетов. Веса фиксируются до RNG; выплаты по лункам не меняются.",
+        "pathCount": 256,
+        "binTicketCounts": [
+          525,
+          4200,
+          14700,
+          29400,
+          44030,
+          29400,
+          14700,
+          4200,
+          525
+        ],
+        "minimumPathWeight": 525,
+        "pathWeightSHA256": "a5de05ff2359222f8f15afd27965a6f78dc6caf596995240dd65ec83d5f869b7"
+      }
+    ],
+    "roulette": [
+      {
+        "id": "rtp50",
+        "targetReturnPercent": 50,
+        "actualReturnPercent": 50,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 950/68400; каждая из 19 других, включая 0: 2700/68400."
+      },
+      {
+        "id": "rtp55",
+        "targetReturnPercent": 55,
+        "actualReturnPercent": 55.00000000000001,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1045/68400; каждая из 19 других, включая 0: 2610/68400."
+      },
+      {
+        "id": "rtp60",
+        "targetReturnPercent": 60,
+        "actualReturnPercent": 60,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1140/68400; каждая из 19 других, включая 0: 2520/68400."
+      },
+      {
+        "id": "rtp65",
+        "targetReturnPercent": 65,
+        "actualReturnPercent": 65,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1235/68400; каждая из 19 других, включая 0: 2430/68400."
+      },
+      {
+        "id": "rtp70",
+        "targetReturnPercent": 70,
+        "actualReturnPercent": 70,
+        "kind": "exact",
+        "sampleSize": 6840,
+        "rule": "Each of 18 selected-color pockets: 133/6840; each of 19 other pockets including zero: 234/6840. Total selected color: 35%."
+      },
+      {
+        "id": "rtp75",
+        "targetReturnPercent": 75,
+        "actualReturnPercent": 75,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1425/68400; каждая из 19 других, включая 0: 2250/68400."
+      },
+      {
+        "id": "rtp80",
+        "targetReturnPercent": 80,
+        "actualReturnPercent": 80,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1520/68400; каждая из 19 других, включая 0: 2160/68400."
+      },
+      {
+        "id": "rtp85",
+        "targetReturnPercent": 85,
+        "actualReturnPercent": 85,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1615/68400; каждая из 19 других, включая 0: 2070/68400."
+      },
+      {
+        "id": "rtp90",
+        "targetReturnPercent": 90,
+        "actualReturnPercent": 90,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1710/68400; каждая из 19 других, включая 0: 1980/68400."
+      },
+      {
+        "id": "rtp95",
+        "targetReturnPercent": 95,
+        "actualReturnPercent": 95,
+        "kind": "exact",
+        "sampleSize": 68400,
+        "rule": "Каждая из 18 выбранных лунок: 1805/68400; каждая из 19 других, включая 0: 1890/68400."
+      }
+    ],
+    "upgrader": [
+      {
+        "id": "rtp50",
+        "targetReturnPercent": 50,
+        "actualReturnPercent": 50,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 6000/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 33.33333333333333,
+            "actualReturnPercent": 50
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 25,
+            "actualReturnPercent": 50
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 12.5,
+            "actualReturnPercent": 50
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 6.25,
+            "actualReturnPercent": 50
+          }
+        ]
+      },
+      {
+        "id": "rtp55",
+        "targetReturnPercent": 55,
+        "actualReturnPercent": 55.00000000000001,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 6600/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 36.666666666666664,
+            "actualReturnPercent": 55.00000000000001
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 27.500000000000004,
+            "actualReturnPercent": 55.00000000000001
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 13.750000000000002,
+            "actualReturnPercent": 55.00000000000001
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 6.875000000000001,
+            "actualReturnPercent": 55.00000000000001
+          }
+        ]
+      },
+      {
+        "id": "rtp60",
+        "targetReturnPercent": 60,
+        "actualReturnPercent": 60,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 7200/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 40,
+            "actualReturnPercent": 60
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 30,
+            "actualReturnPercent": 60
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 15,
+            "actualReturnPercent": 60
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 7.5,
+            "actualReturnPercent": 60
+          }
+        ]
+      },
+      {
+        "id": "rtp65",
+        "targetReturnPercent": 65,
+        "actualReturnPercent": 65,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 7800/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 43.333333333333336,
+            "actualReturnPercent": 65
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 32.5,
+            "actualReturnPercent": 65
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 16.25,
+            "actualReturnPercent": 65
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 8.125,
+            "actualReturnPercent": 65
+          }
+        ]
+      },
+      {
+        "id": "rtp70",
+        "targetReturnPercent": 70,
+        "actualReturnPercent": 70,
+        "kind": "exact",
+        "sampleSize": 10000,
+        "rule": "Успех: 3500/10000; выплата ×2. Выбор и профиль фиксируются до RNG.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 46.660000000000004,
+            "actualReturnPercent": 69.99
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 35,
+            "actualReturnPercent": 70
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 17.5,
+            "actualReturnPercent": 70
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 8.75,
+            "actualReturnPercent": 70
+          }
+        ]
+      },
+      {
+        "id": "rtp75",
+        "targetReturnPercent": 75,
+        "actualReturnPercent": 75,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 9000/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 50,
+            "actualReturnPercent": 75
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 37.5,
+            "actualReturnPercent": 75
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 18.75,
+            "actualReturnPercent": 75
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 9.375,
+            "actualReturnPercent": 75
+          }
+        ]
+      },
+      {
+        "id": "rtp80",
+        "targetReturnPercent": 80,
+        "actualReturnPercent": 80,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 9600/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 53.333333333333336,
+            "actualReturnPercent": 80
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 40,
+            "actualReturnPercent": 80
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 20,
+            "actualReturnPercent": 80
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 10,
+            "actualReturnPercent": 80
+          }
+        ]
+      },
+      {
+        "id": "rtp85",
+        "targetReturnPercent": 85,
+        "actualReturnPercent": 85,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 10200/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 56.666666666666664,
+            "actualReturnPercent": 85
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 42.5,
+            "actualReturnPercent": 85
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 21.25,
+            "actualReturnPercent": 85
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 10.625,
+            "actualReturnPercent": 85
+          }
+        ]
+      },
+      {
+        "id": "rtp90",
+        "targetReturnPercent": 90,
+        "actualReturnPercent": 90,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 10800/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 60,
+            "actualReturnPercent": 90
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 45,
+            "actualReturnPercent": 90
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 22.5,
+            "actualReturnPercent": 90
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 11.25,
+            "actualReturnPercent": 90
+          }
+        ]
+      },
+      {
+        "id": "rtp95",
+        "targetReturnPercent": 95,
+        "actualReturnPercent": 95,
+        "kind": "exact",
+        "sampleSize": 24000,
+        "rule": "Успех: 11400/24000; выплата ×2.",
+        "choices": [
+          {
+            "multiplier": 1.5,
+            "chancePercent": 63.33333333333333,
+            "actualReturnPercent": 95
+          },
+          {
+            "multiplier": 2,
+            "chancePercent": 47.5,
+            "actualReturnPercent": 95
+          },
+          {
+            "multiplier": 4,
+            "chancePercent": 23.75,
+            "actualReturnPercent": 95
+          },
+          {
+            "multiplier": 8,
+            "chancePercent": 11.875,
+            "actualReturnPercent": 95
+          }
+        ]
+      }
+    ]
+  },
+  "blackjackProfiles": [
+    {
+      "id": "rtp70",
+      "targetReturnPercent": 70,
+      "kind": "approximate",
+      "decks": 6,
+      "physicalCards": 312,
+      "dealerBoostTickets": 3200,
+      "playerUnfavorableTickets": 1500,
+      "payouts": {
+        "blackjack": 2.5,
+        "win": 2,
+        "push": 1,
+        "lose": 0
+      },
+      "probabilityFormula": "Игрок: 0.85/N + 0.15/K для карт с перебором (иначе с минимальной новой суммой), 0.85/N для остальных. Дилер: 0.68/N + 0.32/K для лучших безопасных карт, 0.68/N для остальных; если безопасных карт нет — 1/N.",
+      "measurements": {
+        "source": "blackjack-dual-bias-v10 independent holdout",
+        "handsPerStrategy": 1000000,
+        "basic_hit_stand": {
+          "returnPercent": 70.95245,
+          "return95CI_Percent": [
+            70.76653,
+            71.13837
+          ]
+        },
+        "hit_below_17": {
+          "returnPercent": 69.26605,
+          "return95CI_Percent": [
+            69.08119,
+            69.45092
+          ]
+        },
+        "adapted_hit_stand": {
+          "returnPercent": 70.95165,
+          "return95CI_Percent": [
+            70.76634,
+            71.13697
+          ]
+        }
+      }
+    },
+    {
+      "id": "rtp98",
+      "targetReturnPercent": 98,
+      "kind": "approximate",
+      "decks": 6,
+      "physicalCards": 312,
+      "dealerBoostTickets": 0,
+      "playerUnfavorableTickets": 0,
+      "payouts": {
+        "blackjack": 2.5,
+        "win": 2,
+        "push": 1,
+        "lose": 0
+      },
+      "probabilityFormula": "Каждая из N оставшихся физических карт имеет условную вероятность 1/N.",
+      "measurements": {
+        "source": "classic-v12 unbiased finite six-deck independent holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-classic-v12-independent-unbiased-holdout-2026-10-09",
+        "basic_hit_stand": {
+          "returnPercent": 98.421,
+          "return95CI_Percent": [
+            97.81066519815805,
+            99.03133480184195
+          ]
+        },
+        "hit_below_17": {
+          "returnPercent": 94.7245,
+          "return95CI_Percent": [
+            94.11784786507907,
+            95.33115213492093
+          ]
+        }
+      }
+    }
+  ],
+  "independentBlackjackHoldout": {
+    "artifact": "../review-drafts/classic-rtp-v12/tests/blackjack-profile-holdout.json",
+    "artifactSHA256": "37c78a218ae145c881aac2835245069f27983bd44a2fe992551560b2c08926dd",
+    "engineSHA256": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+    "totalHands": 400000,
+    "handsPerProfileAndStrategy": 100000,
+    "seed": "indictus-classic-v12-independent-unbiased-holdout-2026-10-09",
+    "rng": "SHA256 seeded sfc32, 20-word warmup, unbiased integer rejection",
+    "results": {
+      "rtp70": {
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 70.9925,
+          "return95CI_Percent": [
+            70.40781097676488,
+            71.57718902323512
+          ],
+          "outcomes": {
+            "blackjack": 4491,
+            "win": 25777,
+            "push": 8211,
+            "lose": 61521
+          }
+        },
+        "hit_below_17": {
+          "hands": 100000,
+          "returnPercent": 69.65350000000001,
+          "return95CI_Percent": [
+            69.07494126283433,
+            70.23205873716567
+          ],
+          "outcomes": {
+            "blackjack": 4557,
+            "win": 24453,
+            "push": 9355,
+            "lose": 61635
+          }
+        }
+      },
+      "rtp98": {
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 98.421,
+          "return95CI_Percent": [
+            97.81066519815805,
+            99.03133480184195
+          ],
+          "outcomes": {
+            "blackjack": 4640,
+            "win": 39006,
+            "push": 8809,
+            "lose": 47545
+          }
+        },
+        "hit_below_17": {
+          "hands": 100000,
+          "returnPercent": 94.7245,
+          "return95CI_Percent": [
+            94.11784786507907,
+            95.33115213492093
+          ],
+          "outcomes": {
+            "blackjack": 4647,
+            "win": 36688,
+            "push": 9731,
+            "lose": 48934
+          }
+        }
+      }
+    },
+    "limitation": "Monte Carlo estimates, not universal exact RTP. Six decks have 312 physical ids. No RNG exceptions retried, no bankroll stopping or payout truncation."
+  },
+  "uiIntegration": {
+    "oddsRulesUsesCurrentClassicProfiles": true,
+    "oddsRulesUsesCurrentStakeLimits": true,
+    "findings": []
+  },
+  "limitations": [
+    "Browser focus and layout verification are separate from this math/settings audit.",
+    "Blackjack Monte Carlo estimates are not universal exact RTP or a finite-shoe optimality proof."
+  ],
+  "failures": []
+}

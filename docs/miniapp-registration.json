@@ -1,0 +1,223 @@
+{
+  "version": "indictus-miniapp-registration-kit-v2",
+  "status": "registered-app-local-server-admin-not-deployed",
+  "application": {
+    "title": "MASQ",
+    "shortDescriptionRu": "Девять авторских игр на демонстрационных фишках. Открытые правила шансов, без реальных платежей.",
+    "descriptionRu": "MASQ — демонстрационный игровой зал: Coinflip, Dice, Plinko, Roulette, Upgrader, Blackjack, Bonanza, Mask Hou$e и LeXof. Фишки АР являются демонстрационными, а баланс и результаты существуют только в текущем сеансе страницы. Реальные ввод, вывод, платежи и банковские переводы не подключены. Страница «Правила шансов» раскрывает действующие вероятности, выплаты, цены и лимиты. Профиль SP Worlds используется только для отображения имени и идентификатора; административная панель во встроенном приложении скрыта.",
+    "language": "ru",
+    "games": [
+      {
+        "id": "coinflip",
+        "name": "Coinflip"
+      },
+      {
+        "id": "dice",
+        "name": "Dice"
+      },
+      {
+        "id": "plinko",
+        "name": "Plinko"
+      },
+      {
+        "id": "roulette",
+        "name": "Roulette"
+      },
+      {
+        "id": "upgrader",
+        "name": "Upgrader"
+      },
+      {
+        "id": "blackjack",
+        "name": "Blackjack"
+      },
+      {
+        "id": "slots",
+        "name": "Bonanza"
+      },
+      {
+        "id": "maskhouse",
+        "name": "Mask Hou$e"
+      },
+      {
+        "id": "lecipher",
+        "name": "LeXof"
+      }
+    ],
+    "applicationId": "e72e9ddb-1792-4481-ad85-f24e64b24611",
+    "registeredServerSlug": null,
+    "applicationPageUrl": "https://spworlds.ru/spm/apps/e72e9ddb-1792-4481-ad85-f24e64b24611",
+    "publicHttpsUrl": "https://masq-casino.pages.dev/",
+    "ownerPreviewUrl": "https://indictus-originals.johndoesora.chatgpt.site/",
+    "reviewContact": null,
+    "iconFile": "public/indictus-icon.png"
+  },
+  "community": {
+    "name": null,
+    "descriptionLatin": "Fortuna occulta.",
+    "communityId": null,
+    "pageUrl": null,
+    "ownerNickname": "deathlain",
+    "ownerAccountId": null,
+    "created": true,
+    "ownershipVerified": false,
+    "noteRu": "Пользователь сообщил, что сообщество и приложение созданы. Публичный App ID предоставлен; accountId и владение независимо не проверены."
+  },
+  "developers": {
+    "nicknames": [
+      "deathlain"
+    ],
+    "nicknameListComplete": true,
+    "noteRu": "Единственный разработчик — deathlain, подтверждено пользователем. Клиент и локальная серверная админка передаются в один закрытый репозиторий; финансового игрового сервера нет. Доступ проверяющего отдельно не предоставлялся.",
+    "reviewContact": null,
+    "frontendRepositoryUrl": "https://github.com/johndoe010101qq-collab/masq-casino",
+    "backendRepositoryUrl": "https://github.com/johndoe010101qq-collab/masq-casino",
+    "backendExists": true,
+    "repositoryAccessConfirmed": false
+  },
+  "publicApi": {
+    "requiredForCurrentDemo": false,
+    "approvedPublicEgressIps": null,
+    "cardId": null,
+    "requestedPermissions": null,
+    "financialActionsEnabled": false,
+    "cardTokenIncluded": false,
+    "noteRu": "IP и ID карты заполняются только при отдельно согласованном использовании публичного API. Текущий DEMO не вызывает финансовый API. Токены не являются полями этого комплекта."
+  },
+  "privateTokenSetup": {
+    "supportContact": null,
+    "supportRequestReference": null,
+    "supportRequestSent": false,
+    "applicationTokenReceived": false,
+    "serverSecretConfigured": false,
+    "applicationTokenIncluded": false,
+    "noteRu": "По процедуре пользователя получение токена согласуется с поддержкой. README SDK описывает однократный показ при создании приложения; актуальный порядок выдачи уточняется у площадки. В этом файле сохраняются только статусы, никогда значение токена."
+  },
+  "moderation": {
+    "workflowSource": "user-supplied-not-officially-confirmed",
+    "initialReviewerLabel": "AlexKot",
+    "initialReviewerContact": null,
+    "updateReviewerLabel": "Alexander",
+    "updateReviewerContact": null,
+    "reviewRequiredForEveryUpdate": true,
+    "initialSubmissionSent": false,
+    "approvalReceived": false,
+    "lastApprovedVersion": null,
+    "lastApprovalReference": null,
+    "submissionDraft": "docs/SPWORLDS_SUBMISSION_DRAFT.md",
+    "noteRu": "Контакты и последовательность переданы пользователем, не подтверждены публичной документацией. Черновик никому не отправлен; этот комплект не создаёт аккаунт, сообщество или приложение."
+  },
+  "hosting": {
+    "currentProvider": "Cloudflare Pages",
+    "projectName": "masq-casino",
+    "deploymentMethod": "Direct Upload",
+    "currentVisibility": "public",
+    "publicReachabilityVerified": true,
+    "verificationMethod": "browser-root-and-http-head",
+    "rootHttpStatus": 200,
+    "httpCspVerified": true,
+    "preserveCurrentVisibility": true,
+    "previousOwnerPreviewProvider": "Sites",
+    "previousOwnerPreviewVisibility": "owner-only",
+    "noteRu": "Текущий статический DEMO опубликован через Direct Upload в Cloudflare Pages. Публичная загрузка корневой страницы проверена в браузере; HTTP HEAD корня вернул 200, Server cloudflare, CSP frame-ancestors 'self' https://spworlds.ru и X-Content-Type-Options nosniff. Настоящий iframe и SDK после регистрации ещё не проверены. Прежний ownerPreviewUrl сохранён как закрытый исторический предпросмотр. Backend, проверка подписи и реальные платежи не развёрнуты.",
+    "registrationBlocker": "Публичный App ID получен. Серверная админка не развёрнута: нужны подтверждённый accountId владельца, серверный токен и формат timestamp, отдельный хост API/базы. Настоящий iframe ещё не проверен. Финансовый игровой сервер и платежи не реализованы. Передача исходников на GitHub разрешена; обновление сайта и отправка на модерацию отложены."
+  },
+  "identity": {
+    "purpose": "Display name and account identifier only",
+    "clientDto": [
+      "accountId",
+      "username",
+      "minecraftUUID"
+    ],
+    "documentedProviderScopeNames": null,
+    "permissionSelectionRu": "Если форма предлагает выбор доступов, выбрать только документированно необходимый для профиля. Имена OAuth scopes в опубликованном SDK не определены; дополнительные финансовые доступы не запрашивать.",
+    "financialApiCalls": [],
+    "paymentUiCalls": [],
+    "providerRolesAuthorizeCasinoAdmin": false,
+    "embeddedAdmin": "Server-admin client implemented locally; server-issued capability required; not deployed. Current live iframe has no authenticated casino admin.",
+    "embeddedConnectionStatus": "Visible DEMO status distinguishes unconfigured, unverified, verifying and failed connection; hidden in standalone mode",
+    "standaloneAdmin": "Existing live DEMO via ?demo-admin=1; local /admin requires signed SPWorlds owner login, the route/query never grants access.",
+    "signedValidationBackendDeployed": false,
+    "secretHandling": "Application token is server-only; never paste it in chat, source, VITE_* variables, a client bundle, or this package."
+  },
+  "sdk": {
+    "name": "SPWMini",
+    "packageName": "spwmini",
+    "clientImport": "spwmini/client",
+    "serverImport": "spwmini/middleware",
+    "middlewareExports": [
+      "validate",
+      "checkUser"
+    ],
+    "installedVersion": "1.2.0",
+    "officialRepository": "https://github.com/sp-worlds/spwmini",
+    "auditedRepositoryHead": "5dfc344289283c06ace4e143c9c21c5c75d28dbf",
+    "initRequest": {
+      "type": "init",
+      "payload": "PUBLIC_APPLICATION_ID"
+    },
+    "parentOrigin": "https://spworlds.ru",
+    "ready": "Local SDK emitter event after initResponse; not an outgoing platform handshake",
+    "publishedPackageUserFields": [
+      "accountId",
+      "username",
+      "minecraftUUID",
+      "hash"
+    ],
+    "currentRepositoryUserFields": [
+      "accountId",
+      "username",
+      "minecraftUUID",
+      "timestamp",
+      "roles",
+      "isAdmin",
+      "hash"
+    ],
+    "payloadCompatibility": "Current application validator requires the seven-field repository contract. Confirm actual registered initResponse before release; npm1.2.0 declarations still describe four fields.",
+    "timestampUnits": "not-established-by-published-primary-sources",
+    "freshness": "SDK checkUser verifies HMAC only; freshness and replay prevention are not implemented by that check.",
+    "validationRequest": "POST same-origin endpoint with JSON sdk.user directly; response text strictly1 or0",
+    "middlewareSHA256": "9c050c9f95d37bd890362e1e3c9281436931c5eac85b13eff3e493b28c97036e"
+  },
+  "deployment": {
+    "mode": "static-demo-only",
+    "webrootFolder": "webroot",
+    "sourceFolder": "source",
+    "nginxExample": "deploy/nginx-miniapp.conf.example",
+    "htmlResponseCsp": "frame-ancestors 'self' https://spworlds.ru",
+    "expressExampleIncluded": false,
+    "sameOriginValidationEndpointIncluded": false,
+    "validationConfiguration": "Keep VITE_SPW_VALIDATE_URL empty for static-only deployment; configure it only after a separate working backend is deployed.",
+    "providerApprovalClaimed": false,
+    "realMoneySecurityClaimed": false
+  },
+  "registrationStepsRu": [
+    "По процедуре пользователя deathlain создаёт сообщество как владелец, затем приложение с названием, описанием и согласованным HTTPS URL. Ник известен; accountId и владение ещё не проверены.",
+    "Передать публичный App ID и адрес страницы приложения. Токен приложения хранить только в серверном секрет-хранилище, вне чата, репозиториев, ZIP и клиентской сборки.",
+    "Статический DEMO уже опубликован на https://masq-casino.pages.dev/ через Cloudflare Pages Direct Upload. После выдачи App ID пересобрать с VITE_SPW_APP_ID, повторно загрузить клиент и проверить CSP и настоящий iframe SP Worlds. Исторический закрытый ownerPreviewUrl не заменяет текущий publicHttpsUrl.",
+    "Клиент, локальный сервер управления и тесты находятся в одном закрытом GitHub-репозитории. Единственный разработчик — deathlain. Подтвердить доступ проверяющего отдельно. Финансовый игровой сервер и его размещение остаются отдельным этапом.",
+    "Подготовить финальный комплект с хешами и обзор docs/RELEASE_RTP_AUDIT.md. Начальные цели: слоты 55 и классические 70; слоты и Blackjack приблизительны, доход сессии не гарантирован. IP и ID карты предоставлять только при отдельно согласованном использовании публичного API.",
+    "Проверить настоящий initResponse, отображение имени, скрытую админку, HTTP CSP и отсутствие финансовых запросов в iframe.",
+    "По процедуре пользователя: получение токена согласовать приватно с поддержкой, первоначальную проверку — с AlexKot, согласование публикации и каждого обновления — с Alexander. Контакты и порядок не подтверждены опубликованной документацией; ничего автоматически не отправлять.",
+    "Передать площадке DEMO, описание доступов, обзор механик и номер/хеш версии; решение о модерации и допустимости игр принимает SP Worlds."
+  ],
+  "releaseRiskReview": "docs/RELEASE_RTP_AUDIT.md",
+  "sources": [
+    "https://spworlds.ru/",
+    "https://github.com/sp-worlds/spwmini",
+    "https://github.com/sp-worlds/spwmini/blob/master/src/client.ts",
+    "https://github.com/sp-worlds/spwmini/blob/master/src/middleware.ts",
+    "https://github.com/sp-worlds/spwmini/blob/master/src/types.ts",
+    "https://github.com/sp-worlds/spwmini/commit/4661c7a61690fb70330bf0f9a207852844718ea7",
+    "https://github.com/sp-worlds/api-docs/wiki/Аутентификация",
+    "https://www.w3.org/TR/CSP3/#directive-frame-ancestors"
+  ],
+  "serverAdmin": {
+    "deployed": false,
+    "financialGameplayEnabled": false,
+    "sourceDocument": "docs/SERVER_ADMIN.md",
+    "accountsAuthorizeBy": "SPWorlds accountId allowlist, not nickname or provider roles",
+    "authenticatedOwnerConfigured": false,
+    "implementation": "local-node24-sqlite"
+  }
+}

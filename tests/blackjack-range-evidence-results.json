@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": 652,
+  "profiles": 46,
+  "independentHands": 4600000,
+  "coverage": "Unchanged physical engine SHA; all46 pinned public ticket pairs; frozen parameter digest; independent seed partition; recomputed payout-count mean and95%CI; approximate labels; native70 retained."
+}

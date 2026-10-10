@@ -1,0 +1,4 @@
+.classic-poster17{display:block;width:100%;height:100%;overflow:hidden;user-select:none}
+.classic-symbol17{display:block;overflow:visible;flex-shrink:0;user-select:none}
+.classic-symbol17 :is(path,circle,ellipse,rect){vector-effect:none}
+.classic-poster17 .classic-symbol17{overflow:visible}

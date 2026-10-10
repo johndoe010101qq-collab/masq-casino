@@ -1,0 +1,452 @@
+/* One set of interface tokens for every classic room. Original raster cabinets,
+   card illustrations, stage geometry and presentation animations remain intact.
+   The repeated root class deliberately outranks the retained v16 room theme. */
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) {
+  --game-accent:var(--ds-accent);
+  --game-accent-light:var(--ds-gold);
+  --game-panel:var(--ds-panel);
+  --classic-ink:var(--ds-ink);
+  --classic-cream:var(--ds-paper);
+  --classic-gold:var(--ds-gold);
+  --classic-muted:var(--ds-muted);
+  --ui-font:var(--ds-font-body);
+  --display:var(--ds-font-display);
+  --lobby-display:var(--ds-font-display);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading h1 {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display)!important;
+  font-size:42px!important;
+  font-weight:700;
+  letter-spacing:.015em;
+  line-height:1.05;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.physical-stage,.plinko-stage,.blackjack-stage,.physical-stage:has(.mode-cabinet-backdrop),.physical-stage.stage-upgrader) {
+  background-color:var(--ds-bg);
+  border:1px solid var(--ds-border);
+  border-radius:var(--ds-radius);
+  outline:none;
+  box-shadow:var(--ds-shadow);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .stage-label {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display);
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:.05em;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .stage-label small {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body);
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:0;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet,.room-bet:not(.blackjack-bet)) {
+  background:var(--ds-surface);
+  border:1px solid var(--ds-border);
+  border-radius:var(--ds-radius);
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+  font-family:var(--ds-font-body);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet>label,.room-bet legend) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet>label span {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body);
+  font-size:12px;
+  font-weight:500;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet .stake-input,.room-bet:not(.blackjack-bet) .stake-input,.plinko-stake-tools output,.blackjack-stake-tools output) {
+  border:1px solid var(--ds-ink);
+  border-radius:var(--ds-radius);
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+  caret-color:var(--ds-accent);
+  font-family:var(--ds-font-body)!important;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.035em;
+  box-shadow:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input {
+  height:56px;
+  font-size:27px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.plinko-stake-tools output,.blackjack-stake-tools output) {
+  min-height:48px;
+  font-size:22px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input:focus {
+  border-color:var(--ds-ink);
+  outline:2px solid var(--ds-gold);
+  outline-offset:3px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .stake-input[aria-invalid='true'] {
+  border-color:var(--ds-accent);
+  outline-color:var(--ds-accent);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-heading .rules-button,.room-bet .stake-tools button,.plinko-stake-tools button,.blackjack-stake-tools button,.physical-result button,.physical-stage:has(.mode-cabinet-backdrop) .physical-result button,.blackjack-table-actions button) {
+  min-height:44px;
+  border:1px solid var(--ds-border)!important;
+  border-radius:var(--ds-radius);
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-weight:700;
+  box-shadow:none;
+  text-shadow:none;
+  filter:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet .stake-tools button,.plinko-stake-tools button,.blackjack-stake-tools button) {
+  min-width:44px;
+  height:48px;
+  font-size:15px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.plinko-stake-tools button,.blackjack-stake-tools button) {
+  font-size:22px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-heading .rules-button,.room-bet .stake-tools button,.plinko-stake-tools button,.blackjack-stake-tools button,.physical-result button,.blackjack-table-actions button):hover:enabled {
+  background:var(--ds-surface);
+  border-color:var(--ds-gold)!important;
+  color:var(--ds-paper);
+  filter:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet .room-choices label,.room-bet:not(.blackjack-bet) .room-choices label) {
+  background:var(--ds-bg);
+  border:1px solid var(--ds-border);
+  border-radius:var(--ds-radius);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-size:13px;
+  font-weight:650;
+  box-shadow:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-bet .room-choices .option-red:not(.selected) {
+  color:var(--ds-paper);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet .room-choices label.selected,.room-bet:not(.blackjack-bet) .room-choices label.selected) {
+  background:var(--ds-paper);
+  border-color:var(--ds-paper);
+  color:var(--ds-ink);
+  font-weight:800;
+  box-shadow:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet>.primary,.room-layout:has(.stage-upgrader) .room-bet .primary) {
+  min-height:50px;
+  border:1px solid var(--ds-accent)!important;
+  border-radius:var(--ds-radius);
+  background:var(--ds-accent);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-size:14px!important;
+  font-weight:800;
+  letter-spacing:0;
+  box-shadow:var(--ds-shadow);
+  text-shadow:none;
+  filter:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet>.primary,.room-layout:has(.stage-upgrader) .room-bet .primary):hover:enabled {
+  background:var(--ds-accent-hover);
+  border-color:var(--ds-accent-hover)!important;
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+  filter:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet button,.room-heading button,.physical-result button,.blackjack-table-actions button,.blackjack-rules summary):focus-visible,
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-choices label:has(input:focus-visible) {
+  outline:2px solid var(--ds-gold);
+  outline-offset:3px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet button,.physical-result button,.blackjack-table-actions button):disabled {
+  opacity:.48;
+  box-shadow:none;
+  cursor:default;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.room-bet>small,.room-bet .demo-explanation,.plinko-limit,.plinko-flight-status,.blackjack-rule-copy) {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body);
+  font-size:12px;
+  line-height:1.65;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) :is(.form-error,.error-banner,.plinko-room .error-banner) {
+  color:var(--ds-paper);
+  background:var(--ds-accent-hover);
+  border:1px solid var(--ds-accent);
+  border-radius:var(--ds-radius);
+  padding:10px 12px;
+  font-family:var(--ds-font-body);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result {
+  background:var(--ds-surface);
+  border:1px solid var(--ds-border);
+  border-radius:var(--ds-radius);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-size:13px;
+  box-shadow:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result strong {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display)!important;
+  font-size:27px;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:0;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result small {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body);
+  font-size:12px;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .stage-upgrader .physical-result {
+  border:0;
+  border-top:1px solid var(--ds-line);
+  border-radius:0;
+  background:transparent;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='plinko'],[data-view='blackjack']) :is(.plinko-receipts,.blackjack-receipt) {
+  border:1px solid var(--ds-border);
+  border-radius:var(--ds-radius);
+  background:var(--ds-surface);
+  box-shadow:var(--ds-shadow);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='plinko'],[data-view='blackjack']) :is(.plinko-latest,.blackjack-receipt strong) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='plinko'],[data-view='blackjack']) :is(.plinko-latest small,.plinko-receipt,.blackjack-receipt>span) {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='plinko'] :is(.plinko-receipt,.plinko-static-rates>span) {
+  border-color:var(--ds-line);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='plinko'] .plinko-bin-label {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='plinko'] .plinko-bin-edge {
+  color:var(--ds-gold);
+}
+
+/* The dealer/player badges stay inside their existing hand rows. */
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-hand-title {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-size:13px;
+  font-weight:650;
+  letter-spacing:0;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-hand-title strong {
+  border:1px solid var(--ds-ink);
+  border-radius:var(--ds-radius);
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+  font-family:var(--ds-font-body)!important;
+  font-weight:800;
+  font-size:17px;
+  box-shadow:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] :is(.bj-felt-print,.blackjack-live-status) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-felt-print strong {
+  font-family:var(--ds-font-display);
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:.045em;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-felt-print :is(span,small) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  letter-spacing:0;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-table-actions button:first-child:enabled {
+  background:var(--ds-accent);
+  border-color:var(--ds-accent)!important;
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-table-actions button:first-child:hover:enabled {
+  background:var(--ds-accent-hover);
+  border-color:var(--ds-accent-hover)!important;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-table-actions button:last-child:enabled {
+  background:var(--ds-panel);
+  border-color:var(--ds-border)!important;
+  color:var(--ds-paper);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-table-actions button:last-child:hover:enabled {
+  background:var(--ds-surface);
+  border-color:var(--ds-gold)!important;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] :is(.blackjack-returns,.blackjack-rules) {
+  border-color:var(--ds-line);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-returns dt {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-returns dd {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  font-variant-numeric:tabular-nums;
+  font-size:18px;
+  font-weight:800;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-empty-hand {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  opacity:.75;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-card-face {
+  border:1px solid var(--ds-ink);
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+  box-shadow:none;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-card-back {
+  border-color:var(--ds-ink);
+  background-color:var(--ds-accent-hover);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-card-red {
+  color:var(--ds-accent);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] :is(.bj-card-index,.bj-card-index b) {
+  font-family:var(--ds-font-body);
+  font-weight:800;
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-raster-cards[data-long-hand='true'] {
+  scrollbar-color:var(--ds-gold) var(--ds-surface);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-receipt .net-positive {
+  color:var(--ds-positive);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .blackjack-receipt .net-negative {
+  color:var(--ds-paper);
+}
+
+/* The existing terminal remains part of the illustration, with the same motion. */
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] :is(.hacker-screen,.hacking .hacker-code) {
+  color:var(--ds-positive);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .hacker-identity {
+  border-color:var(--ds-border);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] :is(.hacker-target,.hacker-screen-title) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .hacker-code {
+  color:var(--ds-muted);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .hacker-packets i {
+  background:var(--ds-surface);
+  border-color:var(--ds-border);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .hacker-packets i.decoded {
+  background:var(--ds-positive);
+  border-color:var(--ds-positive);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .outcome-success :is(.hacker-screen,.hacker-code,.hacker-target,.hacker-screen-title) {
+  color:var(--ds-gold);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .outcome-success .hacker-packets i.decoded {
+  background:var(--ds-gold);
+  border-color:var(--ds-gold);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .outcome-denied :is(.hacker-screen,.hacker-code,.hacker-target,.hacker-screen-title) {
+  color:var(--ds-paper);
+}
+
+.app-shell21.app-shell21.app-shell21.app-shell21[data-view='upgrader'] .outcome-denied .hacker-packets i.decoded {
+  background:var(--ds-accent);
+  border-color:var(--ds-accent);
+}
+
+@media(max-width:650px) {
+  .app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .room-heading h1 {
+    font-size:34px!important;
+  }
+  .app-shell21.app-shell21.app-shell21.app-shell21:is([data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']) .physical-result strong {
+    font-size:23px;
+    white-space:normal;
+  }
+  .app-shell21.app-shell21.app-shell21.app-shell21[data-view='blackjack'] .bj-felt-print strong {
+    font-size:18px;
+  }
+}

@@ -1,0 +1,29 @@
+.indictus-app.indictus-app .slot-win-readout {position:absolute;z-index:3;bottom:3%;left:14%;right:14%;height:17%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#fff2cf;pointer-events:none;text-align:center;text-shadow:0 2px 0 #452012,0 3px 8px #260907;}
+.slot-win-total {display:flex;align-items:baseline;justify-content:center;gap:15px;white-space:nowrap;line-height:1;}
+.slot-win-total>span {color:#ffcf55;text-transform:uppercase;font:900 clamp(18px,2.7vw,34px)/1.1 'Arial Black',Arial,sans-serif;letter-spacing:-.045em;text-shadow:0 2px 0 #9b4b12,0 4px 5px #24110a;}
+.slot-win-total>strong {color:#fff9e7;font:900 clamp(32px,4.4vw,56px)/1.1 'Arial Black',Arial,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.04em;text-shadow:0 3px 0 #6c351f,0 5px 7px #201107;}
+.slot-win-total small {font-size:.53em;}
+.slot-win-readout[data-winning='true'] .slot-win-total>strong {animation:slot-paid-amount calc(.45s / var(--slot-speed,1)) ease-out both;}
+.slot-win-detail {display:flex;align-items:center;justify-content:center;gap:10px;min-height:31px;font:500 clamp(12px,1.65vw,18px)/1.25 Arial,sans-serif;}
+.slot-win-detail b {font-weight:700;color:#fff4ce;white-space:nowrap;}
+.slot-win-caption {opacity:.78;font-size:.85em;}
+.slot-win-symbols {display:flex;align-items:center;gap:2px;}
+.slot-win-mini {display:block;position:relative;width:33px;height:33px;background-size:400% 300%;background-repeat:no-repeat;filter:drop-shadow(0 1px 1px #200806);}
+.slot-win-mini b {position:absolute;right:0;bottom:0;padding:1px 2px;background:#45151ddb;font:700 10px/1 Arial,sans-serif;border-radius:2px;}
+.indictus-app.indictus-app .lecipher .slot-win-readout {left:30%;right:10%;bottom:2%;height:17%;text-shadow:0 2px 0 #11251d,0 3px 8px #081b10;}
+.indictus-app.indictus-app .lecipher .slot-win-total>span {color:#eed789;}
+/* Held frames remain stationary; only the credited glyph inside reacts. */
+.indictus-app.indictus-app .maskhouse .phase-win .mask-cell-win>.mask-slot-symbol,
+.indictus-app.indictus-app .maskhouse .phase-payline .mask-cell-win>.mask-slot-symbol,
+.indictus-app.indictus-app .maskhouse .mask-fixed-win>.mask-slot-symbol {animation:slot-symbol-celebrate calc(.85s / var(--slot-speed,1)) ease-in-out both;transform-origin:50% 75%;}
+.indictus-app.indictus-app .maskhouse .mask-sticky-fixed {animation:none!important;transform:none!important;}
+.mask-slot-stage[data-playback-paused='true'] .slot-win-readout *,
+.mask-slot-stage[data-playback-paused='true'] .mask-slot-symbol {animation-play-state:paused!important;}
+@keyframes slot-paid-amount {0%{transform:scale(.94);opacity:.75;}45%{transform:scale(1.05);}100%{transform:none;opacity:1;}}
+@keyframes slot-symbol-celebrate {0%,100%{transform:none;}25%{transform:translateY(-4%) rotate(-5deg) scale(1.06);}60%{transform:rotate(4deg) scale(1.04);}}
+@media(max-width:760px){
+ .indictus-app.indictus-app .slot-win-readout,.indictus-app.indictus-app .lecipher .slot-win-readout {left:5%;right:5%;bottom:2%;height:18%;gap:2px;}
+ .slot-win-total {gap:8px;}.slot-win-total>span {font-size:clamp(18px,5.4vw,30px);}.slot-win-total>strong {font-size:clamp(28px,8vw,42px);}
+ .slot-win-detail {font-size:11px;gap:5px;min-height:24px;}.slot-win-mini {width:22px;height:22px;}.slot-win-caption {font-size:11px;}
+}
+@media(prefers-reduced-motion:reduce){.slot-win-readout *,.indictus-app.indictus-app .maskhouse .mask-cell-win>.mask-slot-symbol,.indictus-app.indictus-app .maskhouse .mask-fixed-win>.mask-slot-symbol {animation:none!important;transform:none!important;}}

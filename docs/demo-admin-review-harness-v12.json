@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-09 14:07:33 UTC",
+  "status": "passed",
+  "location": "review-drafts/full-demo-admin-v12",
+  "ssr": {
+    "panels": 12,
+    "games": 9,
+    "validatedProfileValues": 61
+  },
+  "build": {
+    "tool": "Vite8.3.2",
+    "modules": 39,
+    "status": "passed"
+  },
+  "browser": {
+    "backend": "native in-app browser",
+    "scope": "isolated real HallSession review harness",
+    "checks": [
+      "pending RTP60 does not change active RTP55",
+      "minimum80 maximum50 rejected before commit",
+      "corrected bounds and RTP atomically commit version1 to2",
+      "Blackjack70 and98 presets expose measured strategy estimates",
+      "speed2 SFX0 music25 atomically commit with Blackjack98",
+      "Escape dismisses native dialog and restores opener focus",
+      "backdrop click dismisses and restores opener focus",
+      "all inputs and Apply disabled while a real demo round is pending",
+      "missing demo-admin query hides entry",
+      "320px responsive viewport has no horizontal overflow"
+    ],
+    "mobile": {
+      "requestedWidth": 320,
+      "documentClientWidth": 305,
+      "documentScrollWidth": 305,
+      "dialogWidth": 271,
+      "dialogScrollWidth": 254
+    },
+    "screenshots": [
+      "panel-desktop.jpg",
+      "panel-mobile-320.jpg"
+    ],
+    "temporaryBrowserTabClosed": true,
+    "viewportOverrideReset": true
+  },
+  "boundaries": [
+    "no Site checkout edits",
+    "no external publication",
+    "no balance admin controls",
+    "source-mismatched measurements remain unavailable"
+  ]
+}

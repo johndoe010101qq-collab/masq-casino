@@ -1,0 +1,102 @@
+{
+  "variant": "dual-selection-v10",
+  "dealerBoostTickets": 3200,
+  "dealerTicketCount": 10000,
+  "playerUnfavorableTickets": 1500,
+  "playerTicketCount": 10000,
+  "fixedBoostPercent": 32,
+  "fixedPlayerUnfavorablePercent": 15,
+  "estimatedPlayerReturnPercent": 70,
+  "source": "Independent holdout, finite six-deck engine with both fixed disclosed biases",
+  "seed": "indictus-blackjack-dual-bias-v10-independent-sfc32-2026-10-09",
+  "seriesPerStrategy": 10000,
+  "handsPerSeries": 100,
+  "stakeAR": 100,
+  "wagerPerSeriesAR": 10000,
+  "totalHands": 3000000,
+  "measured": {
+    "basic_hit_stand": {
+      "description": "Standard six-deck S17 hit/stand basic decisions, no double/split/surrender/insurance. Uses only visible player cards and dealer upcard.",
+      "returnPercent": 70.95,
+      "return95CI_Percent": [
+        70.77,
+        71.14
+      ],
+      "averageCasinoResultAR": 2904.76,
+      "casinoResultPercentilesAR": {
+        "p05": 1300,
+        "p50": 2900,
+        "p95": 4450
+      },
+      "oneSeriesCasinoResultAR": 4400,
+      "outcomes": {
+        "blackjack": 45353,
+        "win": 257204,
+        "push": 81734,
+        "lose": 615709
+      },
+      "hands": 1000000
+    },
+    "hit_below_17": {
+      "description": "Hit while visible player total is below17, otherwise stand, including soft17.",
+      "returnPercent": 69.27,
+      "return95CI_Percent": [
+        69.08,
+        69.45
+      ],
+      "averageCasinoResultAR": 3073.4,
+      "casinoResultPercentilesAR": {
+        "p05": 1500,
+        "p50": 3100,
+        "p95": 4600
+      },
+      "oneSeriesCasinoResultAR": 4700,
+      "outcomes": {
+        "blackjack": 45353,
+        "win": 243209,
+        "push": 92860,
+        "lose": 618578
+      },
+      "hands": 1000000
+    },
+    "adapted_hit_stand": {
+      "description": "Visible-card hit/stand table maximizing expected payout in an infinite-deck approximation with BOTH disclosed fixed biases: dealer safe-best and player bust-first/minimum-total. Actual return is measured on the frozen finite six-deck engine; no hidden-card, shoe or future-card access.",
+      "returnPercent": 70.95,
+      "return95CI_Percent": [
+        70.77,
+        71.14
+      ],
+      "averageCasinoResultAR": 2904.84,
+      "casinoResultPercentilesAR": {
+        "p05": 1300,
+        "p50": 2900,
+        "p95": 4450
+      },
+      "oneSeriesCasinoResultAR": 4400,
+      "outcomes": {
+        "blackjack": 45353,
+        "win": 256460,
+        "push": 83214,
+        "lose": 614973
+      },
+      "hands": 1000000
+    }
+  },
+  "note": "Открытый вариант с фиксированным смещением добора: 15% игрока и32% дилера. Начальная раздача равномерна. Возврат69,27–70,95% получен для трёх проверенных стратегий; около70% — ориентир, не точная или универсальная вероятность и не гарантия короткой серии. Победа ×2, Blackjack ×2,5, ничья ×1.",
+  "probabilityFormula": "Игрок: для N оставшихся карт и K карт с перебором (если таких нет — с минимальной новой суммой) каждая из K имеет0.85/N+0.15/K, остальные0.85/N. Дилер: для K лучших безопасных карт каждая имеет0.68/N+0.32/K, остальные0.68/N; если безопасных карт нет —1/N.",
+  "sourceSha256": {
+    "candidateEngine": "b3f881b3db09608b065985ef59718df977b0b6c2c74e42e79e2ba20f048b251a",
+    "independentPolicies": "dd26f4822f0f5ead552cc6f356d35c44b1b633ae6015626622f69b3da0674b77",
+    "independentHoldout": "9484fc4ce3f4e702d08df77b17de7a0a3b80ad58f95283b94d3b8fe4b1939849",
+    "liveEngine": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e"
+  },
+  "candidateSha256": "b3f881b3db09608b065985ef59718df977b0b6c2c74e42e79e2ba20f048b251a",
+  "integrationPending": false,
+  "mergedSha256": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+  "liveProvenance": {
+    "pairedHands": 10000,
+    "differentOutcomes": 0,
+    "sourceNormalizedEqual": true,
+    "proof": "math-research/blackjack-dual-bias-v10/live-provenance-proof.json"
+  }
+}

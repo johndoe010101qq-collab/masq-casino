@@ -1,0 +1,1427 @@
+{
+  "status": "passed",
+  "version": "indictus-public-bonus-purchase-floor-v13",
+  "startedAt": "2026-10-09T14:39:00.378Z",
+  "actualPublicEngines": true,
+  "scope": "Source-specific reference only: profiles50/55/60,50ARbase,fourboughtoffers. This is not evidence for other profiles or complete50–95step1coverage.",
+  "method": "Every round directly executes byte-for-byte captured actual Site public engine sources, then the separate frozen bought-bonus floor adapter. All 50/55/60 endpoint reference profiles are held out at50ARbase with independent seeds. No fast surrogate or tuning is used.",
+  "definitions": {
+    "return": "Whole-round gross payout divided by the entire charged bonus purchase price, including all played spins and engine minimum payments.",
+    "floor": "Separate adapter payment equal to max(0,ceil(10% of full charge)-actual engine payout).",
+    "profit": "Final gross payout strictly above the full purchase charge.",
+    "mean95CI": "Approximate normal 95% Monte Carlo mean confidence interval using unbiased sample variance; not an exact theoretical RTP or guarantee.",
+    "frequency95CI": "Wilson 95% binomial interval.",
+    "spinReconciliation": "Awarded = played + unplayed, plus all visible frame/win cents. Existing cap stops in the sealed LeXof engine are recorded rather than changed.",
+    "raw": "The unmodified engine result already includes its existing 5% bonus payment for MaskHouse/LeXof.",
+    "independence": "Fresh 128-bit random seeds are saved before any round executes, one per row; parameters/adapter are frozen before validation."
+  },
+  "randomAlgorithm": "xoshiro128** uint32 rejection sampling; deterministic research RNG only.",
+  "sourceCaptureReceipt": {
+    "recordedAt": "2026-10-09T14:38:45.394Z",
+    "source": "Actual Site source files copied byte for byte before endpoint holdout; these are not surrogate engines.",
+    "modules": {
+      "bonanza.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/bonanza.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/bonanza.js",
+        "originalSHA256AtReceipt": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+        "snapshotSHA256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+        "byteForByteMatchesActualSite": true
+      },
+      "bonanza-profile-engine.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/bonanza-profile-engine.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/bonanza-profile-engine.js",
+        "originalSHA256AtReceipt": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+        "snapshotSHA256": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+        "byteForByteMatchesActualSite": true
+      },
+      "bonanza-rtp-profiles.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/bonanza-rtp-profiles.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/bonanza-rtp-profiles.js",
+        "originalSHA256AtReceipt": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+        "snapshotSHA256": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+        "byteForByteMatchesActualSite": true
+      },
+      "profiled-bonanza.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/profiled-bonanza.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/profiled-bonanza.js",
+        "originalSHA256AtReceipt": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+        "snapshotSHA256": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+        "byteForByteMatchesActualSite": true
+      },
+      "mask-slots.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/mask-slots.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/mask-slots.js",
+        "originalSHA256AtReceipt": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+        "snapshotSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+        "byteForByteMatchesActualSite": true
+      },
+      "profiled-mask-core.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/profiled-mask-core.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/profiled-mask-core.js",
+        "originalSHA256AtReceipt": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+        "snapshotSHA256": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+        "byteForByteMatchesActualSite": true
+      },
+      "profiled-mask-slots.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/profiled-mask-slots.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/profiled-mask-slots.js",
+        "originalSHA256AtReceipt": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+        "snapshotSHA256": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+        "byteForByteMatchesActualSite": true
+      },
+      "rtp-profiles.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/rtp-profiles.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/rtp-profiles.js",
+        "originalSHA256AtReceipt": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6",
+        "snapshotSHA256": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6",
+        "byteForByteMatchesActualSite": true
+      },
+      "stake-limits.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/stake-limits.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/stake-limits.js",
+        "originalSHA256AtReceipt": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+        "snapshotSHA256": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+        "byteForByteMatchesActualSite": true
+      },
+      "slot-rtp-profiles.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/slot-rtp-profiles.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/slot-rtp-profiles.js",
+        "originalSHA256AtReceipt": "9e766ecb48da7b2703c7e3321a479ca89cf048c85d8e0689d4ae727209279270",
+        "snapshotSHA256": "9e766ecb48da7b2703c7e3321a479ca89cf048c85d8e0689d4ae727209279270",
+        "byteForByteMatchesActualSite": true
+      },
+      "bonus-purchase-floor.js": {
+        "originalURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/bonus-purchase-floor.js",
+        "snapshotURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/review-drafts/bonus-floor-v13/engine-snapshot/bonus-purchase-floor.js",
+        "originalSHA256AtReceipt": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+        "snapshotSHA256": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+        "byteForByteMatchesActualSite": true
+      }
+    }
+  },
+  "engineSourceHashes": {
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "profiled-mask-core.js": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+    "profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "rtp-profiles.js": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6",
+    "stake-limits.js": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+    "slot-rtp-profiles.js": "9e766ecb48da7b2703c7e3321a479ca89cf048c85d8e0689d4ae727209279270",
+    "bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f"
+  },
+  "adapterContract": {
+    "frozenAt": "2026-10-09T14:37:27.824Z",
+    "moduleURL": "file:///C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/src/bonus-purchase-floor.js",
+    "exportName": "applyBonusPurchaseFloor",
+    "revision": "indictus-public-bonus-purchase-floor-v13",
+    "sourceSHA256": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "binding": "applyBonusPurchaseFloor(raw,{game,mode:'buy',chargeCents:raw.chargeCents,profileRules:slotProfileSnapshot(game,profile,{mode:'buy',bonusTier})})"
+  },
+  "adapterSourceSHA256": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+  "runnerSourceSHA256": "c137e253e9a8638a596d0d85202a9667234dc420ddc5d45f0b6286ed6dff3943",
+  "seedPlanSHA256": "3f8ebb4497437aec9bf27df2ee76a91d529d2448064c929e2dc698937c07ef09",
+  "rows": [
+    {
+      "key": "bonanza-default-rtp50-50AR",
+      "game": "bonanza",
+      "bonusTier": null,
+      "profile": 50,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "e0cb8f7f3e00e647afc1350e18200414",
+      "publicGame": "Bonanza",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 250000,
+      "fullChargeAR": 2500,
+      "guaranteedMinimumCents": 25000,
+      "totalChargeCents": 5000000000,
+      "rawTotalPayoutCents": 2512351400,
+      "finalTotalPayoutCents": 2514323250,
+      "floorTopupTotalCents": 1971850,
+      "rawGrossReturn": {
+        "mean": 0.5024702800000017,
+        "standardError": 0.0016699585520947402,
+        "mean95CI": [
+          0.49919716123789604,
+          0.5057433987621074
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5028646499999974,
+        "standardError": 0.0016648737750211637,
+        "mean95CI": [
+          0.4996014974009559,
+          0.5061278025990389
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.00039436999999999816,
+        "standardError": 0.0000326850322123375,
+        "mean95CI": [
+          0.00033030733686381663,
+          0.0004584326631361797
+        ]
+      },
+      "rawGrossReturnPercent": 50.24702800000017,
+      "finalGrossReturnPercent": 50.28646499999974,
+      "rawMean95CI_Percent": [
+        49.919716123789605,
+        50.574339876210736
+      ],
+      "finalMean95CI_Percent": [
+        49.96014974009559,
+        50.612780259903886
+      ],
+      "floorTransactionCount": 208,
+      "floorTransactionFrequency": 0.0104,
+      "floorTransactionFrequency95CI": [
+        0.009085011335564087,
+        0.011903037280057826
+      ],
+      "meanFloorTopupCentsPerRound": 98.5925,
+      "meanTopupCentsPerFloorTransaction": 9480.048076923076,
+      "engineExisting5PercentPaymentCount": 0,
+      "engineExisting5PercentPaymentTotalCents": 0,
+      "rawProfitCount": 671,
+      "finalProfitCount": 671,
+      "playerProfitFrequency": 0.03355,
+      "playerProfitFrequency95CI": [
+        0.03114259903013342,
+        0.036136557989386274
+      ],
+      "rawZeroPayoutCount": 9,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 200005,
+        "awarded": 200005,
+        "unplayed": 0,
+        "roundsWithUnplayedSpins": 0,
+        "maxSpinsInOneRound": 15,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 9,
+      "checks": 1303592,
+      "rng": {
+        "boundedDraws": 8067653,
+        "generatedUint32Words": 8067653
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-bonanza-default-rtp50-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "93a4048520b21b895de802f05ef87255dc19d5fe6a70cc034265ea72f9ca775a"
+        },
+        "final": {
+          "filename": "holdout-bonanza-default-rtp50-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "1db4b5920a5c6c09e6e629c4a4ce4d44c3cd91377e175aa216936528edbda1d6"
+        },
+        "topup": {
+          "filename": "holdout-bonanza-default-rtp50-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "018961c0ea2394cc1599057698cdddf374cc9fa8981a3cc8eaae5c8b47eeb556"
+        }
+      },
+      "elapsedSeconds": 10.9474321
+    },
+    {
+      "key": "bonanza-default-rtp55-50AR",
+      "game": "bonanza",
+      "bonusTier": null,
+      "profile": 55,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "69bd74a1d1a6f7a63067a1c5e2dac464",
+      "publicGame": "Bonanza",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 250000,
+      "fullChargeAR": 2500,
+      "guaranteedMinimumCents": 25000,
+      "totalChargeCents": 5000000000,
+      "rawTotalPayoutCents": 2747253800,
+      "finalTotalPayoutCents": 2749254200,
+      "floorTopupTotalCents": 2000400,
+      "rawGrossReturn": {
+        "mean": 0.5494507599999952,
+        "standardError": 0.0019486053006963755,
+        "mean95CI": [
+          0.5456314936106302,
+          0.5532700263893601
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5498508399999968,
+        "standardError": 0.001943675043982027,
+        "mean95CI": [
+          0.546041236913792,
+          0.5536604430862017
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.0004000800000000011,
+        "standardError": 0.00003451679258170585,
+        "mean95CI": [
+          0.00033242708653985763,
+          0.0004677329134601446
+        ]
+      },
+      "rawGrossReturnPercent": 54.94507599999952,
+      "finalGrossReturnPercent": 54.98508399999969,
+      "rawMean95CI_Percent": [
+        54.563149361063026,
+        55.32700263893601
+      ],
+      "finalMean95CI_Percent": [
+        54.6041236913792,
+        55.36604430862017
+      ],
+      "floorTransactionCount": 208,
+      "floorTransactionFrequency": 0.0104,
+      "floorTransactionFrequency95CI": [
+        0.009085011335564087,
+        0.011903037280057826
+      ],
+      "meanFloorTopupCentsPerRound": 100.02,
+      "meanTopupCentsPerFloorTransaction": 9617.307692307691,
+      "engineExisting5PercentPaymentCount": 0,
+      "engineExisting5PercentPaymentTotalCents": 0,
+      "rawProfitCount": 1286,
+      "finalProfitCount": 1286,
+      "playerProfitFrequency": 0.0643,
+      "playerProfitFrequency95CI": [
+        0.060983471278462285,
+        0.06778387508964735
+      ],
+      "rawZeroPayoutCount": 18,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 200010,
+        "awarded": 200010,
+        "unplayed": 0,
+        "roundsWithUnplayedSpins": 0,
+        "maxSpinsInOneRound": 15,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 17,
+      "checks": 1303614,
+      "rng": {
+        "boundedDraws": 8053985,
+        "generatedUint32Words": 8054541
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-bonanza-default-rtp55-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "c1e021bbce332497b3ba0687831ff77ed99cadaa40de3336d5eb7ef62b47f2d9"
+        },
+        "final": {
+          "filename": "holdout-bonanza-default-rtp55-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "79b64206b4211ec705029c0c12d696acfcb0c26bbcac2e65e50c132577adf4d9"
+        },
+        "topup": {
+          "filename": "holdout-bonanza-default-rtp55-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "4e8fecdf91b72fd88e372a8fefeaa8bee61bf18e7b84acb227113a1e99a633e5"
+        }
+      },
+      "elapsedSeconds": 11.1199742
+    },
+    {
+      "key": "bonanza-default-rtp60-50AR",
+      "game": "bonanza",
+      "bonusTier": null,
+      "profile": 60,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "060e9220563089c1317b2caf3efb0be1",
+      "publicGame": "Bonanza",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 250000,
+      "fullChargeAR": 2500,
+      "guaranteedMinimumCents": 25000,
+      "totalChargeCents": 5000000000,
+      "rawTotalPayoutCents": 3029351550,
+      "finalTotalPayoutCents": 3030998650,
+      "floorTopupTotalCents": 1647100,
+      "rawGrossReturn": {
+        "mean": 0.6058703099999987,
+        "standardError": 0.0022658364797736104,
+        "mean95CI": [
+          0.6014292704996425,
+          0.6103113495003549
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.6061997299999992,
+        "standardError": 0.002261950362821542,
+        "mean95CI": [
+          0.6017663072888689,
+          0.6106331527111294
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.00032942000000000046,
+        "standardError": 0.000030322333277219443,
+        "mean95CI": [
+          0.00026998822677665033,
+          0.0003888517732233506
+        ]
+      },
+      "rawGrossReturnPercent": 60.58703099999987,
+      "finalGrossReturnPercent": 60.619972999999916,
+      "rawMean95CI_Percent": [
+        60.14292704996424,
+        61.031134950035494
+      ],
+      "finalMean95CI_Percent": [
+        60.17663072888689,
+        61.06331527111294
+      ],
+      "floorTransactionCount": 189,
+      "floorTransactionFrequency": 0.00945,
+      "floorTransactionFrequency95CI": [
+        0.008200133687783183,
+        0.010888279809752214
+      ],
+      "meanFloorTopupCentsPerRound": 82.355,
+      "meanTopupCentsPerFloorTransaction": 8714.814814814816,
+      "engineExisting5PercentPaymentCount": 0,
+      "engineExisting5PercentPaymentTotalCents": 0,
+      "rawProfitCount": 2191,
+      "finalProfitCount": 2191,
+      "playerProfitFrequency": 0.10955,
+      "playerProfitFrequency95CI": [
+        0.10529610379807343,
+        0.11395386266836773
+      ],
+      "rawZeroPayoutCount": 11,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 200015,
+        "awarded": 200015,
+        "unplayed": 0,
+        "roundsWithUnplayedSpins": 0,
+        "maxSpinsInOneRound": 15,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 53,
+      "checks": 1303293,
+      "rng": {
+        "boundedDraws": 8041816,
+        "generatedUint32Words": 8043417
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-bonanza-default-rtp60-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "c1155cb36feae1619a33c03832eda1585f26f5aa243b801783936ab3e066bfd5"
+        },
+        "final": {
+          "filename": "holdout-bonanza-default-rtp60-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "a2d434d6e0830f777ed0fb99115f8579504b5f78cbd3e9777b0634d8fe1d8378"
+        },
+        "topup": {
+          "filename": "holdout-bonanza-default-rtp60-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "91f263a882b79e0fe5efc89b6f88920679cc95497cdcd63445762e56f76fce37"
+        }
+      },
+      "elapsedSeconds": 11.2629435
+    },
+    {
+      "key": "lecipher-gold-rtp50-50AR",
+      "game": "lecipher",
+      "bonusTier": "gold",
+      "profile": 50,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "f4040f459993fe4d13aeb8bea6f8c6b4",
+      "publicGame": "LeXof",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 125000,
+      "fullChargeAR": 1250,
+      "guaranteedMinimumCents": 12500,
+      "totalChargeCents": 2500000000,
+      "rawTotalPayoutCents": 1241452481,
+      "finalTotalPayoutCents": 1250394615,
+      "floorTopupTotalCents": 8942134,
+      "rawGrossReturn": {
+        "mean": 0.4965809923999977,
+        "standardError": 0.0018551062476011512,
+        "mean95CI": [
+          0.49294498415469945,
+          0.500217000645296
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5001578459999958,
+        "standardError": 0.0018139430064575124,
+        "mean95CI": [
+          0.4966025177073391,
+          0.5037131742926525
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.0035768535999999972,
+        "standardError": 0.00008883804996376535,
+        "mean95CI": [
+          0.0034027310220710173,
+          0.003750976177928977
+        ]
+      },
+      "rawGrossReturnPercent": 49.65809923999977,
+      "finalGrossReturnPercent": 50.01578459999958,
+      "rawMean95CI_Percent": [
+        49.294498415469945,
+        50.0217000645296
+      ],
+      "finalMean95CI_Percent": [
+        49.66025177073391,
+        50.37131742926525
+      ],
+      "floorTransactionCount": 1639,
+      "floorTransactionFrequency": 0.08195,
+      "floorTransactionFrequency95CI": [
+        0.07822835583529197,
+        0.08583221141095138
+      ],
+      "meanFloorTopupCentsPerRound": 447.1067,
+      "meanTopupCentsPerFloorTransaction": 5455.847467968273,
+      "engineExisting5PercentPaymentCount": 1230,
+      "engineExisting5PercentPaymentTotalCents": 6561954,
+      "rawProfitCount": 621,
+      "finalProfitCount": 621,
+      "playerProfitFrequency": 0.03105,
+      "playerProfitFrequency95CI": [
+        0.028734668846920077,
+        0.03354544838816141
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 251589,
+        "awarded": 251694,
+        "unplayed": 105,
+        "roundsWithUnplayedSpins": 61,
+        "maxSpinsInOneRound": 22,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1453034,
+      "rng": {
+        "boundedDraws": 10446628,
+        "generatedUint32Words": 10446628
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-lecipher-gold-rtp50-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "3b761f283e9373545c9a85952f02aeac4f58d022b6aeaf762fdf871555061d70"
+        },
+        "final": {
+          "filename": "holdout-lecipher-gold-rtp50-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "f87fe8958a7bc1989cf7b3f1b92cda2fa5473f28d14f996bc889795ab73f92d2"
+        },
+        "topup": {
+          "filename": "holdout-lecipher-gold-rtp50-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "0e63e976b5f38c4bf540eb346a966dbfbb833e82c357f10d9774ca9bbedd9f0a"
+        }
+      },
+      "elapsedSeconds": 13.300272999999997
+    },
+    {
+      "key": "lecipher-gold-rtp55-50AR",
+      "game": "lecipher",
+      "bonusTier": "gold",
+      "profile": 55,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "db0942f123feabf17c75b2c0f6781b86",
+      "publicGame": "LeXof",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 125000,
+      "fullChargeAR": 1250,
+      "guaranteedMinimumCents": 12500,
+      "totalChargeCents": 2500000000,
+      "rawTotalPayoutCents": 1383310767,
+      "finalTotalPayoutCents": 1390619757,
+      "floorTopupTotalCents": 7308990,
+      "rawGrossReturn": {
+        "mean": 0.5533243067999983,
+        "standardError": 0.002030731493034906,
+        "mean95CI": [
+          0.54934407307365,
+          0.5573045405263467
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5562479028000044,
+        "standardError": 0.0019959683320992733,
+        "mean95CI": [
+          0.5523358048690897,
+          0.560160000730919
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.0029235959999999784,
+        "standardError": 0.00008115226393007305,
+        "mean95CI": [
+          0.0027645375626970353,
+          0.0030826544373029215
+        ]
+      },
+      "rawGrossReturnPercent": 55.33243067999983,
+      "finalGrossReturnPercent": 55.62479028000043,
+      "rawMean95CI_Percent": [
+        54.934407307365,
+        55.73045405263467
+      ],
+      "finalMean95CI_Percent": [
+        55.23358048690897,
+        56.016000073091895
+      ],
+      "floorTransactionCount": 1321,
+      "floorTransactionFrequency": 0.06605,
+      "floorTransactionFrequency95CI": [
+        0.06269043355449916,
+        0.06957624066271723
+      ],
+      "meanFloorTopupCentsPerRound": 365.4495,
+      "meanTopupCentsPerFloorTransaction": 5532.922028766086,
+      "engineExisting5PercentPaymentCount": 1022,
+      "engineExisting5PercentPaymentTotalCents": 5449354,
+      "rawProfitCount": 1401,
+      "finalProfitCount": 1401,
+      "playerProfitFrequency": 0.07005,
+      "playerProfitFrequency95CI": [
+        0.06659462014943056,
+        0.07367051772288695
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 269819,
+        "awarded": 270388,
+        "unplayed": 569,
+        "roundsWithUnplayedSpins": 270,
+        "maxSpinsInOneRound": 24,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1505604,
+      "rng": {
+        "boundedDraws": 11383369,
+        "generatedUint32Words": 11383372
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-lecipher-gold-rtp55-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "b46ad64597bde29657089e265f4c5b9b6de312e45e9856e2b5084d5e9601e4ed"
+        },
+        "final": {
+          "filename": "holdout-lecipher-gold-rtp55-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "1701ba958be25f0e95db4b3861bd2aecd91d2b4c6b2ebb82dfcd9c2c2ea58c87"
+        },
+        "topup": {
+          "filename": "holdout-lecipher-gold-rtp55-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "61adae9232c432278af5a637a7a25193a5adfc19bddf98388b2bdab265f0742b"
+        }
+      },
+      "elapsedSeconds": 13.643064599999997
+    },
+    {
+      "key": "lecipher-gold-rtp60-50AR",
+      "game": "lecipher",
+      "bonusTier": "gold",
+      "profile": 60,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "7c561f686d81664239fa67058d6c04b5",
+      "publicGame": "LeXof",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 125000,
+      "fullChargeAR": 1250,
+      "guaranteedMinimumCents": 12500,
+      "totalChargeCents": 2500000000,
+      "rawTotalPayoutCents": 1512211424,
+      "finalTotalPayoutCents": 1518348669,
+      "floorTopupTotalCents": 6137245,
+      "rawGrossReturn": {
+        "mean": 0.6048845696000021,
+        "standardError": 0.002110322512762094,
+        "mean95CI": [
+          0.6007483374749885,
+          0.6090208017250158
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.6073394675999992,
+        "standardError": 0.0020792583031098927,
+        "mean95CI": [
+          0.6032641213259039,
+          0.6114148138740946
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.0024548980000000014,
+        "standardError": 0.00007478719637262023,
+        "mean95CI": [
+          0.002308315095109666,
+          0.002601480904890337
+        ]
+      },
+      "rawGrossReturnPercent": 60.488456960000214,
+      "finalGrossReturnPercent": 60.733946759999924,
+      "rawMean95CI_Percent": [
+        60.07483374749884,
+        60.902080172501584
+      ],
+      "finalMean95CI_Percent": [
+        60.32641213259039,
+        61.141481387409456
+      ],
+      "floorTransactionCount": 1099,
+      "floorTransactionFrequency": 0.05495,
+      "floorTransactionFrequency95CI": [
+        0.0518763234470629,
+        0.05819461412724783
+      ],
+      "meanFloorTopupCentsPerRound": 306.86225,
+      "meanTopupCentsPerFloorTransaction": 5584.390354868062,
+      "engineExisting5PercentPaymentCount": 874,
+      "engineExisting5PercentPaymentTotalCents": 4689957,
+      "rawProfitCount": 2115,
+      "finalProfitCount": 2115,
+      "playerProfitFrequency": 0.10575,
+      "playerProfitFrequency95CI": [
+        0.10156347632345948,
+        0.11008794967063558
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 289060,
+        "awarded": 289918,
+        "unplayed": 858,
+        "roundsWithUnplayedSpins": 407,
+        "maxSpinsInOneRound": 26,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1563110,
+      "rng": {
+        "boundedDraws": 12308450,
+        "generatedUint32Words": 12308454
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-lecipher-gold-rtp60-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "cacb5b371b37b373e975bed4c2855aeb1a57036d870cb531e8e589c3f3c2c5f3"
+        },
+        "final": {
+          "filename": "holdout-lecipher-gold-rtp60-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "315ae69a16b34a577b900a3e2879359a3e0d687a52770208e1a906bb713233f4"
+        },
+        "topup": {
+          "filename": "holdout-lecipher-gold-rtp60-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "1ea67d7d9783d9a532fdaeebf95e57f60a67ea8eb949dc7b33cc9963ef4ae594"
+        }
+      },
+      "elapsedSeconds": 14.4571747
+    },
+    {
+      "key": "lecipher-luck-rtp50-50AR",
+      "game": "lecipher",
+      "bonusTier": "luck",
+      "profile": 50,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "95a8fe9c236719b896fac11d7d3e8576",
+      "publicGame": "LeXof",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 100000,
+      "fullChargeAR": 1000,
+      "guaranteedMinimumCents": 10000,
+      "totalChargeCents": 2000000000,
+      "rawTotalPayoutCents": 999077686,
+      "finalTotalPayoutCents": 1011187686,
+      "floorTopupTotalCents": 12110000,
+      "rawGrossReturn": {
+        "mean": 0.49953884299999807,
+        "standardError": 0.0020221224819009322,
+        "mean95CI": [
+          0.49557548293547227,
+          0.5035022030645239
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5055938430000011,
+        "standardError": 0.001957057731878237,
+        "mean95CI": [
+          0.5017580098455198,
+          0.5094296761544824
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.006054999999999976,
+        "standardError": 0.00011534736234825678,
+        "mean95CI": [
+          0.005828919169797393,
+          0.006281080830202559
+        ]
+      },
+      "rawGrossReturnPercent": 49.95388429999981,
+      "finalGrossReturnPercent": 50.55938430000011,
+      "rawMean95CI_Percent": [
+        49.55754829354723,
+        50.350220306452385
+      ],
+      "finalMean95CI_Percent": [
+        50.17580098455198,
+        50.94296761544824
+      ],
+      "floorTransactionCount": 2422,
+      "floorTransactionFrequency": 0.1211,
+      "floorTransactionFrequency95CI": [
+        0.11665111022807509,
+        0.12569442004247058
+      ],
+      "meanFloorTopupCentsPerRound": 605.5,
+      "meanTopupCentsPerFloorTransaction": 5000,
+      "engineExisting5PercentPaymentCount": 2422,
+      "engineExisting5PercentPaymentTotalCents": 12107540,
+      "rawProfitCount": 1123,
+      "finalProfitCount": 1123,
+      "playerProfitFrequency": 0.05615,
+      "playerProfitFrequency95CI": [
+        0.05304384232627869,
+        0.05942663434456237
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 166399,
+        "awarded": 166410,
+        "unplayed": 11,
+        "roundsWithUnplayedSpins": 6,
+        "maxSpinsInOneRound": 18,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1165237,
+      "rng": {
+        "boundedDraws": 5280377,
+        "generatedUint32Words": 5280377
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-lecipher-luck-rtp50-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "e4b0caf05701facbc47912a5210b194df8d6411763f9322aebce56b9b8ac635c"
+        },
+        "final": {
+          "filename": "holdout-lecipher-luck-rtp50-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "f10b12dd701aaad52fa1e4bf41e92be07693d83801c6fe74a34bfd653d9e1747"
+        },
+        "topup": {
+          "filename": "holdout-lecipher-luck-rtp50-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "5edd925f1a86a72b92c0b626a59a20f8b0ad336831dd3a1c1d189799c4d5819c"
+        }
+      },
+      "elapsedSeconds": 6.151591399999997
+    },
+    {
+      "key": "lecipher-luck-rtp55-50AR",
+      "game": "lecipher",
+      "bonusTier": "luck",
+      "profile": 55,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "e683c82a9dae19ae79801fa9813874ff",
+      "publicGame": "LeXof",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 100000,
+      "fullChargeAR": 1000,
+      "guaranteedMinimumCents": 10000,
+      "totalChargeCents": 2000000000,
+      "rawTotalPayoutCents": 1097618019,
+      "finalTotalPayoutCents": 1108248019,
+      "floorTopupTotalCents": 10630000,
+      "rawGrossReturn": {
+        "mean": 0.5488090094999969,
+        "standardError": 0.002231318418454872,
+        "mean95CI": [
+          0.5444356253998254,
+          0.5531823936001684
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5541240095000006,
+        "standardError": 0.002173827792628948,
+        "mean95CI": [
+          0.5498633070264479,
+          0.5583847119735533
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.005314999999999979,
+        "standardError": 0.00010897537580401609,
+        "mean95CI": [
+          0.005101408263424107,
+          0.00552859173657585
+        ]
+      },
+      "rawGrossReturnPercent": 54.88090094999969,
+      "finalGrossReturnPercent": 55.41240095000006,
+      "rawMean95CI_Percent": [
+        54.44356253998254,
+        55.31823936001684
+      ],
+      "finalMean95CI_Percent": [
+        54.98633070264479,
+        55.83847119735533
+      ],
+      "floorTransactionCount": 2126,
+      "floorTransactionFrequency": 0.1063,
+      "floorTransactionFrequency95CI": [
+        0.10210362051914594,
+        0.11064759422752556
+      ],
+      "meanFloorTopupCentsPerRound": 531.5,
+      "meanTopupCentsPerFloorTransaction": 5000,
+      "engineExisting5PercentPaymentCount": 2126,
+      "engineExisting5PercentPaymentTotalCents": 10630000,
+      "rawProfitCount": 2005,
+      "finalProfitCount": 2005,
+      "playerProfitFrequency": 0.10025,
+      "playerProfitFrequency95CI": [
+        0.09616405734797887,
+        0.10448948112035217
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 181279,
+        "awarded": 181372,
+        "unplayed": 93,
+        "roundsWithUnplayedSpins": 50,
+        "maxSpinsInOneRound": 20,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1204305,
+      "rng": {
+        "boundedDraws": 5781603,
+        "generatedUint32Words": 5781609
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-lecipher-luck-rtp55-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "a82531f58782e7fbbd77862e4ce69b5d37f31c19ceb4132ad9c055371a7b5761"
+        },
+        "final": {
+          "filename": "holdout-lecipher-luck-rtp55-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "712834bc005914cb448db54fabdf276a191aa9e4eff3d33c6f2235b3918892de"
+        },
+        "topup": {
+          "filename": "holdout-lecipher-luck-rtp55-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "8c199663543a7d641651159b056f9b3c2a9e2ae600519f74d60c9b4300ad5893"
+        }
+      },
+      "elapsedSeconds": 7.255629699999997
+    },
+    {
+      "key": "lecipher-luck-rtp60-50AR",
+      "game": "lecipher",
+      "bonusTier": "luck",
+      "profile": 60,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "8d22ce5ea975531255e9b30ed81c0817",
+      "publicGame": "LeXof",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 100000,
+      "fullChargeAR": 1000,
+      "guaranteedMinimumCents": 10000,
+      "totalChargeCents": 2000000000,
+      "rawTotalPayoutCents": 1196819387,
+      "finalTotalPayoutCents": 1205834387,
+      "floorTopupTotalCents": 9015000,
+      "rawGrossReturn": {
+        "mean": 0.5984096935000016,
+        "standardError": 0.0023608062650977086,
+        "mean95CI": [
+          0.5937825132204101,
+          0.6030368737795931
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.6029171934999991,
+        "standardError": 0.0023100760975419813,
+        "mean95CI": [
+          0.5983894443488168,
+          0.6074449426511813
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.004507500000000007,
+        "standardError": 0.00010125899889265584,
+        "mean95CI": [
+          0.004309032362170402,
+          0.004705967637829612
+        ]
+      },
+      "rawGrossReturnPercent": 59.840969350000165,
+      "finalGrossReturnPercent": 60.29171934999991,
+      "rawMean95CI_Percent": [
+        59.37825132204101,
+        60.303687377959314
+      ],
+      "finalMean95CI_Percent": [
+        59.83894443488168,
+        60.744494265118135
+      ],
+      "floorTransactionCount": 1803,
+      "floorTransactionFrequency": 0.09015,
+      "floorTransactionFrequency95CI": [
+        0.08625905611775865,
+        0.094198361621442
+      ],
+      "meanFloorTopupCentsPerRound": 450.75,
+      "meanTopupCentsPerFloorTransaction": 5000,
+      "engineExisting5PercentPaymentCount": 1803,
+      "engineExisting5PercentPaymentTotalCents": 9015000,
+      "rawProfitCount": 2915,
+      "finalProfitCount": 2915,
+      "playerProfitFrequency": 0.14575,
+      "playerProfitFrequency95CI": [
+        0.14092770121806503,
+        0.1507083613270413
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 197307,
+        "awarded": 197448,
+        "unplayed": 141,
+        "roundsWithUnplayedSpins": 90,
+        "maxSpinsInOneRound": 22,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1246285,
+      "rng": {
+        "boundedDraws": 6301893,
+        "generatedUint32Words": 6301900
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-lecipher-luck-rtp60-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "4535daec7b54d1d781b27272f80222288cc6697434e1c571ee5206da374b5335"
+        },
+        "final": {
+          "filename": "holdout-lecipher-luck-rtp60-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "42f73aa67b1be18f5fd0029ae6edf7beda72886f6c6b96edd1efbda20cf4f513"
+        },
+        "topup": {
+          "filename": "holdout-lecipher-luck-rtp60-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "ca99b944a763e43da3297fe875f780c7f34977015e7c526244d07d0cbdd971b3"
+        }
+      },
+      "elapsedSeconds": 7.948166199999999
+    },
+    {
+      "key": "maskhouse-sticky-rtp50-50AR",
+      "game": "maskhouse",
+      "bonusTier": "sticky",
+      "profile": 50,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "bd748c3ab84b8bf2d23f5bf6a498679e",
+      "publicGame": "MaskHouse",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 100000,
+      "fullChargeAR": 1000,
+      "guaranteedMinimumCents": 10000,
+      "totalChargeCents": 2000000000,
+      "rawTotalPayoutCents": 1012820564,
+      "finalTotalPayoutCents": 1035873849,
+      "floorTopupTotalCents": 23053285,
+      "rawGrossReturn": {
+        "mean": 0.506410282000001,
+        "standardError": 0.0025736506470790065,
+        "mean95CI": [
+          0.5013659267317262,
+          0.5114546372682759
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5179369245000018,
+        "standardError": 0.0024738117944882237,
+        "mean95CI": [
+          0.513088253382805,
+          0.5227855956171987
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.01152664250000001,
+        "standardError": 0.0001488886119992014,
+        "mean95CI": [
+          0.011234820820481576,
+          0.011818464179518444
+        ]
+      },
+      "rawGrossReturnPercent": 50.64102820000011,
+      "finalGrossReturnPercent": 51.79369245000019,
+      "rawMean95CI_Percent": [
+        50.13659267317262,
+        51.145463726827586
+      ],
+      "finalMean95CI_Percent": [
+        51.30882533828049,
+        52.278559561719874
+      ],
+      "floorTransactionCount": 4612,
+      "floorTransactionFrequency": 0.2306,
+      "floorTransactionFrequency95CI": [
+        0.22481429993188223,
+        0.2364891728970568
+      ],
+      "meanFloorTopupCentsPerRound": 1152.66425,
+      "meanTopupCentsPerFloorTransaction": 4998.544015611448,
+      "engineExisting5PercentPaymentCount": 4601,
+      "engineExisting5PercentPaymentTotalCents": 18550711,
+      "rawProfitCount": 2368,
+      "finalProfitCount": 2368,
+      "playerProfitFrequency": 0.1184,
+      "playerProfitFrequency95CI": [
+        0.11399543739440979,
+        0.12295112990894264
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 233990,
+        "awarded": 233990,
+        "unplayed": 0,
+        "roundsWithUnplayedSpins": 0,
+        "maxSpinsInOneRound": 18,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1409580,
+      "rng": {
+        "boundedDraws": 3567301,
+        "generatedUint32Words": 3567317
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-maskhouse-sticky-rtp50-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "e4658c4fecc42fd50e2fd18633fc735f74ad72aa02219fbcd8494cf480a4ed16"
+        },
+        "final": {
+          "filename": "holdout-maskhouse-sticky-rtp50-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "ac02bec69bfab9bdd37504f4e6213eac463fcd3fd4fdfbf69248110521d2c5f9"
+        },
+        "topup": {
+          "filename": "holdout-maskhouse-sticky-rtp50-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "e6a40bde1db1799b3d6e6b4cd103456edc6375a2b11ba408843d0f21d105480e"
+        }
+      },
+      "elapsedSeconds": 5.6754938
+    },
+    {
+      "key": "maskhouse-sticky-rtp55-50AR",
+      "game": "maskhouse",
+      "bonusTier": "sticky",
+      "profile": 55,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "7c58d0208fbc3dab73ac2ebbaea3064d",
+      "publicGame": "MaskHouse",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 100000,
+      "fullChargeAR": 1000,
+      "guaranteedMinimumCents": 10000,
+      "totalChargeCents": 2000000000,
+      "rawTotalPayoutCents": 1097180482,
+      "finalTotalPayoutCents": 1118422433,
+      "floorTopupTotalCents": 21241951,
+      "rawGrossReturn": {
+        "mean": 0.5485902410000019,
+        "standardError": 0.0027170632990620026,
+        "mean95CI": [
+          0.5432647969338403,
+          0.5539156850661634
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.5592112165000008,
+        "standardError": 0.0026217885303758083,
+        "mean95CI": [
+          0.5540725109804643,
+          0.5643499220195374
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.01062097550000001,
+        "standardError": 0.00014459037847501215,
+        "mean95CI": [
+          0.010337578358188985,
+          0.010904372641811034
+        ]
+      },
+      "rawGrossReturnPercent": 54.859024100000184,
+      "finalGrossReturnPercent": 55.92112165000008,
+      "rawMean95CI_Percent": [
+        54.32647969338403,
+        55.39156850661634
+      ],
+      "finalMean95CI_Percent": [
+        55.40725109804643,
+        56.43499220195374
+      ],
+      "floorTransactionCount": 4250,
+      "floorTransactionFrequency": 0.2125,
+      "floorTransactionFrequency95CI": [
+        0.20688597408685014,
+        0.21822445070275628
+      ],
+      "meanFloorTopupCentsPerRound": 1062.09755,
+      "meanTopupCentsPerFloorTransaction": 4998.106117647058,
+      "engineExisting5PercentPaymentCount": 4239,
+      "engineExisting5PercentPaymentTotalCents": 16944753,
+      "rawProfitCount": 3224,
+      "finalProfitCount": 3224,
+      "playerProfitFrequency": 0.1612,
+      "playerProfitFrequency95CI": [
+        0.1561688638287728,
+        0.1663612645841617
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 249115,
+        "awarded": 249115,
+        "unplayed": 0,
+        "roundsWithUnplayedSpins": 0,
+        "maxSpinsInOneRound": 21,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1448077,
+      "rng": {
+        "boundedDraws": 3795841,
+        "generatedUint32Words": 3795869
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-maskhouse-sticky-rtp55-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "795a271a5582d76427465984a69724b46663fc8eee2cad528d49c7d5d81ab8ba"
+        },
+        "final": {
+          "filename": "holdout-maskhouse-sticky-rtp55-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "a308d84f669af54869e36d6fdd8dbc97b1fa60c26a0ff0c6edab37c95e8da1de"
+        },
+        "topup": {
+          "filename": "holdout-maskhouse-sticky-rtp55-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "771df1656ba6942f9e5f8e3ca1330a45cf0690a59dcfd0763e6d2039f792b99c"
+        }
+      },
+      "elapsedSeconds": 5.912277400000001
+    },
+    {
+      "key": "maskhouse-sticky-rtp60-50AR",
+      "game": "maskhouse",
+      "bonusTier": "sticky",
+      "profile": 60,
+      "stakeCents": 5000,
+      "samples": 20000,
+      "seedHex": "48c9f4525d346037b450ebaa68b5db06",
+      "publicGame": "MaskHouse",
+      "mode": "buy",
+      "baseStakeAR": 50,
+      "actualPublicEngine": true,
+      "fullChargeCents": 100000,
+      "fullChargeAR": 1000,
+      "guaranteedMinimumCents": 10000,
+      "totalChargeCents": 2000000000,
+      "rawTotalPayoutCents": 1199989717,
+      "finalTotalPayoutCents": 1219083771,
+      "floorTopupTotalCents": 19094054,
+      "rawGrossReturn": {
+        "mean": 0.5999948584999979,
+        "standardError": 0.00284167322621123,
+        "mean95CI": [
+          0.5944251789766238,
+          0.605564538023372
+        ]
+      },
+      "finalGrossReturn": {
+        "mean": 0.6095418854999997,
+        "standardError": 0.002751239252860847,
+        "mean95CI": [
+          0.6041494565643925,
+          0.6149343144356069
+        ]
+      },
+      "additionalReturnFromFloor": {
+        "mean": 0.00954702699999997,
+        "standardError": 0.00013893869139502515,
+        "mean95CI": [
+          0.00927470716486572,
+          0.00981934683513422
+        ]
+      },
+      "rawGrossReturnPercent": 59.999485849999786,
+      "finalGrossReturnPercent": 60.95418854999997,
+      "rawMean95CI_Percent": [
+        59.442517897662384,
+        60.556453802337195
+      ],
+      "finalMean95CI_Percent": [
+        60.414945656439244,
+        61.49343144356069
+      ],
+      "floorTransactionCount": 3821,
+      "floorTransactionFrequency": 0.19105,
+      "floorTransactionFrequency95CI": [
+        0.18566105092801014,
+        0.1965576125111165
+      ],
+      "meanFloorTopupCentsPerRound": 954.7027,
+      "meanTopupCentsPerFloorTransaction": 4997.135304894006,
+      "engineExisting5PercentPaymentCount": 3814,
+      "engineExisting5PercentPaymentTotalCents": 15094489,
+      "rawProfitCount": 4354,
+      "finalProfitCount": 4354,
+      "playerProfitFrequency": 0.2177,
+      "playerProfitFrequency95CI": [
+        0.2120350206652113,
+        0.22347340687602663
+      ],
+      "rawZeroPayoutCount": 0,
+      "finalZeroPayoutCount": 0,
+      "spinAccounting": {
+        "played": 265809,
+        "awarded": 265809,
+        "unplayed": 0,
+        "roundsWithUnplayedSpins": 0,
+        "maxSpinsInOneRound": 23,
+        "everySpinAndFrameReconciled": true
+      },
+      "hardCapRoundCount": 0,
+      "checks": 1490016,
+      "rng": {
+        "boundedDraws": 4024539,
+        "generatedUint32Words": 4024569
+      },
+      "payoutBinaries": {
+        "raw": {
+          "filename": "holdout-maskhouse-sticky-rtp60-50AR.raw-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "384391e6ae31ad1d6d27b778467723ac775e965e8b99055c700838f754a051b9"
+        },
+        "final": {
+          "filename": "holdout-maskhouse-sticky-rtp60-50AR.final-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "c07e99362c9247c19153343d0bed6c03d96585ee582f8ef3d0dd5349c2a719d5"
+        },
+        "topup": {
+          "filename": "holdout-maskhouse-sticky-rtp60-50AR.topup-cents-u32le.bin",
+          "encoding": "unsigned 32-bit integer cents, little-endian; original round order",
+          "bytes": 80000,
+          "sha256": "dca1743bab0f4eb0c43178957feed71210a6a2497ee5151c5b1f4dff365746bc"
+        }
+      },
+      "elapsedSeconds": 6.228429100000001
+    }
+  ],
+  "completedAt": "2026-10-09T14:39:40.328Z",
+  "totalRounds": 240000,
+  "totalChecks": 16395747
+}

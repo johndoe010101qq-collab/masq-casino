@@ -1,0 +1,1710 @@
+{
+  "generatedAt": "2026-10-09T13:49:44.656Z",
+  "status": "passed",
+  "version": "indictus-bonanza-demo-fixed-weights-2026-10-09-v12",
+  "sourceHashes": {
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "fast-audit-engine.mjs": "a15d1441d8669374cad1ebc275d4bd1ff455a3116ecc2398d56773a87ea762e4"
+  },
+  "configurationCanonicalSHA256": "8227b4ee28057975ab96adf741593a8039d5c0c4aed0c6acb1b9c0ce2105ade9",
+  "settings": {
+    "rtp50": {
+      "id": "rtp50",
+      "targetReturnPercent": 50,
+      "probabilityWeights": {
+        "baseWeights": [
+          [
+            "hood",
+            80
+          ],
+          [
+            "suit",
+            85
+          ],
+          [
+            "glove",
+            90
+          ],
+          [
+            "laptop",
+            95
+          ],
+          [
+            "usb",
+            100
+          ],
+          [
+            "lock",
+            105
+          ],
+          [
+            "key",
+            110
+          ],
+          [
+            "radio",
+            115
+          ],
+          [
+            "flag",
+            120
+          ],
+          [
+            "scatter",
+            20
+          ]
+        ],
+        "freeWeights": [
+          [
+            "hood",
+            45
+          ],
+          [
+            "suit",
+            49
+          ],
+          [
+            "glove",
+            53
+          ],
+          [
+            "laptop",
+            57
+          ],
+          [
+            "usb",
+            61
+          ],
+          [
+            "lock",
+            150
+          ],
+          [
+            "key",
+            156
+          ],
+          [
+            "radio",
+            162
+          ],
+          [
+            "flag",
+            168
+          ],
+          [
+            "scatter",
+            1
+          ],
+          [
+            "bomb",
+            3
+          ]
+        ],
+        "bombWeights": [
+          [
+            2,
+            9000
+          ],
+          [
+            3,
+            700
+          ],
+          [
+            4,
+            80
+          ],
+          [
+            5,
+            40
+          ],
+          [
+            6,
+            20
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            20,
+            1
+          ],
+          [
+            25,
+            1
+          ]
+        ]
+      },
+      "revision": "indictus-bonanza-demo-fixed-weights-2026-10-09-v12",
+      "baseSourceSHA256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+      "profileEngineSourceSHA256": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+      "selectionMethod": "native",
+      "ticketDenominator": 1000000,
+      "paid": {
+        "extraSpins": 0,
+        "ticketWeight": 0,
+        "extraAwardChance": 0
+      },
+      "buy": {
+        "extraSpins": 0,
+        "ticketWeight": 0,
+        "extraAwardChance": 0
+      }
+    },
+    "rtp55": {
+      "id": "rtp55",
+      "targetReturnPercent": 55,
+      "probabilityWeights": {
+        "baseWeights": [
+          [
+            "hood",
+            80000
+          ],
+          [
+            "suit",
+            85000
+          ],
+          [
+            "glove",
+            90000
+          ],
+          [
+            "laptop",
+            95000
+          ],
+          [
+            "usb",
+            100000
+          ],
+          [
+            "lock",
+            105000
+          ],
+          [
+            "key",
+            110000
+          ],
+          [
+            "radio",
+            115000
+          ],
+          [
+            "flag",
+            120000
+          ],
+          [
+            "scatter",
+            21720
+          ]
+        ],
+        "freeWeights": [
+          [
+            "hood",
+            45000
+          ],
+          [
+            "suit",
+            49000
+          ],
+          [
+            "glove",
+            53000
+          ],
+          [
+            "laptop",
+            57000
+          ],
+          [
+            "usb",
+            61000
+          ],
+          [
+            "lock",
+            150000
+          ],
+          [
+            "key",
+            156000
+          ],
+          [
+            "radio",
+            162000
+          ],
+          [
+            "flag",
+            168000
+          ],
+          [
+            "scatter",
+            1000
+          ],
+          [
+            "bomb",
+            5000
+          ]
+        ],
+        "bombWeights": [
+          [
+            2,
+            9000
+          ],
+          [
+            3,
+            700
+          ],
+          [
+            4,
+            80
+          ],
+          [
+            5,
+            40
+          ],
+          [
+            6,
+            20
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            20,
+            1
+          ],
+          [
+            25,
+            1
+          ]
+        ]
+      },
+      "revision": "indictus-bonanza-demo-fixed-weights-2026-10-09-v12",
+      "baseSourceSHA256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+      "profileEngineSourceSHA256": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+      "selectionMethod": "fixed-symbol-weights",
+      "ticketDenominator": 1000000,
+      "paid": {
+        "extraSpins": 0,
+        "ticketWeight": 0,
+        "extraAwardChance": 0
+      },
+      "buy": {
+        "extraSpins": 0,
+        "ticketWeight": 0,
+        "extraAwardChance": 0
+      }
+    },
+    "rtp60": {
+      "id": "rtp60",
+      "targetReturnPercent": 60,
+      "probabilityWeights": {
+        "baseWeights": [
+          [
+            "hood",
+            80000
+          ],
+          [
+            "suit",
+            85000
+          ],
+          [
+            "glove",
+            90000
+          ],
+          [
+            "laptop",
+            95000
+          ],
+          [
+            "usb",
+            100000
+          ],
+          [
+            "lock",
+            105000
+          ],
+          [
+            "key",
+            110000
+          ],
+          [
+            "radio",
+            115000
+          ],
+          [
+            "flag",
+            120000
+          ],
+          [
+            "scatter",
+            22510
+          ]
+        ],
+        "freeWeights": [
+          [
+            "hood",
+            45000
+          ],
+          [
+            "suit",
+            49000
+          ],
+          [
+            "glove",
+            53000
+          ],
+          [
+            "laptop",
+            57000
+          ],
+          [
+            "usb",
+            61000
+          ],
+          [
+            "lock",
+            150000
+          ],
+          [
+            "key",
+            156000
+          ],
+          [
+            "radio",
+            162000
+          ],
+          [
+            "flag",
+            168000
+          ],
+          [
+            "scatter",
+            1000
+          ],
+          [
+            "bomb",
+            7000
+          ]
+        ],
+        "bombWeights": [
+          [
+            2,
+            9000
+          ],
+          [
+            3,
+            700
+          ],
+          [
+            4,
+            80
+          ],
+          [
+            5,
+            40
+          ],
+          [
+            6,
+            20
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            20,
+            1
+          ],
+          [
+            25,
+            1
+          ]
+        ]
+      },
+      "revision": "indictus-bonanza-demo-fixed-weights-2026-10-09-v12",
+      "baseSourceSHA256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+      "profileEngineSourceSHA256": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+      "selectionMethod": "fixed-symbol-weights",
+      "ticketDenominator": 1000000,
+      "paid": {
+        "extraSpins": 0,
+        "ticketWeight": 0,
+        "extraAwardChance": 0
+      },
+      "buy": {
+        "extraSpins": 0,
+        "ticketWeight": 0,
+        "extraAwardChance": 0
+      }
+    }
+  },
+  "method": "Actual immutable public adapter, not fast surrogate: independent 200000 full paid rounds and100000 full bought rounds for each50/55/60 profile at both5 and50AR base. Distinct holdout seed per row. Parameters frozen before holdout; no retuning from validation outcomes. Every credited cent, award, charge, cap and all spins checked.",
+  "randomAlgorithm": "Mulberry32 uint32 rejection sampling; deterministic research RNG only. Application uses its unbiased crypto RNG.",
+  "definitions": {
+    "return": "Total gross payouts / total entry charge; all natural/bought/retriggered spins included.",
+    "netProfit": "Gross full-round payout strictly greater than full charged entry price.",
+    "return95CI": "Approximate normal95% mean confidence interval; simulation is not an exact theoretical RTP or guarantee.",
+    "frequency95CI": "Wilson95% binomial confidence interval.",
+    "profileExtras": "Always zero; only ordinary scatter awards are permitted."
+  },
+  "holdoutUsesActualPublicEngine": true,
+  "calibrationSeeds": [
+    1108344833,
+    1109393409,
+    1109393410,
+    1110441985,
+    1110441986
+  ],
+  "resultsByStake": {
+    "rtp50_paid_500": {
+      "key": "rtp50_paid_500",
+      "profileId": "rtp50",
+      "targetReturnPercent": 50,
+      "mode": "paid",
+      "stakeCents": 500,
+      "baseStakeAR": 5,
+      "seed": 1152590325,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 500,
+      "totalChargeCents": 100000000,
+      "totalPayoutCents": 48958575,
+      "estimatedReturn": 0.4895857499999992,
+      "estimatedReturn95CI": [
+        0.4771991003591773,
+        0.5019723996408212
+      ],
+      "standardError": 0.0063197192045009905,
+      "playerProfitFrequency": 0.113055,
+      "playerProfitFrequency95CI": [
+        0.11167460200510626,
+        0.11445026258849461
+      ],
+      "positivePayoutFrequency": 0.137775,
+      "positivePayoutFrequency95CI": [
+        0.1362714008081461,
+        0.13929251416017518
+      ],
+      "zeroPayoutFrequency": 0.862225,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.886945,
+      "capFrequency": 0.000055,
+      "capFrequency95CI": [
+        0.00003071213226833309,
+        0.00009849338595207293
+      ],
+      "caps": 11,
+      "freeSpinsPlayed": 9145,
+      "bonusTriggeredFrequency": 0.00457,
+      "retriggerTransactions": 1,
+      "totalTumbles": 41997,
+      "maximumSpinsInRound": 16,
+      "continuedSpinsAfterFirstClipping": 67,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6644821,
+      "randomBombAudit": {
+        "freeFreshCells": 368833,
+        "bombs": 1211,
+        "density": 0.0032833287693888563,
+        "expectedDensity": 0.0033149171270718232
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 5.95,
+        "p95": 11.9,
+        "p99": 31.05,
+        "min": 0,
+        "max": 499
+      },
+      "netProfitDistributionAR": {
+        "median": -5,
+        "p90": 0.9500000000000002,
+        "p95": 6.9,
+        "p99": 26.05
+      }
+    },
+    "rtp55_paid_500": {
+      "key": "rtp55_paid_500",
+      "profileId": "rtp55",
+      "targetReturnPercent": 55,
+      "mode": "paid",
+      "stakeCents": 500,
+      "baseStakeAR": 5,
+      "seed": 1152610805,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 500,
+      "totalChargeCents": 100000000,
+      "totalPayoutCents": 55807770,
+      "estimatedReturn": 0.5580777000000077,
+      "estimatedReturn95CI": [
+        0.543025363826908,
+        0.5731300361731073
+      ],
+      "standardError": 0.007679763353622291,
+      "playerProfitFrequency": 0.113075,
+      "playerProfitFrequency95CI": [
+        0.11169449452320158,
+        0.11447036930209402
+      ],
+      "positivePayoutFrequency": 0.139165,
+      "positivePayoutFrequency95CI": [
+        0.1376549977627877,
+        0.14068886380831921
+      ],
+      "zeroPayoutFrequency": 0.860835,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.886925,
+      "capFrequency": 0.00008,
+      "capFrequency95CI": [
+        0.000049245231004675756,
+        0.00012995932683417726
+      ],
+      "caps": 16,
+      "freeSpinsPlayed": 11970,
+      "bonusTriggeredFrequency": 0.005985,
+      "retriggerTransactions": 0,
+      "totalTumbles": 44623,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 77,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6757577,
+      "randomBombAudit": {
+        "freeFreshCells": 480956,
+        "bombs": 2692,
+        "density": 0.005597185605336039,
+        "expectedDensity": 0.005512679162072767
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 5.95,
+        "p95": 11.9,
+        "p99": 34.25,
+        "min": 0,
+        "max": 499
+      },
+      "netProfitDistributionAR": {
+        "median": -5,
+        "p90": 0.9500000000000002,
+        "p95": 6.9,
+        "p99": 29.25
+      }
+    },
+    "rtp60_paid_500": {
+      "key": "rtp60_paid_500",
+      "profileId": "rtp60",
+      "targetReturnPercent": 60,
+      "mode": "paid",
+      "stakeCents": 500,
+      "baseStakeAR": 5,
+      "seed": 1152631285,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 500,
+      "totalChargeCents": 100000000,
+      "totalPayoutCents": 60528045,
+      "estimatedReturn": 0.6052804499999818,
+      "estimatedReturn95CI": [
+        0.5884596106052321,
+        0.6221012893947314
+      ],
+      "standardError": 0.008582060915688588,
+      "playerProfitFrequency": 0.113865,
+      "playerProfitFrequency95CI": [
+        0.11248025999234033,
+        0.1152645734848982
+      ],
+      "positivePayoutFrequency": 0.13862,
+      "positivePayoutFrequency95CI": [
+        0.13711250218944726,
+        0.14014138031797746
+      ],
+      "zeroPayoutFrequency": 0.86138,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.886135,
+      "capFrequency": 0.00012,
+      "capFrequency95CI": [
+        0.00008064409908777945,
+        0.0001785589221405888
+      ],
+      "caps": 24,
+      "freeSpinsPlayed": 13750,
+      "bonusTriggeredFrequency": 0.006875,
+      "retriggerTransactions": 0,
+      "totalTumbles": 46040,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 152,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6825839,
+      "randomBombAudit": {
+        "freeFreshCells": 549274,
+        "bombs": 4263,
+        "density": 0.007761153813943497,
+        "expectedDensity": 0.007700770077007701
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 5.95,
+        "p95": 13.2,
+        "p99": 36.3,
+        "min": 0,
+        "max": 499
+      },
+      "netProfitDistributionAR": {
+        "median": -5,
+        "p90": 0.9500000000000002,
+        "p95": 8.2,
+        "p99": 31.299999999999997
+      }
+    },
+    "rtp50_buy_500": {
+      "key": "rtp50_buy_500",
+      "profileId": "rtp50",
+      "targetReturnPercent": 50,
+      "mode": "buy",
+      "stakeCents": 500,
+      "baseStakeAR": 5,
+      "seed": 1152590326,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 25000,
+      "totalChargeCents": 2500000000,
+      "totalPayoutCents": 1255959775,
+      "estimatedReturn": 0.5023839100000034,
+      "estimatedReturn95CI": [
+        0.5009187270263907,
+        0.503849092973616
+      ],
+      "standardError": 0.0007475423334758533,
+      "playerProfitFrequency": 0.03314,
+      "playerProfitFrequency95CI": [
+        0.03204834425807383,
+        0.034267524151525355
+      ],
+      "positivePayoutFrequency": 0.99937,
+      "positivePayoutFrequency95CI": [
+        0.999194120119034,
+        0.999507513758999
+      ],
+      "zeroPayoutFrequency": 0.00063,
+      "breakEvenFrequency": 0.00007,
+      "playerLossFrequency": 0.96679,
+      "capFrequency": 0.00034,
+      "capFrequency95CI": [
+        0.00024332826620375529,
+        0.0004750601361873785
+      ],
+      "caps": 34,
+      "freeSpinsPlayed": 1000070,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 14,
+      "totalTumbles": 1052117,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 92,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40334141,
+      "randomBombAudit": {
+        "freeFreshCells": 40200519,
+        "bombs": 133622,
+        "density": 0.003323887435383608,
+        "expectedDensity": 0.0033149171270718232
+      },
+      "payoutDistributionAR": {
+        "median": 117.7,
+        "p90": 201.55,
+        "p95": 232.4024999999994,
+        "p99": 306.00049999999976,
+        "min": 0,
+        "max": 499
+      },
+      "netProfitDistributionAR": {
+        "median": -132.3,
+        "p90": -48.44999999999999,
+        "p95": -17.597500000000593,
+        "p99": 56.00049999999976
+      }
+    },
+    "rtp60_buy_500": {
+      "key": "rtp60_buy_500",
+      "profileId": "rtp60",
+      "targetReturnPercent": 60,
+      "mode": "buy",
+      "stakeCents": 500,
+      "baseStakeAR": 5,
+      "seed": 1152631286,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 25000,
+      "totalChargeCents": 2500000000,
+      "totalPayoutCents": 1498164710,
+      "estimatedReturn": 0.5992658840000077,
+      "estimatedReturn95CI": [
+        0.5973054840218844,
+        0.6012262839781309
+      ],
+      "standardError": 0.0010002040704710335,
+      "playerProfitFrequency": 0.1058,
+      "playerProfitFrequency95CI": [
+        0.10390870978536465,
+        0.107721576225568
+      ],
+      "positivePayoutFrequency": 0.99943,
+      "positivePayoutFrequency95CI": [
+        0.9992616440062835,
+        0.9995599852620066
+      ],
+      "zeroPayoutFrequency": 0.00057,
+      "breakEvenFrequency": 0.00006,
+      "playerLossFrequency": 0.89414,
+      "capFrequency": 0.00261,
+      "capFrequency95CI": [
+        0.0023123021672203903,
+        0.002945911833230568
+      ],
+      "caps": 261,
+      "freeSpinsPlayed": 1000055,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 11,
+      "totalTumbles": 1020515,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 471,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40165626,
+      "randomBombAudit": {
+        "freeFreshCells": 39859448,
+        "bombs": 306178,
+        "density": 0.007681441047552891,
+        "expectedDensity": 0.007700770077007701
+      },
+      "payoutDistributionAR": {
+        "median": 136.25,
+        "p90": 253.85,
+        "p95": 300.3,
+        "p99": 405.8504999999997,
+        "min": 0,
+        "max": 499
+      },
+      "netProfitDistributionAR": {
+        "median": -113.75,
+        "p90": 3.8499999999999943,
+        "p95": 50.30000000000001,
+        "p99": 155.85049999999973
+      }
+    },
+    "rtp55_buy_500": {
+      "key": "rtp55_buy_500",
+      "profileId": "rtp55",
+      "targetReturnPercent": 55,
+      "mode": "buy",
+      "stakeCents": 500,
+      "baseStakeAR": 5,
+      "seed": 1152610806,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 25000,
+      "totalChargeCents": 2500000000,
+      "totalPayoutCents": 1370892480,
+      "estimatedReturn": 0.5483569920000049,
+      "estimatedReturn95CI": [
+        0.5466330560622997,
+        0.55008092793771
+      ],
+      "standardError": 0.0008795591518903909,
+      "playerProfitFrequency": 0.0667,
+      "playerProfitFrequency95CI": [
+        0.06517015743428406,
+        0.06826313259244629
+      ],
+      "positivePayoutFrequency": 0.99925,
+      "positivePayoutFrequency95CI": [
+        0.999060067052412,
+        0.9994015760451066
+      ],
+      "zeroPayoutFrequency": 0.00075,
+      "breakEvenFrequency": 0.00007,
+      "playerLossFrequency": 0.93323,
+      "capFrequency": 0.00124,
+      "capFrequency95CI": [
+        0.0010402029308770012,
+        0.0014781163253704507
+      ],
+      "caps": 124,
+      "freeSpinsPlayed": 1000065,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 13,
+      "totalTumbles": 1032340,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 280,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40208379,
+      "randomBombAudit": {
+        "freeFreshCells": 39988116,
+        "bombs": 220263,
+        "density": 0.0055082114896335705,
+        "expectedDensity": 0.005512679162072767
+      },
+      "payoutDistributionAR": {
+        "median": 126.1,
+        "p90": 226.95,
+        "p95": 266.35,
+        "p99": 357.0504999999997,
+        "min": 0,
+        "max": 499
+      },
+      "netProfitDistributionAR": {
+        "median": -123.9,
+        "p90": -23.05000000000001,
+        "p95": 16.350000000000023,
+        "p99": 107.05049999999972
+      }
+    },
+    "rtp50_paid_5000": {
+      "key": "rtp50_paid_5000",
+      "profileId": "rtp50",
+      "targetReturnPercent": 50,
+      "mode": "paid",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152594825,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 5000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 503909850,
+      "estimatedReturn": 0.5039098500000082,
+      "estimatedReturn95CI": [
+        0.49098834902317023,
+        0.5168313509768462
+      ],
+      "standardError": 0.006592602539203053,
+      "playerProfitFrequency": 0.11354,
+      "playerProfitFrequency95CI": [
+        0.1121569994521205,
+        0.11493784651007823
+      ],
+      "positivePayoutFrequency": 0.13891,
+      "positivePayoutFrequency95CI": [
+        0.13740116857940127,
+        0.1404327027875975
+      ],
+      "zeroPayoutFrequency": 0.86109,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.88646,
+      "capFrequency": 0.000095,
+      "capFrequency95CI": [
+        0.00006082128924329785,
+        0.0001483826923666234
+      ],
+      "caps": 19,
+      "freeSpinsPlayed": 9570,
+      "bonusTriggeredFrequency": 0.004785,
+      "retriggerTransactions": 0,
+      "totalTumbles": 42426,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 120,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6662281,
+      "randomBombAudit": {
+        "freeFreshCells": 384112,
+        "bombs": 1253,
+        "density": 0.0032620693964260424,
+        "expectedDensity": 0.0033149171270718232
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 59.5,
+        "p95": 119,
+        "p99": 329,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -50,
+        "p90": 9.5,
+        "p95": 69,
+        "p99": 279
+      }
+    },
+    "rtp55_paid_5000": {
+      "key": "rtp55_paid_5000",
+      "profileId": "rtp55",
+      "targetReturnPercent": 55,
+      "mode": "paid",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152615305,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 5000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 538044600,
+      "estimatedReturn": 0.5380446000000099,
+      "estimatedReturn95CI": [
+        0.5235869137405621,
+        0.5525022862594576
+      ],
+      "standardError": 0.007376370540534551,
+      "playerProfitFrequency": 0.111945,
+      "playerProfitFrequency95CI": [
+        0.11057058898160668,
+        0.11333431825293513
+      ],
+      "positivePayoutFrequency": 0.136395,
+      "positivePayoutFrequency95CI": [
+        0.13489780893249637,
+        0.1379061590488866
+      ],
+      "zeroPayoutFrequency": 0.863605,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.888055,
+      "capFrequency": 0.00006,
+      "capFrequency95CI": [
+        0.000034323776267149664,
+        0.00010488154987694576
+      ],
+      "caps": 12,
+      "freeSpinsPlayed": 11630,
+      "bonusTriggeredFrequency": 0.005815,
+      "retriggerTransactions": 0,
+      "totalTumbles": 43297,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 66,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6734517,
+      "randomBombAudit": {
+        "freeFreshCells": 463913,
+        "bombs": 2581,
+        "density": 0.005563543164343315,
+        "expectedDensity": 0.005512679162072767
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 59.5,
+        "p95": 119,
+        "p99": 329.5,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -50,
+        "p90": 9.5,
+        "p95": 69,
+        "p99": 279.5
+      }
+    },
+    "rtp60_paid_5000": {
+      "key": "rtp60_paid_5000",
+      "profileId": "rtp60",
+      "targetReturnPercent": 60,
+      "mode": "paid",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152635785,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 5000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 588485400,
+      "estimatedReturn": 0.5884853999999928,
+      "estimatedReturn95CI": [
+        0.5718492147371544,
+        0.6051215852628312
+      ],
+      "standardError": 0.008487849623897113,
+      "playerProfitFrequency": 0.113015,
+      "playerProfitFrequency95CI": [
+        0.11163481701032366,
+        0.1144100491198877
+      ],
+      "positivePayoutFrequency": 0.137645,
+      "positivePayoutFrequency95CI": [
+        0.13614200228780055,
+        0.13916191767450475
+      ],
+      "zeroPayoutFrequency": 0.862355,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.886985,
+      "capFrequency": 0.000125,
+      "capFrequency95CI": [
+        0.00008467305665086475,
+        0.00018452977250119288
+      ],
+      "caps": 25,
+      "freeSpinsPlayed": 13210,
+      "bonusTriggeredFrequency": 0.006605,
+      "retriggerTransactions": 0,
+      "totalTumbles": 45025,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 107,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6800117,
+      "randomBombAudit": {
+        "freeFreshCells": 526702,
+        "bombs": 4053,
+        "density": 0.007695053369837213,
+        "expectedDensity": 0.007700770077007701
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 59.5,
+        "p95": 119,
+        "p99": 356,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -50,
+        "p90": 9.5,
+        "p95": 69,
+        "p99": 306
+      }
+    },
+    "rtp50_buy_5000": {
+      "key": "rtp50_buy_5000",
+      "profileId": "rtp50",
+      "targetReturnPercent": 50,
+      "mode": "buy",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152594826,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 250000,
+      "totalChargeCents": 25000000000,
+      "totalPayoutCents": 12514653950,
+      "estimatedReturn": 0.5005861580000066,
+      "estimatedReturn95CI": [
+        0.4991287820643758,
+        0.5020435339356375
+      ],
+      "standardError": 0.0007435591508320601,
+      "playerProfitFrequency": 0.03289,
+      "playerProfitFrequency95CI": [
+        0.03180240290410983,
+        0.034013484712751486
+      ],
+      "positivePayoutFrequency": 0.99923,
+      "positivePayoutFrequency95CI": [
+        0.9990378362157643,
+        0.9993838084183354
+      ],
+      "zeroPayoutFrequency": 0.00077,
+      "breakEvenFrequency": 0.00002,
+      "playerLossFrequency": 0.96709,
+      "capFrequency": 0.00026,
+      "capFrequency95CI": [
+        0.00017744406885270735,
+        0.00038095047986230914
+      ],
+      "caps": 26,
+      "freeSpinsPlayed": 1000085,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 17,
+      "totalTumbles": 1051578,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 68,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40322868,
+      "randomBombAudit": {
+        "freeFreshCells": 40190096,
+        "bombs": 132772,
+        "density": 0.0033035999714954647,
+        "expectedDensity": 0.0033149171270718232
+      },
+      "payoutDistributionAR": {
+        "median": 1174,
+        "p90": 2010.5,
+        "p95": 2320.5,
+        "p99": 3051.504999999998,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -1326,
+        "p90": -489.5,
+        "p95": -179.5,
+        "p99": 551.5049999999978
+      }
+    },
+    "rtp60_buy_5000": {
+      "key": "rtp60_buy_5000",
+      "profileId": "rtp60",
+      "targetReturnPercent": 60,
+      "mode": "buy",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152635786,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 250000,
+      "totalChargeCents": 25000000000,
+      "totalPayoutCents": 14985607750,
+      "estimatedReturn": 0.5994243099999953,
+      "estimatedReturn95CI": [
+        0.5974623744706771,
+        0.6013862455293135
+      ],
+      "standardError": 0.001000987514958253,
+      "playerProfitFrequency": 0.10496,
+      "playerProfitFrequency95CI": [
+        0.103075432857824,
+        0.10687491768950938
+      ],
+      "positivePayoutFrequency": 0.9994,
+      "positivePayoutFrequency95CI": [
+        0.9992278356591904,
+        0.999533795913971
+      ],
+      "zeroPayoutFrequency": 0.0006,
+      "breakEvenFrequency": 0.00007,
+      "playerLossFrequency": 0.89497,
+      "capFrequency": 0.0026,
+      "capFrequency95CI": [
+        0.002302906225218365,
+        0.002935308543523079
+      ],
+      "caps": 260,
+      "freeSpinsPlayed": 1000075,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 15,
+      "totalTumbles": 1019099,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 476,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40154971,
+      "randomBombAudit": {
+        "freeFreshCells": 39847615,
+        "bombs": 307356,
+        "density": 0.0077132847223102315,
+        "expectedDensity": 0.007700770077007701
+      },
+      "payoutDistributionAR": {
+        "median": 1362,
+        "p90": 2531,
+        "p95": 2997,
+        "p99": 4059.5149999999917,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -1138,
+        "p90": 31,
+        "p95": 497,
+        "p99": 1559.5149999999917
+      }
+    },
+    "rtp55_buy_5000": {
+      "key": "rtp55_buy_5000",
+      "profileId": "rtp55",
+      "targetReturnPercent": 55,
+      "mode": "buy",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152615306,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 250000,
+      "totalChargeCents": 25000000000,
+      "totalPayoutCents": 13753668500,
+      "estimatedReturn": 0.5501467400000014,
+      "estimatedReturn95CI": [
+        0.548417601830394,
+        0.5518758781696088
+      ],
+      "standardError": 0.0008822133518405275,
+      "playerProfitFrequency": 0.06657,
+      "playerProfitFrequency95CI": [
+        0.06504156242208432,
+        0.06813173759242235
+      ],
+      "positivePayoutFrequency": 0.99935,
+      "positivePayoutFrequency95CI": [
+        0.9991716914335793,
+        0.9994899439810345
+      ],
+      "zeroPayoutFrequency": 0.00065,
+      "breakEvenFrequency": 0.00007,
+      "playerLossFrequency": 0.93336,
+      "capFrequency": 0.00119,
+      "capFrequency95CI": [
+        0.00099462472211616,
+        0.001423698375583719
+      ],
+      "caps": 119,
+      "freeSpinsPlayed": 1000085,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 17,
+      "totalTumbles": 1033818,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 275,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40230920,
+      "randomBombAudit": {
+        "freeFreshCells": 40010773,
+        "bombs": 220147,
+        "density": 0.005502193121837461,
+        "expectedDensity": 0.005512679162072767
+      },
+      "payoutDistributionAR": {
+        "median": 1266,
+        "p90": 2274.5,
+        "p95": 2664,
+        "p99": 3608.504999999998,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -1234,
+        "p90": -225.5,
+        "p95": 164,
+        "p99": 1108.5049999999978
+      }
+    }
+  },
+  "results200k": {
+    "rtp50_paid": {
+      "key": "rtp50_paid_5000",
+      "profileId": "rtp50",
+      "targetReturnPercent": 50,
+      "mode": "paid",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152594825,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 5000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 503909850,
+      "estimatedReturn": 0.5039098500000082,
+      "estimatedReturn95CI": [
+        0.49098834902317023,
+        0.5168313509768462
+      ],
+      "standardError": 0.006592602539203053,
+      "playerProfitFrequency": 0.11354,
+      "playerProfitFrequency95CI": [
+        0.1121569994521205,
+        0.11493784651007823
+      ],
+      "positivePayoutFrequency": 0.13891,
+      "positivePayoutFrequency95CI": [
+        0.13740116857940127,
+        0.1404327027875975
+      ],
+      "zeroPayoutFrequency": 0.86109,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.88646,
+      "capFrequency": 0.000095,
+      "capFrequency95CI": [
+        0.00006082128924329785,
+        0.0001483826923666234
+      ],
+      "caps": 19,
+      "freeSpinsPlayed": 9570,
+      "bonusTriggeredFrequency": 0.004785,
+      "retriggerTransactions": 0,
+      "totalTumbles": 42426,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 120,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6662281,
+      "randomBombAudit": {
+        "freeFreshCells": 384112,
+        "bombs": 1253,
+        "density": 0.0032620693964260424,
+        "expectedDensity": 0.0033149171270718232
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 59.5,
+        "p95": 119,
+        "p99": 329,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -50,
+        "p90": 9.5,
+        "p95": 69,
+        "p99": 279
+      }
+    },
+    "rtp55_paid": {
+      "key": "rtp55_paid_5000",
+      "profileId": "rtp55",
+      "targetReturnPercent": 55,
+      "mode": "paid",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152615305,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 5000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 538044600,
+      "estimatedReturn": 0.5380446000000099,
+      "estimatedReturn95CI": [
+        0.5235869137405621,
+        0.5525022862594576
+      ],
+      "standardError": 0.007376370540534551,
+      "playerProfitFrequency": 0.111945,
+      "playerProfitFrequency95CI": [
+        0.11057058898160668,
+        0.11333431825293513
+      ],
+      "positivePayoutFrequency": 0.136395,
+      "positivePayoutFrequency95CI": [
+        0.13489780893249637,
+        0.1379061590488866
+      ],
+      "zeroPayoutFrequency": 0.863605,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.888055,
+      "capFrequency": 0.00006,
+      "capFrequency95CI": [
+        0.000034323776267149664,
+        0.00010488154987694576
+      ],
+      "caps": 12,
+      "freeSpinsPlayed": 11630,
+      "bonusTriggeredFrequency": 0.005815,
+      "retriggerTransactions": 0,
+      "totalTumbles": 43297,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 66,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6734517,
+      "randomBombAudit": {
+        "freeFreshCells": 463913,
+        "bombs": 2581,
+        "density": 0.005563543164343315,
+        "expectedDensity": 0.005512679162072767
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 59.5,
+        "p95": 119,
+        "p99": 329.5,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -50,
+        "p90": 9.5,
+        "p95": 69,
+        "p99": 279.5
+      }
+    },
+    "rtp60_paid": {
+      "key": "rtp60_paid_5000",
+      "profileId": "rtp60",
+      "targetReturnPercent": 60,
+      "mode": "paid",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152635785,
+      "sampleRounds": 200000,
+      "chargeCentsPerRound": 5000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 588485400,
+      "estimatedReturn": 0.5884853999999928,
+      "estimatedReturn95CI": [
+        0.5718492147371544,
+        0.6051215852628312
+      ],
+      "standardError": 0.008487849623897113,
+      "playerProfitFrequency": 0.113015,
+      "playerProfitFrequency95CI": [
+        0.11163481701032366,
+        0.1144100491198877
+      ],
+      "positivePayoutFrequency": 0.137645,
+      "positivePayoutFrequency95CI": [
+        0.13614200228780055,
+        0.13916191767450475
+      ],
+      "zeroPayoutFrequency": 0.862355,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.886985,
+      "capFrequency": 0.000125,
+      "capFrequency95CI": [
+        0.00008467305665086475,
+        0.00018452977250119288
+      ],
+      "caps": 25,
+      "freeSpinsPlayed": 13210,
+      "bonusTriggeredFrequency": 0.006605,
+      "retriggerTransactions": 0,
+      "totalTumbles": 45025,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 107,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 6800117,
+      "randomBombAudit": {
+        "freeFreshCells": 526702,
+        "bombs": 4053,
+        "density": 0.007695053369837213,
+        "expectedDensity": 0.007700770077007701
+      },
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 59.5,
+        "p95": 119,
+        "p99": 356,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -50,
+        "p90": 9.5,
+        "p95": 69,
+        "p99": 306
+      }
+    }
+  },
+  "results100k": {
+    "rtp50_buy": {
+      "key": "rtp50_buy_5000",
+      "profileId": "rtp50",
+      "targetReturnPercent": 50,
+      "mode": "buy",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152594826,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 250000,
+      "totalChargeCents": 25000000000,
+      "totalPayoutCents": 12514653950,
+      "estimatedReturn": 0.5005861580000066,
+      "estimatedReturn95CI": [
+        0.4991287820643758,
+        0.5020435339356375
+      ],
+      "standardError": 0.0007435591508320601,
+      "playerProfitFrequency": 0.03289,
+      "playerProfitFrequency95CI": [
+        0.03180240290410983,
+        0.034013484712751486
+      ],
+      "positivePayoutFrequency": 0.99923,
+      "positivePayoutFrequency95CI": [
+        0.9990378362157643,
+        0.9993838084183354
+      ],
+      "zeroPayoutFrequency": 0.00077,
+      "breakEvenFrequency": 0.00002,
+      "playerLossFrequency": 0.96709,
+      "capFrequency": 0.00026,
+      "capFrequency95CI": [
+        0.00017744406885270735,
+        0.00038095047986230914
+      ],
+      "caps": 26,
+      "freeSpinsPlayed": 1000085,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 17,
+      "totalTumbles": 1051578,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 68,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40322868,
+      "randomBombAudit": {
+        "freeFreshCells": 40190096,
+        "bombs": 132772,
+        "density": 0.0033035999714954647,
+        "expectedDensity": 0.0033149171270718232
+      },
+      "payoutDistributionAR": {
+        "median": 1174,
+        "p90": 2010.5,
+        "p95": 2320.5,
+        "p99": 3051.504999999998,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -1326,
+        "p90": -489.5,
+        "p95": -179.5,
+        "p99": 551.5049999999978
+      }
+    },
+    "rtp60_buy": {
+      "key": "rtp60_buy_5000",
+      "profileId": "rtp60",
+      "targetReturnPercent": 60,
+      "mode": "buy",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152635786,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 250000,
+      "totalChargeCents": 25000000000,
+      "totalPayoutCents": 14985607750,
+      "estimatedReturn": 0.5994243099999953,
+      "estimatedReturn95CI": [
+        0.5974623744706771,
+        0.6013862455293135
+      ],
+      "standardError": 0.001000987514958253,
+      "playerProfitFrequency": 0.10496,
+      "playerProfitFrequency95CI": [
+        0.103075432857824,
+        0.10687491768950938
+      ],
+      "positivePayoutFrequency": 0.9994,
+      "positivePayoutFrequency95CI": [
+        0.9992278356591904,
+        0.999533795913971
+      ],
+      "zeroPayoutFrequency": 0.0006,
+      "breakEvenFrequency": 0.00007,
+      "playerLossFrequency": 0.89497,
+      "capFrequency": 0.0026,
+      "capFrequency95CI": [
+        0.002302906225218365,
+        0.002935308543523079
+      ],
+      "caps": 260,
+      "freeSpinsPlayed": 1000075,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 15,
+      "totalTumbles": 1019099,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 476,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40154971,
+      "randomBombAudit": {
+        "freeFreshCells": 39847615,
+        "bombs": 307356,
+        "density": 0.0077132847223102315,
+        "expectedDensity": 0.007700770077007701
+      },
+      "payoutDistributionAR": {
+        "median": 1362,
+        "p90": 2531,
+        "p95": 2997,
+        "p99": 4059.5149999999917,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -1138,
+        "p90": 31,
+        "p95": 497,
+        "p99": 1559.5149999999917
+      }
+    },
+    "rtp55_buy": {
+      "key": "rtp55_buy_5000",
+      "profileId": "rtp55",
+      "targetReturnPercent": 55,
+      "mode": "buy",
+      "stakeCents": 5000,
+      "baseStakeAR": 50,
+      "seed": 1152615306,
+      "sampleRounds": 100000,
+      "chargeCentsPerRound": 250000,
+      "totalChargeCents": 25000000000,
+      "totalPayoutCents": 13753668500,
+      "estimatedReturn": 0.5501467400000014,
+      "estimatedReturn95CI": [
+        0.548417601830394,
+        0.5518758781696088
+      ],
+      "standardError": 0.0008822133518405275,
+      "playerProfitFrequency": 0.06657,
+      "playerProfitFrequency95CI": [
+        0.06504156242208432,
+        0.06813173759242235
+      ],
+      "positivePayoutFrequency": 0.99935,
+      "positivePayoutFrequency95CI": [
+        0.9991716914335793,
+        0.9994899439810345
+      ],
+      "zeroPayoutFrequency": 0.00065,
+      "breakEvenFrequency": 0.00007,
+      "playerLossFrequency": 0.93336,
+      "capFrequency": 0.00119,
+      "capFrequency95CI": [
+        0.00099462472211616,
+        0.001423698375583719
+      ],
+      "caps": 119,
+      "freeSpinsPlayed": 1000085,
+      "bonusTriggeredFrequency": 1,
+      "retriggerTransactions": 17,
+      "totalTumbles": 1033818,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 275,
+      "actualExtraFSGiftTransactions": 0,
+      "offeredExtraFSGiftTransactions": 0,
+      "rngCalls": 40230920,
+      "randomBombAudit": {
+        "freeFreshCells": 40010773,
+        "bombs": 220147,
+        "density": 0.005502193121837461,
+        "expectedDensity": 0.005512679162072767
+      },
+      "payoutDistributionAR": {
+        "median": 1266,
+        "p90": 2274.5,
+        "p95": 2664,
+        "p99": 3608.504999999998,
+        "min": 0,
+        "max": 4999
+      },
+      "netProfitDistributionAR": {
+        "median": -1234,
+        "p90": -225.5,
+        "p95": 164,
+        "p99": 1108.5049999999978
+      }
+    }
+  },
+  "completedAt": "2026-10-09T13:51:29.558Z"
+}

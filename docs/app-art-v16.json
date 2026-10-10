@@ -1,0 +1,190 @@
+{
+  "version": "v16",
+  "tool": "Built-in imagegen",
+  "scope": "Lobby, shell background, Blackjack card back; three slot scenes unchanged",
+  "receipts": [
+    {
+      "version": 16,
+      "revision": "unified-drawn",
+      "tool": "image_gen.imagegen built-in",
+      "replacementAuthorized": true,
+      "assets": [
+        {
+          "kind": "coinflip",
+          "prompt": "Use case: stylized-concept\nAsset type: portrait 3:4 full-bleed game lobby cover, original Anonymous-themed hand-drawn gaming app.\nPrimary request: a beautiful TWO-DIMENSIONAL DRAWN coinflip game illustration, in the style of polished commercial cartoon slot game key art. A large gold coin angled slightly, engraved with an unmistakable Guy Fawkes Anonymous mask: clean cream face, arched black eyebrows, narrow laughing eyes, curled moustache and pointed beard. One smaller reverse coin behind it with a simple abstract engraved diamond motif, no numerals. Hand-painted warm gold, strong dark nearly black ink outlines, sharp cel-shadow shapes, restrained cream edge highlights, energetic asymmetrical composition. Clearly DRAWN by an illustrator, not a 3D render.\nPalette: antique gold and cream hero subjects, dark muted teal upper backdrop, charcoal graphite deep navy lower third. Subtle illustrated gold swoosh, simple angular shadow planes, no lightbeams. Cohesive hand-drawn videogame illustration with controlled rich color.\nComposition: coin pair centered in upper two-thirds; all objects contained inside central70% horizontally. The bottom third is quiet, dark and mostly empty, reserved for title added separately in code. Crisp subject silhouette readable at small thumbnail size.\nConstraints: NO TEXT, letters, numbers, logos, watermark, border, UI, photorealism, CGI, 3D plastic, neon, glow effects, excessive shine, noisy particles. NO generic flat icon or circular crest frame. Full-color hand-painted cartoon illustration, not vector minimalist.",
+          "sourcePath": "C:/Users/John/.codex/generated_images/01a12176-a819-7981-b8f3-931263f86f37/exec-1559fc71-6766-458b-bdc7-73aea6a9cbbd.png",
+          "finalPath": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-coinflip-v16.png",
+          "inspection": {
+            "renderedOutput": true,
+            "textAbsent": true,
+            "maskClear": true,
+            "drawnStyle": true,
+            "noCGINeon": true,
+            "diceFacesValid": null
+          },
+          "byteEdits": false,
+          "sha256": "2c6b71da651c0d995c49e602681a0d8e88e2a94e29070c6906787e09c553f36a",
+          "bytes": 1944029,
+          "width": 1086,
+          "height": 1448
+        },
+        {
+          "kind": "dice",
+          "prompt": "Use case: stylized-concept\nAsset type: portrait3:4 full-bleed game lobby cover for original Anonymous gaming app.\nPrimary request: a TWO-DIMENSIONAL hand-painted cartoon illustration of two ivory casino dice, thrown asymmetrically through the air. Commercial cartoon slot game key art drawn with strong clean almost-black ink outlines and chunky angular cel shading. Front dice shows five black round dots front, one on top, three on right. Rear dice shows six front and two on top. Clean physically valid regular dice, no inconsistent extra dots. Restrained thin warm gold bevels, ivory cream surfaces with a few painted cream highlights, not glossy plastic. Include one tiny illustrated Guy Fawkes mask charm below to match the Anonymous world.\nBackground: painterly deep burgundy velvet-red upper atmosphere with muted wine-colored diagonal motion strokes, graphite/navy quiet lower third. Warm cream and antique gold highlights, no neon, no glowing beams. Beautiful dimensional forms created by DRAWING and ink, not a3D renderer.\nComposition: main objects in upper two-thirds, completely within center70% horizontally, dark quiet bottom-third reserved for title in code. Readable silhouette and clear dice faces at small thumbnail size.\nConstraints: NO TEXT, letters, numbers, logos, watermark, border, UI, photorealism, CGI, 3D plastic, neon, glow, noisy sparkles, excessive shine. No minimalist vector icons, no circular crest frame. Rich original hand-painted cartoon key art.",
+          "sourcePath": "C:/Users/John/.codex/generated_images/01a12176-a819-7981-b8f3-931263f86f37/exec-3b3894b8-46c1-478f-a99a-7e6abc823a9f.png",
+          "finalPath": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-dice-v16.png",
+          "inspection": {
+            "renderedOutput": true,
+            "textAbsent": true,
+            "maskClear": true,
+            "drawnStyle": true,
+            "noCGINeon": true,
+            "diceFacesValid": true
+          },
+          "byteEdits": false,
+          "sha256": "5abaeaef0d101d4d7880a980cab03957a1615b6984f6a39f883430c25f97bba2",
+          "bytes": 2196200,
+          "width": 1086,
+          "height": 1448
+        },
+        {
+          "kind": "plinko",
+          "prompt": "Use case: stylized-concept\nAsset type: portrait3:4 full-bleed lobby cover for a premium original Anonymous-themed gaming app.\nPrimary request: an expressive TWO-DIMENSIONAL DRAWN PLINKO game illustration with hand-painted commercial cartoon slot key art quality. A warm golden ball bearing a clearly illustrated Guy Fawkes mask face falls above a triangular pegboard, seen at an appealing three-quarter angle. Pegboard has regular staggered rows of chunky rounded blue pegs, cream/gold rivet rims, vintage dark blue painted wood or enamel surface. One clear hand-painted gold swoosh indicates a bounce. Strong near-black ink contour around subjects, sharp controlled cel-shadow shapes and painterly warm highlights. The object is drawn like a beautiful videogame illustration, not CGI.\nPalette: antique gold ball, cream mask markings, muted royal blue pegs, deep graphite navy ground, warm cream light. Background limited to expressive broad painted blue brush shapes, no neon or glow.\nComposition: ball near upper-middle; triangular board spreads below through middle, all important main shapes inside central70% horizontally. Lower third fades into quiet graphite navy, reserved for title rendered separately in code. Cohesive hand-drawn polished cartoon style, readable silhouette at small thumbnail size.\nConstraints: NO TEXT, letters, numbers, payout values, logos, watermark, borders or UI. NO photorealism, CGI,3D plastic, neon, light beams, particle fog, noisy sparkles, excess shine. NO generic flat icon or circle crest. One full-color drawn standalone cover.",
+          "sourcePath": "C:/Users/John/.codex/generated_images/01a12176-a819-7981-b8f3-931263f86f37/exec-8c6bf87d-b776-40d1-a90f-39fcf32f3c2c.png",
+          "finalPath": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-plinko-v16.png",
+          "inspection": {
+            "renderedOutput": true,
+            "textAbsent": true,
+            "maskClear": true,
+            "drawnStyle": true,
+            "noCGINeon": true,
+            "diceFacesValid": null
+          },
+          "byteEdits": false,
+          "sha256": "96fce6a30dff855809b584e195504c74745fff3a0840adf2f2081f6b6214c9a6",
+          "bytes": 2378401,
+          "width": 1086,
+          "height": 1448
+        }
+      ],
+      "supersededAssets": [
+        {
+          "kind": "coinflip",
+          "prompt": "Use case: stylized-concept\nAsset type: premium casino game lobby cover, portrait aspect ratio 3:4, full bleed.\nPrimary request: a beautifully rendered dynamic coinflip game illustration for an original Anonymous-themed gaming app. One large gold coin angled in midair, boldly embossed with a clearly readable Guy Fawkes Anonymous mask: arched black eyebrows, narrow smiling eyes, curled moustache, small pointed beard. A smaller reverse coin behind it has elegant abstract geometric numeric-like pattern but absolutely NO letters or actual numbers.\nStyle: commercially polished glossy stylized 3D videogame key art, chunky crisp forms, richly painted metals, excellent silhouette and contrast, convincing dimensional gold bevels, dramatic turquoise rim light, highly legible at thumbnail size.\nComposition: main coin near upper-middle, all main objects fully inside the central 70% of the image. Rich emerald and teal upper background with tasteful motion arcs and a few tiny gold glints; lower third fades smoothly into nearly black deep navy with restrained detail, usable for separately rendered game title.\nConstraints: NO text, NO words, NO numbers, NO logos, NO watermark, no UI or border, no flat icon, no medallion crest frame, no prize claims. One standalone cover, not a montage.",
+          "sourcePath": "C:/Users/John/.codex/generated_images/01a12176-a819-7981-b8f3-931263f86f37/exec-6cdb7665-0b5e-4a51-8821-37f95d37781b.png",
+          "finalPath": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-coinflip-v16.png",
+          "inspection": {
+            "renderedOutput": true,
+            "textAbsent": true,
+            "maskClear": true,
+            "diceFacesValid": null
+          },
+          "byteEdits": false,
+          "sha256": "b6566ef65e7fb0699a6183655aa57eafcea4d975fc2556480980ed4a49ba70ef",
+          "bytes": 2192105,
+          "width": 1086,
+          "height": 1448
+        },
+        {
+          "kind": "dice",
+          "prompt": "Use case: stylized-concept\nAsset type: premium gaming app casino lobby cover, portrait aspect ratio 3:4, full bleed.\nPrimary request: visually striking DICE game cover for an Anonymous-themed premium game collection. Two large glossy ivory six-sided casino dice tumbling in midair, with clean physically correct black dot configurations. The front die shows 5 on front, 1 on top, 3 on right; second die shows 6 on front and 2 on top. Luxurious subtle gold bevel edges, no text or decoration on face except dots. A tiny gold sculpted Guy Fawkes mask charm below behind the dice provides thematic branding without a logo.\nStyle: lavish commercially polished stylized 3D video game key art, chunky forms, crisp silhouette, beautifully shaded porcelain and metallic bevels, readable at a small thumbnail size.\nComposition: dice dominate upper-middle and lie fully within central 70% of the picture. Saturated ruby red and crimson upper background with soft velvet depth, warm dramatic highlights and tasteful motion trails; smooth dark nearly black navy lower third with minimal detail for separately rendered title.\nConstraints: NO text, NO words, NO numbers, NO logos, NO watermark, no UI, no frame. Physically valid dice, opposite faces conventionally sum seven. NO flat icons, NO circular crest, no fake prize claims. One standalone cover, not a montage.",
+          "sourcePath": "C:/Users/John/.codex/generated_images/01a12176-a819-7981-b8f3-931263f86f37/exec-3b55ab24-d7cc-4774-a4d3-74fc8a14bd4d.png",
+          "finalPath": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-dice-v16.png",
+          "inspection": {
+            "renderedOutput": true,
+            "textAbsent": true,
+            "maskClear": true,
+            "diceFacesValid": true
+          },
+          "byteEdits": false,
+          "sha256": "5804aba1c5e201b91ee999d35856b1a3a66f8d5905f892e2a3e7490dcc979d52",
+          "bytes": 1861646,
+          "width": 1086,
+          "height": 1448
+        },
+        {
+          "kind": "plinko",
+          "prompt": "Use case: stylized-concept\nAsset type: premium casino game lobby cover, portrait aspect ratio 3:4, full bleed.\nPrimary request: PLINKO game illustration for a polished Anonymous-themed original gaming app. One brilliantly reflective large gold ball falling in midair above an elegant triangular array of round glossy sapphire blue pegs, exactly regular evenly spaced peg rows spreading from narrow upper rows to broad lower rows. A few tiny gold motion glints show one bounce, with a tasteful blue energy trail. A small sculpted golden Guy Fawkes Anonymous mask motif on the gold ball is unmistakable but subtle.\nStyle: commercially polished glossy stylized 3D video game key art with chunky clean shapes, vivid royal blue and cyan, realistic reflections, crisp dramatic silhouette, premium product-render quality, designed to remain legible at small thumbnail size.\nComposition: front three-quarter view of a richly shaded blue triangular pegboard. Main ball and visible pegs fully inside central 70% of the image; subject concentrated upper-middle. Upper backdrop saturated electric blue/cyan light, subtle radial depth, lower third smooth nearly black deep navy for a separately rendered game title.\nConstraints: NO text, NO letters, NO numbers or payout labels, NO logos, NO watermark, no UI, no border. No flat icon, no crest frame, no fake prize claims. One standalone cover, not a montage.",
+          "sourcePath": "C:/Users/John/.codex/generated_images/01a12176-a819-7981-b8f3-931263f86f37/exec-ddfe10b5-4400-4f60-8789-999b63451a51.png",
+          "finalPath": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-plinko-v16.png",
+          "inspection": {
+            "renderedOutput": true,
+            "textAbsent": true,
+            "maskClear": true,
+            "diceFacesValid": null
+          },
+          "byteEdits": false,
+          "sha256": "22c0b526f4466bcba25c37e73fc8ea03587a0ace5ed30ab68fa93ebbed7818de",
+          "bytes": 1900495,
+          "width": 1086,
+          "height": 1448
+        }
+      ]
+    },
+    {
+      "version": "lobby-classic-b-v16-final-drawn",
+      "tool": "image_gen.imagegen built-in",
+      "date": "2026-10-09",
+      "intent": "User steering: unified hand-drawn 2D game illustrations in burgundy/gold and charcoal with recognizable Anonymous masks, replacing prior glossy 3D drafts",
+      "inspected": "Each native generatedImage output visually inspected. Near-black outlines, painted/cel shading, no text, no neon or photorealistic CGI. Image bytes copied unchanged into project public directory. Existing hall-lexof-cover-v12.webp was visually inspected only as style guidance.",
+      "assets": [
+        {
+          "game": "roulette",
+          "path": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-roulette-v16.png",
+          "source": "C:/Users/John/.codex/generated_images/01a12176-f9d1-7c00-83cb-7941635c3cbd/exec-ede63448-994a-479f-8b23-941ce1075061.png",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 2129402,
+          "sha256": "6a5c2712c95ea4232ed3072c648ef283961c76b35a87dbdd2e2b169b76b89679",
+          "prompt": "Use case: stylized-concept. Asset type: original Indictus casino lobby cover illustration, portrait 3:4 full bleed. Subject: a roulette wheel in a lively tilted three-quarter view, warm ochre-gold wood and brass, red burgundy and near-black alternating pockets with no numbers, large ivory ball on the outer rim. Small smiling ivory Anonymous Guy Fawkes mask engraved on central cap with bold arched brows, moustache and pointed goatee. Style: high-quality hand-drawn 2D commercial cartoon game art, matching a cel-animated masked hooded fox adventure slot: strong clean near-black ink outlines with variable line weight, hand-painted warm highlights, broad cel-shaded color shapes, expressive slightly asymmetric illustrated forms, crisp silhouette and intentional limited detail. NOT 3D CGI, not photorealistic, not glossy plastic, not neon. Palette: warm cream, ochre gold, oxblood burgundy, ink charcoal, muted deep teal. Background: illustrated dim burgundy casino curtains with soft painted warm light near top, bottom third transitions to dark charcoal/navy with small ochre brush flecks. Composition: portrait 3:4, all main wheel objects safely inside central 70 percent, entire circular wheel visible, large readable game prop at thumbnail size, lower dark third spacious for website title added later. Constraints: NO TEXT ANYWHERE, no letters, no numerals, no logos, no watermark, no UI, no border, no reward claims. Avoid glossy render, photographic reflections, ornate micro-detail, medallion logos, flat vector stock icon, distorted wheel."
+        },
+        {
+          "game": "upgrader",
+          "path": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-upgrader-v16.png",
+          "source": "C:/Users/John/.codex/generated_images/01a12176-f9d1-7c00-83cb-7941635c3cbd/exec-75cbefbe-da7b-402f-bf97-1e583b91880a.png",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 2057331,
+          "sha256": "cde0d3c71a66faa6e79139ae4c420c5698bc693b38259224113da347efa437eb",
+          "prompt": "Use case: stylized-concept. Asset type: original Indictus casino lobby cover illustration, portrait 3:4 full bleed. Primary request: exciting drawn upgrade game illustration. Subject: an open dark charcoal treasure/briefcase with chunky gold corners, three thick emerald-green and deep wine-red playing cards flying up from it, nearest ivory-inset card bears unmistakable hand-drawn Anonymous Guy Fawkes mask, bold arched brows, dark moustache and pointed goatee. Behind cards a broad golden upward arrow painted like a sculptural game object, emphatic easy-to-read directional silhouette. Style: high-quality hand-drawn 2D commercial cartoon game art matching a cel-animated masked hooded fox adventure slot; strong clean near-black ink outlines of variable thickness, hand-painted warm highlights, broad cel-shaded shapes, expressive slightly asymmetric forms, excellent thumbnail clarity. NOT 3D CGI, not photo, not glossy plastic, not neon, not flat stock vector. Palette: warm cream, ochre gold, oxblood burgundy, emerald, ink charcoal, subdued deep teal. Background: painted dim wine-coloured vaulted casino interior with very simple warm lantern glow, smoothly dark charcoal at bottom third. Composition: portrait3:4 full bleed without border, large main game props safely in center70percent, lower third dark and spacious for website title added later, dynamic diagonal cards clear full edges, no busy micro-patterns. Constraints: NO TEXT ANYWHERE, no letters, no numbers, no words, no logo, no watermark, no UI, no fake reward claims, no medallion badge, no glass shards or abstract technological neon."
+        },
+        {
+          "game": "blackjack",
+          "path": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/lobby-blackjack-v16.png",
+          "source": "C:/Users/John/.codex/generated_images/01a12176-f9d1-7c00-83cb-7941635c3cbd/exec-476a6b73-3654-4357-9554-0b48a0a4b68f.png",
+          "width": 1086,
+          "height": 1448,
+          "bytes": 2178938,
+          "sha256": "ec360ddd0b7705c2ab93f0e2d065b9bc62055e2e12be037a6ea2193090c27566",
+          "prompt": "Use case: stylized-concept. Asset type: original Indictus casino lobby cover illustration, portrait 3:4 full bleed. Subject: two big luxurious ivory playing cards rise diagonally above chunky red-and-ochre-gold casino chips. The left card bears only a bold black spade suit symbol, the right card has a mischievous illustrated King court character with dark blue/wine velvet clothes and a small gold crown, wearing an unmistakable Anonymous Guy Fawkes ivory mask: arched dark eyebrows, black eye openings, fine moustache, smiling mouth and pointed goatee. No rank letters. Style: high-quality hand-drawn 2D commercial cartoon game art, matching a cel-animated masked hooded fox adventure slot. Bold clean near-black ink outlines with variable line weight, broad cel-shading, warm hand-painted highlights and subtle paper/brush texture, expressive asymmetric illustrated face and chunky forms. NOT 3D CGI, not photorealistic, not glossy plastic, no neon, not stock flat vector. Palette: cream ivory, ochre gold, oxblood burgundy, ink charcoal and muted royal blue. Background: simple hand-painted casino interior, wine-coloured velvet curtains and warm lanterns with a quiet navy-blue alcove behind cards, lower dark charcoal third spacious for website title added later. Composition: portrait3:4, all main card/chip objects inside central70percent, readable strong silhouette at thumbnail size, whole edges of two cards visible, chips naturally piled below. Constraints: NO TEXT ANYWHERE, no A, K or any rank letters, no numbers, no words, no logo, no watermark, no UI, no badges, no borders, no fake prize claims, no excessive ornate micro-patterns, no stretched forms."
+        }
+      ]
+    },
+    {
+      "version": 16,
+      "asset": "public/blackjack-cardback-v16.png",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sha256": "f3b0c0c61859bf5ed01a4988c23ab953afef5486d6a240589fa29a3760fe0480",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: stylized-concept. Asset type: one production playing-card BACK texture for a cartoon Anonymous-themed blackjack game, portrait exactly 2:3. Primary request: an original clean hand-drawn card back, flat straight-on 2D illustration with crisp strong ink contours and restrained cel shading. Edge-to-edge deep burgundy background (#652b3b), a single thin warm brass inset frame and a small repeating geometric diamond pattern at very low contrast. One large central ivory Anonymous Guy Fawkes mask with clear black arched eyebrows, black almond eyes, fine curled moustache, smiling mouth and pointed goatee; readable expressive cartoon lines, no engraved textures. Palette: muted burgundy, graphite ink, ivory cream, soft brass gold. The entire image is the printable texture itself, fills the exact rectangle to every edge; no separate floating card, no environment, no external margins, no perspective, no photoreal materials. Keep the mask centred with generous clean burgundy negative space around it and the simple border. No text, numbers, letters, logos, watermark, ornate baroque scrollwork, flowers, photoreal leather, metallic glow, neon or gradients. Designed to remain crisp at a card size of 80x120px.",
+      "generated_source": "C:/Users/John/.codex/generated_images/01a1216f-a667-7c42-b4fc-5db8d8b33fd7/exec-ccc6aad8-a43c-4948-b2f8-208fa67a698c.png",
+      "inspection": "Accepted: flat portrait 2:3 burgundy texture, one centred clear Anonymous mask, simple geometric border, no vintage scrollwork or text. Face card ranks and suits remain code-rendered."
+    },
+    {
+      "version": "app-painted-background-v16",
+      "tool": "image_gen.imagegen built-in",
+      "date": "2026-10-09",
+      "source": "C:/Users/John/.codex/generated_images/01a12176-f9d1-7c00-83cb-7941635c3cbd/exec-beb2003d-93b8-4459-a9e4-50bfc8566b62.png",
+      "path": "C:/Users/John/Documents/Codex/2026-10-06/codex-chatgpt-chatgpt-codex-openai-help/indictus-site/public/app-painted-background-v16.png",
+      "bytes": 1938674,
+      "width": 1672,
+      "height": 941,
+      "sha256": "121855ff6d55b66dabf2c3a63c24d5c18c9d1cd64d9b5e3ff1061f9dcd2bea86",
+      "prompt": "Use case: stylized-concept. Asset type: wide 16:9 full-bleed painted website application background, at least1536pixels wide, original Indictus Anonymous clandestine theatre/club interior. Primary request: a beautiful understated hand-drawn 2D background that can sit behind many game cards and UI panels while keeping all text readable. Style: polished commercial cartoon game environment, clean near-black ink outlines of varied width, warm hand-painted cel shading, subtle natural brush grain, expressive curved architectural shapes, no CGI or photo rendering. Scene: a secret old theatre club seen straight-on, quiet dark graphite-charcoal paneled walls across broad center, gently curved carved dark wooden arch along upper edge, heavy deep burgundy drapery confined mostly to outer side edges, two small warm brass lanterns along the far left and far right boundaries, subtle cream Anonymous Guy Fawkes mask carvings integrated into the extreme corner trim, each tiny and subdued with clear brows/moustache/goatee. Composition: landscape16:9 full bleed, broad central70percent must be low-detail, dark charcoal with only faint painted wall texture, NO subjects in center, peripheral architecture attractive but very dark, easy unobtrusive background for a gaming application. Palette: dark charcoal graphite, muted wine burgundy, old ochre brass, quiet umber wood, slightly warm almost-black central wall. Lighting: very low contrast, tiny restrained soft amber pools only at far edges, no bright central lighting, no glow flood or lens flare. Constraints: NO TEXT, NO LETTERS, NO NUMBERS, no logos, no watermark, no UI, no visible gaming tables, no interface panels, no foreground characters, no neon, no CGI/glossy3D, no tiled wallpaper pattern, no bright cream or white central surfaces, no high contrast center. A tasteful drawn environment with intentionally generous dark negative space, not a blank flat gradient.",
+      "inspection": "Visually inspected native output. Wide hand-painted dark theatre/club wall. Burgundy edge curtains, gold/brass lanterns at far edges, subdued Anonymous mask carvings, broad unobstructed lowcontrast central wall. No text or UI, no foreground characters, no neon, no bright centre. Original pixels copied unchanged into project public directory."
+    }
+  ]
+}

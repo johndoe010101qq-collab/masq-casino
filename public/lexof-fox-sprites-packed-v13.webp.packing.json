@@ -1,0 +1,107 @@
+{
+  "source": "art-deliverables/lexof-fox-sprites-v12.png",
+  "target": "indictus-site/public/lexof-fox-sprites-packed-v13.webp",
+  "columns": 6,
+  "rows": 1,
+  "width": 2172,
+  "height": 724,
+  "hasAlpha": true,
+  "packing": [
+    {
+      "frame": 0,
+      "sourceRect": {
+        "left": 27,
+        "top": 38,
+        "width": 340,
+        "height": 641
+      },
+      "scale": 0.8978494623655914,
+      "frameRect": {
+        "x": 29,
+        "y": 114,
+        "width": 305,
+        "height": 576
+      }
+    },
+    {
+      "frame": 1,
+      "sourceRect": {
+        "left": 385,
+        "top": 38,
+        "width": 340,
+        "height": 641
+      },
+      "scale": 0.8978494623655914,
+      "frameRect": {
+        "x": 29,
+        "y": 114,
+        "width": 305,
+        "height": 576
+      }
+    },
+    {
+      "frame": 2,
+      "sourceRect": {
+        "left": 729,
+        "top": 44,
+        "width": 357,
+        "height": 635
+      },
+      "scale": 0.8978494623655914,
+      "frameRect": {
+        "x": 21,
+        "y": 120,
+        "width": 321,
+        "height": 570
+      }
+    },
+    {
+      "frame": 3,
+      "sourceRect": {
+        "left": 1099,
+        "top": 35,
+        "width": 333,
+        "height": 645
+      },
+      "scale": 0.8978494623655914,
+      "frameRect": {
+        "x": 32,
+        "y": 111,
+        "width": 299,
+        "height": 579
+      }
+    },
+    {
+      "frame": 4,
+      "sourceRect": {
+        "left": 1435,
+        "top": 41,
+        "width": 370,
+        "height": 638
+      },
+      "scale": 0.8978494623655914,
+      "frameRect": {
+        "x": 15,
+        "y": 117,
+        "width": 332,
+        "height": 573
+      }
+    },
+    {
+      "frame": 5,
+      "sourceRect": {
+        "left": 1796,
+        "top": 44,
+        "width": 372,
+        "height": 636
+      },
+      "scale": 0.8978494623655914,
+      "frameRect": {
+        "x": 14,
+        "y": 119,
+        "width": 334,
+        "height": 571
+      }
+    }
+  ]
+}

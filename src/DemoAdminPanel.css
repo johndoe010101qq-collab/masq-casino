@@ -1,0 +1,94 @@
+.demo-admin-panel{width:min(1040px,calc(100vw - 28px));box-sizing:border-box;max-height:calc(100svh - 28px);overflow-y:auto;padding:0;border:1px solid #91784d;border-radius:14px;background:#101e24;color:#ecdfca;box-shadow:0 30px 100px #000a;font:14px/1.5 Arial,sans-serif;color-scheme:dark;}
+.demo-admin-panel::backdrop{background:#030b10b8;backdrop-filter:blur(5px);}
+.demo-admin-panel *{box-sizing:border-box;}
+.demo-admin-panel button,.demo-admin-panel input{font:inherit;}
+.demo-admin-panel button{cursor:pointer;}
+.demo-admin-panel button:disabled{cursor:default;opacity:.48;}
+.demo-admin-panel button:focus-visible,.demo-admin-panel input:focus-visible,.demo-admin-panel summary:focus-visible{outline:2px solid #ffdc98;outline-offset:3px;}
+.demo-admin-header{display:flex;justify-content:space-between;gap:16px;padding:24px 28px 18px;}
+.demo-admin-kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#c5a778;}
+.demo-admin-panel h2{margin:7px 0 5px;font:600 33px/1.15 'Barlow Condensed',Arial,sans-serif;}
+.demo-admin-header p{margin:0;color:#aec0c5;font-size:13px;}
+.demo-admin-close{flex-shrink:0;width:44px;height:44px;padding:0;border:1px solid #355059;border-radius:7px;background:#0a1419;color:#decbb0;font-size:26px!important;}
+.demo-admin-session-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:10px 28px;border-block:1px solid #294049;background:#0d191f;color:#91adb3;font-size:11px;}
+.demo-admin-session-line span:first-child{color:#c8d9cb;}
+.demo-admin-session-line i{display:inline-block;width:6px;height:6px;margin-right:7px;border-radius:50%;background:#a9cbb0;}
+.demo-admin-tabs{display:flex;gap:7px;padding:16px 28px 0;}
+.demo-admin-tabs button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;flex:1;padding:9px 10px;border:1px solid #34505a;border-radius:6px;background:#12262f;color:#9eb8be;font-size:12px;}
+.demo-admin-tabs button.selected{border-color:#b99b62;background:#54432f;color:#ffedc7;}
+.demo-admin-tabs small{color:inherit;opacity:.65;font-size:10px;}
+.demo-admin-workspace{display:grid;grid-template-columns:178px minmax(0,1fr);gap:26px;padding:24px 28px;}
+.demo-admin-game-picker{display:flex;flex-direction:column;gap:8px;align-self:start;}
+.demo-admin-game-picker button{min-height:62px;padding:11px 12px;text-align:left;border:1px solid #2e4852;border-radius:7px;background:#0c191f;color:#b0c5c8;}
+.demo-admin-game-picker button>span{display:flex;align-items:center;gap:7px;justify-content:space-between;font-size:14px;font-weight:600;}
+.demo-admin-game-picker button>small{display:flex;justify-content:space-between;align-items:center;margin-top:4px;font-size:11px;color:#8ca9af;}
+.demo-admin-game-picker button>small span{font-size:19px;line-height:13px;}
+.demo-admin-game-picker button.selected{border-color:#be9c62;background:#1c3037;color:#ffdf9d;}
+.demo-admin-game-picker button.selected>small{color:#d3be92;}
+.demo-admin-game-picker i{width:6px;height:6px;flex-shrink:0;border-radius:50%;background:#e8be72;}
+.demo-admin-game-settings{min-width:0;}
+.demo-admin-game-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px;}
+.demo-admin-panel h3{margin:0;font:600 29px/1.1 'Barlow Condensed',Arial,sans-serif;}
+.demo-admin-game-title>span{flex-shrink:0;padding:5px 8px;border-radius:5px;background:#22373e;color:#bad0d2;font-size:11px;}
+.demo-admin-panel fieldset{min-width:0;margin:0;padding:0;border:0;}
+.demo-admin-panel legend{padding:0;margin-bottom:12px;font-size:12px;font-weight:600;color:#d5d2c3;}
+.demo-admin-panel small{font-size:11px;color:#91adb4;}
+.demo-admin-range-field{min-width:0;}
+.demo-admin-field-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
+.demo-admin-field-heading label{font-size:12px;color:#afc2c7;}
+.demo-admin-number-wrap{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.demo-admin-number-wrap input{width:76px;height:38px;padding:5px 6px;text-align:right;border:1px solid #53707a;border-radius:5px;background:#08151b;color:#ffdf9d;font-weight:600;}
+.demo-admin-number-wrap>span{min-width:12px;font-size:11px;color:#8ca9af;}
+.demo-admin-range-field input[type=range]{display:block;width:100%;height:25px;margin:0;accent-color:#cfb17b;cursor:pointer;}
+.demo-admin-range-field input[type=range]:disabled{cursor:default;}
+.demo-admin-range-endpoints{display:flex;justify-content:space-between;margin:2px 0 7px;color:#77969e;font-size:10px;}
+.demo-admin-range-field>small{display:block;line-height:1.5;}
+.demo-admin-evidence{padding:16px 18px;margin:20px 0 24px;border:1px solid #34505a;border-radius:8px;background:#0b1920;}
+.demo-admin-evidence-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.demo-admin-evidence>span,.demo-admin-evidence-top>div>span{display:block;font-size:11px;color:#8ca9af;}
+.demo-admin-evidence strong{display:block;margin:4px 0;color:#e9c992;font:600 27px/1.1 'Barlow Condensed',Arial,sans-serif;}
+.demo-admin-math-kind{font-size:10px;color:#b6c9c4;}
+.demo-admin-evidence p{margin:9px 0 0;color:#a1b9bf;font-size:12px;line-height:1.6;}
+.demo-admin-source{display:block;margin-top:12px;overflow-wrap:anywhere;font-size:10px!important;color:#688a94!important;}
+.demo-admin-measurements{width:100%;overflow-x:auto;margin-top:15px;}
+.demo-admin-measurements table{width:100%;border-collapse:collapse;text-align:left;font-size:11px;}
+.demo-admin-measurements caption{text-align:left;padding-bottom:9px;color:#8ca9af;font-size:10px;}
+.demo-admin-measurements th,.demo-admin-measurements td{padding:9px 8px;border-top:1px solid #29434c;vertical-align:top;}
+.demo-admin-measurements th:first-child{padding-left:0;}
+.demo-admin-measurements thead th{font-weight:400;font-size:10px;color:#8ca9af;}
+.demo-admin-measurements tbody th{font-weight:400;color:#c4d0d1;}
+.demo-admin-measurements td{color:#deccb1;}
+.demo-admin-measurements td small{display:block;margin-top:3px;line-height:1.4;font-size:9px;}
+.demo-admin-stake-grid,.demo-admin-volume-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;}
+.demo-admin-stake-controls>small{display:block;margin-top:10px;line-height:1.6;}
+.demo-admin-unavailable{margin:10px 0;color:#b5a992;font-size:11px;}
+.demo-admin-blackjack-presets,.demo-admin-speed-presets{display:flex;gap:10px;margin-bottom:10px;}
+.demo-admin-blackjack-presets label,.demo-admin-speed-presets label{display:flex;gap:9px;align-items:center;flex:1;min-width:0;min-height:64px;padding:10px 12px;border:1px solid #3c5660;border-radius:6px;background:#0b1920;cursor:pointer;}
+.demo-admin-blackjack-presets label.selected,.demo-admin-speed-presets label.selected{border-color:#b99b62;background:#40372b;}
+.demo-admin-blackjack-presets input,.demo-admin-speed-presets input{accent-color:#d3b273;}
+.demo-admin-blackjack-presets strong{display:block;font-size:12px;color:#e7d7bd;}
+.demo-admin-blackjack-presets small{display:block;margin-top:4px;}
+.demo-admin-blackjack-presets label:has(input:focus-visible),.demo-admin-speed-presets label:has(input:focus-visible){outline:2px solid #ffdc98;outline-offset:3px;}
+.demo-admin-presentation{max-width:790px;padding:24px 28px 32px;}
+.demo-admin-speed-presets label{flex-wrap:wrap;justify-content:center;gap:8px;}
+.demo-admin-speed-presets label strong{font-size:17px;color:#f0d7af;}
+.demo-admin-speed-presets label small{width:100%;text-align:center;}
+.demo-admin-volume-grid{margin-top:27px;}
+.demo-admin-apply-area{padding:18px 28px 17px;border-top:1px solid #304a54;background:#0d1920;}
+.demo-admin-change-preview{margin-bottom:14px;padding:10px 12px;border:1px solid #4e5148;border-radius:6px;background:#222923;}
+.demo-admin-change-preview summary{cursor:pointer;font-size:12px;color:#d4c3a2;}
+.demo-admin-change-preview ul{display:flex;flex-wrap:wrap;gap:4px 23px;padding-left:18px;margin:9px 0 0;color:#9fb3b3;font-size:11px;}
+.demo-admin-actions{display:flex;align-items:center;gap:10px;}
+.demo-admin-actions button{min-height:44px;padding:10px 13px;border:1px solid #39535d;border-radius:6px;background:#172a33;color:#b9c9cb;font-size:11px;}
+.demo-admin-actions .demo-admin-reset{margin-right:auto;color:#90aab1;background:transparent;}
+.demo-admin-actions .demo-admin-apply{min-width:185px;border-color:#c29568;background:#894149;color:#ffe0bf;font-size:12px;font-weight:600;}
+.demo-admin-apply-note{margin:12px 0 0;color:#7799a2;font-size:11px;line-height:1.6;}
+.demo-admin-error,.demo-admin-stale{margin:0 0 12px;color:#ffc1aa;font-size:12px;}
+.demo-admin-success{margin:0 0 12px;color:#a6d9bd;font-size:12px;}
+.demo-admin-busy{margin:0 0 12px;color:#dbc39c;font-size:12px;}
+.demo-admin-stale button{padding:0;border:0;background:none;color:#f0d4a3;text-decoration:underline;}
+.demo-admin-limit{padding:0 28px;margin:16px 0 20px;font-size:10px;line-height:1.6;color:#77919b;}
+.indictus-app .demo-admin-entry{padding:7px 9px;border:1px solid #6c6d59;border-radius:4px;background:#172d34;color:#d8caaa;font-size:11px;white-space:nowrap;min-height:36px;}
+@media(max-width:650px){.indictus-app.indictus-app .demo-admin-entry{grid-row:3;grid-column:1/-1;justify-self:start;margin-bottom:8px;}}
+@media(max-width:720px){.demo-admin-workspace{grid-template-columns:1fr;gap:19px;}.demo-admin-game-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}.demo-admin-game-picker button{min-height:54px;padding:8px 9px;}.demo-admin-game-picker button>span{font-size:12px;}.demo-admin-game-picker button>small{margin-top:3px;font-size:10px;}.demo-admin-panel h2{font-size:30px;}.demo-admin-actions{flex-wrap:wrap;}.demo-admin-actions .demo-admin-reset{width:100%;margin-right:0;}.demo-admin-discard{flex:1;}.demo-admin-actions .demo-admin-apply{flex:1;}}
+@media(max-width:480px){.demo-admin-panel{width:calc(100vw - 16px);max-height:calc(100svh - 16px);border-radius:10px;}.demo-admin-header{padding:20px 16px 15px;gap:8px;}.demo-admin-panel h2{font-size:27px;}.demo-admin-header p{font-size:11px;}.demo-admin-kicker{font-size:8px;}.demo-admin-close{width:40px;height:40px;}.demo-admin-session-line{padding:9px 16px;font-size:10px;}.demo-admin-tabs{padding:13px 16px 0;gap:5px;}.demo-admin-tabs button{padding:7px 5px;font-size:10px;line-height:1.3;gap:4px;}.demo-admin-tabs small{display:none;}.demo-admin-workspace,.demo-admin-presentation{padding:18px 16px;}.demo-admin-game-title{flex-wrap:wrap;}.demo-admin-panel h3{font-size:26px;}.demo-admin-stake-grid,.demo-admin-volume-grid{grid-template-columns:1fr;gap:18px;}.demo-admin-evidence{padding:13px 12px;}.demo-admin-math-kind{max-width:86px;text-align:right;}.demo-admin-measurements th,.demo-admin-measurements td{padding:8px 5px;font-size:10px;}.demo-admin-blackjack-presets{flex-direction:column;gap:8px;}.demo-admin-blackjack-presets label{min-height:59px;}.demo-admin-speed-presets{gap:5px;}.demo-admin-speed-presets label{padding:10px 4px;gap:5px;}.demo-admin-apply-area{padding:16px;}.demo-admin-actions{gap:8px;}.demo-admin-actions .demo-admin-apply{min-width:0;}.demo-admin-actions button{padding:10px 8px;font-size:10px;}.demo-admin-limit{padding:0 16px;}}

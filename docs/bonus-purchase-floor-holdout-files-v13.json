@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "completedAt": "2026-10-09T14:40:49.322Z",
+  "checkedRounds": 240000,
+  "checkedBinaries": 36,
+  "reportSHA256": "1178cebea8f57f945ad421b9b1cfb425147af2dfc5681eb03977ec58ba8fefbd",
+  "verifies": "All actual-engine payout files, saved seeds, source hashes, per-round raw+topup=final,10%fullcharge floor, totals, frequencies and aggregate RTP."
+}

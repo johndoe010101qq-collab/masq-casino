@@ -1,0 +1,101 @@
+/* Shared colour roles for the illustrated interface.
+ * Contrast reference: https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/102
+ * Measured sRGB pairs: paper/panel 7.99, paper/accent 5.08,
+ * gold/panel 5.00, muted/panel 5.15, paper/bg 14.31.
+ * Artwork keeps its local colours; every interactive surface uses these roles.
+ */
+.indictus-app.app-shell21{
+  --ds-bg:#161b1a;
+  --ds-surface:#153d3b;
+  --ds-panel:#214b46;
+  --ds-paper:#f3e8cf;
+  --ds-gold:#d5b67b;
+  --ds-accent:#a63d4c;
+  --ds-accent-hover:#862e3c;
+  --ds-muted:#b6c0ac;
+  --ds-positive:#97c8ad;
+  --ds-ink:#101514;
+  --ds-border:#627765;
+  --ds-line:color-mix(in srgb,var(--ds-gold) 34%,transparent);
+  --ds-radius:10px;
+  --ds-shadow:0 4px 0 var(--ds-ink);
+  --ds-font-body:'Indictus Manrope',Arial,sans-serif;
+  --ds-font-display:'Indictus Barlow','Indictus Manrope',Arial,sans-serif;
+  --ui-font:var(--ds-font-body);
+  --lobby-display:var(--ds-font-display);
+  --shell-cream:var(--ds-paper);
+  --shell-muted:var(--ds-muted);
+  --shell-gold:var(--ds-gold);
+  --print-ink:var(--ds-bg);
+  --print-panel:var(--ds-panel);
+  --print-paper:var(--ds-paper);
+  --print-wine:var(--ds-accent);
+  --print-gold:var(--ds-gold);
+  --game-accent:var(--ds-accent);
+  --game-accent-light:var(--ds-gold);
+  --game-panel:var(--ds-panel);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body);
+  background-color:var(--ds-bg);
+  accent-color:var(--ds-gold);
+  color-scheme:dark;
+}
+.app-shell21.app-shell21:is([data-view='hall'],[data-view='chance-rules'],[data-view='coinflip'],[data-view='dice'],[data-view='plinko'],[data-view='roulette'],[data-view='upgrader'],[data-view='blackjack']){background-color:var(--ds-bg);background-image:repeating-linear-gradient(105deg,transparent 0 144px,color-mix(in srgb,var(--ds-gold) 3%,transparent) 144px 145px,transparent 145px 288px)}
+.app-shell21.app-shell21 .indictus-header,.app-shell21 .shell15-desktop-nav{background:var(--ds-surface);border-color:var(--ds-line)}
+.app-shell21.app-shell21 .hall-wallet{border-radius:var(--ds-radius);transform:none;box-shadow:var(--ds-shadow)}
+.app-shell21.app-shell21 .hall-wallet>span{color:var(--ds-surface)}
+.app-shell21.app-shell21 .hall-wallet strong{color:var(--ds-ink)}
+.app-shell21.app-shell21 .hall-wallet small{color:var(--ds-accent)}
+.app-shell21.app-shell21 .profile-name{color:var(--ds-paper)}
+.app-shell21.app-shell21 .shell14-profile-copy small,.app-shell21.app-shell21 .shell14-footer{color:var(--ds-muted)}
+.app-shell21.app-shell21 .wordmark>span{color:var(--ds-gold)}
+.app-shell21.app-shell21 .hall-brand{transform:none;gap:12px}
+.app-shell21.app-shell21 .shell14-brand-seal{position:relative;width:38px;height:44px;flex:none;border:0;border-radius:0;background:transparent;box-shadow:none}
+.app-shell21.app-shell21 .indictus-header .brand-emblem{position:absolute;left:50%;top:50%;width:54px;height:50px;max-width:none;object-fit:contain;transform:translate(-50%,-50%);filter:none}
+@media(max-width:900px){.app-shell21.app-shell21 .shell14-brand-seal{width:33px;height:39px}.app-shell21.app-shell21 .indictus-header .brand-emblem{width:48px;height:45px}}
+@media(max-width:600px){.app-shell21.app-shell21 .hall-brand{gap:7px}.app-shell21.app-shell21 .shell14-brand-seal{display:none}}
+.app-shell21.app-shell21 .audio-button{color:var(--ds-muted);background:var(--ds-panel);border-color:var(--ds-line)}
+.app-shell21.app-shell21 .audio-button.active{color:var(--ds-ink);background:var(--ds-paper);border-color:var(--ds-ink)}
+.app-shell21.app-shell21 .audio-button:hover{background:var(--ds-gold);color:var(--ds-ink)}
+.app-shell21 .shell15-desktop-nav button{color:var(--ds-muted)}
+.app-shell21 .shell15-desktop-nav button.active,.app-shell21 .shell15-desktop-nav button:hover:not(:disabled){background:var(--ds-panel);color:var(--ds-paper);border-color:var(--ds-line)}
+.app-shell21 .shell15-desktop-nav button.active::before{background:var(--ds-gold)}
+.app-shell21 .shell15-desktop-nav .shell15-nav-rules{color:var(--ds-muted)}
+.app-shell21.app-shell21 .indictus-main>.back-button{font-family:var(--ds-font-body);background:var(--ds-paper);color:var(--ds-ink)!important;border-radius:var(--ds-radius);box-shadow:var(--ds-shadow)}
+.app-shell21.app-shell21 .lobby15{--lobby15-text:var(--ds-paper);--lobby15-muted:var(--ds-muted);--lobby15-accent:var(--ds-accent);--lobby15-ink:var(--ds-ink);--lobby15-gold:var(--ds-gold)}
+.app-shell21.app-shell21 .lobby15-count{background:var(--ds-surface);color:var(--ds-paper);border-color:var(--ds-line)}
+.app-shell21.app-shell21 .lobby15-search{background:var(--ds-panel);color:var(--ds-paper);border-color:var(--ds-line);border-radius:var(--ds-radius)}
+.app-shell21.app-shell21 .lobby15-search:focus-within{border-color:var(--ds-gold);background:var(--ds-panel)}
+.app-shell21.app-shell21 .lobby15-search input,.app-shell21.app-shell21 .lobby15-search-clear{color:var(--ds-paper)}
+.app-shell21.app-shell21 .lobby15-search input::placeholder,.app-shell21.app-shell21 .lobby15-search>svg{color:var(--ds-muted)}
+.app-shell21.app-shell21 .lobby15-filters{background:var(--ds-surface);border-color:var(--ds-line);border-radius:var(--ds-radius)}
+.app-shell21.app-shell21 .lobby15-filters button{color:var(--ds-muted)}
+.app-shell21.app-shell21 .lobby15-filters button:hover{background:var(--ds-panel);color:var(--ds-paper)}
+.app-shell21.app-shell21 .lobby15-filters .lobby15-filter-active{background:var(--ds-paper);color:var(--ds-ink);border-color:var(--ds-ink);box-shadow:0 2px 0 var(--ds-ink)}
+.app-shell21.app-shell21 .lobby15-collection-heading h2,.app-shell21.app-shell21 .featured20-heading h2{color:var(--ds-paper);font-family:var(--ds-font-body)!important;font-size:23px;font-weight:800;letter-spacing:-.035em;line-height:1.4}
+.app-shell21.app-shell21 .featured20-rule{background:var(--ds-line)}
+.app-shell21.app-shell21 .featured20-rule::after{border-color:var(--ds-gold)}
+.app-shell21.app-shell21 .lobby15-card,.app-shell21.app-shell21 .featured20-card{border-radius:var(--ds-radius);border-color:var(--ds-ink);box-shadow:var(--ds-shadow)!important}
+.app-shell21.app-shell21 .lobby15-card:hover:not(:disabled),.app-shell21.app-shell21 .featured20-card:hover:not(:disabled){border-color:var(--ds-gold);box-shadow:var(--ds-shadow)!important}
+.app-shell21.app-shell21 .lobby15-caption,.app-shell21.app-shell21 .featured20-plate{background:var(--ds-paper);border-color:var(--ds-ink);color:var(--ds-ink)}
+.app-shell21.app-shell21 .lobby15-caption strong,.app-shell21.app-shell21 .featured20-plate strong{color:var(--ds-ink);font-family:var(--ds-font-display)!important}
+.app-shell21.app-shell21 .lobby15-enter,.app-shell21.app-shell21 .featured20-play{color:var(--ds-accent)}
+.app-shell21.app-shell21 .featured20-play>span{border-color:var(--ds-accent)}
+.app-shell21.app-shell21 .featured20-card:hover:not(:disabled) .featured20-play>span{background:var(--ds-accent);color:var(--ds-paper)}
+.app-shell21.app-shell21 .lobby15-card-classic .lobby15-enter svg{background:var(--ds-accent);color:var(--ds-paper);border-color:var(--ds-accent)}
+.app-shell21.app-shell21 .lobby15-empty{background:var(--ds-surface);border-color:var(--ds-line);color:var(--ds-paper)}
+.app-shell21.app-shell21 .lobby15-empty button{background:var(--ds-accent);color:var(--ds-paper);border-color:var(--ds-ink);border-radius:var(--ds-radius);box-shadow:var(--ds-shadow)}
+.app-shell21.app-shell21 .error-banner,.app-shell21.app-shell21 .form-error{background:var(--ds-accent-hover);color:var(--ds-paper);border-color:var(--ds-accent)}
+.app-shell21.app-shell21 :is(.app-loading,.render-fallback,.payout-loading){background:var(--ds-surface);color:var(--ds-muted);font-family:var(--ds-font-body);border-radius:var(--ds-radius)}
+.app-shell21.app-shell21 .header-nav button{color:var(--ds-muted)}
+.app-shell21.app-shell21 .header-nav button.active{color:var(--ds-paper)}
+.app-shell21.app-shell21 .header-nav button.active::after{background:var(--ds-accent)}
+.app-shell21.app-shell21 .shell14-avatar{background:var(--ds-panel);border-color:var(--ds-line);box-shadow:2px 2px 0 var(--ds-ink)}
+.app-shell21.app-shell21 .shell14-footer{border-color:var(--ds-line)}
+.app-shell21.app-shell21 .shell14-footer button{color:var(--ds-paper)}
+.app-shell21.app-shell21 .shell14-footer button:hover{color:var(--ds-gold)}
+.app-shell21.app-shell21 button:focus-visible,.app-shell21.app-shell21 input:focus-visible,.app-shell21.app-shell21 select:focus-visible,.app-shell21.app-shell21 summary:focus-visible{outline:2px solid var(--ds-gold);outline-offset:4px}
+.app-shell21.app-shell21 button:disabled{cursor:default}
+.app-shell21.app-shell21 .shell14-mobile-nav{background:var(--ds-surface);border-color:var(--ds-line);box-shadow:var(--ds-shadow)}
+.app-shell21.app-shell21 .shell14-mobile-nav button{color:var(--ds-muted)}
+.app-shell21.app-shell21 .shell14-mobile-nav button.active{background:var(--ds-paper);color:var(--ds-ink);box-shadow:2px 2px 0 var(--ds-accent)}

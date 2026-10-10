@@ -1,0 +1,174 @@
+/* Original raster character; movement stays in the free scenery gutter. */
+.lexof-mascot {
+  position:absolute;
+  z-index:3;
+  left:1%;
+  bottom:10%;
+  width:27%;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.lexof-mascot-viewport {
+  width:100%;
+  aspect-ratio:1/2;
+  overflow:visible;
+}
+.lexof-mascot-body {
+  width:100%;
+  aspect-ratio:1/2;
+  transform-origin:50% 90%;
+}
+.lexof-mascot-sprite {
+  display:block;
+  width:100%;
+  height:100%;
+  background-image:url('/lexof-fox-sprites-packed-v13.webp');
+  background-repeat:no-repeat;
+  background-size:600% 100%;
+  background-position:var(--lexof-frame,0%) 0%;
+  filter:drop-shadow(0 3px 1px #00150b80);
+}
+:where(.lexof-portrait) {
+  display:inline-block;
+  position:relative;
+  width:72px;
+  height:72px;
+  aspect-ratio:1;
+  overflow:hidden;
+  pointer-events:none;
+  user-select:none;
+  vertical-align:middle;
+}
+.lexof-portrait-sprite {
+  display:block;
+  width:100%;
+  height:200%;
+  background:url('/lexof-fox-sprites-packed-v13.webp') 0% 0% / 600% 100% no-repeat;
+}
+/* These coordinates match the new raster cabinet's empty reel frame. */
+.indictus-app.indictus-app .lecipher .mask-slot-cabinet {
+  background-image:url('/lexof-scene-v13.webp');
+  background-size:cover;
+}
+.indictus-app.indictus-app .lecipher .mask-slot-stage {aspect-ratio:3/2;min-height:0;max-height:none;}
+.indictus-app.indictus-app .mask-slot-cell {container-type:size;}
+.indictus-app.indictus-app .mask-slot-cell .mask-slot-symbol {width:min(100cqw,100cqh);height:min(100cqw,100cqh);max-height:none;aspect-ratio:1;}
+.indictus-app.indictus-app .mask-slot-cell .mask-collection-glyph {width:min(100cqw,100cqh);height:min(100cqw,100cqh);object-fit:contain;}
+.indictus-app.indictus-app .lecipher .mask-slot-grid {
+  inset:22.5% 10% 20.5% 30%;
+}
+.indictus-app.indictus-app .lecipher .mask-cabinet-title {display:none;}
+.lexof-mascot[data-pose='idle'] .lexof-mascot-body {
+  animation:lexof-mascot-breathe 5.6s ease-in-out infinite;
+}
+.lexof-mascot[data-pose='idle'] .lexof-mascot-sprite {
+  animation:lexof-mascot-blink 5.6s steps(1,end) infinite;
+}
+.lexof-mascot[data-pose='watch'] .lexof-mascot-body {
+  animation:lexof-mascot-attention calc(1.6s / var(--slot-speed,1)) ease-in-out infinite;
+}
+.lexof-mascot[data-pose='win'] .lexof-mascot-body {
+  animation:lexof-mascot-cheer calc(.8s / var(--slot-speed,1)) ease-in-out infinite;
+}
+.lexof-mascot[data-pose='win'] .lexof-mascot-sprite {
+  background-image:url('/lexof-fox-dance-packed-v13.webp');
+  background-size:400% 100%;
+  animation:lexof-mascot-dance calc(.8s / var(--slot-speed,1)) steps(1,end) infinite;
+}
+.lexof-mascot[data-pose='rainbow'] .lexof-mascot-body {
+  animation:lexof-mascot-feature calc(1.1s / var(--slot-speed,1)) ease-out both;
+}
+.lexof-mascot[data-pose='loss'] .lexof-mascot-body {
+  animation:lexof-mascot-shrug calc(.9s / var(--slot-speed,1)) ease-out both;
+}
+.lexof-mascot[data-transient='true'] .lexof-mascot-sprite {
+  animation:lexof-mascot-outcome calc(1.4s / var(--slot-speed,1)) steps(1,end) both;
+}
+.lexof-mascot[data-transient='true'][data-pose='win'] .lexof-mascot-sprite {
+  animation:lexof-mascot-dance calc(.8s / var(--slot-speed,1)) steps(1,end) infinite,
+    lexof-mascot-outcome calc(2.4s / var(--slot-speed,1)) linear both;
+}
+/* Freeze every layer, including the blink and the finite return to idle. */
+.mask-slot-stage[data-playback-paused='true'] .lexof-mascot *,
+.mask-slot-stage[data-paused='true'] .lexof-mascot * {
+  animation-play-state:paused!important;
+}
+@keyframes lexof-mascot-breathe {
+  0%,100% { transform:translateY(0) rotate(0); }
+  50% { transform:translateY(-.6%) scale(1.008,1.012) rotate(.15deg); }
+}
+@keyframes lexof-mascot-blink {
+  0%,88%,90.1%,100% { background-position:0% 0%; }
+  88.1%,90% { background-position:20% 0%; }
+}
+@keyframes lexof-mascot-attention {
+  0%,100% { transform:translateY(0) rotate(0); }
+  50% { transform:translateY(-.4%) rotate(.55deg); }
+}
+@keyframes lexof-mascot-cheer {
+  0% { transform:translateY(1%) scale(.99,1.01); }
+  30% { transform:translateY(-3%) rotate(-1.1deg); }
+  58% { transform:translateY(0) scale(1.015,.99); }
+  80% { transform:translateY(-.7%); }
+  100% { transform:none; }
+}
+@keyframes lexof-mascot-feature {
+  0% { transform:scale(.97) rotate(-1deg); }
+  42% { transform:scale(1.022) translateY(-1%); }
+  100% { transform:none; }
+}
+@keyframes lexof-mascot-shrug {
+  0% { transform:rotate(-.8deg); }
+  42% { transform:translateY(.4%) rotate(.65deg); }
+  100% { transform:none; }
+}
+@keyframes lexof-mascot-outcome {
+  0%,100% { opacity:1; }
+}
+@keyframes lexof-mascot-dance {
+  0%,24.99% { background-position:0% 0%; }
+  25%,49.99% { background-position:33.333333% 0%; }
+  50%,74.99% { background-position:66.666667% 0%; }
+  75%,100% { background-position:100% 0%; }
+}
+.lexof-mascot[data-pose='win'][data-reduced-motion='true'] .lexof-mascot-sprite {
+  background-position:0% 0%!important;
+}
+@media(max-width:760px) {
+  .indictus-app.indictus-app .lecipher .mask-slot-stage {aspect-ratio:.95;min-height:350px;}
+  .lexof-mascot {
+    left:1%;
+    top:0%;
+    bottom:auto;
+    width:22%;
+    height:21%;
+  }
+  .lexof-mascot-viewport {
+    height:100%;
+    aspect-ratio:auto;
+    overflow:hidden;
+  }
+  /* Crop the lower body within the header, above the board's 22% top edge. */
+  .lexof-mascot-body { transform-origin:50% 25%; }
+  .indictus-app.indictus-app .lecipher .mask-cabinet-title {
+    left:26%;
+    right:22%;
+  }
+  .indictus-app.indictus-app .lecipher .mask-slot-grid {
+    inset:22% 4% 17% 4%;
+  }
+  .indictus-app.indictus-app .lecipher .mask-slot-cabinet {
+    background-size:100% auto;
+    background-position:center top;
+    background-color:#123038;
+  }
+}
+.lexof-mascot[data-reduced-motion='true'] *,
+.lexof-mascot[data-reduced-motion='true'] .lexof-mascot-sprite {
+  animation:none!important;
+  transform:none!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .lexof-mascot * { animation:none!important;transform:none!important; }
+}

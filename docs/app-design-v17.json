@@ -1,0 +1,41 @@
+{
+  "version": 17,
+  "scope": "Application shell, catalogue, original vector classic posters, six classic room control styles. Slot scenes and math unchanged.",
+  "references": [
+    {
+      "url": "https://t.me/falsifydesign/155",
+      "observed": "Browser opened original public CDN image: paper dossier collage, black bars, monospaced labels, layered photographs and asymmetric paper shapes."
+    },
+    {
+      "url": "https://t.me/falsifydesign/157",
+      "observed": "Browser opened original public CDN image: compact dark mobile document editor, short labels, low contrast field plates."
+    },
+    {
+      "url": "https://t.me/falsifydesign/162",
+      "observed": "Browser opened original public CDN image: compact content-focused mobile interface with search and bottom navigation."
+    },
+    {
+      "url": "https://t.me/solutions",
+      "observed": "Official channel links solutions.solutions and somewhere.solutions."
+    },
+    {
+      "url": "https://www.nobody.solutions/",
+      "observed": "Browser viewed clean white ecommerce grid, small black typography, handdrawn wordmark, strong content hierarchy."
+    },
+    {
+      "url": "https://somewhere.solutions/",
+      "observed": "Official CSS corroborates compact sans typography and floating bottom navigation; Telegram post2943 links it."
+    }
+  ],
+  "interpretation": "Original adaptation of print collage framing and compact navigation into the existing burgundy/gold Anonymous brand. No studio art, logos, photos or commercial copy reproduced.",
+  "originalAssets": [
+    "src/ClassicPosterV17.jsx",
+    "src/ClassicPosterV17.css",
+    "public/app-print-marks-v17.svg",
+    "public/blackjack-cardback-v17.svg"
+  ],
+  "reusedAssets": "Existing approved slot covers and scenes; physical classic game objects and real card face indices remain unchanged.",
+  "inactiveV16Art": "The v16 lobby posters and theatre background remain archived in source; they are no longer used by the active catalogue or shell. The v16 bitmap cardback is also replaced by a handdrawn SVG.",
+  "safety": "Demo balance, mini-app verification, RTP ranges and exact round rules unchanged.",
+  "classicStages": "Blackjack has a flat burgundy felt with a thin illustrated arc; decorative bitmap cabinet borders for coinflip/dice/roulette replaced by simple ink frames. Object placement and animation unchanged."
+}

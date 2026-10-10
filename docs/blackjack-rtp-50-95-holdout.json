@@ -1,0 +1,2777 @@
+{
+  "status": "passed",
+  "version": "indictus-blackjack-public-50-95-v2",
+  "engineSHA256": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+  "scriptSHA256": "71e3a8eb91b6914f0d0ac286de12e977cf8078e3ed0f4f8b75041489937441b9",
+  "paramsSHA256": "02a731477052ff64a6d0b3a2926a2d8e90955b0e82e58eb4a27487450803d7e2",
+  "calibrationSeed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09",
+  "holdoutSeed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09",
+  "profiles": {
+    "rtp50": {
+      "id": "rtp50",
+      "targetReturnPercent": 50,
+      "dealerBoostTickets": 6533,
+      "playerUnfavorableTickets": 3063,
+      "scale": 2.0416736602783203,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:50",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 50.01219999999999,
+          "return95CI_Percent": [
+            49.84459120807987,
+            50.179808791920124
+          ],
+          "outcomes": {
+            "blackjack": 45050,
+            "win": 156169,
+            "push": 75159,
+            "lose": 723622
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 50.01219999999999,
+          "return95CI_Percent": [
+            49.84459120807987,
+            50.179808791920124
+          ],
+          "outcomes": {
+            "blackjack": 45050,
+            "win": 156169,
+            "push": 75159,
+            "lose": 723622
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 49.99992888720167
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:50",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 49.8245,
+          "return95CI_Percent": [
+            49.29484223941206,
+            50.35415776058794
+          ],
+          "outcomes": {
+            "blackjack": 4601,
+            "win": 15386,
+            "push": 7550,
+            "lose": 72463
+          }
+        }
+      }
+    },
+    "rtp51": {
+      "id": "rtp51",
+      "targetReturnPercent": 51,
+      "dealerBoostTickets": 6349,
+      "playerUnfavorableTickets": 2976,
+      "scale": 1.9841670989990234,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:51",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 50.907849999999996,
+          "return95CI_Percent": [
+            50.73921388815085,
+            51.07648611184915
+          ],
+          "outcomes": {
+            "blackjack": 45409,
+            "win": 160033,
+            "push": 75490,
+            "lose": 719068
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 50.907849999999996,
+          "return95CI_Percent": [
+            50.73921388815085,
+            51.07648611184915
+          ],
+          "outcomes": {
+            "blackjack": 45409,
+            "win": 160033,
+            "push": 75490,
+            "lose": 719068
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 51.00148217989584
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:51",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 51.028,
+          "return95CI_Percent": [
+            50.49458221783375,
+            51.56141778216624
+          ],
+          "outcomes": {
+            "blackjack": 4502,
+            "win": 16097,
+            "push": 7579,
+            "lose": 71822
+          }
+        }
+      }
+    },
+    "rtp52": {
+      "id": "rtp52",
+      "targetReturnPercent": 52,
+      "dealerBoostTickets": 6168,
+      "playerUnfavorableTickets": 2891,
+      "scale": 1.9276142120361328,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:52",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 51.926899999999996,
+          "return95CI_Percent": [
+            51.75721697408356,
+            52.09658302591643
+          ],
+          "outcomes": {
+            "blackjack": 45214,
+            "win": 165153,
+            "push": 75928,
+            "lose": 713705
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 51.926899999999996,
+          "return95CI_Percent": [
+            51.75721697408356,
+            52.09658302591643
+          ],
+          "outcomes": {
+            "blackjack": 45214,
+            "win": 165153,
+            "push": 75928,
+            "lose": 713705
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 52.00267317308429
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:52",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 52.047,
+          "return95CI_Percent": [
+            51.51079455570291,
+            52.583205444297086
+          ],
+          "outcomes": {
+            "blackjack": 4560,
+            "win": 16392,
+            "push": 7863,
+            "lose": 71185
+          }
+        }
+      }
+    },
+    "rtp53": {
+      "id": "rtp53",
+      "targetReturnPercent": 53,
+      "dealerBoostTickets": 5990,
+      "playerUnfavorableTickets": 2808,
+      "scale": 1.8720149993896484,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:53",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 53.0254,
+          "return95CI_Percent": [
+            52.85453347091638,
+            53.19626652908362
+          ],
+          "outcomes": {
+            "blackjack": 45496,
+            "win": 170142,
+            "push": 76230,
+            "lose": 708132
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 53.0254,
+          "return95CI_Percent": [
+            52.85453347091638,
+            53.19626652908362
+          ],
+          "outcomes": {
+            "blackjack": 45496,
+            "win": 170142,
+            "push": 76230,
+            "lose": 708132
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 53.00280386787011
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:53",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 53.080000000000005,
+          "return95CI_Percent": [
+            52.54009952715079,
+            53.619900472849224
+          ],
+          "outcomes": {
+            "blackjack": 4512,
+            "win": 17026,
+            "push": 7748,
+            "lose": 70714
+          }
+        }
+      }
+    },
+    "rtp54": {
+      "id": "rtp54",
+      "targetReturnPercent": 54,
+      "dealerBoostTickets": 5816,
+      "playerUnfavorableTickets": 2726,
+      "scale": 1.8173694610595703,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:54",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 53.94624999999999,
+          "return95CI_Percent": [
+            53.77453691477129,
+            54.1179630852287
+          ],
+          "outcomes": {
+            "blackjack": 45019,
+            "win": 175132,
+            "push": 76651,
+            "lose": 703198
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 53.94624999999999,
+          "return95CI_Percent": [
+            53.77453691477129,
+            54.1179630852287
+          ],
+          "outcomes": {
+            "blackjack": 45019,
+            "win": 175132,
+            "push": 76651,
+            "lose": 703198
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 53.9983567012409
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:54",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 53.87499999999999,
+          "return95CI_Percent": [
+            53.33290811702618,
+            54.417091882973814
+          ],
+          "outcomes": {
+            "blackjack": 4534,
+            "win": 17321,
+            "push": 7898,
+            "lose": 70247
+          }
+        }
+      }
+    },
+    "rtp55": {
+      "id": "rtp55",
+      "targetReturnPercent": 55,
+      "dealerBoostTickets": 5668,
+      "playerUnfavorableTickets": 2657,
+      "scale": 1.7711474711546245,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:55",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 55.14175,
+          "return95CI_Percent": [
+            54.96885258310776,
+            55.314647416892235
+          ],
+          "outcomes": {
+            "blackjack": 45465,
+            "win": 180151,
+            "push": 77453,
+            "lose": 696931
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 54.97965,
+          "return95CI_Percent": [
+            54.80686709676985,
+            55.15243290323015
+          ],
+          "outcomes": {
+            "blackjack": 45579,
+            "win": 179340,
+            "push": 77169,
+            "lose": 697912
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 54.85635764161325
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:55",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 55.3605,
+          "return95CI_Percent": [
+            54.812257893753944,
+            55.90874210624606
+          ],
+          "outcomes": {
+            "blackjack": 4699,
+            "win": 17953,
+            "push": 7707,
+            "lose": 69641
+          }
+        }
+      }
+    },
+    "rtp56": {
+      "id": "rtp56",
+      "targetReturnPercent": 56,
+      "dealerBoostTickets": 5494,
+      "playerUnfavorableTickets": 2575,
+      "scale": 1.7169905246700556,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:56",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 56.120599999999996,
+          "return95CI_Percent": [
+            55.94684728661436,
+            56.29435271338564
+          ],
+          "outcomes": {
+            "blackjack": 45088,
+            "win": 185268,
+            "push": 77950,
+            "lose": 691694
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 55.933299999999996,
+          "return95CI_Percent": [
+            55.75957517243037,
+            56.10702482756963
+          ],
+          "outcomes": {
+            "blackjack": 45712,
+            "win": 183859,
+            "push": 77335,
+            "lose": 693094
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 55.881942930113674
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:56",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 55.791000000000004,
+          "return95CI_Percent": [
+            55.24297430881364,
+            56.339025691186364
+          ],
+          "outcomes": {
+            "blackjack": 4434,
+            "win": 18443,
+            "push": 7820,
+            "lose": 69303
+          }
+        }
+      }
+    },
+    "rtp57": {
+      "id": "rtp57",
+      "targetReturnPercent": 57,
+      "dealerBoostTickets": 5307,
+      "playerUnfavorableTickets": 2488,
+      "scale": 1.658487319946289,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:57",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 57.061949999999996,
+          "return95CI_Percent": [
+            56.887307628448944,
+            57.23659237155104
+          ],
+          "outcomes": {
+            "blackjack": 45275,
+            "win": 189572,
+            "push": 78288,
+            "lose": 686865
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 57.061949999999996,
+          "return95CI_Percent": [
+            56.887307628448944,
+            57.23659237155104
+          ],
+          "outcomes": {
+            "blackjack": 45275,
+            "win": 189572,
+            "push": 78288,
+            "lose": 686865
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 57.00020047088748
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:57",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 56.8575,
+          "return95CI_Percent": [
+            56.306033219322146,
+            57.40896678067786
+          ],
+          "outcomes": {
+            "blackjack": 4475,
+            "win": 18926,
+            "push": 7818,
+            "lose": 68781
+          }
+        }
+      }
+    },
+    "rtp58": {
+      "id": "rtp58",
+      "targetReturnPercent": 58,
+      "dealerBoostTickets": 5169,
+      "playerUnfavorableTickets": 2423,
+      "scale": 1.6154359860442469,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:58",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 58.1638,
+          "return95CI_Percent": [
+            57.98809378435702,
+            58.33950621564298
+          ],
+          "outcomes": {
+            "blackjack": 45420,
+            "win": 194990,
+            "push": 78108,
+            "lose": 681482
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 57.838699999999996,
+          "return95CI_Percent": [
+            57.66332519763648,
+            58.01407480236351
+          ],
+          "outcomes": {
+            "blackjack": 45544,
+            "win": 192983,
+            "push": 78561,
+            "lose": 682912
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 57.8393726330625
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:58",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 57.852000000000004,
+          "return95CI_Percent": [
+            57.29710962573027,
+            58.406890374269736
+          ],
+          "outcomes": {
+            "blackjack": 4506,
+            "win": 19434,
+            "push": 7719,
+            "lose": 68341
+          }
+        }
+      }
+    },
+    "rtp59": {
+      "id": "rtp59",
+      "targetReturnPercent": 59,
+      "dealerBoostTickets": 4981,
+      "playerUnfavorableTickets": 2335,
+      "scale": 1.556539535522461,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:59",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 59.0236,
+          "return95CI_Percent": [
+            58.84716872176199,
+            59.20003127823801
+          ],
+          "outcomes": {
+            "blackjack": 45452,
+            "win": 198992,
+            "push": 78622,
+            "lose": 676934
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 59.0236,
+          "return95CI_Percent": [
+            58.84716872176199,
+            59.20003127823801
+          ],
+          "outcomes": {
+            "blackjack": 45452,
+            "win": 198992,
+            "push": 78622,
+            "lose": 676934
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 58.998431737973455
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:59",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 59.426500000000004,
+          "return95CI_Percent": [
+            58.86792932119275,
+            59.98507067880726
+          ],
+          "outcomes": {
+            "blackjack": 4519,
+            "win": 20079,
+            "push": 7971,
+            "lose": 67431
+          }
+        }
+      }
+    },
+    "rtp60": {
+      "id": "rtp60",
+      "targetReturnPercent": 60,
+      "dealerBoostTickets": 4821,
+      "playerUnfavorableTickets": 2260,
+      "scale": 1.5065670013427734,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:60",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 60.112750000000005,
+          "return95CI_Percent": [
+            59.93541155498499,
+            60.29008844501502
+          ],
+          "outcomes": {
+            "blackjack": 45595,
+            "win": 203943,
+            "push": 79254,
+            "lose": 671208
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 60.112750000000005,
+          "return95CI_Percent": [
+            59.93541155498499,
+            60.29008844501502
+          ],
+          "outcomes": {
+            "blackjack": 45595,
+            "win": 203943,
+            "push": 79254,
+            "lose": 671208
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 60.000645502308394
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:60",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 59.957499999999996,
+          "return95CI_Percent": [
+            59.39725687979713,
+            60.51774312020286
+          ],
+          "outcomes": {
+            "blackjack": 4439,
+            "win": 20524,
+            "push": 7812,
+            "lose": 67225
+          }
+        }
+      }
+    },
+    "rtp61": {
+      "id": "rtp61",
+      "targetReturnPercent": 61,
+      "dealerBoostTickets": 4664,
+      "playerUnfavorableTickets": 2186,
+      "scale": 1.4574527740478516,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:61",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 61.00535,
+          "return95CI_Percent": [
+            60.8273082128471,
+            61.18339178715291
+          ],
+          "outcomes": {
+            "blackjack": 45285,
+            "win": 208720,
+            "push": 79401,
+            "lose": 666594
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 61.00535,
+          "return95CI_Percent": [
+            60.8273082128471,
+            61.18339178715291
+          ],
+          "outcomes": {
+            "blackjack": 45285,
+            "win": 208720,
+            "push": 79401,
+            "lose": 666594
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 60.998966608568615
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:61",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 60.8635,
+          "return95CI_Percent": [
+            60.30044955134593,
+            61.42655044865408
+          ],
+          "outcomes": {
+            "blackjack": 4577,
+            "win": 20770,
+            "push": 7881,
+            "lose": 66772
+          }
+        }
+      }
+    },
+    "rtp62": {
+      "id": "rtp62",
+      "targetReturnPercent": 62,
+      "dealerBoostTickets": 4509,
+      "playerUnfavorableTickets": 2113,
+      "scale": 1.4089107513427734,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:62",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 61.99105,
+          "return95CI_Percent": [
+            61.81224465016027,
+            62.16985534983974
+          ],
+          "outcomes": {
+            "blackjack": 45255,
+            "win": 213456,
+            "push": 79861,
+            "lose": 661428
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 61.99105,
+          "return95CI_Percent": [
+            61.81224465016027,
+            62.16985534983974
+          ],
+          "outcomes": {
+            "blackjack": 45255,
+            "win": 213456,
+            "push": 79861,
+            "lose": 661428
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 61.99822191609221
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:62",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 61.9775,
+          "return95CI_Percent": [
+            61.41224138028246,
+            62.54275861971753
+          ],
+          "outcomes": {
+            "blackjack": 4421,
+            "win": 21514,
+            "push": 7897,
+            "lose": 66168
+          }
+        }
+      }
+    },
+    "rtp63": {
+      "id": "rtp63",
+      "targetReturnPercent": 63,
+      "dealerBoostTickets": 4355,
+      "playerUnfavorableTickets": 2042,
+      "scale": 1.3610363006591797,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:63",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 63.00595,
+          "return95CI_Percent": [
+            62.826358951265874,
+            63.18554104873413
+          ],
+          "outcomes": {
+            "blackjack": 45003,
+            "win": 218862,
+            "push": 79828,
+            "lose": 656307
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 63.00595,
+          "return95CI_Percent": [
+            62.826358951265874,
+            63.18554104873413
+          ],
+          "outcomes": {
+            "blackjack": 45003,
+            "win": 218862,
+            "push": 79828,
+            "lose": 656307
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 63.00141765726694
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:63",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 63.29050000000001,
+          "return95CI_Percent": [
+            62.72159765573087,
+            63.85940234426914
+          ],
+          "outcomes": {
+            "blackjack": 4543,
+            "win": 21989,
+            "push": 7955,
+            "lose": 65513
+          }
+        }
+      }
+    },
+    "rtp64": {
+      "id": "rtp64",
+      "targetReturnPercent": 64,
+      "dealerBoostTickets": 4241,
+      "playerUnfavorableTickets": 1988,
+      "scale": 1.3252101885984096,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:64",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 64.24265,
+          "return95CI_Percent": [
+            64.0620097294551,
+            64.4232902705449
+          ],
+          "outcomes": {
+            "blackjack": 45721,
+            "win": 224120,
+            "push": 79884,
+            "lose": 650275
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 63.88935,
+          "return95CI_Percent": [
+            63.70902806215884,
+            64.06967193784115
+          ],
+          "outcomes": {
+            "blackjack": 45477,
+            "win": 222585,
+            "push": 80031,
+            "lose": 651907
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 63.75596631324917
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:64",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 63.83,
+          "return95CI_Percent": [
+            63.259765772328294,
+            64.4002342276717
+          ],
+          "outcomes": {
+            "blackjack": 4594,
+            "win": 22164,
+            "push": 8017,
+            "lose": 65225
+          }
+        }
+      }
+    },
+    "rtp65": {
+      "id": "rtp65",
+      "targetReturnPercent": 65,
+      "dealerBoostTickets": 4055,
+      "playerUnfavorableTickets": 1901,
+      "scale": 1.2672901153564453,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:65",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 64.9038,
+          "return95CI_Percent": [
+            64.72282862144421,
+            65.0847713785558
+          ],
+          "outcomes": {
+            "blackjack": 45138,
+            "win": 227735,
+            "push": 80723,
+            "lose": 646404
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 64.9038,
+          "return95CI_Percent": [
+            64.72282862144421,
+            65.0847713785558
+          ],
+          "outcomes": {
+            "blackjack": 45138,
+            "win": 227735,
+            "push": 80723,
+            "lose": 646404
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 65.00096869947836
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:65",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 65.315,
+          "return95CI_Percent": [
+            64.74131612110473,
+            65.88868387889526
+          ],
+          "outcomes": {
+            "blackjack": 4578,
+            "win": 22924,
+            "push": 8022,
+            "lose": 64476
+          }
+        }
+      }
+    },
+    "rtp66": {
+      "id": "rtp66",
+      "targetReturnPercent": 66,
+      "dealerBoostTickets": 3908,
+      "playerUnfavorableTickets": 1832,
+      "scale": 1.2212276458740234,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:66",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 66.04894999999999,
+          "return95CI_Percent": [
+            65.86715614547818,
+            66.23074385452182
+          ],
+          "outcomes": {
+            "blackjack": 44933,
+            "win": 233775,
+            "push": 80607,
+            "lose": 640685
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 66.04894999999999,
+          "return95CI_Percent": [
+            65.86715614547818,
+            66.23074385452182
+          ],
+          "outcomes": {
+            "blackjack": 44933,
+            "win": 233775,
+            "push": 80607,
+            "lose": 640685
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 65.99984034171506
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:66",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 65.837,
+          "return95CI_Percent": [
+            65.26266564112805,
+            66.41133435887195
+          ],
+          "outcomes": {
+            "blackjack": 4462,
+            "win": 23320,
+            "push": 8042,
+            "lose": 64176
+          }
+        }
+      }
+    },
+    "rtp67": {
+      "id": "rtp67",
+      "targetReturnPercent": 67,
+      "dealerBoostTickets": 3763,
+      "playerUnfavorableTickets": 1764,
+      "scale": 1.175832748413086,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:67",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 67.0609,
+          "return95CI_Percent": [
+            66.87839058872223,
+            67.24340941127778
+          ],
+          "outcomes": {
+            "blackjack": 45340,
+            "win": 238080,
+            "push": 81099,
+            "lose": 635481
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 67.0609,
+          "return95CI_Percent": [
+            66.87839058872223,
+            67.24340941127778
+          ],
+          "outcomes": {
+            "blackjack": 45340,
+            "win": 238080,
+            "push": 81099,
+            "lose": 635481
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 66.99754708107073
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:67",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 66.9235,
+          "return95CI_Percent": [
+            66.34615749087766,
+            67.50084250912235
+          ],
+          "outcomes": {
+            "blackjack": 4575,
+            "win": 23737,
+            "push": 8012,
+            "lose": 63676
+          }
+        }
+      }
+    },
+    "rtp68": {
+      "id": "rtp68",
+      "targetReturnPercent": 68,
+      "dealerBoostTickets": 3652,
+      "playerUnfavorableTickets": 1712,
+      "scale": 1.1411008388781574,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:68",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 68.22635,
+          "return95CI_Percent": [
+            68.04303407607304,
+            68.40966592392697
+          ],
+          "outcomes": {
+            "blackjack": 45433,
+            "win": 243802,
+            "push": 81077,
+            "lose": 629688
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 67.89765,
+          "return95CI_Percent": [
+            67.71458573403551,
+            68.08071426596449
+          ],
+          "outcomes": {
+            "blackjack": 45567,
+            "win": 241757,
+            "push": 81545,
+            "lose": 631131
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 67.76967641812467
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:68",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 68.0275,
+          "return95CI_Percent": [
+            67.44867674176693,
+            68.60632325823306
+          ],
+          "outcomes": {
+            "blackjack": 4529,
+            "win": 24239,
+            "push": 8227,
+            "lose": 63005
+          }
+        }
+      }
+    },
+    "rtp69": {
+      "id": "rtp69",
+      "targetReturnPercent": 69,
+      "dealerBoostTickets": 3477,
+      "playerUnfavorableTickets": 1630,
+      "scale": 1.0866641998291016,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:69",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 69.0643,
+          "return95CI_Percent": [
+            68.88047852604812,
+            69.24812147395187
+          ],
+          "outcomes": {
+            "blackjack": 45296,
+            "win": 248037,
+            "push": 81329,
+            "lose": 625338
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 69.0643,
+          "return95CI_Percent": [
+            68.88047852604812,
+            69.24812147395187
+          ],
+          "outcomes": {
+            "blackjack": 45296,
+            "win": 248037,
+            "push": 81329,
+            "lose": 625338
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 69.00210518087115
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:69",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 68.6135,
+          "return95CI_Percent": [
+            68.03383848842782,
+            69.1931615115722
+          ],
+          "outcomes": {
+            "blackjack": 4387,
+            "win": 24739,
+            "push": 8168,
+            "lose": 62706
+          }
+        }
+      }
+    },
+    "rtp70": {
+      "id": "rtp70",
+      "targetReturnPercent": 70,
+      "dealerBoostTickets": 3200,
+      "playerUnfavorableTickets": 1500,
+      "scale": 1,
+      "kind": "approximate",
+      "nativeLegacy": true,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:70",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 71.00659999999999,
+          "return95CI_Percent": [
+            70.82160359917877,
+            71.19159640082123
+          ],
+          "outcomes": {
+            "blackjack": 45188,
+            "win": 257771,
+            "push": 81554,
+            "lose": 615487
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 71.00659999999999,
+          "return95CI_Percent": [
+            70.82160359917877,
+            71.19159640082123
+          ],
+          "outcomes": {
+            "blackjack": 45188,
+            "win": 257771,
+            "push": 81554,
+            "lose": 615487
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 70.9914058002696
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:70",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 70.9075,
+          "return95CI_Percent": [
+            70.32345485230125,
+            71.49154514769874
+          ],
+          "outcomes": {
+            "blackjack": 4473,
+            "win": 25695,
+            "push": 8335,
+            "lose": 61497
+          }
+        }
+      }
+    },
+    "rtp71": {
+      "id": "rtp71",
+      "targetReturnPercent": 71,
+      "dealerBoostTickets": 3199,
+      "playerUnfavorableTickets": 1499,
+      "scale": 0.9995937347412109,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:71",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 70.95785,
+          "return95CI_Percent": [
+            70.77290834323543,
+            71.14279165676457
+          ],
+          "outcomes": {
+            "blackjack": 45235,
+            "win": 257317,
+            "push": 81857,
+            "lose": 615591
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 70.95785,
+          "return95CI_Percent": [
+            70.77290834323543,
+            71.14279165676457
+          ],
+          "outcomes": {
+            "blackjack": 45235,
+            "win": 257317,
+            "push": 81857,
+            "lose": 615591
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 70.99987443113336
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:71",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 70.91499999999999,
+          "return95CI_Percent": [
+            70.3305681713236,
+            71.49943182867638
+          ],
+          "outcomes": {
+            "blackjack": 4470,
+            "win": 25761,
+            "push": 8218,
+            "lose": 61551
+          }
+        }
+      }
+    },
+    "rtp72": {
+      "id": "rtp72",
+      "targetReturnPercent": 72,
+      "dealerBoostTickets": 3062,
+      "playerUnfavorableTickets": 1435,
+      "scale": 0.9568691253662109,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:72",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 72.02404999999999,
+          "return95CI_Percent": [
+            71.83845251234644,
+            72.20964748765356
+          ],
+          "outcomes": {
+            "blackjack": 45457,
+            "win": 262355,
+            "push": 81888,
+            "lose": 610300
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 72.02404999999999,
+          "return95CI_Percent": [
+            71.83845251234644,
+            72.20964748765356
+          ],
+          "outcomes": {
+            "blackjack": 45457,
+            "win": 262355,
+            "push": 81888,
+            "lose": 610300
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 72.0006053953521
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:72",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 71.5345,
+          "return95CI_Percent": [
+            70.94878360038636,
+            72.12021639961364
+          ],
+          "outcomes": {
+            "blackjack": 4477,
+            "win": 26075,
+            "push": 8192,
+            "lose": 61256
+          }
+        }
+      }
+    },
+    "rtp73": {
+      "id": "rtp73",
+      "targetReturnPercent": 73,
+      "dealerBoostTickets": 2927,
+      "playerUnfavorableTickets": 1372,
+      "scale": 0.9146213531494141,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:73",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 73.0704,
+          "return95CI_Percent": [
+            72.88429987682909,
+            73.25650012317092
+          ],
+          "outcomes": {
+            "blackjack": 45250,
+            "win": 267534,
+            "push": 82511,
+            "lose": 604705
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 73.0704,
+          "return95CI_Percent": [
+            72.88429987682909,
+            73.25650012317092
+          ],
+          "outcomes": {
+            "blackjack": 45250,
+            "win": 267534,
+            "push": 82511,
+            "lose": 604705
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 72.99796707862372
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:73",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 73.354,
+          "return95CI_Percent": [
+            72.76510460377548,
+            73.9428953962245
+          ],
+          "outcomes": {
+            "blackjack": 4514,
+            "win": 26900,
+            "push": 8269,
+            "lose": 60317
+          }
+        }
+      }
+    },
+    "rtp74": {
+      "id": "rtp74",
+      "targetReturnPercent": 74,
+      "dealerBoostTickets": 2793,
+      "playerUnfavorableTickets": 1309,
+      "scale": 0.8728504180908203,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:74",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 74.07165,
+          "return95CI_Percent": [
+            73.88507316150582,
+            74.2582268384942
+          ],
+          "outcomes": {
+            "blackjack": 45327,
+            "win": 272062,
+            "push": 83275,
+            "lose": 599336
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 74.07165,
+          "return95CI_Percent": [
+            73.88507316150582,
+            74.2582268384942
+          ],
+          "outcomes": {
+            "blackjack": 45327,
+            "win": 272062,
+            "push": 83275,
+            "lose": 599336
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 74.0002781378837
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:74",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 74.016,
+          "return95CI_Percent": [
+            73.42587324787523,
+            74.60612675212478
+          ],
+          "outcomes": {
+            "blackjack": 4484,
+            "win": 27302,
+            "push": 8202,
+            "lose": 60012
+          }
+        }
+      }
+    },
+    "rtp75": {
+      "id": "rtp75",
+      "targetReturnPercent": 75,
+      "dealerBoostTickets": 2681,
+      "playerUnfavorableTickets": 1257,
+      "scale": 0.837791183346173,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:75",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 75.154,
+          "return95CI_Percent": [
+            74.96682640958039,
+            75.3411735904196
+          ],
+          "outcomes": {
+            "blackjack": 45384,
+            "win": 277522,
+            "push": 83036,
+            "lose": 594058
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 74.9609,
+          "return95CI_Percent": [
+            74.77378345333582,
+            75.14801654666417
+          ],
+          "outcomes": {
+            "blackjack": 45350,
+            "win": 276824,
+            "push": 82586,
+            "lose": 595240
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 74.84518237875594
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:75",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 74.632,
+          "return95CI_Percent": [
+            74.041254068013,
+            75.22274593198699
+          ],
+          "outcomes": {
+            "blackjack": 4460,
+            "win": 27592,
+            "push": 8298,
+            "lose": 59650
+          }
+        }
+      }
+    },
+    "rtp76": {
+      "id": "rtp76",
+      "targetReturnPercent": 76,
+      "dealerBoostTickets": 2530,
+      "playerUnfavorableTickets": 1186,
+      "scale": 0.7905483245849609,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:76",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 76.04514999999999,
+          "return95CI_Percent": [
+            75.85748491972528,
+            76.2328150802747
+          ],
+          "outcomes": {
+            "blackjack": 45567,
+            "win": 281858,
+            "push": 82818,
+            "lose": 589757
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 76.04514999999999,
+          "return95CI_Percent": [
+            75.85748491972528,
+            76.2328150802747
+          ],
+          "outcomes": {
+            "blackjack": 45567,
+            "win": 281858,
+            "push": 82818,
+            "lose": 589757
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 75.99894702648051
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:76",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 75.986,
+          "return95CI_Percent": [
+            75.39289126030867,
+            76.57910873969132
+          ],
+          "outcomes": {
+            "blackjack": 4598,
+            "win": 28040,
+            "push": 8411,
+            "lose": 58951
+          }
+        }
+      }
+    },
+    "rtp77": {
+      "id": "rtp77",
+      "targetReturnPercent": 77,
+      "dealerBoostTickets": 2400,
+      "playerUnfavorableTickets": 1125,
+      "scale": 0.7501125335693359,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:77",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 76.96235,
+          "return95CI_Percent": [
+            76.77436052191294,
+            77.15033947808708
+          ],
+          "outcomes": {
+            "blackjack": 45343,
+            "win": 286295,
+            "push": 83676,
+            "lose": 584686
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 76.96235,
+          "return95CI_Percent": [
+            76.77436052191294,
+            77.15033947808708
+          ],
+          "outcomes": {
+            "blackjack": 45343,
+            "win": 286295,
+            "push": 83676,
+            "lose": 584686
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 77.00362157676854
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:77",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 76.9815,
+          "return95CI_Percent": [
+            76.38763728895871,
+            77.5753627110413
+          ],
+          "outcomes": {
+            "blackjack": 4461,
+            "win": 28677,
+            "push": 8475,
+            "lose": 58387
+          }
+        }
+      }
+    },
+    "rtp78": {
+      "id": "rtp78",
+      "targetReturnPercent": 78,
+      "dealerBoostTickets": 2289,
+      "playerUnfavorableTickets": 1073,
+      "scale": 0.7154394779482582,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:78",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 78.1328,
+          "return95CI_Percent": [
+            77.9442538595332,
+            78.3213461404668
+          ],
+          "outcomes": {
+            "blackjack": 45460,
+            "win": 292028,
+            "push": 83622,
+            "lose": 578890
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 78.09405000000001,
+          "return95CI_Percent": [
+            77.90552722800294,
+            78.28257277199707
+          ],
+          "outcomes": {
+            "blackjack": 45577,
+            "win": 291585,
+            "push": 83828,
+            "lose": 579010
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 77.86985592486
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:78",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 78.5215,
+          "return95CI_Percent": [
+            77.92518013498793,
+            79.11781986501208
+          ],
+          "outcomes": {
+            "blackjack": 4541,
+            "win": 29335,
+            "push": 8499,
+            "lose": 57625
+          }
+        }
+      }
+    },
+    "rtp79": {
+      "id": "rtp79",
+      "targetReturnPercent": 79,
+      "dealerBoostTickets": 2146,
+      "playerUnfavorableTickets": 1006,
+      "scale": 0.6705760955810547,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:79",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 79.03635,
+          "return95CI_Percent": [
+            78.84744466345295,
+            79.22525533654705
+          ],
+          "outcomes": {
+            "blackjack": 45353,
+            "win": 296576,
+            "push": 83829,
+            "lose": 574242
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 79.03635,
+          "return95CI_Percent": [
+            78.84744466345295,
+            79.22525533654705
+          ],
+          "outcomes": {
+            "blackjack": 45353,
+            "win": 296576,
+            "push": 83829,
+            "lose": 574242
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 78.99758481118285
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:79",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 79.13550000000001,
+          "return95CI_Percent": [
+            78.53755572575515,
+            79.73344427424485
+          ],
+          "outcomes": {
+            "blackjack": 4577,
+            "win": 29697,
+            "push": 8299,
+            "lose": 57427
+          }
+        }
+      }
+    },
+    "rtp80": {
+      "id": "rtp80",
+      "targetReturnPercent": 80,
+      "dealerBoostTickets": 2039,
+      "playerUnfavorableTickets": 956,
+      "scale": 0.637267273363599,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:80",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 80.151,
+          "return95CI_Percent": [
+            79.96163410999043,
+            80.34036589000956
+          ],
+          "outcomes": {
+            "blackjack": 45480,
+            "win": 301904,
+            "push": 84002,
+            "lose": 568614
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 79.9268,
+          "return95CI_Percent": [
+            79.73746150463244,
+            80.11613849536757
+          ],
+          "outcomes": {
+            "blackjack": 45412,
+            "win": 301223,
+            "push": 83292,
+            "lose": 570073
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 79.84979900210607
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:80",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 79.565,
+          "return95CI_Percent": [
+            78.96728663914463,
+            80.16271336085536
+          ],
+          "outcomes": {
+            "blackjack": 4512,
+            "win": 29909,
+            "push": 8467,
+            "lose": 57112
+          }
+        }
+      }
+    },
+    "rtp81": {
+      "id": "rtp81",
+      "targetReturnPercent": 81,
+      "dealerBoostTickets": 1913,
+      "playerUnfavorableTickets": 897,
+      "scale": 0.5977719499014077,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:81",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 81.1349,
+          "return95CI_Percent": [
+            80.9451721278433,
+            81.3246278721567
+          ],
+          "outcomes": {
+            "blackjack": 45536,
+            "win": 306600,
+            "push": 84309,
+            "lose": 563555
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 81.0213,
+          "return95CI_Percent": [
+            80.83163813814114,
+            81.21096186185885
+          ],
+          "outcomes": {
+            "blackjack": 45216,
+            "win": 306521,
+            "push": 84131,
+            "lose": 564132
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 80.86324698100412
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:81",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 80.5925,
+          "return95CI_Percent": [
+            79.99337710200196,
+            81.19162289799804
+          ],
+          "outcomes": {
+            "blackjack": 4547,
+            "win": 30372,
+            "push": 8481,
+            "lose": 56600
+          }
+        }
+      }
+    },
+    "rtp82": {
+      "id": "rtp82",
+      "targetReturnPercent": 82,
+      "dealerBoostTickets": 1773,
+      "playerUnfavorableTickets": 831,
+      "scale": 0.5541324615478516,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:82",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 82.03675,
+          "return95CI_Percent": [
+            81.84677363391333,
+            82.22672636608668
+          ],
+          "outcomes": {
+            "blackjack": 44955,
+            "win": 311766,
+            "push": 84448,
+            "lose": 558831
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 82.03675,
+          "return95CI_Percent": [
+            81.84677363391333,
+            82.22672636608668
+          ],
+          "outcomes": {
+            "blackjack": 44955,
+            "win": 311766,
+            "push": 84448,
+            "lose": 558831
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 82.0026536832067
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:82",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 81.441,
+          "return95CI_Percent": [
+            80.8405611939477,
+            82.0414388060523
+          ],
+          "outcomes": {
+            "blackjack": 4454,
+            "win": 31015,
+            "push": 8276,
+            "lose": 56255
+          }
+        }
+      }
+    },
+    "rtp83": {
+      "id": "rtp83",
+      "targetReturnPercent": 83,
+      "dealerBoostTickets": 1667,
+      "playerUnfavorableTickets": 782,
+      "scale": 0.5210513951370488,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:83",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 83.12885,
+          "return95CI_Percent": [
+            82.93842209250548,
+            83.31927790749452
+          ],
+          "outcomes": {
+            "blackjack": 45587,
+            "win": 316375,
+            "push": 84571,
+            "lose": 553467
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 82.85719999999999,
+          "return95CI_Percent": [
+            82.66690323930438,
+            83.04749676069562
+          ],
+          "outcomes": {
+            "blackjack": 45484,
+            "win": 315022,
+            "push": 84818,
+            "lose": 554676
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 82.87164732580192
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:83",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 82.4935,
+          "return95CI_Percent": [
+            81.89245579756705,
+            83.09454420243294
+          ],
+          "outcomes": {
+            "blackjack": 4397,
+            "win": 31553,
+            "push": 8395,
+            "lose": 55655
+          }
+        }
+      }
+    },
+    "rtp84": {
+      "id": "rtp84",
+      "targetReturnPercent": 84,
+      "dealerBoostTickets": 1531,
+      "playerUnfavorableTickets": 718,
+      "scale": 0.47850608825683594,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:84",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 84.06555,
+          "return95CI_Percent": [
+            83.8748692438532,
+            84.2562307561468
+          ],
+          "outcomes": {
+            "blackjack": 45233,
+            "win": 321440,
+            "push": 84693,
+            "lose": 548634
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 84.06555,
+          "return95CI_Percent": [
+            83.8748692438532,
+            84.2562307561468
+          ],
+          "outcomes": {
+            "blackjack": 45233,
+            "win": 321440,
+            "push": 84693,
+            "lose": 548634
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 84.00032322978429
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:84",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 83.6855,
+          "return95CI_Percent": [
+            83.08290576601004,
+            84.28809423398997
+          ],
+          "outcomes": {
+            "blackjack": 4627,
+            "win": 31759,
+            "push": 8600,
+            "lose": 55014
+          }
+        }
+      }
+    },
+    "rtp85": {
+      "id": "rtp85",
+      "targetReturnPercent": 85,
+      "dealerBoostTickets": 1391,
+      "playerUnfavorableTickets": 652,
+      "scale": 0.4348305754913976,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:85",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 84.8279,
+          "return95CI_Percent": [
+            84.63700071021701,
+            85.018799289783
+          ],
+          "outcomes": {
+            "blackjack": 45270,
+            "win": 325082,
+            "push": 84940,
+            "lose": 544708
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 85.19290000000001,
+          "return95CI_Percent": [
+            85.00186434618033,
+            85.38393565381968
+          ],
+          "outcomes": {
+            "blackjack": 45456,
+            "win": 326689,
+            "push": 84911,
+            "lose": 542944
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 85.17548642084081
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:85",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 85.328,
+          "return95CI_Percent": [
+            84.72334468283694,
+            85.93265531716308
+          ],
+          "outcomes": {
+            "blackjack": 4542,
+            "win": 32809,
+            "push": 8355,
+            "lose": 54294
+          }
+        }
+      }
+    },
+    "rtp86": {
+      "id": "rtp86",
+      "targetReturnPercent": 86,
+      "dealerBoostTickets": 1293,
+      "playerUnfavorableTickets": 606,
+      "scale": 0.40421485900878906,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:86",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 86.0886,
+          "return95CI_Percent": [
+            85.89741315188203,
+            86.27978684811798
+          ],
+          "outcomes": {
+            "blackjack": 45348,
+            "win": 330836,
+            "push": 85844,
+            "lose": 537972
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 86.0886,
+          "return95CI_Percent": [
+            85.89741315188203,
+            86.27978684811798
+          ],
+          "outcomes": {
+            "blackjack": 45348,
+            "win": 330836,
+            "push": 85844,
+            "lose": 537972
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 86.0055064226925
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:86",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 86.2725,
+          "return95CI_Percent": [
+            85.66769703661593,
+            86.87730296338407
+          ],
+          "outcomes": {
+            "blackjack": 4459,
+            "win": 33326,
+            "push": 8473,
+            "lose": 53742
+          }
+        }
+      }
+    },
+    "rtp87": {
+      "id": "rtp87",
+      "targetReturnPercent": 87,
+      "dealerBoostTickets": 1194,
+      "playerUnfavorableTickets": 560,
+      "scale": 0.3730481245792758,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:87",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 87.14715,
+          "return95CI_Percent": [
+            86.95563712428668,
+            87.33866287571331
+          ],
+          "outcomes": {
+            "blackjack": 45395,
+            "win": 336248,
+            "push": 85488,
+            "lose": 532869
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 86.96945000000001,
+          "return95CI_Percent": [
+            86.77801947998455,
+            87.16088052001545
+          ],
+          "outcomes": {
+            "blackjack": 45107,
+            "win": 335719,
+            "push": 85489,
+            "lose": 533685
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 86.8494695123518
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:87",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 87.044,
+          "return95CI_Percent": [
+            86.43880298863523,
+            87.64919701136476
+          ],
+          "outcomes": {
+            "blackjack": 4532,
+            "win": 33534,
+            "push": 8646,
+            "lose": 53288
+          }
+        }
+      }
+    },
+    "rtp88": {
+      "id": "rtp88",
+      "targetReturnPercent": 88,
+      "dealerBoostTickets": 1061,
+      "playerUnfavorableTickets": 497,
+      "scale": 0.3314495086669922,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:88",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 88.0468,
+          "return95CI_Percent": [
+            87.85508433976852,
+            88.23851566023147
+          ],
+          "outcomes": {
+            "blackjack": 45308,
+            "win": 340805,
+            "push": 85588,
+            "lose": 528299
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 88.0468,
+          "return95CI_Percent": [
+            87.85508433976852,
+            88.23851566023147
+          ],
+          "outcomes": {
+            "blackjack": 45308,
+            "win": 340805,
+            "push": 85588,
+            "lose": 528299
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 87.99683081726826
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:88",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 87.977,
+          "return95CI_Percent": [
+            87.37077376999312,
+            88.58322623000689
+          ],
+          "outcomes": {
+            "blackjack": 4506,
+            "win": 34095,
+            "push": 8522,
+            "lose": 52877
+          }
+        }
+      }
+    },
+    "rtp89": {
+      "id": "rtp89",
+      "targetReturnPercent": 89,
+      "dealerBoostTickets": 946,
+      "playerUnfavorableTickets": 443,
+      "scale": 0.29549598693847656,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:89",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 89.0355,
+          "return95CI_Percent": [
+            88.8435734179848,
+            89.2274265820152
+          ],
+          "outcomes": {
+            "blackjack": 45158,
+            "win": 345950,
+            "push": 85560,
+            "lose": 523332
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 89.0355,
+          "return95CI_Percent": [
+            88.8435734179848,
+            89.2274265820152
+          ],
+          "outcomes": {
+            "blackjack": 45158,
+            "win": 345950,
+            "push": 85560,
+            "lose": 523332
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 88.9975558498633
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:89",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 88.9525,
+          "return95CI_Percent": [
+            88.34527239633105,
+            89.55972760366895
+          ],
+          "outcomes": {
+            "blackjack": 4551,
+            "win": 34544,
+            "push": 8487,
+            "lose": 52418
+          }
+        }
+      }
+    },
+    "rtp90": {
+      "id": "rtp90",
+      "targetReturnPercent": 90,
+      "dealerBoostTickets": 850,
+      "playerUnfavorableTickets": 399,
+      "scale": 0.26574763621815534,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:90",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 90.16435,
+          "return95CI_Percent": [
+            89.97215391403212,
+            90.35654608596789
+          ],
+          "outcomes": {
+            "blackjack": 45585,
+            "win": 350967,
+            "push": 85747,
+            "lose": 517701
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 89.82435,
+          "return95CI_Percent": [
+            89.63230011988087,
+            90.01639988011912
+          ],
+          "outcomes": {
+            "blackjack": 45065,
+            "win": 349851,
+            "push": 85879,
+            "lose": 519205
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 89.83723941238944
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:90",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 90.143,
+          "return95CI_Percent": [
+            89.5357356464511,
+            90.75026435354889
+          ],
+          "outcomes": {
+            "blackjack": 4562,
+            "win": 35000,
+            "push": 8738,
+            "lose": 51700
+          }
+        }
+      }
+    },
+    "rtp91": {
+      "id": "rtp91",
+      "targetReturnPercent": 91,
+      "dealerBoostTickets": 719,
+      "playerUnfavorableTickets": 337,
+      "scale": 0.2246379852294922,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:91",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 91.08095,
+          "return95CI_Percent": [
+            90.88867152583106,
+            91.27322847416896
+          ],
+          "outcomes": {
+            "blackjack": 45187,
+            "win": 355849,
+            "push": 86144,
+            "lose": 512820
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 91.08095,
+          "return95CI_Percent": [
+            90.88867152583106,
+            91.27322847416896
+          ],
+          "outcomes": {
+            "blackjack": 45187,
+            "win": 355849,
+            "push": 86144,
+            "lose": 512820
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 90.9983529938559
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:91",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 90.641,
+          "return95CI_Percent": [
+            90.03291160705828,
+            91.24908839294173
+          ],
+          "outcomes": {
+            "blackjack": 4486,
+            "win": 35474,
+            "push": 8478,
+            "lose": 51562
+          }
+        }
+      }
+    },
+    "rtp92": {
+      "id": "rtp92",
+      "targetReturnPercent": 92,
+      "dealerBoostTickets": 607,
+      "playerUnfavorableTickets": 284,
+      "scale": 0.1896381378173828,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:92",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 92.09175,
+          "return95CI_Percent": [
+            91.89931351359014,
+            92.28418648640987
+          ],
+          "outcomes": {
+            "blackjack": 45277,
+            "win": 360675,
+            "push": 86375,
+            "lose": 507673
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 92.09175,
+          "return95CI_Percent": [
+            91.89931351359014,
+            92.28418648640987
+          ],
+          "outcomes": {
+            "blackjack": 45277,
+            "win": 360675,
+            "push": 86375,
+            "lose": 507673
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 92.00059035362169
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:92",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 91.97999999999999,
+          "return95CI_Percent": [
+            91.37139945295797,
+            92.58860054704202
+          ],
+          "outcomes": {
+            "blackjack": 4476,
+            "win": 36127,
+            "push": 8536,
+            "lose": 50861
+          }
+        }
+      }
+    },
+    "rtp93": {
+      "id": "rtp93",
+      "targetReturnPercent": 93,
+      "dealerBoostTickets": 496,
+      "playerUnfavorableTickets": 233,
+      "scale": 0.15501976013183594,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:93",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 93.01899999999999,
+          "return95CI_Percent": [
+            92.82643999684737,
+            93.21156000315261
+          ],
+          "outcomes": {
+            "blackjack": 44942,
+            "win": 365868,
+            "push": 86099,
+            "lose": 503091
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 93.01899999999999,
+          "return95CI_Percent": [
+            92.82643999684737,
+            93.21156000315261
+          ],
+          "outcomes": {
+            "blackjack": 44942,
+            "win": 365868,
+            "push": 86099,
+            "lose": 503091
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 92.99869980644353
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:93",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 92.8435,
+          "return95CI_Percent": [
+            92.2341052618629,
+            93.4528947381371
+          ],
+          "outcomes": {
+            "blackjack": 4579,
+            "win": 36426,
+            "push": 8544,
+            "lose": 50451
+          }
+        }
+      }
+    },
+    "rtp94": {
+      "id": "rtp94",
+      "targetReturnPercent": 94,
+      "dealerBoostTickets": 407,
+      "playerUnfavorableTickets": 191,
+      "scale": 0.12723335148101364,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:94",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 94.1941,
+          "return95CI_Percent": [
+            94.00137910726517,
+            94.38682089273483
+          ],
+          "outcomes": {
+            "blackjack": 45430,
+            "win": 370884,
+            "push": 86598,
+            "lose": 497088
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 93.90145,
+          "return95CI_Percent": [
+            93.70866748606545,
+            94.09423251393456
+          ],
+          "outcomes": {
+            "blackjack": 45701,
+            "win": 369396,
+            "push": 85970,
+            "lose": 498933
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 93.80812644205137
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:94",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 93.9415,
+          "return95CI_Percent": [
+            93.3327987816091,
+            94.55020121839091
+          ],
+          "outcomes": {
+            "blackjack": 4463,
+            "win": 37010,
+            "push": 8764,
+            "lose": 49763
+          }
+        }
+      }
+    },
+    "rtp95": {
+      "id": "rtp95",
+      "targetReturnPercent": 95,
+      "dealerBoostTickets": 277,
+      "playerUnfavorableTickets": 130,
+      "scale": 0.08654594421386719,
+      "kind": "approximate",
+      "nativeLegacy": false,
+      "calibration": {
+        "seed": "indictus-blackjack-integer-rtp-count-calibration-v2-2026-10-09:95",
+        "pilot": {
+          "hands": 1000000,
+          "returnPercent": 94.9787,
+          "return95CI_Percent": [
+            94.7859273865364,
+            95.1714726134636
+          ],
+          "outcomes": {
+            "blackjack": 45400,
+            "win": 374698,
+            "push": 86891,
+            "lose": 493011
+          }
+        },
+        "final": {
+          "hands": 1000000,
+          "returnPercent": 94.9787,
+          "return95CI_Percent": [
+            94.7859273865364,
+            95.1714726134636
+          ],
+          "outcomes": {
+            "blackjack": 45400,
+            "win": 374698,
+            "push": 86891,
+            "lose": 493011
+          }
+        },
+        "analyticInfiniteDeckReturnPercent": 94.99968563671254
+      },
+      "measurements": {
+        "source": "Independent finite six-deck actual-engine holdout",
+        "handsPerStrategy": 100000,
+        "seed": "indictus-blackjack-integer-rtp-INDEPENDENT-HOLDOUT-v2-2026-10-09:95",
+        "basic_hit_stand": {
+          "hands": 100000,
+          "returnPercent": 95.17,
+          "return95CI_Percent": [
+            94.5602992282046,
+            95.7797007717954
+          ],
+          "outcomes": {
+            "blackjack": 4544,
+            "win": 37564,
+            "push": 8682,
+            "lose": 49210
+          }
+        }
+      }
+    }
+  },
+  "elapsedSeconds": 299.49848249999997,
+  "calibrationHands": 60000000,
+  "independentHoldoutHands": 4600000,
+  "policy": "Standard six-deck S17 hit/stand. Hard12 stands vs4–6; hard13–16 stands vs2–6; hard17+ stands. Soft18 stands vs2–8; soft19+ stands. Only visible player cards and dealer upcard; no doubles, splits, surrender or insurance.",
+  "method": "Analytic infinite-deck public-bias pilot; distribution-equivalent finite six-deck rank-count calibration with at least1000000hands per preset and disjoint SHA256-seeded sfc32 streams. Parameter table frozen before separate100000-hand holdout per preset on unchanged physical312-card blackjack.js engine. Rejection sampling for unbiased integer tickets. No failures retried, no bankroll stops, no post-result payout changes.",
+  "limitation": "Every Blackjack RTP is approximate and strategy dependent. Profile70 deliberately retains the native3200/1500 ticket rules; its independently measured basic return is about70.95%, not exactly70%. Physical six-deck312-card engine and payouts are unchanged."
+}

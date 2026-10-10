@@ -1,0 +1,8 @@
+.coin-illustrated{position:relative;display:grid;place-items:center;width:100%;height:100%;perspective:1000px;container-type:size;}
+.coin-painted-flight{position:relative;width:min(70cqw,80cqh,270px);aspect-ratio:1;transform-style:preserve-3d;}
+.coin-painted-turn{position:absolute;inset:0;transform-style:preserve-3d;}
+.coin-painted-face{position:absolute;inset:0;backface-visibility:hidden;}
+.coin-painted-face img{display:block;width:100%;height:100%;object-fit:contain;}
+.coin-painted-tails{transform:rotateY(180deg);}
+.coin-painted-tails strong{position:absolute;inset:0;display:grid;place-items:center;font:700 clamp(70px,16cqw,125px)/1 'Barlow Condensed',Arial,sans-serif;color:#152c30;}
+.coin-painted-shadow{position:absolute;bottom:7%;left:30%;right:30%;height:7%;background:#011118;border-radius:50%;filter:blur(3px);}

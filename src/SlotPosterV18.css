@@ -1,0 +1,4 @@
+.slot-poster18{position:relative;display:block;aspect-ratio:16/9;width:100%;height:100%;overflow:hidden;background:#eee7d6;user-select:none}
+.slot-artwork18{display:block;width:100%;height:100%;overflow:hidden;user-select:none}
+.slot-poster18-title{position:absolute;left:18px;bottom:16px;padding:5px 12px;border:1px solid #171719;background:#eee7d6;color:#171719;font:600 clamp(23px,3.5vw,44px)/1.1 var(--lobby-display,'Indictus Barlow',Arial,sans-serif);letter-spacing:.02em}
+@media(max-width:480px){.slot-poster18-title{left:10px;bottom:10px;padding:4px 9px;font-size:24px}}

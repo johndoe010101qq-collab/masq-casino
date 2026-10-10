@@ -1,0 +1,135 @@
+{
+  "checkedAt": "2026-10-09T14:15:22.871Z",
+  "status": "passed",
+  "scope": "Current copied local Site math/settings modules and source-backed test receipts; no publication, real-money operation or provider approval",
+  "sourceSHA256": {
+    "src/bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "src/bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "src/bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "src/profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "src/classic-rtp-profiles.js": "77ad08f7957f340e148c2d98aa0f8cb1102990f77946880db072d7f24736904b",
+    "src/blackjack.js": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+    "src/demo-settings.js": "a10b3208ae91bc59ebcaa8a49c79fbf5c93a8ea8853381d18b7a58afe98ae5bf",
+    "src/hall-session.js": "975b7aebf19e98f450a5ca90a5002d60add94a8d43c17b13fa28c50cdc8282d0",
+    "src/liability-terms.js": "b62d4e103da648e01fc3ffc1c80f70225e035e6fdddb1890c0e07c98551b226c",
+    "src/demo-reserve.js": "743b0e2f923848c6bd20237bfe4269bc7c2b9dfa596432e627646d831088535d",
+    "src/demo-ui-settings.js": "8986b402f95e38b28c4629151ccdf574fc850b3951600804d95c8eb75767be3b",
+    "src/admin-access.js": "34ca1110999922d2862216e52574e9fe2f060f8c7fc5f900233744e7b9d55c2f",
+    "src/slot-rtp-profiles.js": "1964e78e2fedcce2c7ad27b2773e1cf3831eb6e780e40213a4e8c1ddded6b080",
+    "src/mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "src/profiled-mask-core.js": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+    "src/profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "src/bonanza-profile-statistics.json": "76fc28592df48469a672a9c533b865cfc687751f6eb51f79e25c8c96c0a445eb",
+    "src/mask-profile-statistics.json": "a45970ad4f073de920d260b4625f0f1681f75feacdb99d4c80c291d177bfb869"
+  },
+  "receiptSHA256": {
+    "docs/hall-rtp-profile-results.json": "443c0e0e4b4abae802977be2b13b5b81e632383ac86d6cda797c78ab6ef2c9d6",
+    "docs/slot-profile-rules-qa.json": "6aa42925c48cbfcdb5f51618d21174d99bd5c382282aba4f5806d69d2fb9ba2f",
+    "docs/classic-profile-results-v12.json": "ce180ba7d4e94a56a202d4ff3c5c03b7cb6b392cb04a4086864858dc698438fb",
+    "docs/bonanza-profile-checks-results-v12.json": "a1aa3c30886dfa605070b40f625d99b94ae00280b3d06f93d0764a53c70b4d02",
+    "docs/blackjack-profile-holdout-v12.json": "37c78a218ae145c881aac2835245069f27983bd44a2fe992551560b2c08926dd",
+    "docs/demo-admin-review-harness-v12.json": "8abbaf3acbe96d1b36fe168b35a379930c4a0a5428dbac10fcf967f1b4e8aef1"
+  },
+  "checks": {
+    "hall": {
+      "checks": 2647,
+      "sourceHashesVerified": true
+    },
+    "bonanza": {
+      "deterministicAssertions": 1025501,
+      "sourceHashesVerified": true,
+      "native50Unchanged": true,
+      "publicProfileExtrasZero": true,
+      "actualPublicEngineHoldoutRounds": 1800000,
+      "holdoutRows": 12,
+      "baseStakesAR": [
+        5,
+        50
+      ],
+      "paidRoundsPerRow": 200000,
+      "boughtRoundsPerRow": 100000,
+      "calibrationAndHoldoutSeparate": true
+    },
+    "classic": {
+      "assertions": 393024,
+      "presets": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85,
+        90,
+        95
+      ],
+      "blackjackPresets": [
+        70,
+        98
+      ],
+      "blackjackApproximateStrategyDependent": true,
+      "nativeUpgrader1_5ReturnPercent": 69.99
+    },
+    "rules": {
+      "renders": 34,
+      "assertions": 500,
+      "componentSHA256": "65c90a2201fefdb4efb4f13585db65694d3ed91065c66d46a240ab6ec916edd7",
+      "bonComponentSHA256": "1f829f08e9e6e8fb741c4f5be1c25c45fe06d949f1a9a8d3754ba974702b7fe5",
+      "activeStakeLimitsPassedFromApp": true
+    },
+    "presentation": {
+      "test": "tests/demo-ui-settings-checks.mjs",
+      "exitCode": 0,
+      "claims": [
+        "Atomic/stale/busy apply",
+        "All9configured stake limits",
+        "Mixer percentages scale native .62SFX/.27music defaults",
+        "Accepted speed preserved",
+        "Rendered configured boundaries and Max controls",
+        "Room JSX parse"
+      ],
+      "browserClaims": false
+    },
+    "adminHarness": {
+      "receipt": "docs/demo-admin-review-harness-v12.json",
+      "scope": "Isolated real HallSession harness, not deployed-site browser verification",
+      "panels": 12,
+      "games": 9,
+      "validatedProfileValues": 61,
+      "mobileWidth": 320
+    }
+  },
+  "testRuns": [
+    {
+      "name": "hall",
+      "exitCode": 0,
+      "elapsedSeconds": 0.2895647
+    },
+    {
+      "name": "bonanza",
+      "exitCode": 0,
+      "elapsedSeconds": 4.9447152
+    },
+    {
+      "name": "classic",
+      "exitCode": 0,
+      "elapsedSeconds": 0.9947748
+    },
+    {
+      "name": "ui",
+      "exitCode": 0,
+      "elapsedSeconds": 0.3246466
+    }
+  ],
+  "limitations": [
+    "Client DEMO in one page memory; no trusted funded shared backend",
+    "No real AR payments, deposits, withdrawals or transfers were performed",
+    "Browser admin query is not server authorization; iframe stays closed",
+    "Classical exact distribution return is not a finite-series outcome guarantee",
+    "Slot targets50/55/60 and Blackjack70/98 are approximate; Blackjack depends on disclosed strategy",
+    "Mean confidence intervals are approximate Monte Carlo; no universal finite-shoe optimality claim",
+    "Admin browser harness does not certify published application behavior",
+    "Artwork is outside this receipt and final README art paragraphs were preserved"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checks": 7,
+  "sdkVersion": "1.2.0",
+  "sdkMiddlewareSHA256": "9c050c9f95d37bd890362e1e3c9281436931c5eac85b13eff3e493b28c97036e",
+  "syntheticOnly": true,
+  "findings": [
+    {
+      "source": "src/integrations/useSPWMini.js:104",
+      "finding": "Client intentionally exposes only accountId/username/minecraftUUID and verified identity. roles/isAdmin/hash do not enter UI state. verified is not a casino-admin capability."
+    },
+    {
+      "source": "server/spw-validate.js:40",
+      "finding": "Endpoint returns signed-profile validity only. It creates no authenticated session, casino ownership grant, CSRF/write guard, or real-currency ledger. It must not authorize RTP changes merely because response is1."
+    },
+    {
+      "source": "node_modules/spwmini/dist/middleware.mjs:27",
+      "finding": "checkUser validates HMAC only. Synthetic correctly signed timestamp1 and future timestamp are accepted. Future privileged session exchange must explicitly validate documented timestamp units, freshness and future skew before assigning capability."
+    },
+    {
+      "source": "server/spw-validate.js:5",
+      "finding": "SPW_APP_TOKEN is server-only. No platform financial or permission API is needed for the standalone localDEMO admin panel."
+    }
+  ],
+  "recommendation": {
+    "currentDemo": "Standalone ?demo-admin=1 may expose a clearly localDEMO control panel. Embedded miniapp remains failclosed because no server casino-admin capability exists.",
+    "futureAuthorization": "Server verifies signed identity/freshness, maps accountId through a configured casino-owner/admin allowlist, issues a short-lived authenticated session and a narrow math-profiles:write capability. Provider isAdmin/roles are not automatically casino ownership.",
+    "writeBoundary": "Validate capability on every mutation; same-origin/CSRF policy, revision compare-and-swap, append audit revision, global game preset allowlist, refuse while a round is computing and pin accepted-round profile beforeRNG. Client sends no per-user odds or past-loss inputs.",
+    "leastPermissions": "Use identity only to manage DEMO math settings; no wallet/cards/transfers/payment scopes or financial calls. Existing public SPW docs do not establish an OAuth-style fine-grained permission catalogue for this SDK; do not invent provider permission names.",
+    "clientDTO": "Expose only verified casino capability names/booleans and allowed preset IDs from server. Keep signed original claims and tokens server-side."
+  },
+  "sources": [
+    {
+      "title": "Official SPWMini source/docs",
+      "url": "https://github.com/sp-worlds/spwmini",
+      "usedFor": "Signed-profile validation SDK contract; no casino admin capability is documented."
+    },
+    {
+      "title": "Official SP Worlds API authentication",
+      "url": "https://github.com/sp-worlds/api-docs/wiki/%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F",
+      "usedFor": "Card ID/token authenticate financial API; those credentials are unnecessary for current localDEMO profile controls."
+    }
+  ]
+}

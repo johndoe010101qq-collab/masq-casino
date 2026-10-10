@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "checks": 53894,
+  "sections": [
+    {
+      "name": "calibration receipt and every sealed native source are exact",
+      "passed": true
+    },
+    {
+      "name": "all46 public targets and nine offers use pinned fixed acceptance parameters",
+      "passed": true
+    },
+    {
+      "name": "independent endpoint evidence matches sealed sampler, actual full charge and real counts",
+      "passed": true
+    },
+    {
+      "name": "legacy50/55/60 preserve exact native result and RNG trace on every offer",
+      "passed": true
+    },
+    {
+      "name": "one independent ticket precedes unchanged entire accepted native candidate",
+      "passed": true
+    },
+    {
+      "name": "all profiles, offers and stake endpoints preserve cents, frames, floor and full liability",
+      "passed": true
+    },
+    {
+      "name": "bad identity, history, outcome override or RNG input rejects without candidate fallback",
+      "passed": true
+    },
+    {
+      "name": "512 nonaccepted whole candidates abort and Hall cancels liability without debit",
+      "passed": true
+    },
+    {
+      "name": "Hall pins settings before RNG, charges once, settles stored cents once and conserves funds",
+      "passed": true
+    },
+    {
+      "name": "display-only preview has no charge, weighted monetary claim, wallet credit or history",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "profileCount": 46,
+  "offerCount": 9,
+  "calibrationSourceSHA256": "c1a66c1675650e6033253b568b4d9bea141b41437da19284c8d74edfb22d8109"
+}

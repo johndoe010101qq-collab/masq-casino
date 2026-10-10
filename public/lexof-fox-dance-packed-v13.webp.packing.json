@@ -1,0 +1,75 @@
+{
+  "source": "art-deliverables/lexof-fox-dance-v12.png",
+  "target": "indictus-site/public/lexof-fox-dance-packed-v13.webp",
+  "columns": 4,
+  "rows": 1,
+  "width": 1448,
+  "height": 724,
+  "hasAlpha": true,
+  "packing": [
+    {
+      "frame": 0,
+      "sourceRect": {
+        "left": 13,
+        "top": 51,
+        "width": 427,
+        "height": 787
+      },
+      "scale": 0.7767441860465116,
+      "frameRect": {
+        "x": 15,
+        "y": 79,
+        "width": 332,
+        "height": 611
+      }
+    },
+    {
+      "frame": 1,
+      "sourceRect": {
+        "left": 451,
+        "top": 47,
+        "width": 427,
+        "height": 792
+      },
+      "scale": 0.7767441860465116,
+      "frameRect": {
+        "x": 15,
+        "y": 75,
+        "width": 332,
+        "height": 615
+      }
+    },
+    {
+      "frame": 2,
+      "sourceRect": {
+        "left": 895,
+        "top": 93,
+        "width": 424,
+        "height": 746
+      },
+      "scale": 0.7767441860465116,
+      "frameRect": {
+        "x": 17,
+        "y": 111,
+        "width": 329,
+        "height": 579
+      }
+    },
+    {
+      "frame": 3,
+      "sourceRect": {
+        "left": 1337,
+        "top": 57,
+        "width": 430,
+        "height": 782
+      },
+      "scale": 0.7767441860465116,
+      "frameRect": {
+        "x": 14,
+        "y": 83,
+        "width": 334,
+        "height": 607
+      }
+    }
+  ]
+}

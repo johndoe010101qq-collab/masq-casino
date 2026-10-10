@@ -1,0 +1,38 @@
+.indictus-app.indictus-app .maskhouse .mask-slot-stage {
+  aspect-ratio:3/2; min-height:0; max-height:none; border-color:#be903c;
+}
+.indictus-app.indictus-app .maskhouse .mask-slot-cabinet {
+  background-image:url('/maskhouse-manor-v13.webp'); background-size:cover;
+}
+.indictus-app.indictus-app .maskhouse .mask-slot-grid {
+  inset:21.5% 12.5% 23.5%; border:0; padding:3px; gap:3px;
+  background:#3a0d1230; box-shadow:none;
+}
+.indictus-app.indictus-app .maskhouse .mask-cabinet-title {display:none;}
+.indictus-app.indictus-app .maskhouse .mask-reel-window {
+  border:0; border-right:1px solid #a3683560; border-radius:0; background:#3c0a1420;
+}
+.indictus-app.indictus-app .maskhouse .mask-slot-cell {padding:3px;}
+.indictus-app.indictus-app .maskhouse .mask-slot-symbol {filter:drop-shadow(0 3px 1px #21030a80);}
+.indictus-app.indictus-app .maskhouse .mask-free-count {
+  top:1.5%; left:33%; right:33%; min-height:0; padding:5px 10px;
+  background:#4f0e19ed; border:2px solid #f3cc76;
+}
+.indictus-app.indictus-app .maskhouse .mask-free-count strong {font-size:clamp(24px,4vw,48px);}
+.indictus-app.indictus-app .maskhouse .mask-slot-readout {
+  bottom:6%; left:14%; right:14%; color:#ffedcd; padding:4px 0;
+  text-shadow:0 2px 2px #542109;
+}
+.indictus-app.indictus-app .maskhouse .mask-wild-mark {
+  left:10%; right:10%; bottom:2%; background:#691220ec; color:#ffe283;
+  border:1px solid #f1c66e; border-radius:4px;
+}
+@media(max-width:760px){
+  .indictus-app.indictus-app .maskhouse .mask-slot-stage {aspect-ratio:.95;min-height:350px;}
+  .indictus-app.indictus-app .maskhouse .mask-slot-cabinet {background-size:auto 100%;background-position:center top;background-color:#591421;}
+  .indictus-app.indictus-app .maskhouse .mask-slot-grid {inset:22% 5% 22%;background:#3e111de8;border:2px solid #e2b264;border-radius:4px;}
+  .indictus-app.indictus-app .maskhouse .mask-slot-readout {left:6%;right:6%;bottom:4%;font-size:12px;}
+  .indictus-app.indictus-app .maskhouse .mask-slot-readout strong {font-size:23px;}
+  .indictus-app.indictus-app .maskhouse .mask-free-count {left:29%;right:29%;font-size:11px;padding:4px 5px;}
+  .indictus-app.indictus-app .maskhouse .mask-free-count small {font-size:10px;}
+}

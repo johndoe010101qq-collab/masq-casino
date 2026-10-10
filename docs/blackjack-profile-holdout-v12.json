@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "seed": "indictus-classic-v12-independent-unbiased-holdout-2026-10-09",
+  "rng": "SHA256 seeded sfc32, 20-word warmup, unbiased integer rejection",
+  "handsPerProfileAndStrategy": 100000,
+  "engineSHA256": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e",
+  "policy": "Only visible player cards and dealer upcard. Standard six-deck S17 hit/stand; no doubles, splits, surrender or insurance.",
+  "limitation": "Monte Carlo estimates, not universal exact RTP. Six decks have 312 physical ids. No RNG exceptions retried, no bankroll stopping or payout truncation.",
+  "elapsedSeconds": 20.3750658,
+  "results": {
+    "rtp70": {
+      "basic_hit_stand": {
+        "hands": 100000,
+        "returnPercent": 70.9925,
+        "return95CI_Percent": [
+          70.40781097676488,
+          71.57718902323512
+        ],
+        "outcomes": {
+          "blackjack": 4491,
+          "win": 25777,
+          "push": 8211,
+          "lose": 61521
+        }
+      },
+      "hit_below_17": {
+        "hands": 100000,
+        "returnPercent": 69.65350000000001,
+        "return95CI_Percent": [
+          69.07494126283433,
+          70.23205873716567
+        ],
+        "outcomes": {
+          "blackjack": 4557,
+          "win": 24453,
+          "push": 9355,
+          "lose": 61635
+        }
+      }
+    },
+    "rtp98": {
+      "basic_hit_stand": {
+        "hands": 100000,
+        "returnPercent": 98.421,
+        "return95CI_Percent": [
+          97.81066519815805,
+          99.03133480184195
+        ],
+        "outcomes": {
+          "blackjack": 4640,
+          "win": 39006,
+          "push": 8809,
+          "lose": 47545
+        }
+      },
+      "hit_below_17": {
+        "hands": 100000,
+        "returnPercent": 94.7245,
+        "return95CI_Percent": [
+          94.11784786507907,
+          95.33115213492093
+        ],
+        "outcomes": {
+          "blackjack": 4647,
+          "win": 36688,
+          "push": 9731,
+          "lose": 48934
+        }
+      }
+    }
+  }
+}

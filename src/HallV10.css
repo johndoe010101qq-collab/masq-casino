@@ -1,0 +1,86 @@
+/* Read-only review draft: import after HallPolish.css if adopted.
+   Hall-only selectors leave live game stages and odds rules alone. */
+.indictus-app.indictus-app[data-view='hall'] .slot-catalog{grid-template-columns:repeat(3,minmax(0,1fr));}
+.indictus-app.indictus-app[data-view='hall'] .slot-catalog .card-art{aspect-ratio:1.65;}
+.indictus-app.indictus-app[data-view='hall'] .slot-catalog .raster-game-cover{object-fit:contain;padding:14px;}
+.indictus-app.indictus-app[data-view='hall'] .game-card-slots .card-art{background:#0d2634;}
+.indictus-app.indictus-app[data-view='hall'] .game-card-maskhouse .card-art{background:#411522;}
+.indictus-app.indictus-app[data-view='hall'] .game-card-lecipher .card-art{background:#10382c;}
+.indictus-app.indictus-app[data-view='hall'] .classic-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+.indictus-app.indictus-app[data-view='hall'] .promo-maskhouse{background:#321621;}
+.indictus-app.indictus-app[data-view='hall'] .promo-lecipher{background:#133529;}
+.indictus-app.indictus-app[data-view='hall'] { background:#0d1114; }
+.indictus-app.indictus-app .indictus-header { min-height:76px; padding:12px max(24px,calc((100vw - 1280px)/2)); gap:24px; background:#10191d; border-bottom:1px solid #2b3d43; }
+.indictus-app.indictus-app .brand-emblem { width:28px; height:36px; }
+.indictus-app.indictus-app .wordmark { font-size:27px; letter-spacing:.025em; }
+.indictus-app.indictus-app .brand-subtitle { font-size:8px; letter-spacing:.24em; }
+.indictus-app.indictus-app .header-nav { gap:24px; }
+.indictus-app.indictus-app .header-nav button { min-height:44px; font-size:13px!important; border-bottom-width:1px; }
+.indictus-app.indictus-app .hall-wallet { gap:3px; }
+.indictus-app.indictus-app .hall-wallet>span { font-size:10px!important; }
+.indictus-app.indictus-app .hall-wallet strong { font-size:26px; }
+.indictus-app.indictus-app .demo-badge { border:1px solid #34464d; border-radius:3px; color:#a1b3b7; }
+.indictus-app.indictus-app .audio-button { min-width:36px; min-height:44px; justify-content:center; padding:6px; color:#82999f; }
+.indictus-app.indictus-app .audio-button.active { color:#e7d7b7; }
+.indictus-app.indictus-app .audio-button span { display:none; }
+.indictus-app.indictus-app[data-view='hall'] .indictus-main { max-width:1280px; width:calc(100% - 48px); padding-top:30px; }
+.indictus-app.indictus-app[data-view='hall'] .promo { height:330px; border:1px solid #344b50; border-radius:6px; background:#10262d; }
+.indictus-app.indictus-app[data-view='hall'] .promo::before,.indictus-app.indictus-app[data-view='hall'] .promo::after { display:none; }
+.indictus-app.indictus-app[data-view='hall'] .promo-copy { padding:47px 44px; max-width:53%; }
+.indictus-app.indictus-app[data-view='hall'] .promo h1 { margin:0; font:600 clamp(45px,5vw,68px)/.98 'Barlow Condensed',Arial,sans-serif; letter-spacing:-.025em; }
+.indictus-app.indictus-app[data-view='hall'] .promo p { margin:16px 0 26px; max-width:270px; color:#bbcbcd; font-size:14px; line-height:1.5; }
+.indictus-app.indictus-app[data-view='hall'] .promo-action { min-height:46px!important; padding:12px 23px!important; background:#a84245; border:1px solid #cd7271!important; box-shadow:none; }
+.indictus-app.indictus-app[data-view='hall'] .promo-art-painted { top:16px; right:3%; bottom:16px; height:auto; width:43%; }
+.indictus-app.indictus-app[data-view='hall'] .promo-art-painted .raster-game-cover { background:transparent; mask-image:none; object-fit:contain; }
+.indictus-app.indictus-app[data-view='hall'] .catalog-heading { margin:34px 0 17px; }
+.indictus-app.indictus-app[data-view='hall'] .catalog-heading h2 { font-size:28px; letter-spacing:-.025em; }
+.indictus-app.indictus-app[data-view='hall'] .catalog-heading>span { display:none; }
+.indictus-app.indictus-app[data-view='hall'] .games-grid { gap:20px; }
+.indictus-app.indictus-app[data-view='hall'] .game-card { border:1px solid #304148!important; background:#141d22; border-radius:6px; transition:border-color .18s,transform .18s; }
+.indictus-app.indictus-app[data-view='hall'] .game-card:hover { transform:translateY(-3px); border-color:#bd9a67!important; }
+.indictus-app.indictus-app[data-view='hall'] .game-card:focus-visible { outline:2px solid #f1d79d; outline-offset:4px; }
+.indictus-app.indictus-app[data-view='hall'] .card-art { aspect-ratio:4/3; background:#063e48; }
+.indictus-app.indictus-app[data-view='hall'] .card-copy { padding:16px 18px 18px; gap:6px; border-top:1px solid #2e444b; }
+.indictus-app.indictus-app[data-view='hall'] .card-copy>strong { font:600 27px/1 'Barlow Condensed',Arial,sans-serif; color:#f0e4ce; }
+.indictus-app.indictus-app[data-view='hall'] .card-copy>span { font-size:13px!important; line-height:1.4; color:#a9babd; }
+.indictus-app.indictus-app[data-view='hall'] .game-card-blackjack .card-copy { padding:16px 18px 18px; }
+.indictus-app.indictus-app[data-view='hall'] .game-card-blackjack .card-copy>strong { font-size:27px; }
+@media(max-width:960px) {
+ .indictus-app.indictus-app .indictus-header { gap:17px; }
+ .indictus-app.indictus-app .profile-name { display:none; }
+}
+@media(max-width:650px) {
+ .indictus-app.indictus-app[data-view='hall'] .slot-catalog{grid-template-columns:1fr;}
+ .indictus-app.indictus-app[data-view='hall'] .slot-catalog .game-card{display:grid;grid-template-columns:42% 1fr;align-items:stretch;}
+ .indictus-app.indictus-app[data-view='hall'] .slot-catalog .card-art{aspect-ratio:1.1;}
+ .indictus-app.indictus-app[data-view='hall'] .slot-catalog .card-copy{border-top:0;justify-content:center;}
+ .indictus-app.indictus-app[data-view='hall'] .classic-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .indictus-app.indictus-app .indictus-header { min-height:0; padding:10px 16px 0; gap:10px; flex-wrap:wrap; }
+ .indictus-app.indictus-app .hall-brand { gap:6px; }
+ .indictus-app.indictus-app .brand-emblem { width:23px; height:31px; }
+ .indictus-app.indictus-app .wordmark { font-size:22px; }
+ .indictus-app.indictus-app .brand-subtitle { font-size:7px; }
+ .indictus-app.indictus-app .hall-wallet { min-width:62px; margin-left:auto; }
+ .indictus-app.indictus-app .hall-wallet strong { font-size:23px; }
+ .indictus-app.indictus-app .demo-badge { display:none; }
+ .indictus-app.indictus-app .audio-button { min-width:30px; width:30px; padding:4px; }
+ .indictus-app.indictus-app .header-nav { order:10; position:static; flex-basis:100%; justify-content:flex-start; gap:25px; align-self:auto; border-top:1px solid #263b41; }
+ .indictus-app.indictus-app .header-nav button { padding:12px 0; font-size:12px!important; }
+ .indictus-app.indictus-app[data-view='hall'] .indictus-main { width:calc(100% - 32px); padding-top:20px; }
+ .indictus-app.indictus-app[data-view='hall'] .promo { height:245px; }
+ .indictus-app.indictus-app[data-view='hall'] .promo-copy { padding:27px 21px; max-width:60%; }
+ .indictus-app.indictus-app[data-view='hall'] .promo h1 { font-size:44px; }
+ .indictus-app.indictus-app[data-view='hall'] .promo p { max-width:155px; margin:12px 0 18px; font-size:12px; }
+ .indictus-app.indictus-app[data-view='hall'] .promo-action { min-height:43px!important; padding:10px 14px!important; font-size:12px!important; }
+ .indictus-app.indictus-app[data-view='hall'] .promo-art-painted { top:36px; bottom:34px; right:-4%; width:48%; }
+ .indictus-app.indictus-app[data-view='hall'] .promo-nav { right:12px; bottom:12px; }
+ .indictus-app.indictus-app[data-view='hall'] .catalog-heading { margin:25px 0 15px; }
+ .indictus-app.indictus-app[data-view='hall'] .games-grid { gap:14px 11px; }
+ .indictus-app.indictus-app[data-view='hall'] .card-copy,.indictus-app.indictus-app[data-view='hall'] .game-card-blackjack .card-copy { padding:12px 12px 15px; }
+ .indictus-app.indictus-app[data-view='hall'] .card-copy>strong,.indictus-app.indictus-app[data-view='hall'] .game-card-blackjack .card-copy>strong { font-size:23px; }
+ .indictus-app.indictus-app[data-view='hall'] .card-copy>span { font-size:12px!important; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .indictus-app.indictus-app[data-view='hall'] .game-card { transition:none; }
+ .indictus-app.indictus-app[data-view='hall'] .game-card:hover { transform:none; }
+}

@@ -1,0 +1,1035 @@
+{
+  "status": "passed",
+  "revision": "indictus-public-whole-candidate-profiles-v13",
+  "kind": "native-accepted-candidate-class-calibration",
+  "startedAt": "2026-10-09T14:56:17.135Z",
+  "completedAt": "2026-10-09T14:57:02.098Z",
+  "engineSourceSHA256": {
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "stake-limits.js": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "profiled-mask-core.js": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+    "rtp-profiles.js": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6"
+  },
+  "stakeCents": 5000,
+  "method": "Actual sealed native50 full-round engines executed directly, then actual10%fullpurchasecost floor for buys only. Frozen source snapshots, independent seeds stored before sampling. Calibration, not independent46profile validation.",
+  "classification": "X>=entirefullcharge includes exactbreak-even; strictplayerprofitX>charge recordedseparately. X is actualfullpayoutincludingbuyfloor.",
+  "equations": {
+    "higherTarget": "profitacceptance=1; nonprofitacceptance=1/w; weightedmean=(q*mp+(1-q)*mn/w)/(q+(1-q)/w)",
+    "lowerTarget": "profitacceptance=1/w; nonprofitacceptance=1; weightedmean=(q*mp/w+(1-q)*mn)/(q/w+(1-q))",
+    "floor": "X=max(nativefullpayout,ceil10%fullcharge) onbuy; nativepaidunchanged"
+  },
+  "uncertainty": "Frozen sample moments estimate target weights. No exactRTPclaim, fabricatedprofilecounts, or perprofileholdout evidence. Rejected native safety-limit requests counted and not silently retried within one request.",
+  "offers": {
+    "lecipher:buy:gold": {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "gold",
+      "key": "lecipher:buy:gold",
+      "stakeCents": 5000,
+      "attempts": 50000,
+      "seedHex": "72778661d2eb4b69068f84fbbf9d40c9",
+      "samples": 50000,
+      "accepted": 50000,
+      "attempted": 50000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 125000,
+      "capCents": 199900,
+      "bonusMinimumCents": 12500,
+      "meanPayoutCents": 62797.30942000043,
+      "secondMomentPayoutCents2": 4956960951.34194,
+      "variancePayoutCents2": 1013479150.5337365,
+      "payoutSumCents": 3139865471,
+      "payoutSquareSumCentsSquaredExact": "247848047567097",
+      "meanGrossReturn": 0.5023784753600035,
+      "meanGrossReturnPercent": 50.237847536000345,
+      "meanGrossReturn95CI": [
+        0.5001460935991919,
+        0.5046108571208149
+      ],
+      "rawMeanPayoutCents": 62374.836139999876,
+      "rawGrossReturn": 0.498998689119999,
+      "profitProbability": 0.03014,
+      "q": 0.03014,
+      "expectedPayoutTimesProfitIndicatorCents": 4143.15898,
+      "profit": {
+        "count": 1507,
+        "probability": 0.03014,
+        "payoutSumCents": 207157949,
+        "payoutSquareSumCentsSquaredExact": "28581986925677",
+        "conditionalMeanPayoutCents": 137463.80159256814,
+        "conditionalSecondMomentPayoutCents2": 18966149253.93298,
+        "conditionalVariancePayoutCents2": 69898888.45795223,
+        "standardErrorMeanPayoutCents": 215.36667773328216,
+        "meanPayoutCents95CI": [
+          137041.6829042109,
+          137885.92028092538
+        ]
+      },
+      "nonprofit": {
+        "count": 48493,
+        "probability": 0.96986,
+        "payoutSumCents": 2932707522,
+        "payoutSquareSumCentsSquaredExact": "219266060641420",
+        "conditionalMeanPayoutCents": 60476.92495824126,
+        "conditionalSecondMomentPayoutCents2": 4521602306.341534,
+        "conditionalVariancePayoutCents2": 864161674.2752626,
+        "standardErrorMeanPayoutCents": 133.4928405852504,
+        "meanPayoutCents95CI": [
+          60215.27899069417,
+          60738.57092578835
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 1507,
+      "playerProfitProbability": 0.03014,
+      "breakEvenCount": 0,
+      "floorTransactionCount": 3832,
+      "floorTransactionFrequency": 0.07664,
+      "floorTopupSumCents": 21123664,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 15097,
+          "frequency": 0.30194,
+          "frequency95CI": [
+            0.2979311585389145,
+            0.3059792738147469
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 274,
+          "frequency": 0.00548,
+          "frequency95CI": [
+            0.004869807430598975,
+            0.00616617665267194
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 222
+      },
+      "rng": {
+        "boundedDraws": 26138294,
+        "uint32Words": 26138295
+      },
+      "checks": 1931299,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-lecipher-buy-gold.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "a7017826ce1bb4ff6b348c5e2cc7a663793f21b5f4f676becd7358b64f80bacd"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-lecipher-buy-gold.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "4ed71c1c0b13406d7e5cc60b39436c0814fd6254303a1a9c46c024687c3d53cd"
+        }
+      },
+      "elapsedSeconds": 36.6217785
+    },
+    "lecipher:buy:luck": {
+      "game": "lecipher",
+      "mode": "buy",
+      "bonusTier": "luck",
+      "key": "lecipher:buy:luck",
+      "stakeCents": 5000,
+      "attempts": 50000,
+      "seedHex": "2b3d9e167a26d7c3b8052df0de56d4f4",
+      "samples": 50000,
+      "accepted": 50000,
+      "attempted": 50000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "bonusMinimumCents": 10000,
+      "meanPayoutCents": 50641.48944000048,
+      "secondMomentPayoutCents2": 3327888067.80336,
+      "variancePayoutCents2": 763342881.9593712,
+      "payoutSumCents": 2532074472,
+      "payoutSquareSumCentsSquaredExact": "166394403390168",
+      "meanGrossReturn": 0.5064148944000048,
+      "meanGrossReturnPercent": 50.64148944000048,
+      "meanGrossReturn95CI": [
+        0.5039931355287152,
+        0.5088366532712945
+      ],
+      "rawMeanPayoutCents": 50044.48944000018,
+      "rawGrossReturn": 0.5004448944000018,
+      "profitProbability": 0.05726,
+      "q": 0.05726,
+      "expectedPayoutTimesProfitIndicatorCents": 6307.87204,
+      "profit": {
+        "count": 2863,
+        "probability": 0.05726,
+        "payoutSumCents": 315393602,
+        "payoutSquareSumCentsSquaredExact": "35018239954404",
+        "conditionalMeanPayoutCents": 110161.92874607058,
+        "conditionalSecondMomentPayoutCents2": 12231309798.953545,
+        "conditionalVariancePayoutCents2": 95692677.81742302,
+        "standardErrorMeanPayoutCents": 182.82209440814395,
+        "meanPayoutCents95CI": [
+          109803.59744103062,
+          110520.26005111054
+        ]
+      },
+      "nonprofit": {
+        "count": 47137,
+        "probability": 0.94274,
+        "payoutSumCents": 2216680870,
+        "payoutSquareSumCentsSquaredExact": "131376163435764",
+        "conditionalMeanPayoutCents": 47026.345970257156,
+        "conditionalSecondMomentPayoutCents2": 2787113380.905955,
+        "conditionalVariancePayoutCents2": 575648377.8320981,
+        "standardErrorMeanPayoutCents": 110.50900616915197,
+        "meanPayoutCents95CI": [
+          46809.74831816562,
+          47242.94362234869
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 2863,
+      "playerProfitProbability": 0.05726,
+      "breakEvenCount": 0,
+      "floorTransactionCount": 5970,
+      "floorTransactionFrequency": 0.1194,
+      "floorTopupSumCents": 29850000,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 8072,
+          "frequency": 0.16144,
+          "frequency95CI": [
+            0.15824092531168893,
+            0.16469109517531305
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 20,
+          "frequency": 0.0004,
+          "frequency95CI": [
+            0.00025896284018545545,
+            0.0006178017962339993
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 11
+      },
+      "rng": {
+        "boundedDraws": 13207289,
+        "uint32Words": 13207289
+      },
+      "checks": 1388566,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-lecipher-buy-luck.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "e3b2c9d09fa57cc079b5ff29817d556c24ab84d8b2c144a90fe2500559666535"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-lecipher-buy-luck.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "ae6fe582fac6cf03e0bf8d6bea664273bded13a6eb9ae1a8edeb5fd4a390bc46"
+        }
+      },
+      "elapsedSeconds": 20.333895200000004
+    },
+    "lecipher:paid": {
+      "game": "lecipher",
+      "mode": "paid",
+      "key": "lecipher:paid",
+      "stakeCents": 5000,
+      "attempts": 100000,
+      "seedHex": "5c3e07ee33fc05c95e44a66940f8d09e",
+      "samples": 100000,
+      "accepted": 100000,
+      "attempted": 100000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "bonusMinimumCents": 0,
+      "meanPayoutCents": 2434.698140000005,
+      "secondMomentPayoutCents2": 151094468.05136,
+      "variancePayoutCents2": 145168164.70008877,
+      "payoutSumCents": 243469814,
+      "payoutSquareSumCentsSquaredExact": "15109446805136",
+      "meanGrossReturn": 0.486939628000001,
+      "meanGrossReturnPercent": 48.6939628000001,
+      "meanGrossReturn95CI": [
+        0.4720040594268015,
+        0.5018751965732005
+      ],
+      "rawMeanPayoutCents": 2434.698140000005,
+      "rawGrossReturn": 0.486939628000001,
+      "profitProbability": 0.08749,
+      "q": 0.08749,
+      "expectedPayoutTimesProfitIndicatorCents": 2209.7449,
+      "profit": {
+        "count": 8749,
+        "probability": 0.08749,
+        "payoutSumCents": 220974490,
+        "payoutSquareSumCentsSquaredExact": "15053174912582",
+        "conditionalMeanPayoutCents": 25257.113955880795,
+        "conditionalSecondMomentPayoutCents2": 1720559482.5216596,
+        "conditionalVariancePayoutCents2": 1082761435.449179,
+        "standardErrorMeanPayoutCents": 351.7929900636837,
+        "meanPayoutCents95CI": [
+          24567.599695355977,
+          25946.628216405614
+        ]
+      },
+      "nonprofit": {
+        "count": 91251,
+        "probability": 0.91251,
+        "payoutSumCents": 22495324,
+        "payoutSquareSumCentsSquaredExact": "56271892554",
+        "conditionalMeanPayoutCents": 246.52139702578506,
+        "conditionalSecondMomentPayoutCents2": 616671.5165203669,
+        "conditionalVariancePayoutCents2": 555904.8093695597,
+        "standardErrorMeanPayoutCents": 2.468205975572157,
+        "meanPayoutCents95CI": [
+          241.68371331366365,
+          251.35908073790648
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 8674,
+      "playerProfitProbability": 0.08674,
+      "breakEvenCount": 75,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 672,
+          "frequency": 0.00672,
+          "frequency95CI": [
+            0.006232224404637664,
+            0.007245673828423814
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 302,
+          "frequency": 0.00302,
+          "frequency95CI": [
+            0.0026984653802928937,
+            0.003379717120248166
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 67
+      },
+      "rng": {
+        "boundedDraws": 3733587,
+        "uint32Words": 3733587
+      },
+      "checks": 1335307,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-lecipher-paid-regular.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "5a81f8603679e460afdccca5a0559913f90a12079e5ce4c6c8029bb3650fc84f"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-lecipher-paid-regular.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "5a81f8603679e460afdccca5a0559913f90a12079e5ce4c6c8029bb3650fc84f"
+        }
+      },
+      "elapsedSeconds": 5.9719069,
+      "qualifiedKey": "lecipher:paid:regular"
+    },
+    "lecipher:paid:hunt": {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "hunt",
+      "key": "lecipher:paid:hunt",
+      "stakeCents": 5000,
+      "attempts": 100000,
+      "seedHex": "093c452fd59b9902ffbb551b005f0195",
+      "samples": 100000,
+      "accepted": 100000,
+      "attempted": 100000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 15000,
+      "capCents": 199900,
+      "bonusMinimumCents": 0,
+      "meanPayoutCents": 7493.6200199999885,
+      "secondMomentPayoutCents2": 572784616.68918,
+      "variancePayoutCents2": 516635442.03946084,
+      "payoutSumCents": 749362002,
+      "payoutSquareSumCentsSquaredExact": "57278461668918",
+      "meanGrossReturn": 0.4995746679999992,
+      "meanGrossReturnPercent": 49.95746679999992,
+      "meanGrossReturn95CI": [
+        0.4901826933782779,
+        0.5089666426217205
+      ],
+      "rawMeanPayoutCents": 7493.6200199999885,
+      "rawGrossReturn": 0.4995746679999992,
+      "profitProbability": 0.12076,
+      "q": 0.12076,
+      "expectedPayoutTimesProfitIndicatorCents": 6864.63336,
+      "profit": {
+        "count": 12076,
+        "probability": 0.12076,
+        "payoutSumCents": 686463336,
+        "payoutSquareSumCentsSquaredExact": "56820440020946",
+        "conditionalMeanPayoutCents": 56845.25803246115,
+        "conditionalSecondMomentPayoutCents2": 4705236835.123054,
+        "conditionalVariancePayoutCents2": 1473975532.6047208,
+        "standardErrorMeanPayoutCents": 349.3683711285387,
+        "meanPayoutCents95CI": [
+          56160.496025049215,
+          57530.02003987308
+        ]
+      },
+      "nonprofit": {
+        "count": 87924,
+        "probability": 0.87924,
+        "payoutSumCents": 62898666,
+        "payoutSquareSumCentsSquaredExact": "458021647972",
+        "conditionalMeanPayoutCents": 715.3753923843295,
+        "conditionalSecondMomentPayoutCents2": 5209290.386834084,
+        "conditionalVariancePayoutCents2": 4697581.86255925,
+        "standardErrorMeanPayoutCents": 7.30942913132851,
+        "meanPayoutCents95CI": [
+          701.0489112869257,
+          729.7018734817334
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 12075,
+      "playerProfitProbability": 0.12075,
+      "breakEvenCount": 1,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 2726,
+          "frequency": 0.02726,
+          "frequency95CI": [
+            0.02626872281560882,
+            0.028287597348795743
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 874,
+          "frequency": 0.00874,
+          "frequency95CI": [
+            0.008181667323935141,
+            0.009336075714448297
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 887
+      },
+      "rng": {
+        "boundedDraws": 4944994,
+        "uint32Words": 4945016
+      },
+      "checks": 1406762,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-lecipher-paid-hunt.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "4102b022e7ac249c29dd8e5f32c2cfe5ced1f786e171f00b5bdaabcbf82b9bcc"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-lecipher-paid-hunt.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "4102b022e7ac249c29dd8e5f32c2cfe5ced1f786e171f00b5bdaabcbf82b9bcc"
+        }
+      },
+      "elapsedSeconds": 8.1171432
+    },
+    "lecipher:paid:rainbow": {
+      "game": "lecipher",
+      "mode": "paid",
+      "featureMode": "rainbow",
+      "key": "lecipher:paid:rainbow",
+      "stakeCents": 5000,
+      "attempts": 100000,
+      "seedHex": "edf81e8a02a2f70a8b3bb681ce1b73d4",
+      "samples": 100000,
+      "accepted": 100000,
+      "attempted": 100000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 50000,
+      "capCents": 199900,
+      "bonusMinimumCents": 0,
+      "meanPayoutCents": 25275.23940999968,
+      "secondMomentPayoutCents2": 3262973337.40859,
+      "variancePayoutCents2": 2624161851.794292,
+      "payoutSumCents": 2527523941,
+      "payoutSquareSumCentsSquaredExact": "326297333740859",
+      "meanGrossReturn": 0.5055047881999937,
+      "meanGrossReturnPercent": 50.55047881999937,
+      "meanGrossReturn95CI": [
+        0.4991546763364584,
+        0.511854900063529
+      ],
+      "rawMeanPayoutCents": 25275.23940999968,
+      "rawGrossReturn": 0.5055047881999937,
+      "profitProbability": 0.20659,
+      "q": 0.20659,
+      "expectedPayoutTimesProfitIndicatorCents": 24982.61277,
+      "profit": {
+        "count": 20659,
+        "probability": 0.20659,
+        "payoutSumCents": 2498261277,
+        "payoutSquareSumCentsSquaredExact": "325098658406111",
+        "conditionalMeanPayoutCents": 120928.47073914499,
+        "conditionalSecondMomentPayoutCents2": 15736417948.889637,
+        "conditionalVariancePayoutCents2": 1112776777.6007912,
+        "standardErrorMeanPayoutCents": 232.08623276598675,
+        "meanPayoutCents95CI": [
+          120473.58172292366,
+          121383.35975536633
+        ]
+      },
+      "nonprofit": {
+        "count": 79341,
+        "probability": 0.79341,
+        "payoutSumCents": 29262664,
+        "payoutSquareSumCentsSquaredExact": "1198675334748",
+        "conditionalMeanPayoutCents": 368.82146683303364,
+        "conditionalSecondMomentPayoutCents2": 15107892.952546602,
+        "conditionalVariancePayoutCents2": 14972052.383262908,
+        "standardErrorMeanPayoutCents": 13.736997967549007,
+        "meanPayoutCents95CI": [
+          341.89695081663757,
+          395.7459828494297
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 20659,
+      "playerProfitProbability": 0.20659,
+      "breakEvenCount": 0,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 17179,
+          "frequency": 0.17179,
+          "frequency95CI": [
+            0.16946472262500686,
+            0.1741404934370129
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 9582,
+          "frequency": 0.09582,
+          "frequency95CI": [
+            0.09401113089635924,
+            0.09765992186847777
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 1530
+      },
+      "rng": {
+        "boundedDraws": 3832927,
+        "uint32Words": 3832949
+      },
+      "checks": 1340975,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-lecipher-paid-rainbow.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "e57cbaf4205576bbb1cdfdf529415b4917c878ff16a853cd84c885a62598c213"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-lecipher-paid-rainbow.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "e57cbaf4205576bbb1cdfdf529415b4917c878ff16a853cd84c885a62598c213"
+        }
+      },
+      "elapsedSeconds": 6.357263900000001
+    },
+    "maskhouse:buy:sticky": {
+      "game": "maskhouse",
+      "mode": "buy",
+      "bonusTier": "sticky",
+      "key": "maskhouse:buy:sticky",
+      "stakeCents": 5000,
+      "attempts": 50000,
+      "seedHex": "823ac121b278fd55022651156f3b4322",
+      "samples": 50000,
+      "accepted": 50000,
+      "attempted": 50000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 100000,
+      "capCents": 199900,
+      "bonusMinimumCents": 10000,
+      "meanPayoutCents": 51875.67447999968,
+      "secondMomentPayoutCents2": 3916236375.77552,
+      "variancePayoutCents2": 1225175276.5261273,
+      "payoutSumCents": 2593783724,
+      "payoutSquareSumCentsSquaredExact": "195811818788776",
+      "meanGrossReturn": 0.5187567447999968,
+      "meanGrossReturnPercent": 51.87567447999968,
+      "meanGrossReturn95CI": [
+        0.5156886400617903,
+        0.5218248495382033
+      ],
+      "rawMeanPayoutCents": 50733.87923999992,
+      "rawGrossReturn": 0.5073387923999992,
+      "profitProbability": 0.1196,
+      "q": 0.1196,
+      "expectedPayoutTimesProfitIndicatorCents": 13381.57378,
+      "profit": {
+        "count": 5980,
+        "probability": 0.1196,
+        "payoutSumCents": 669078689,
+        "payoutSquareSumCentsSquaredExact": "75295944321485",
+        "conditionalMeanPayoutCents": 111886.06839464881,
+        "conditionalSecondMomentPayoutCents2": 12591295037.037626,
+        "conditionalVariancePayoutCents2": 72814912.63238457,
+        "standardErrorMeanPayoutCents": 110.34675706477802,
+        "meanPayoutCents95CI": [
+          111669.78875080185,
+          112102.34803849578
+        ]
+      },
+      "nonprofit": {
+        "count": 44020,
+        "probability": 0.8804,
+        "payoutSumCents": 1924705035,
+        "payoutSquareSumCentsSquaredExact": "120515874467291",
+        "conditionalMeanPayoutCents": 43723.42196728794,
+        "conditionalSecondMomentPayoutCents2": 2737752713.932099,
+        "conditionalVariancePayoutCents2": 826033850.3696811,
+        "standardErrorMeanPayoutCents": 136.98528048233908,
+        "meanPayoutCents95CI": [
+          43454.930817542554,
+          43991.91311703333
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 5980,
+      "playerProfitProbability": 0.1196,
+      "breakEvenCount": 0,
+      "floorTransactionCount": 11422,
+      "floorTransactionFrequency": 0.22844,
+      "floorTopupSumCents": 57089762,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 10597,
+          "frequency": 0.21194,
+          "frequency95CI": [
+            0.20837993917338937,
+            0.21554432187778555
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.00007682609729729246
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 8918601,
+        "uint32Words": 8918661
+      },
+      "checks": 1731442,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-maskhouse-buy-sticky.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "1eb17451079461063f25ecdc866b9eb9cd8b5b3400a6b42b827ad7c708ebe9fa"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-maskhouse-buy-sticky.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "d2b63472285edc8354bf2f28c578ec8aa60ac8e38fa1c06befd14bae2005260a"
+        }
+      },
+      "elapsedSeconds": 14.5516232
+    },
+    "maskhouse:paid": {
+      "game": "maskhouse",
+      "mode": "paid",
+      "key": "maskhouse:paid",
+      "stakeCents": 5000,
+      "attempts": 100000,
+      "seedHex": "9a8b36d53bbc9f13358a997b7f10db65",
+      "samples": 100000,
+      "accepted": 100000,
+      "attempted": 100000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 5000,
+      "capCents": 199900,
+      "bonusMinimumCents": 0,
+      "meanPayoutCents": 2509.27083000002,
+      "secondMomentPayoutCents2": 136869072.49857,
+      "variancePayoutCents2": 130573938.1396596,
+      "payoutSumCents": 250927083,
+      "payoutSquareSumCentsSquaredExact": "13686907249857",
+      "meanGrossReturn": 0.501854166000004,
+      "meanGrossReturnPercent": 50.1854166000004,
+      "meanGrossReturn95CI": [
+        0.48768923972758993,
+        0.516019092272418
+      ],
+      "rawMeanPayoutCents": 2509.27083000002,
+      "rawGrossReturn": 0.501854166000004,
+      "profitProbability": 0.07351,
+      "q": 0.07351,
+      "expectedPayoutTimesProfitIndicatorCents": 2443.33093,
+      "profit": {
+        "count": 7351,
+        "probability": 0.07351,
+        "payoutSumCents": 244333093,
+        "payoutSquareSumCentsSquaredExact": "13682449991637",
+        "conditionalMeanPayoutCents": 33238.07549993225,
+        "conditionalSecondMomentPayoutCents2": 1861304583.272616,
+        "conditionalVariancePayoutCents2": 756637850.2545717,
+        "standardErrorMeanPayoutCents": 320.82693330485995,
+        "meanPayoutCents95CI": [
+          32609.254710654728,
+          33866.89628920978
+        ]
+      },
+      "nonprofit": {
+        "count": 92649,
+        "probability": 0.92649,
+        "payoutSumCents": 6593990,
+        "payoutSquareSumCentsSquaredExact": "4457258220",
+        "conditionalMeanPayoutCents": 71.17173417953813,
+        "conditionalSecondMomentPayoutCents2": 48109.080724022926,
+        "conditionalVariancePayoutCents2": 43044.1295714691,
+        "standardErrorMeanPayoutCents": 0.6816110100120523,
+        "meanPayoutCents95CI": [
+          69.83577659991451,
+          72.50769175916176
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 7351,
+      "playerProfitProbability": 0.07351,
+      "breakEvenCount": 0,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 579,
+          "frequency": 0.00579,
+          "frequency95CI": [
+            0.005338354724659671,
+            0.0062796149594169445
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 0,
+          "frequency": 0,
+          "frequency95CI": [
+            0,
+            0.000038414524267635735
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 1615898,
+        "uint32Words": 1615908
+      },
+      "checks": 1313578,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-maskhouse-paid-regular.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "a1192648abdbf3fead3cf29af09d80e5136b1ac70dfce17bb1929b634cffc609"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-maskhouse-paid-regular.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "a1192648abdbf3fead3cf29af09d80e5136b1ac70dfce17bb1929b634cffc609"
+        }
+      },
+      "elapsedSeconds": 2.2790684999999997,
+      "qualifiedKey": "maskhouse:paid:regular"
+    },
+    "slots:buy": {
+      "game": "slots",
+      "mode": "buy",
+      "key": "slots:buy",
+      "stakeCents": 5000,
+      "attempts": 50000,
+      "seedHex": "08d524612561a8ed3305b7b741f678d8",
+      "samples": 50000,
+      "accepted": 50000,
+      "attempted": 50000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 250000,
+      "capCents": 499900,
+      "bonusMinimumCents": 25000,
+      "meanPayoutCents": 125188.88900000029,
+      "secondMomentPayoutCents2": 19158841870.65,
+      "variancePayoutCents2": 3486653674.6691566,
+      "payoutSumCents": 6259444450,
+      "payoutSquareSumCentsSquaredExact": "957942093532500",
+      "meanGrossReturn": 0.5007555560000011,
+      "meanGrossReturnPercent": 50.07555560000011,
+      "meanGrossReturn95CI": [
+        0.498685245587982,
+        0.5028258664120203
+      ],
+      "rawMeanPayoutCents": 125091.00599999867,
+      "rawGrossReturn": 0.5003640239999947,
+      "profitProbability": 0.03452,
+      "q": 0.03452,
+      "expectedPayoutTimesProfitIndicatorCents": 10196.603,
+      "profit": {
+        "count": 1726,
+        "probability": 0.03452,
+        "payoutSumCents": 509830150,
+        "payoutSquareSumCentsSquaredExact": "154596879847500",
+        "conditionalMeanPayoutCents": 295382.4739281574,
+        "conditionalSecondMomentPayoutCents2": 89569455299.82619,
+        "conditionalVariancePayoutCents2": 2319993540.484826,
+        "standardErrorMeanPayoutCents": 1159.3724929191974,
+        "meanPayoutCents95CI": [
+          293110.1038420358,
+          297654.844014279
+        ]
+      },
+      "nonprofit": {
+        "count": 48274,
+        "probability": 0.96548,
+        "payoutSumCents": 5749614300,
+        "payoutSquareSumCentsSquaredExact": "803345213685000",
+        "conditionalMeanPayoutCents": 119103.7473588256,
+        "conditionalSecondMomentPayoutCents2": 16641364164.66421,
+        "conditionalVariancePayoutCents2": 2455712400.03939,
+        "standardErrorMeanPayoutCents": 225.54443115781822,
+        "meanPayoutCents95CI": [
+          118661.68027375627,
+          119545.81444389492
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 1725,
+      "playerProfitProbability": 0.0345,
+      "breakEvenCount": 1,
+      "floorTransactionCount": 551,
+      "floorTransactionFrequency": 0.01102,
+      "floorTopupSumCents": 4894150,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 38997,
+          "frequency": 0.77994,
+          "frequency95CI": [
+            0.7762871847345256,
+            0.7835498018701195
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 14425,
+          "frequency": 0.2885,
+          "frequency95CI": [
+            0.28454507960275843,
+            0.2924874178363983
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 20154545,
+        "uint32Words": 20154546
+      },
+      "checks": 1550062,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-slots-buy-default.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "b36773d1f50f07a162a7c8651f338125959d30b0930ae9e1cc7eab23938ab809"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-slots-buy-default.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 200000,
+          "sha256": "862d7f5934a7cfb894e75f83290a8d5332a24d9360dc1464e6818f34f6ec9218"
+        }
+      },
+      "elapsedSeconds": 29.2055059,
+      "qualifiedKey": "slots:buy:default"
+    },
+    "slots:paid": {
+      "game": "slots",
+      "mode": "paid",
+      "key": "slots:paid",
+      "stakeCents": 5000,
+      "attempts": 100000,
+      "seedHex": "f4d52f0af092ff3e5a52656fba4f0813",
+      "samples": 100000,
+      "accepted": 100000,
+      "attempted": 100000,
+      "rejectedCount": 0,
+      "rejected": {},
+      "chargeCents": 5000,
+      "capCents": 499900,
+      "bonusMinimumCents": 0,
+      "meanPayoutCents": 2479.772499999997,
+      "secondMomentPayoutCents2": 207868714.925,
+      "variancePayoutCents2": 201721460.48785067,
+      "payoutSumCents": 247977250,
+      "payoutSquareSumCentsSquaredExact": "20786871492500",
+      "meanGrossReturn": 0.49595449999999935,
+      "meanGrossReturnPercent": 49.595449999999936,
+      "meanGrossReturn95CI": [
+        0.4783484423764412,
+        0.5135605576235576
+      ],
+      "rawMeanPayoutCents": 2479.772499999997,
+      "rawGrossReturn": 0.49595449999999935,
+      "profitProbability": 0.11385,
+      "q": 0.11385,
+      "expectedPayoutTimesProfitIndicatorCents": 2364.22,
+      "profit": {
+        "count": 11385,
+        "probability": 0.11385,
+        "payoutSumCents": 236422000,
+        "payoutSquareSumCentsSquaredExact": "20733139580000",
+        "conditionalMeanPayoutCents": 20766.095740008746,
+        "conditionalSecondMomentPayoutCents2": 1821092628.8976724,
+        "conditionalVariancePayoutCents2": 1389983985.6777592,
+        "standardErrorMeanPayoutCents": 349.41245441546243,
+        "meanPayoutCents95CI": [
+          20081.24732935444,
+          21450.944150663054
+        ]
+      },
+      "nonprofit": {
+        "count": 88615,
+        "probability": 0.88615,
+        "payoutSumCents": 11555250,
+        "payoutSquareSumCentsSquaredExact": "53731912500",
+        "conditionalMeanPayoutCents": 130.3983524234055,
+        "conditionalSecondMomentPayoutCents2": 606352.3387688315,
+        "conditionalVariancePayoutCents2": 589355.2591933481,
+        "standardErrorMeanPayoutCents": 2.5789027233027833,
+        "meanPayoutCents95CI": [
+          125.34370308573205,
+          135.45300176107895
+        ]
+      },
+      "classification": "Sampling profit class is X>=fullcharge including exactbreak-even; playerprofit separately X>charge.",
+      "playerProfitCount": 11385,
+      "playerProfitProbability": 0.11385,
+      "breakEvenCount": 0,
+      "floorTransactionCount": 0,
+      "floorTransactionFrequency": 0,
+      "floorTopupSumCents": 0,
+      "tail": {
+        "base15_8": {
+          "thresholdCents": 79000,
+          "count": 489,
+          "frequency": 0.00489,
+          "frequency95CI": [
+            0.004476249048894842,
+            0.005341789781325456
+          ]
+        },
+        "base30": {
+          "thresholdCents": 150000,
+          "count": 303,
+          "frequency": 0.00303,
+          "frequency95CI": [
+            0.00270790500798562,
+            0.0033902767242649547
+          ]
+        }
+      },
+      "spinAccounting": {
+        "unplayedSpins": 0
+      },
+      "rng": {
+        "boundedDraws": 3330090,
+        "uint32Words": 3330091
+      },
+      "checks": 1309582,
+      "binary": {
+        "final": {
+          "file": "universal-slot-calibration-v13-slots-paid-regular.final-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "828262f837664e019972d7adb6f05ad0340c538f2c03bf518c3f0978acf68b35"
+        },
+        "raw": {
+          "file": "universal-slot-calibration-v13-slots-paid-regular.raw-u32le.bin",
+          "encoding": "uint32little-endian cents, native accepted request order",
+          "bytes": 400000,
+          "sha256": "828262f837664e019972d7adb6f05ad0340c538f2c03bf518c3f0978acf68b35"
+        }
+      },
+      "elapsedSeconds": 3.406369,
+      "qualifiedKey": "slots:paid:regular"
+    }
+  },
+  "totalAccepted": 700000,
+  "totalAttempted": 700000,
+  "totalRejected": 0,
+  "totalChecks": 13307573,
+  "metadataHashMethod": "SHA-256 of UTF-8 JSON.stringify(payload excluding sourceSHA256), property order preserved",
+  "sourceSHA256": "c1a66c1675650e6033253b568b4d9bea141b41437da19284c8d74edfb22d8109"
+}

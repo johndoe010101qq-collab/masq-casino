@@ -1,0 +1,437 @@
+/* Shared slot chrome. Cabinet artwork, symbol atlases, and playback remain intact. */
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.mask-slot-room,.bonanza-slot) {
+  --slot-brass:var(--ds-gold);
+  --slot-cream:var(--ds-paper);
+  --slot-panel:var(--ds-surface);
+  --slot-line:var(--ds-border);
+  --slot-button:var(--ds-accent);
+  --slot-text:var(--ds-paper);
+  --slot-muted:var(--ds-muted);
+  --dock-panel:var(--ds-surface);
+  --dock-inset:var(--ds-ink);
+  --dock-raised:var(--ds-panel);
+  --dock-line:var(--ds-border);
+  --dock-text:var(--ds-paper);
+  --dock-muted:var(--ds-muted);
+  --dock-brass:var(--ds-gold);
+  --dock-spin:var(--ds-gold);
+  --playback-panel:var(--ds-surface);
+  --playback-line:var(--ds-border);
+  --playback-ink:var(--ds-paper);
+  --playback-muted:var(--ds-muted);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.mask-slot-stage,.bonanza-slot.raster-slot .bonanza-cabinet) {
+  border:1px solid var(--ds-gold);
+  border-radius:var(--ds-radius) var(--ds-radius) 0 0;
+  box-shadow:var(--ds-shadow);
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-slot-room .room-heading h1 {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display)!important;
+  font-size:42px!important;
+  font-weight:700;
+  letter-spacing:.015em;
+  line-height:1.05;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-slot-room .room-heading .rules-button {
+  min-height:44px;
+  border:1px solid var(--ds-border)!important;
+  border-radius:var(--ds-radius);
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body)!important;
+  font-weight:700;
+  box-shadow:none;
+  text-shadow:none;
+  filter:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-slot-room .room-heading .rules-button:hover:enabled {
+  background:var(--ds-surface);
+  border-color:var(--ds-gold)!important;
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-slot-room .room-heading .rules-button:focus-visible {
+  outline:2px solid var(--ds-gold);
+  outline-offset:4px;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock,.bonanza-slot.raster-slot .slot-controls) {
+  --dock-panel:var(--ds-surface);
+  --dock-inset:var(--ds-ink);
+  --dock-raised:var(--ds-panel);
+  --dock-line:var(--ds-border);
+  --dock-text:var(--ds-paper);
+  --dock-muted:var(--ds-muted);
+  --dock-brass:var(--ds-gold);
+  --dock-spin:var(--ds-gold);
+  --slot-text:var(--ds-paper);
+  --slot-muted:var(--ds-muted);
+  border:1px solid var(--ds-border);
+  border-top-color:var(--ds-gold);
+  border-image:none;
+  border-radius:0;
+  background:var(--ds-surface);
+  color:var(--ds-paper);
+  box-shadow:none;
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock,.bonanza-slot.raster-slot .slot-controls) button {
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-buy,.bonanza-slot.raster-slot .slot-buy-button) {
+  border:1px solid var(--ds-accent);
+  border-image:none;
+  border-radius:var(--ds-radius);
+  background:var(--ds-accent)!important;
+  color:var(--ds-paper)!important;
+  box-shadow:var(--ds-shadow);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-buy,.bonanza-slot.raster-slot .slot-buy-button):hover:enabled {
+  background:var(--ds-accent-hover)!important;
+  color:var(--ds-paper)!important;
+  border-color:var(--ds-accent-hover);
+  filter:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-buy,.bonanza-slot.raster-slot .slot-buy-button):disabled {
+  background:var(--ds-panel)!important;
+  border-color:var(--ds-border);
+  color:var(--ds-muted)!important;
+  box-shadow:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-buy-copy>strong,.bonanza-slot.raster-slot .slot-buy-label) {
+  font:700 21px/1.15 var(--ds-font-display),sans-serif;
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-buy-copy>small,.bonanza-slot.raster-slot .slot-buy-detail) {
+  font-family:var(--ds-font-body),sans-serif!important;
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-buy-price {
+  font-family:var(--ds-font-display),sans-serif!important;
+  color:var(--ds-paper);
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-totals span,.slot-dock-stake>label,.slot-dock-stake>small,.slot-dock-tools>small,.bonanza-slot.raster-slot .slot-total-label,.bonanza-slot.raster-slot .slot-stake-caption,.bonanza-slot.raster-slot .slot-controls-note) {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-totals strong,.slot-dock-totals output,.bonanza-slot.raster-slot .slot-total-value) {
+  font-family:var(--ds-font-display),sans-serif!important;
+  font-weight:700;
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-payout>strong,.slot-dock-payout>output,.bonanza-slot.raster-slot .slot-last-payout .slot-total-value) {
+  color:var(--ds-gold)!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock .slot-stake-row,.bonanza-slot.raster-slot .slot-stake-row) {
+  background:var(--ds-paper);
+  border:1px solid var(--ds-gold);
+  border-radius:var(--ds-radius);
+  box-shadow:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock .slot-stake-step,.bonanza-slot.raster-slot .slot-stake-step) {
+  border:0;
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  border-radius:6px;
+  box-shadow:none;
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock .slot-stake-step,.bonanza-slot.raster-slot .slot-stake-step):hover:enabled {
+  background:var(--ds-surface);
+  filter:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock .slot-stake-value,.slot-dock .stake-input,.bonanza-slot.raster-slot .slot-stake-value) {
+  background:none;
+  color:var(--ds-ink);
+  font-family:var(--ds-font-body),sans-serif!important;
+  font-weight:700!important;
+  border:0;
+  box-shadow:none;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-spin,.bonanza-slot.raster-slot .slot-spin-button) {
+  background:var(--ds-ink);
+  border:2px solid var(--ds-gold);
+  box-shadow:var(--ds-shadow);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-spin .slot-spin-face,.bonanza-slot.raster-slot .slot-spin-face) {
+  background:var(--ds-gold);
+  border:1px solid var(--ds-paper);
+  color:var(--ds-ink);
+  box-shadow:inset 0 -3px 0 var(--ds-border);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-spin .slot-spin-word,.bonanza-slot.raster-slot .slot-spin-word) {
+  color:var(--ds-ink);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-spin,.bonanza-slot.raster-slot .slot-spin-button):hover:enabled {
+  background:var(--ds-ink);
+  border-color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-spin,.bonanza-slot.raster-slot .slot-spin-button):disabled {
+  background:var(--ds-ink);
+  border-color:var(--ds-border);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-spin:disabled .slot-spin-face,.bonanza-slot.raster-slot .slot-spin-button:disabled .slot-spin-face) {
+  background:var(--ds-gold);
+  color:var(--ds-ink);
+  border-color:var(--ds-border);
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-tools button,.slot-dock-skip,.bonanza-slot.raster-slot .slot-tool-button,.bonanza-slot.raster-slot .slot-skip-button) {
+  border:1px solid var(--ds-border);
+  border-radius:var(--ds-radius);
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  box-shadow:none;
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock-tools button,.slot-dock-skip,.bonanza-slot.raster-slot .slot-tool-button,.bonanza-slot.raster-slot .slot-skip-button):hover:enabled {
+  background:var(--ds-paper);
+  border-color:var(--ds-paper);
+  color:var(--ds-ink);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-tool-button[aria-pressed='true'] {
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+  border-color:var(--ds-gold);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-audio-dot {
+  background:var(--ds-border);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-tool-button[aria-pressed='true'] .slot-audio-dot {
+  background:var(--ds-accent);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-dock-feature {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-dock-feature button {
+  color:var(--ds-paper);
+  border-color:var(--ds-border);
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-options {
+  --playback-panel:var(--ds-surface);
+  --playback-line:var(--ds-border);
+  --playback-ink:var(--ds-paper);
+  --playback-muted:var(--ds-muted);
+  border-color:var(--ds-border);
+  border-top:1px solid var(--ds-line);
+  border-radius:0 0 var(--ds-radius) var(--ds-radius);
+  background:var(--ds-surface);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+  box-shadow:var(--ds-shadow);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-options :is(button,select) {
+  border-color:var(--ds-border)!important;
+  border-radius:var(--ds-radius);
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-options option {
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-options button[aria-pressed='true'] {
+  border-color:var(--ds-gold)!important;
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-options button:hover:enabled {
+  border-color:var(--ds-gold)!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-auto button {
+  border-color:var(--ds-accent)!important;
+  background:var(--ds-accent);
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-auto button:hover:enabled {
+  background:var(--ds-accent-hover);
+  border-color:var(--ds-accent-hover)!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-playback-auto .slot-auto-stop {
+  background:var(--ds-accent-hover);
+  border-color:var(--ds-paper)!important;
+  color:var(--ds-paper);
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-dialog,.mask-purchase,.slot-purchase-dialog,.bonanza-entrance-dialog,.slot-rules-dialog,.mask-slot-rules) {
+  border:1px solid var(--ds-gold);
+  border-image:none;
+  border-radius:var(--ds-radius);
+  background:var(--ds-surface);
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-dialog,.mask-purchase,.slot-purchase-dialog,.bonanza-entrance-dialog,.slot-rules-dialog)::backdrop {
+  background:color-mix(in srgb,var(--ds-ink) 90%,transparent);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-shop-heading h2,.slot-bonus-shop-heading h2,.slot-bonus-copy h3,.mask-purchase h2,.slot-purchase-dialog h2,.entrance-heading h2,.slot-rules-heading h2) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display),sans-serif!important;
+  font-weight:700!important;
+  letter-spacing:0;
+  text-shadow:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-purchase-dialog .bonus-eyebrow {
+  color:var(--ds-muted)!important;
+  font-family:var(--ds-font-body)!important;
+  letter-spacing:0!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-copy p,.slot-bonus-shop-note,.slot-shop-heading>span,.slot-shop-insufficient,.mask-purchase p,.mask-purchase-terms dt,.slot-purchase-dialog p,.entrance-heading p,.entrance-key-hint,.entrance-rule-panel p,.slot-rules-dialog p,.slot-rules-demo) {
+  font-family:var(--ds-font-body),sans-serif!important;
+  color:var(--ds-muted)!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-card,.entrance-rule-panel) {
+  --feature-base:var(--ds-panel);
+  --feature-line:var(--ds-border);
+  border:1px solid var(--ds-border);
+  border-image:none;
+  border-radius:var(--ds-radius);
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  box-shadow:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-bonus-art {
+  background:var(--ds-ink);
+  border-color:var(--ds-border);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-art>strong,.slot-bonus-price,.slot-shop-heading strong,.purchase-price,.mask-purchase-terms dd,.mask-purchase-feature strong,.slot-purchase-dialog p strong,.entrance-rule-art b,.entrance-rule-panel>strong) {
+  color:var(--ds-gold);
+  font-family:var(--ds-font-display),sans-serif!important;
+  font-weight:700;
+  text-shadow:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-bonus-art>strong {
+  background:var(--ds-surface);
+  border-color:var(--ds-gold);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-bonus-price small {
+  color:var(--ds-muted);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.mask-purchase-terms,.mask-purchase-terms>div+div,.slot-rules-dialog th,.slot-rules-dialog td) {
+  border-color:var(--ds-line);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-purchase-terms {
+  background:var(--ds-panel);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-shop-close,.slot-bonus-shop-heading button,.mask-purchase-close,.mask-purchase-actions button,.slot-purchase-dialog button,.slot-rules-dialog button) {
+  border:1px solid var(--ds-border)!important;
+  border-image:none;
+  border-radius:var(--ds-radius);
+  background:var(--ds-panel);
+  color:var(--ds-paper);
+  box-shadow:none;
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-shop-close,.slot-bonus-shop-heading button,.mask-purchase-close,.mask-purchase-actions button,.slot-purchase-dialog button,.slot-rules-dialog button):hover:enabled {
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-cta,.mask-purchase-actions .primary,.slot-purchase-dialog .purchase-confirm,.entrance-continue) {
+  border:1px solid var(--ds-accent)!important;
+  border-image:none;
+  border-radius:var(--ds-radius);
+  background:var(--ds-accent);
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+  font-family:var(--ds-font-body),sans-serif!important;
+  font-weight:700;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-bonus-cta,.mask-purchase-actions .primary,.slot-purchase-dialog .purchase-confirm,.entrance-continue):hover:enabled {
+  border-color:var(--ds-accent-hover)!important;
+  background:var(--ds-accent-hover);
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-bonus-cta:disabled {
+  background:var(--ds-panel);
+  color:var(--ds-muted);
+  border-color:var(--ds-border)!important;
+  box-shadow:none;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.mask-free-count,.bonus-spin-counter,.mask-bonus-card,.bonanza-announcement,.bonanza-spin-summary,.bonanza-group-payout) {
+  background:var(--ds-surface);
+  border-color:var(--ds-gold);
+  border-radius:var(--ds-radius);
+  color:var(--ds-paper);
+  box-shadow:var(--ds-shadow);
+  font-family:var(--ds-font-display),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.mask-free-count strong,.bonus-spin-counter strong,.mask-bonus-card>strong,.bonanza-announcement>strong,.bonanza-spin-summary strong,.bonanza-group-payout) {
+  color:var(--ds-gold);
+  font-family:var(--ds-font-display),sans-serif!important;
+  text-shadow:none;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.mask-free-count small,.bonus-spin-counter span,.mask-bonus-card>small,.bonanza-announcement .bonus-eyebrow,.bonanza-announcement>.bonus-copy,.bonanza-announcement>span:last-child,.bonanza-group-payout span) {
+  color:var(--ds-paper)!important;
+  font-family:var(--ds-font-body),sans-serif!important;
+  letter-spacing:0!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-award-tiles b {
+  border-color:var(--ds-gold);
+  background:var(--ds-paper);
+  color:var(--ds-ink);
+  box-shadow:var(--ds-shadow);
+  font-family:var(--ds-font-display),sans-serif!important;
+}
+
+/* Readouts keep their existing transparent placement over the cabinet. */
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-win-readout,.bonanza-readout) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+  text-shadow:0 2px 0 var(--ds-ink),0 3px 6px var(--ds-ink);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-win-total>span,.bonanza-win-total>span) {
+  color:var(--ds-gold);
+  font-family:var(--ds-font-display),sans-serif!important;
+  font-weight:800;
+  letter-spacing:.01em;
+  text-shadow:0 2px 0 var(--ds-ink);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-win-total>strong,.bonanza-readout .bonanza-win-total>strong) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-display),sans-serif!important;
+  font-weight:800;
+  letter-spacing:0;
+  text-shadow:0 2px 0 var(--ds-ink),0 3px 6px var(--ds-ink);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-win-detail,.slot-win-caption,.bonanza-win-detail) {
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-win-detail b {
+  color:var(--ds-paper);
+}
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .slot-win-mini b {
+  background:var(--ds-ink);
+  color:var(--ds-paper);
+  font-family:var(--ds-font-body),sans-serif!important;
+}
+
+.app-shell21.indictus-app.indictus-app.indictus-app.indictus-app :is(.slot-dock,.slot-controls,.slot-playback-options,.slot-bonus-dialog,.mask-purchase,.slot-purchase-dialog,.bonanza-entrance-dialog,.slot-rules-dialog) :is(button,input,select):focus-visible {
+  outline:2px solid var(--ds-paper);
+  outline-offset:4px;
+}
+
+@media(max-width:650px) {
+  .app-shell21.indictus-app.indictus-app.indictus-app.indictus-app .mask-slot-room .room-heading h1 {
+    font-size:34px!important;
+  }
+}

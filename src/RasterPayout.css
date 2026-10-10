@@ -1,0 +1,49 @@
+/* Result cards reuse each game's PNG illustration and catalog emblem. */
+.indictus-app.indictus-app .payout-dialog.payout-overlay {
+ --result-line:#b6935b; --result-panel:#10232de8; --result-button:#29696b;
+ box-sizing:border-box; position:fixed; inset:0; width:min(560px,calc(100vw - 28px)); max-width:560px; height:fit-content; max-height:90svh; margin:auto; padding:0;
+ border:2px solid var(--result-line); border-image:none; border-radius:8px; background:#10232d; color:#f5e8d0; overflow:auto; overscroll-behavior:contain; box-shadow:0 22px 90px #000b; font-family:Arial,sans-serif;
+}
+.indictus-app.indictus-app .payout-dialog.payout-overlay[open] { display:block; }
+.indictus-app.indictus-app .payout-overlay::backdrop { background:#080b14db; backdrop-filter:blur(4px); }
+.indictus-app.indictus-app .payout-overlay[data-game='slots'] { background:#10232d url('/bonanza-rooftop-flat.png') center/cover no-repeat; }
+.indictus-app.indictus-app .payout-overlay[data-game='maskhouse'] { --result-panel:#371824df; --result-button:#8c3448; background:#371824 url('/maskhouse-manor-flat.png') center/cover no-repeat; }
+.indictus-app.indictus-app .payout-overlay[data-game='lecipher'] { --result-panel:#0d2e26df; background:#102a21 url('/lexof-paris-night.png') center/cover no-repeat; }
+.indictus-app.indictus-app .payout-overlay .payout-sheet { position:relative; z-index:2; box-sizing:border-box; width:100%; max-width:none; margin:0; padding:32px 28px 22px; border:0; border-radius:0; background:var(--result-panel); box-shadow:none; text-align:center; }
+.indictus-app.indictus-app .payout-overlay .payout-sheet::before,.indictus-app.indictus-app .payout-overlay .payout-sheet::after { display:none; }
+.indictus-app.indictus-app .payout-overlay .payout-mask-art { position:static; display:block; box-sizing:border-box; width:104px; min-width:104px; max-width:104px; height:104px; min-height:104px; max-height:104px; margin:0 auto 12px; padding:0; border:0; border-radius:50%; object-fit:cover; background:none; filter:none; }
+.indictus-app.indictus-app .payout-overlay .payout-game { margin:0 0 8px; color:#c9baa2; font:14px/1.3 Arial,sans-serif; letter-spacing:.02em; text-transform:none; }
+.indictus-app.indictus-app .payout-overlay .payout-title { margin:0; color:#f5e8d0; font:600 36px/1.1 'Barlow Condensed',Arial,sans-serif !important; letter-spacing:0; text-transform:none; text-shadow:none; }
+.indictus-app.indictus-app .payout-overlay .payout-amount { display:flex; justify-content:center; align-items:baseline; flex-wrap:wrap; gap:7px 10px; max-width:100%; margin:15px 0 22px; color:#f8e6c5; font:600 clamp(48px,9vw,76px)/1.06 'Barlow Condensed',Arial,sans-serif !important; font-variant-numeric:tabular-nums; letter-spacing:0; text-shadow:0 3px 0 #0b1620; }
+.indictus-app.indictus-app .payout-overlay[data-tone='profit'] .payout-amount { color:#ffde8c; text-shadow:0 3px 0 #6c312b,0 0 18px #ffbc4f36; }
+.indictus-app.indictus-app .payout-overlay[data-tone='receipt'] .payout-amount { color:#e9ddc3; }
+.indictus-app.indictus-app .payout-overlay[data-tone='loss'] .payout-amount { color:#b5aa96; }
+.indictus-app.indictus-app .payout-overlay .payout-amount>span:first-child { min-width:0; max-width:100%; overflow-wrap:anywhere; }
+.indictus-app.indictus-app .payout-overlay .payout-currency { color:#ccb58b; font:600 20px/1.2 Arial,sans-serif; letter-spacing:0; }
+.indictus-app.indictus-app .payout-overlay .payout-accounting { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; width:100%; max-width:none; margin:0; padding:15px 0; border-top:1px solid #b6935b60; border-bottom:1px solid #b6935b60; background:#09162075; }
+.indictus-app.indictus-app .payout-overlay .payout-accounting>div { padding:0 12px; min-width:0; }
+.indictus-app.indictus-app .payout-overlay .payout-accounting>div+div { border-color:#b6935b60; }
+.indictus-app.indictus-app .payout-overlay .payout-accounting dt { margin:0 0 7px; color:#c9bba4; font:14px/1.35 Arial,sans-serif; }
+.indictus-app.indictus-app .payout-overlay .payout-accounting dd { margin:0; color:#f0e4ce; font:600 25px/1.1 'Barlow Condensed',Arial,sans-serif; font-variant-numeric:tabular-nums; white-space:normal; overflow-wrap:anywhere; }
+.indictus-app.indictus-app .payout-overlay .payout-accounting dd span { margin-left:5px; color:#c9bba4; font:14px/1.3 Arial,sans-serif; }
+.indictus-app.indictus-app .payout-overlay .payout-description { min-height:0; margin:16px 0 18px; color:#d0c1a9; font:14px/1.5 Arial,sans-serif; }
+.indictus-app.indictus-app .payout-overlay .payout-continue { min-width:min(230px,100%); min-height:50px; padding:12px 25px; border:1px solid var(--result-line); border-image:none; border-radius:4px; background:var(--result-button); color:#fff0d4; box-shadow:inset 0 -3px 0 #0003; font:700 15px/1.3 Arial,sans-serif; cursor:pointer; transition:filter .15s ease,transform .15s ease; }
+.indictus-app.indictus-app .payout-overlay .payout-continue:hover { filter:brightness(1.15); transform:translateY(-1px); }
+.indictus-app.indictus-app .payout-overlay .payout-continue:active { transform:translateY(1px); }
+.indictus-app.indictus-app .payout-overlay .payout-dismiss { position:sticky; top:10px; right:auto; z-index:4; display:grid; place-items:center; width:36px; height:36px; margin:10px 10px -46px auto; padding:0; border:1px solid #b6935b66; border-radius:4px; background:#081c26bf; color:#efddbf; font:26px/1 Arial,sans-serif; cursor:pointer; box-shadow:none; }
+.indictus-app.indictus-app .payout-overlay .payout-dismiss:hover { border-color:#e2bc87; color:#fff0d4; }
+.indictus-app.indictus-app .payout-overlay .payout-continue:focus-visible,.indictus-app.indictus-app .payout-overlay .payout-dismiss:focus-visible { outline:2px solid #f4ddb4; outline-offset:3px; }
+.indictus-app.indictus-app .payout-overlay .payout-hint { display:flex; flex-wrap:wrap; justify-content:center; gap:4px 12px; margin:12px 0 0; color:#b5a992; font:12px/1.5 Arial,sans-serif; }
+.indictus-app.indictus-app .payout-overlay .payout-fx { z-index:1; overflow:hidden; }
+@media(max-width:600px) {
+ .indictus-app.indictus-app .payout-overlay .payout-sheet { padding:30px 18px 20px; }
+ .indictus-app.indictus-app .payout-overlay .payout-mask-art { width:92px; min-width:92px; max-width:92px; height:92px; min-height:92px; max-height:92px; margin-bottom:10px; }
+ .indictus-app.indictus-app .payout-overlay .payout-title { font-size:32px !important; }
+ .indictus-app.indictus-app .payout-overlay .payout-amount { margin:14px 0 19px; font-size:clamp(44px,13vw,64px) !important; }
+ .indictus-app.indictus-app .payout-overlay .payout-currency { font-size:16px; }
+ .indictus-app.indictus-app .payout-overlay .payout-accounting>div { padding:0 8px; }
+ .indictus-app.indictus-app .payout-overlay .payout-accounting dt { font-size:13px; }
+ .indictus-app.indictus-app .payout-overlay .payout-accounting dd { font-size:23px; }
+ .indictus-app.indictus-app .payout-overlay .payout-hint span { display:none; }
+}
+@media(prefers-reduced-motion:reduce) { .indictus-app.indictus-app .payout-overlay .payout-sheet,.indictus-app.indictus-app .payout-overlay .payout-continue { animation:none !important; transition:none !important; } }

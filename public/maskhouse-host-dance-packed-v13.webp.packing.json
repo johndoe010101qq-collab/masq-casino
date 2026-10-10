@@ -1,0 +1,75 @@
+{
+  "source": "art-deliverables/maskhouse-host-dance-v13.png",
+  "target": "indictus-site/public/maskhouse-host-dance-packed-v13.webp",
+  "columns": 4,
+  "rows": 1,
+  "width": 1448,
+  "height": 724,
+  "hasAlpha": true,
+  "packing": [
+    {
+      "frame": 0,
+      "sourceRect": {
+        "left": 51,
+        "top": 15,
+        "width": 398,
+        "height": 814
+      },
+      "scale": 0.8067632850241546,
+      "frameRect": {
+        "x": 21,
+        "y": 33,
+        "width": 321,
+        "height": 657
+      }
+    },
+    {
+      "frame": 1,
+      "sourceRect": {
+        "left": 475,
+        "top": 16,
+        "width": 414,
+        "height": 817
+      },
+      "scale": 0.8067632850241546,
+      "frameRect": {
+        "x": 14,
+        "y": 31,
+        "width": 334,
+        "height": 659
+      }
+    },
+    {
+      "frame": 2,
+      "sourceRect": {
+        "left": 964,
+        "top": 15,
+        "width": 363,
+        "height": 815
+      },
+      "scale": 0.8067632850241546,
+      "frameRect": {
+        "x": 35,
+        "y": 32,
+        "width": 293,
+        "height": 658
+      }
+    },
+    {
+      "frame": 3,
+      "sourceRect": {
+        "left": 1339,
+        "top": 14,
+        "width": 398,
+        "height": 819
+      },
+      "scale": 0.8067632850241546,
+      "frameRect": {
+        "x": 21,
+        "y": 29,
+        "width": 321,
+        "height": 661
+      }
+    }
+  ]
+}

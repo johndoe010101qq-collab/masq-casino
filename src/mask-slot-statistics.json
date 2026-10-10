@@ -1,0 +1,6832 @@
+{
+  "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+  "rulesVersion": "indictus-mask-slots-original-v10-features",
+  "masterSeed": {
+    "house": "indictus-house-structure-v10-current-standard-independent-sfc32-holdout-2026-10-09",
+    "lecipher": "indictus-lexof-v10-current-standard-independent-sha256-sfc32-2026-10-09"
+  },
+  "methodology": {
+    "repeatSessions": 2000,
+    "algorithm": "Independent SHA256-seeded sfc32 holdouts/series, rejection sampling; distinct engine-calibration xoshiro seeds.",
+    "accounting": "Each research series charges exactly10000AR: House/LeXof paid100×100AR; House/Luckbuy100×100AR(base5); Goldbuy80×125AR(base5). All free spins/natural bonus/retriggers/floors/budgets included.",
+    "simulationTransactions": {
+      "houseHoldout": 600000,
+      "houseVolume": 404000,
+      "lexofHoldout": 300000,
+      "lexofVolume": 560000
+    },
+    "confidence": "Normal95% Monte Carlo intervals of independent round/session means. Approximately50% target, never exact50%. Some measured confidence intervals exclude50; holdouts are not retuned.",
+    "limitations": [
+      "Fixed-turnover research assumes sufficient player funds and disables admission. Actual protected DEMO admission checks liability separately.",
+      "Positive expected casino gross does not guarantee profits or solvency in any finite series.",
+      "Client-side DEMO state/source/RNG is not a trusted shared real-money wallet. Real currency requires server-authoritative ledger/admission/RNG.",
+      "Zero observed global-cap events in a finite audit is not a rarity proof. Rare-event fields are analytical upper bounds for specified visible patterns.",
+      "Ordinary budgets25xHouse/30xLeXof and per-free-spin2.6x/3.5xLuck/3xGold are distinct from rare actual40x−1AR.",
+      "The five standard offers are covered; newly added feature variants are outside these holdouts, volume results and rare-event bounds. Bonanza uses another engine. Minimum bonus payments here apply only to House/LeXof."
+    ]
+  },
+  "rules": {
+    "version": "indictus-mask-slots-original-v10-features",
+    "minimumStake": 5,
+    "maximumStake": 250,
+    "stakeStep": 5,
+    "winCapMultiplier": 40,
+    "winCapOffsetCents": 100,
+    "purchaseAvailable": true,
+    "bonusMinimumReturnBasisPoints": 500,
+    "bonusMinimumNotice": "A whole round with a bonus returns at least 5% of the equivalent bonus purchase price. The paid launch payout of a natural bonus counts toward this minimum. Any shortfall is a real separate bonus-payment frame, never an invented line/coin win.",
+    "notice": "Original Indictus rules inspired by documented bonus mechanics. Own prices and weights, disclosed whole-round cap of 40x base stake minus 1 AR; no provider mathematics or provider RTP claim. Free-spin payout tables are shared by natural and purchased bonuses for the same active tier. Paid tables are published separately. Each line, group or collected coin is rounded down to cents before the cap. Results never depend on balance or history.",
+    "maskhouse": {
+      "columns": 5,
+      "rows": 3,
+      "lines": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "lineMatchMinimum": 3,
+      "baseRegularWeights": [
+        40,
+        50,
+        65,
+        80,
+        95,
+        110,
+        125,
+        140,
+        155
+      ],
+      "freeRegularWeights": [
+        40,
+        50,
+        65,
+        80,
+        95,
+        110,
+        125,
+        140,
+        155
+      ],
+      "baseScatterWeight": 60,
+      "freeScatterWeight": 0,
+      "baseRegularWeightScaleByReel": [
+        1,
+        100,
+        1,
+        100,
+        1
+      ],
+      "freeRegularWeightScaleByReel": [
+        1,
+        100,
+        1,
+        100,
+        1
+      ],
+      "baseWildWeightsByReel": [
+        0,
+        1,
+        40,
+        1,
+        0
+      ],
+      "freeWildWeightsByReel": [
+        0,
+        1,
+        40,
+        1,
+        0
+      ],
+      "ordinaryRoundCapMultiplier": 25,
+      "ordinaryFreeSpinCapPercent": 260,
+      "legendaryCondition": {
+        "type": "five-symbol-line",
+        "kind": "hood",
+        "middleKinds": [
+          "wild",
+          "wild",
+          "wild"
+        ],
+        "minimumCount": 5,
+        "award": "whole-round hard cap"
+      },
+      "legendaryNotice": "Only a real paying line hood / WILD / WILD / WILD / hood can exceed the ordinary whole-round 25x budget or the ordinary free-spin 2.6x budget. That line awards the remaining amount up to 40x base stake minus 1 AR. Every other line is limited by both shared budgets.",
+      "wildMultipliers": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "pays": {
+        "hood": [
+          456.75,
+          1142.75,
+          3426.5
+        ],
+        "suit": [
+          365.75,
+          913.5,
+          2742.25
+        ],
+        "glove": [
+          297.5,
+          742,
+          2285.5
+        ],
+        "laptop": [
+          239.75,
+          628.25,
+          1942.5
+        ],
+        "usb": [
+          194.25,
+          514.5,
+          1599.5
+        ],
+        "lock": [
+          159.25,
+          411.25,
+          1256.5
+        ],
+        "key": [
+          126,
+          318.5,
+          971.25
+        ],
+        "radio": [
+          98,
+          252,
+          742
+        ],
+        "flag": [
+          73.5,
+          204.75,
+          570.5
+        ]
+      },
+      "payScaleBasisPoints": 17500,
+      "freePayScaleBasisPoints": 60000,
+      "noWildPayScaleBasisPoints": 500,
+      "freeNoWildPayScaleBasisPoints": 500,
+      "noWildPays": {
+        "hood": [
+          13.05,
+          32.65,
+          97.9
+        ],
+        "suit": [
+          10.45,
+          26.1,
+          78.35
+        ],
+        "glove": [
+          8.5,
+          21.2,
+          65.3
+        ],
+        "laptop": [
+          6.85,
+          17.95,
+          55.5
+        ],
+        "usb": [
+          5.55,
+          14.7,
+          45.7
+        ],
+        "lock": [
+          4.55,
+          11.75,
+          35.9
+        ],
+        "key": [
+          3.6,
+          9.1,
+          27.75
+        ],
+        "radio": [
+          2.8,
+          7.2,
+          21.2
+        ],
+        "flag": [
+          2.1,
+          5.85,
+          16.3
+        ]
+      },
+      "freeNoWildPays": {
+        "hood": [
+          13.05,
+          32.65,
+          97.9
+        ],
+        "suit": [
+          10.45,
+          26.1,
+          78.35
+        ],
+        "glove": [
+          8.5,
+          21.2,
+          65.3
+        ],
+        "laptop": [
+          6.85,
+          17.95,
+          55.5
+        ],
+        "usb": [
+          5.55,
+          14.7,
+          45.7
+        ],
+        "lock": [
+          4.55,
+          11.75,
+          35.9
+        ],
+        "key": [
+          3.6,
+          9.1,
+          27.75
+        ],
+        "radio": [
+          2.8,
+          7.2,
+          21.2
+        ],
+        "flag": [
+          2.1,
+          5.85,
+          16.3
+        ]
+      },
+      "freePays": {
+        "hood": [
+          1566,
+          3918,
+          11748
+        ],
+        "suit": [
+          1254,
+          3132,
+          9402
+        ],
+        "glove": [
+          1020,
+          2544,
+          7836
+        ],
+        "laptop": [
+          822,
+          2154,
+          6660
+        ],
+        "usb": [
+          666,
+          1764,
+          5484
+        ],
+        "lock": [
+          546,
+          1410,
+          4308
+        ],
+        "key": [
+          432,
+          1092,
+          3330
+        ],
+        "radio": [
+          336,
+          864,
+          2544
+        ],
+        "flag": [
+          252,
+          702,
+          1956
+        ]
+      },
+      "boughtFreePayScaleBasisPoints": 60000,
+      "boughtFreePays": {
+        "hood": [
+          1566,
+          3918,
+          11748
+        ],
+        "suit": [
+          1254,
+          3132,
+          9402
+        ],
+        "glove": [
+          1020,
+          2544,
+          7836
+        ],
+        "laptop": [
+          822,
+          2154,
+          6660
+        ],
+        "usb": [
+          666,
+          1764,
+          5484
+        ],
+        "lock": [
+          546,
+          1410,
+          4308
+        ],
+        "key": [
+          432,
+          1092,
+          3330
+        ],
+        "radio": [
+          336,
+          864,
+          2544
+        ],
+        "flag": [
+          252,
+          702,
+          1956
+        ]
+      },
+      "initialFreeSpins": null,
+      "retriggerFreeSpins": 0,
+      "bonusBuyMultiplier": 20,
+      "bonusAwardWeights": [
+        [
+          1,
+          72
+        ],
+        [
+          2,
+          26
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "bonusSelection": {
+        "columns": 3,
+        "rows": 3,
+        "values": [
+          [
+            1,
+            72
+          ],
+          [
+            2,
+            26
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "minimum": 9,
+        "maximum": 27
+      },
+      "triggerPayoutMultiplier": 5,
+      "scatterColumns": [
+        0,
+        2,
+        4
+      ],
+      "triggerRequiresEveryScatterReel": true,
+      "bonusBuys": [
+        {
+          "id": "sticky",
+          "name": "Sticky Masks",
+          "multiplier": 20,
+          "initialFreeSpins": null,
+          "payScaleBasisPoints": 60000
+        }
+      ],
+      "wildNotice": "Wilds land only on reels 2–4. They substitute regular symbols and have ×2 or ×3. On paid spins all wilds on one reel share the first landed wild multiplier. Multipliers of wilds in one paid line are added; no wild means ×1. Wilds stay in their cells during free spins. A bonus requires a BONUS on each of reels 1, 3 and 5."
+    },
+    "lecipher": {
+      "columns": 6,
+      "rows": 5,
+      "clusterMatchMinimum": 5,
+      "baseRegularWeights": [
+        5,
+        6,
+        8,
+        10,
+        14,
+        17,
+        20,
+        26,
+        34
+      ],
+      "freeRegularWeights": [
+        5,
+        6,
+        8,
+        10,
+        14,
+        17,
+        20,
+        26,
+        34
+      ],
+      "baseScatterWeight": 2,
+      "freeScatterWeight": 1,
+      "baseTokenWeight": 2,
+      "freeTokenWeight": 3,
+      "maximumVisibleActivationTokens": 1,
+      "activationTokenNotice": "At most one visible activation token. Initial cells are generated column-major from top to bottom. Before a token appears, regular/scatter/token weights apply. Once a retained or newly generated token exists, token weight is excluded from all remaining initial/refill draws; no ticket is rerolled. Collection reward cells are not activation tokens. A new free spin starts a new grid.",
+      "activationTokenMultiplier": 1,
+      "pays": {
+        "hood": [
+          53.65,
+          133.57,
+          347.8,
+          855.81
+        ],
+        "suit": [
+          45.51,
+          117.66,
+          294.15,
+          748.88
+        ],
+        "glove": [
+          37.37,
+          96.57,
+          240.87,
+          614.94
+        ],
+        "laptop": [
+          32.19,
+          80.29,
+          203.5,
+          508.01
+        ],
+        "usb": [
+          26.64,
+          69.56,
+          170.94,
+          427.72
+        ],
+        "lock": [
+          22.57,
+          58.83,
+          144.3,
+          363.71
+        ],
+        "key": [
+          18.87,
+          48.1,
+          117.66,
+          294.15
+        ],
+        "radio": [
+          15.17,
+          40.33,
+          96.57,
+          240.87
+        ],
+        "flag": [
+          11.84,
+          32.19,
+          80.29,
+          203.5
+        ]
+      },
+      "payScaleBasisPoints": 3700,
+      "freePayScaleBasisPointsByTier": {
+        "luck": 150000,
+        "gold": 4825,
+        "treasure": 4825
+      },
+      "freePaysByTier": {
+        "luck": {
+          "hood": [
+            2175,
+            5415,
+            14100,
+            34695
+          ],
+          "suit": [
+            1845,
+            4770,
+            11925,
+            30360
+          ],
+          "glove": [
+            1515,
+            3915,
+            9765,
+            24930
+          ],
+          "laptop": [
+            1305,
+            3255,
+            8250,
+            20595
+          ],
+          "usb": [
+            1080,
+            2820,
+            6930,
+            17340
+          ],
+          "lock": [
+            915,
+            2385,
+            5850,
+            14745
+          ],
+          "key": [
+            765,
+            1950,
+            4770,
+            11925
+          ],
+          "radio": [
+            615,
+            1635,
+            3915,
+            9765
+          ],
+          "flag": [
+            480,
+            1305,
+            3255,
+            8250
+          ]
+        },
+        "gold": {
+          "hood": [
+            69.9625,
+            174.1825,
+            453.55,
+            1116.0225
+          ],
+          "suit": [
+            59.3475,
+            153.435,
+            383.5875,
+            976.58
+          ],
+          "glove": [
+            48.7325,
+            125.9325,
+            314.1075,
+            801.915
+          ],
+          "laptop": [
+            41.9775,
+            104.7025,
+            265.375,
+            662.4725
+          ],
+          "usb": [
+            34.74,
+            90.71,
+            222.915,
+            557.77
+          ],
+          "lock": [
+            29.4325,
+            76.7175,
+            188.175,
+            474.2975
+          ],
+          "key": [
+            24.6075,
+            62.725,
+            153.435,
+            383.5875
+          ],
+          "radio": [
+            19.7825,
+            52.5925,
+            125.9325,
+            314.1075
+          ],
+          "flag": [
+            15.44,
+            41.9775,
+            104.7025,
+            265.375
+          ]
+        },
+        "treasure": {
+          "hood": [
+            69.9625,
+            174.1825,
+            453.55,
+            1116.0225
+          ],
+          "suit": [
+            59.3475,
+            153.435,
+            383.5875,
+            976.58
+          ],
+          "glove": [
+            48.7325,
+            125.9325,
+            314.1075,
+            801.915
+          ],
+          "laptop": [
+            41.9775,
+            104.7025,
+            265.375,
+            662.4725
+          ],
+          "usb": [
+            34.74,
+            90.71,
+            222.915,
+            557.77
+          ],
+          "lock": [
+            29.4325,
+            76.7175,
+            188.175,
+            474.2975
+          ],
+          "key": [
+            24.6075,
+            62.725,
+            153.435,
+            383.5875
+          ],
+          "radio": [
+            19.7825,
+            52.5925,
+            125.9325,
+            314.1075
+          ],
+          "flag": [
+            15.44,
+            41.9775,
+            104.7025,
+            265.375
+          ]
+        }
+      },
+      "freeCoinPercentWeightsByTier": {
+        "luck": [
+          [
+            210,
+            30
+          ],
+          [
+            435,
+            28
+          ],
+          [
+            765,
+            22
+          ],
+          [
+            1080,
+            14
+          ],
+          [
+            1635,
+            9
+          ],
+          [
+            2175,
+            5
+          ],
+          [
+            4335,
+            2
+          ],
+          [
+            10845,
+            1
+          ]
+        ],
+        "gold": [
+          [
+            6.755,
+            30
+          ],
+          [
+            13.9925,
+            28
+          ],
+          [
+            24.6075,
+            22
+          ],
+          [
+            34.74,
+            14
+          ],
+          [
+            52.5925,
+            9
+          ],
+          [
+            69.9625,
+            5
+          ],
+          [
+            139.4425,
+            2
+          ],
+          [
+            348.8475,
+            1
+          ]
+        ],
+        "treasure": [
+          [
+            52.5925,
+            9
+          ],
+          [
+            69.9625,
+            5
+          ],
+          [
+            139.4425,
+            2
+          ],
+          [
+            348.8475,
+            1
+          ]
+        ]
+      },
+      "boughtFreePayScaleBasisPoints": 150000,
+      "boughtFreePays": {
+        "hood": [
+          2175,
+          5415,
+          14100,
+          34695
+        ],
+        "suit": [
+          1845,
+          4770,
+          11925,
+          30360
+        ],
+        "glove": [
+          1515,
+          3915,
+          9765,
+          24930
+        ],
+        "laptop": [
+          1305,
+          3255,
+          8250,
+          20595
+        ],
+        "usb": [
+          1080,
+          2820,
+          6930,
+          17340
+        ],
+        "lock": [
+          915,
+          2385,
+          5850,
+          14745
+        ],
+        "key": [
+          765,
+          1950,
+          4770,
+          11925
+        ],
+        "radio": [
+          615,
+          1635,
+          3915,
+          9765
+        ],
+        "flag": [
+          480,
+          1305,
+          3255,
+          8250
+        ]
+      },
+      "coinBasePercentWeights": [
+        [
+          14,
+          30
+        ],
+        [
+          29,
+          28
+        ],
+        [
+          51,
+          22
+        ],
+        [
+          72,
+          14
+        ],
+        [
+          109,
+          9
+        ],
+        [
+          145,
+          5
+        ],
+        [
+          289,
+          2
+        ],
+        [
+          723,
+          1
+        ]
+      ],
+      "coinPercentWeights": [
+        [
+          5.18,
+          30
+        ],
+        [
+          10.73,
+          28
+        ],
+        [
+          18.87,
+          22
+        ],
+        [
+          26.64,
+          14
+        ],
+        [
+          40.33,
+          9
+        ],
+        [
+          53.65,
+          5
+        ],
+        [
+          106.93,
+          2
+        ],
+        [
+          267.51,
+          1
+        ]
+      ],
+      "boughtFreeCoinPercentWeights": [
+        [
+          210,
+          30
+        ],
+        [
+          435,
+          28
+        ],
+        [
+          765,
+          22
+        ],
+        [
+          1080,
+          14
+        ],
+        [
+          1635,
+          9
+        ],
+        [
+          2175,
+          5
+        ],
+        [
+          4335,
+          2
+        ],
+        [
+          10845,
+          1
+        ]
+      ],
+      "boughtFreeCoinPercentWeightsByTier": {
+        "luck": [
+          [
+            210,
+            30
+          ],
+          [
+            435,
+            28
+          ],
+          [
+            765,
+            22
+          ],
+          [
+            1080,
+            14
+          ],
+          [
+            1635,
+            9
+          ],
+          [
+            2175,
+            5
+          ],
+          [
+            4335,
+            2
+          ],
+          [
+            10845,
+            1
+          ]
+        ],
+        "gold": [
+          [
+            6.755,
+            30
+          ],
+          [
+            13.9925,
+            28
+          ],
+          [
+            24.6075,
+            22
+          ],
+          [
+            34.74,
+            14
+          ],
+          [
+            52.5925,
+            9
+          ],
+          [
+            69.9625,
+            5
+          ],
+          [
+            139.4425,
+            2
+          ],
+          [
+            348.8475,
+            1
+          ]
+        ]
+      },
+      "initialFreeSpins": 8,
+      "retriggerFreeSpins": 2,
+      "bonusBuyMultiplier": 20,
+      "bonusTiers": {
+        "luck": {
+          "initialFreeSpins": 8,
+          "permanentGold": false,
+          "guaranteedToken": false
+        },
+        "gold": {
+          "initialFreeSpins": 12,
+          "permanentGold": true,
+          "guaranteedToken": false
+        },
+        "treasure": {
+          "initialFreeSpins": 12,
+          "permanentGold": true,
+          "guaranteedToken": true,
+          "buyable": false
+        }
+      },
+      "bonusBuys": [
+        {
+          "id": "luck",
+          "name": "Luck",
+          "multiplier": 20,
+          "initialFreeSpins": 8,
+          "payScaleBasisPoints": 150000
+        },
+        {
+          "id": "gold",
+          "name": "Gold",
+          "multiplier": 25,
+          "initialFreeSpins": 12,
+          "payScaleBasisPoints": 4825
+        }
+      ],
+      "boughtFreePaysByTier": {
+        "luck": {
+          "hood": [
+            2175,
+            5415,
+            14100,
+            34695
+          ],
+          "suit": [
+            1845,
+            4770,
+            11925,
+            30360
+          ],
+          "glove": [
+            1515,
+            3915,
+            9765,
+            24930
+          ],
+          "laptop": [
+            1305,
+            3255,
+            8250,
+            20595
+          ],
+          "usb": [
+            1080,
+            2820,
+            6930,
+            17340
+          ],
+          "lock": [
+            915,
+            2385,
+            5850,
+            14745
+          ],
+          "key": [
+            765,
+            1950,
+            4770,
+            11925
+          ],
+          "radio": [
+            615,
+            1635,
+            3915,
+            9765
+          ],
+          "flag": [
+            480,
+            1305,
+            3255,
+            8250
+          ]
+        },
+        "gold": {
+          "hood": [
+            69.9625,
+            174.1825,
+            453.55,
+            1116.0225
+          ],
+          "suit": [
+            59.3475,
+            153.435,
+            383.5875,
+            976.58
+          ],
+          "glove": [
+            48.7325,
+            125.9325,
+            314.1075,
+            801.915
+          ],
+          "laptop": [
+            41.9775,
+            104.7025,
+            265.375,
+            662.4725
+          ],
+          "usb": [
+            34.74,
+            90.71,
+            222.915,
+            557.77
+          ],
+          "lock": [
+            29.4325,
+            76.7175,
+            188.175,
+            474.2975
+          ],
+          "key": [
+            24.6075,
+            62.725,
+            153.435,
+            383.5875
+          ],
+          "radio": [
+            19.7825,
+            52.5925,
+            125.9325,
+            314.1075
+          ],
+          "flag": [
+            15.44,
+            41.9775,
+            104.7025,
+            265.375
+          ]
+        }
+      },
+      "collectionTypeWeights": [
+        [
+          "coin",
+          90
+        ],
+        [
+          "clover",
+          7
+        ],
+        [
+          "pot",
+          3
+        ]
+      ],
+      "cloverMultiplierWeights": [
+        [
+          2,
+          320
+        ],
+        [
+          3,
+          240
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "ordinaryRoundCapMultiplier": 30,
+      "ordinaryFreeSpinCapPercent": 300,
+      "ordinaryFreeSpinCapPercentByTier": {
+        "luck": 350,
+        "gold": 300,
+        "treasure": 300
+      },
+      "bonusMinimumEquivalentPurchaseMultipliers": {
+        "luck": 20,
+        "gold": 25,
+        "treasure": 25
+      },
+      "legendaryCondition": {
+        "type": "fresh-booster-square",
+        "columns": 2,
+        "rows": 2,
+        "multiplier": 10,
+        "award": "whole-round hard cap"
+      },
+      "legendaryNotice": "Only four freshly drawn x10 clovers occupying one 2x2 square in a single collection can exceed the ordinary whole-round 30x budget or the ordinary free-spin budget (Luck 3.5x; Gold/Treasure 3x). Retained pots cannot satisfy the condition. The visible square awards the remaining amount up to 40x base stake minus 1 AR. No hidden jackpot ticket is drawn.",
+      "treasureCoinBasePercentWeights": [
+        [
+          109,
+          9
+        ],
+        [
+          145,
+          5
+        ],
+        [
+          289,
+          2
+        ],
+        [
+          723,
+          1
+        ]
+      ],
+      "retriggerAwards": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "goldenNotice": "Luck keeps gold until collection; Gold and Treasure keep gold throughout the bonus. Treasure guarantees an activation token every spin and cannot be bought. Clovers multiply orthogonally adjacent coins/pots; pots collect all other coin/pot values top-to-bottom then left-to-right. A pot restarts the gold reveal. All tables and the whole-round cap are Indictus rules."
+    }
+  },
+  "results": [
+    {
+      "game": "maskhouse",
+      "name": "Mask House",
+      "mode": "paid",
+      "bonusTier": "sticky",
+      "baseStakeAR": 100,
+      "bonusBuyMultiplier": null,
+      "payoutScaleBasisPoints": 17500,
+      "transactionPlan": {
+        "paidTransactions": 100,
+        "buyTransactions": 0,
+        "paidStakeAR": 100,
+        "buyChargeAR": 0,
+        "totalStakesAR": 10000,
+        "mixed": false
+      },
+      "sessions": 2000,
+      "transactions": 200000,
+      "meanPayoutAR": 5125.273975,
+      "meanCasinoResultAR": 4874.726025,
+      "estimatedGrossReturnPercent": 51.25274,
+      "meanCasinoResult95CI_AR": [
+        4770.397203,
+        4979.054847
+      ],
+      "meanGrossReturn95CI_Percent": [
+        50.209452,
+        52.296028
+      ],
+      "casinoResultPercentilesAR": {
+        "p05": 320.65,
+        "p50": 5200.9,
+        "p95": 8330.75
+      },
+      "casinoProfitableFraction": 0.9605,
+      "casinoLossFraction": 0.0395,
+      "casinoBreakEvenFraction": 0,
+      "positivePayoutFraction": 0.263485,
+      "payoutAboveChargeFraction": 0.07396,
+      "wholeRoundCapFraction": 0,
+      "ordinaryBudgetCapFraction": 0.001855,
+      "caps": 0,
+      "bonusPaymentRounds": 0,
+      "naturalOrBoughtBonuses": 1178,
+      "freeSpinsPlayed": 13750,
+      "unchargedGuardFailures": 0,
+      "casinoReserve10000ARBreachSessions": 0,
+      "elapsedSeconds": 4.354473,
+      "repeatedSessions": {
+        "sessions": 2000,
+        "transactions": 200000,
+        "meanPayoutAR": 5125.273975,
+        "meanCasinoResultAR": 4874.726025,
+        "estimatedGrossReturnPercent": 51.25274,
+        "meanCasinoResult95CI_AR": [
+          4770.397203,
+          4979.054847
+        ],
+        "meanGrossReturn95CI_Percent": [
+          50.209452,
+          52.296028
+        ],
+        "casinoResultPercentilesAR": {
+          "p05": 320.65,
+          "p50": 5200.9,
+          "p95": 8330.75
+        },
+        "casinoProfitableFraction": 0.9605,
+        "casinoLossFraction": 0.0395,
+        "casinoBreakEvenFraction": 0,
+        "positivePayoutFraction": 0.263485,
+        "payoutAboveChargeFraction": 0.07396,
+        "wholeRoundCapFraction": 0,
+        "ordinaryBudgetCapFraction": 0.001855,
+        "caps": 0,
+        "bonusPaymentRounds": 0,
+        "naturalOrBoughtBonuses": 1178,
+        "freeSpinsPlayed": 13750,
+        "unchargedGuardFailures": 0,
+        "casinoReserve10000ARBreachSessions": 0,
+        "elapsedSeconds": 4.354473
+      },
+      "example": {
+        "seed": "indictus-house-structure-v10-current-standard-independent-sfc32-holdout-2026-10-09/volume/paid/10000/0",
+        "totalStakesAR": 10000,
+        "payoutAR": 5047.8,
+        "casinoResultAR": 4952.2,
+        "minReserveAR": 10000,
+        "paidRounds": [
+          {
+            "transaction": 1,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 2,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 3,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 4,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 5,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 6,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 7,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 8,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 5.85,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 9,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 10,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 11,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 12,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 13,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 14,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 15,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 10.8,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 16,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 17,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 18,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 19,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 9.1,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 20,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 21,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 22,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 23,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 24,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 25,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 2.1,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 26,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 27,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 28,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 29,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 4.55,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 30,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 31,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 3.6,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 32,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 7.2,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 33,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 34,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 35,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 28.05,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 36,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 2.1,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 37,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 38,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 39,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 726.1,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 40,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 41,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 448,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 42,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 43,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 44,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 45,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 46,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 5.6,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 47,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 955.5,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 48,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 149.1,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 49,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 5.55,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 50,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 51,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 1800,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 52,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 53,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 54,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 55,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 56,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 57,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 3.6,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 58,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 59,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 60,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 61,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 62,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 4.55,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 63,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 4.55,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 64,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 822.5,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 65,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 15.6,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 66,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 67,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 68,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 69,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 70,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 71,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 72,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 73,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 74,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 75,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 76,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 77,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 78,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 79,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 80,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 2.8,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 81,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 82,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 83,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 84,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 85,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 86,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 5.6,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 87,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 16.3,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 88,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 89,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 90,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 91,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 92,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 93,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 94,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 4.55,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 95,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 96,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 97,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 98,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 99,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 4.55,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 100,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          }
+        ]
+      },
+      "inspectionCounts": {
+        "rounds": 200000,
+        "capRounds": 0,
+        "ordinaryCapRounds": 371,
+        "positive": 52697,
+        "aboveCost": 14792,
+        "bonuses": 1178,
+        "bonusWilds": 940,
+        "freeSpins": 13750,
+        "bonusPaymentRounds": 0,
+        "bonusPaymentCents": 0,
+        "awards": {
+          "count": 1178,
+          "sum": 13750,
+          "exact": {
+            "9": 80,
+            "10": 207,
+            "11": 280,
+            "12": 279,
+            "13": 193,
+            "14": 80,
+            "15": 45,
+            "16": 12,
+            "18": 2
+          }
+        },
+        "draws": {
+          "paid": [
+            600000,
+            600000,
+            600000
+          ],
+          "free": [
+            41250,
+            32495,
+            41250
+          ]
+        },
+        "wilds": {
+          "paid": [
+            3,
+            25196,
+            5
+          ],
+          "free": [
+            0,
+            1452,
+            0
+          ]
+        },
+        "wildValues": {
+          "2": 1098,
+          "3": 354
+        },
+        "endingSticky": 1452,
+        "tripleHorizontalWildSpins": 0,
+        "legendaryFrames": 0,
+        "threshold": {
+          "20": 817,
+          "25": 371,
+          "30": 0
+        },
+        "guards": 0
+      },
+      "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "game": "maskhouse",
+      "name": "Mask House",
+      "mode": "buy",
+      "bonusTier": "sticky",
+      "baseStakeAR": 5,
+      "bonusBuyMultiplier": 20,
+      "payoutScaleBasisPoints": 60000,
+      "transactionPlan": {
+        "paidTransactions": 0,
+        "buyTransactions": 100,
+        "paidStakeAR": 0,
+        "buyChargeAR": 100,
+        "totalStakesAR": 10000,
+        "mixed": false
+      },
+      "sessions": 2000,
+      "transactions": 200000,
+      "meanPayoutAR": 5053.78527,
+      "meanCasinoResultAR": 4946.21473,
+      "estimatedGrossReturnPercent": 50.537853,
+      "meanCasinoResult95CI_AR": [
+        4930.545642,
+        4961.883818
+      ],
+      "meanGrossReturn95CI_Percent": [
+        50.381162,
+        50.694544
+      ],
+      "casinoResultPercentilesAR": {
+        "p05": 4336.61,
+        "p50": 4957.57,
+        "p95": 5528.03
+      },
+      "casinoProfitableFraction": 1,
+      "casinoLossFraction": 0,
+      "casinoBreakEvenFraction": 0,
+      "positivePayoutFraction": 1,
+      "payoutAboveChargeFraction": 0.11638,
+      "wholeRoundCapFraction": 0,
+      "ordinaryBudgetCapFraction": 0.0237,
+      "caps": 0,
+      "bonusPaymentRounds": 45874,
+      "naturalOrBoughtBonuses": 200000,
+      "freeSpinsPlayed": 2340124,
+      "unchargedGuardFailures": 0,
+      "casinoReserve10000ARBreachSessions": 0,
+      "elapsedSeconds": 51.645616,
+      "repeatedSessions": {
+        "sessions": 2000,
+        "transactions": 200000,
+        "meanPayoutAR": 5053.78527,
+        "meanCasinoResultAR": 4946.21473,
+        "estimatedGrossReturnPercent": 50.537853,
+        "meanCasinoResult95CI_AR": [
+          4930.545642,
+          4961.883818
+        ],
+        "meanGrossReturn95CI_Percent": [
+          50.381162,
+          50.694544
+        ],
+        "casinoResultPercentilesAR": {
+          "p05": 4336.61,
+          "p50": 4957.57,
+          "p95": 5528.03
+        },
+        "casinoProfitableFraction": 1,
+        "casinoLossFraction": 0,
+        "casinoBreakEvenFraction": 0,
+        "positivePayoutFraction": 1,
+        "payoutAboveChargeFraction": 0.11638,
+        "wholeRoundCapFraction": 0,
+        "ordinaryBudgetCapFraction": 0.0237,
+        "caps": 0,
+        "bonusPaymentRounds": 45874,
+        "naturalOrBoughtBonuses": 200000,
+        "freeSpinsPlayed": 2340124,
+        "unchargedGuardFailures": 0,
+        "casinoReserve10000ARBreachSessions": 0,
+        "elapsedSeconds": 51.645616
+      },
+      "example": {
+        "seed": "indictus-house-structure-v10-current-standard-independent-sfc32-holdout-2026-10-09/volume/buy/500/0",
+        "totalStakesAR": 10000,
+        "payoutAR": 5113.12,
+        "casinoResultAR": 4886.88,
+        "minReserveAR": 10000,
+        "paidRounds": [
+          {
+            "transaction": 1,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 2,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 3,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 4,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 26.39,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 5,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 6,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 7,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 8,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 9,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 104,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 10,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 104,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 11,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 12,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.66,
+            "capReached": false,
+            "freeSpinsPlayed": 15
+          },
+          {
+            "transaction": 13,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 26.36,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 14,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 105.84,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 15,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 16,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 17,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 18,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 19,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.14,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 20,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 40.02,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 21,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.42,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 22,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 40.01,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 23,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 24,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 15
+          },
+          {
+            "transaction": 25,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 39,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 26,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 27,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 26,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 28,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 29,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65.58,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 30,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91.27,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 31,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 104.1,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 32,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 33,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 34,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 35,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 36,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 37,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 38,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91,
+            "capReached": false,
+            "freeSpinsPlayed": 15
+          },
+          {
+            "transaction": 39,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 40,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 41,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 42,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.36,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 43,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 44,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 45,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 13.57,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 46,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.3,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 47,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 48,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.68,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 49,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.8,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 50,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.27,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 51,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 26.1,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 52,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 26.28,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 53,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 54,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 55,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 26.63,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 56,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 104,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 57,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 39.48,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 58,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 14.68,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 59,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65.1,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 60,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 61,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 62,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 63,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 9
+          },
+          {
+            "transaction": 64,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 13.58,
+            "capReached": false,
+            "freeSpinsPlayed": 9
+          },
+          {
+            "transaction": 65,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.1,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 66,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 39,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 67,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 68,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65.18,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 69,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 70,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 71,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 15
+          },
+          {
+            "transaction": 72,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 73,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 27.7,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 74,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.32,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 75,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 125,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 76,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 77,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 78,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 79,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.14,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 80,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 13.88,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 81,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.18,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 82,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 91.56,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 83,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 39,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 84,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 117,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 85,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.1,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 86,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 104.14,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 87,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 53.15,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 88,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 89,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.18,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 90,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 91,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 13.3,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 92,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.91,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 93,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 66.32,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 94,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 95,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 96,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 78.1,
+            "capReached": false,
+            "freeSpinsPlayed": 11
+          },
+          {
+            "transaction": 97,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 13
+          },
+          {
+            "transaction": 98,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 99,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 65.24,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 100,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          }
+        ]
+      },
+      "inspectionCounts": {
+        "rounds": 200000,
+        "capRounds": 0,
+        "ordinaryCapRounds": 4740,
+        "positive": 200000,
+        "aboveCost": 23276,
+        "bonuses": 200000,
+        "bonusWilds": 158662,
+        "freeSpins": 2340124,
+        "bonusPaymentRounds": 45874,
+        "bonusPaymentCents": 18628378,
+        "awards": {
+          "count": 200000,
+          "sum": 2340124,
+          "exact": {
+            "9": 10373,
+            "10": 33818,
+            "11": 51303,
+            "12": 48950,
+            "13": 31849,
+            "14": 15583,
+            "15": 5931,
+            "16": 1696,
+            "17": 401,
+            "18": 87,
+            "19": 9
+          }
+        },
+        "draws": {
+          "paid": [
+            0,
+            0,
+            0
+          ],
+          "free": [
+            7019919,
+            5550467,
+            7019869
+          ]
+        },
+        "wilds": {
+          "paid": [
+            0,
+            0,
+            0
+          ],
+          "free": [
+            77,
+            246428,
+            86
+          ]
+        },
+        "wildValues": {
+          "2": 185111,
+          "3": 61480
+        },
+        "endingSticky": 246591,
+        "tripleHorizontalWildSpins": 0,
+        "legendaryFrames": 0,
+        "threshold": {
+          "20": 23276,
+          "25": 4740,
+          "30": 0
+        },
+        "guards": 0
+      },
+      "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "game": "lecipher",
+      "name": "LeXof",
+      "mode": "paid",
+      "bonusTier": "luck",
+      "baseStakeAR": 100,
+      "bonusBuyMultiplier": null,
+      "payoutScaleBasisPoints": 3700,
+      "transactionPlan": {
+        "paidTransactions": 100,
+        "buyTransactions": 0,
+        "paidStakeAR": 100,
+        "buyChargeAR": 0,
+        "totalStakesAR": 10000,
+        "mixed": false
+      },
+      "sessions": 2000,
+      "transactions": 200000,
+      "meanPayoutAR": 5045.46018,
+      "meanCasinoResultAR": 4954.53982,
+      "estimatedGrossReturnPercent": 50.454602,
+      "meanCasinoResult95CI_AR": [
+        4844.575058,
+        5064.504582
+      ],
+      "meanGrossReturn95CI_Percent": [
+        49.354954,
+        51.554249
+      ],
+      "casinoResultPercentilesAR": {
+        "p05": 382.26,
+        "p50": 5244.97,
+        "p95": 8347.95
+      },
+      "casinoProfitableFraction": 0.962,
+      "casinoLossFraction": 0.038,
+      "casinoBreakEvenFraction": 0,
+      "positivePayoutFraction": 0.232625,
+      "payoutAboveChargeFraction": 0.086045,
+      "wholeRoundCapFraction": 0,
+      "caps": 0,
+      "ordinaryBudgetCaps": 687,
+      "bonusPaymentRounds": 141,
+      "bonusPaymentCents": 1409888,
+      "legendaryFrames": 0,
+      "naturalOrBoughtBonuses": 2118,
+      "freeSpinsPlayed": 18403,
+      "unchargedGuardFailures": 0,
+      "casinoReserve10000ARBreachSessions": 0,
+      "casinoReserveExactlyZeroSessions": 0,
+      "minimumUnguardedReserveAR": 231.42,
+      "elapsedSeconds": 9.957781,
+      "repeatedSessions": {
+        "sessions": 2000,
+        "transactions": 200000,
+        "meanPayoutAR": 5045.46018,
+        "meanCasinoResultAR": 4954.53982,
+        "estimatedGrossReturnPercent": 50.454602,
+        "meanCasinoResult95CI_AR": [
+          4844.575058,
+          5064.504582
+        ],
+        "meanGrossReturn95CI_Percent": [
+          49.354954,
+          51.554249
+        ],
+        "casinoResultPercentilesAR": {
+          "p05": 382.26,
+          "p50": 5244.97,
+          "p95": 8347.95
+        },
+        "casinoProfitableFraction": 0.962,
+        "casinoLossFraction": 0.038,
+        "casinoBreakEvenFraction": 0,
+        "positivePayoutFraction": 0.232625,
+        "payoutAboveChargeFraction": 0.086045,
+        "wholeRoundCapFraction": 0,
+        "caps": 0,
+        "ordinaryBudgetCaps": 687,
+        "bonusPaymentRounds": 141,
+        "bonusPaymentCents": 1409888,
+        "legendaryFrames": 0,
+        "naturalOrBoughtBonuses": 2118,
+        "freeSpinsPlayed": 18403,
+        "unchargedGuardFailures": 0,
+        "casinoReserve10000ARBreachSessions": 0,
+        "casinoReserveExactlyZeroSessions": 0,
+        "minimumUnguardedReserveAR": 231.42,
+        "elapsedSeconds": 9.957781
+      },
+      "example": {
+        "seed": "indictus-lexof-v10-current-standard-independent-sha256-sfc32-2026-10-09/volume/paid/0",
+        "totalStakesAR": 10000,
+        "payoutAR": 2338.4,
+        "casinoResultAR": 7661.6,
+        "minReserveAR": 10000,
+        "paidRounds": [
+          {
+            "transaction": 1,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 2,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 3,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 4,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 5,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 6,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 7,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 8,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 27.01,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 9,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 10,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 11,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 12,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 13,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 14,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 15,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 16,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 17,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 18,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 19,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 20,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 21,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 177.23,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 22,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 23,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 24,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 25,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 26,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 27,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 291.56,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 28,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 15.17,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 29,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 30,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 31,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 96.2,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 32,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 378.51,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 33,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 34,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 35,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 36,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 37,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 38,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 39,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 154.66,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 40,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 15.17,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 41,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 42,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 43,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 44,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 45,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 27.01,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 46,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 47,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 48,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 49,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 50,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 51,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 52,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 77.7,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 53,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 54,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 55,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 56,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 57,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 58,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 40.33,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 59,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 60,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 61,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 62,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 15.17,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 63,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 45.88,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 64,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 15.17,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 65,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 66,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 11.84,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 67,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 68,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 69,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 70,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 71,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 275.28,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 72,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 73,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 74,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 80.29,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 75,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 76,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 77,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 78,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 79,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 80,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 81,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 11.84,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 82,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 83,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 84,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 203.5,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 85,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 86,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 87,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 88,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 11.84,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 89,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 90,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 11.84,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 91,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 92,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 93,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 94,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 95,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 355.2,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 96,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 97,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 98,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 99,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          },
+          {
+            "transaction": 100,
+            "baseStakeAR": 100,
+            "chargeAR": 100,
+            "payoutAR": 0,
+            "capReached": false,
+            "freeSpinsPlayed": 0
+          }
+        ]
+      },
+      "inspectionCounts": {
+        "transactions": 200000,
+        "gridsChecked": 940638,
+        "spins": 218403,
+        "capRounds": 0,
+        "positive": 46525,
+        "aboveCost": 17209,
+        "bonuses": 2118,
+        "freeSpins": 18403,
+        "retriggerSpinsAwarded": 740,
+        "luckToGoldUpgrades": 0,
+        "guaranteedTreasureTokens": 220,
+        "collectionFrames": 26164,
+        "activationTokenMaximumObserved": 1,
+        "activationGrids": 360170,
+        "clovers": {
+          "2": 7635,
+          "3": 5912,
+          "4": 51,
+          "5": 52,
+          "10": 38
+        },
+        "bonusPaymentRounds": 141,
+        "bonusPaymentCents": 1409888,
+        "legendaryFrames": 0,
+        "ordinaryCapRounds": 687,
+        "guards": 0
+      },
+      "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "game": "lecipher",
+      "name": "LeXof",
+      "mode": "buy",
+      "bonusTier": "luck",
+      "baseStakeAR": 5,
+      "bonusBuyMultiplier": 20,
+      "payoutScaleBasisPoints": 150000,
+      "transactionPlan": {
+        "paidTransactions": 0,
+        "buyTransactions": 100,
+        "paidStakeAR": 0,
+        "buyChargeAR": 100,
+        "totalStakesAR": 10000,
+        "mixed": false
+      },
+      "sessions": 2000,
+      "transactions": 200000,
+      "meanPayoutAR": 5022.11584,
+      "meanCasinoResultAR": 4977.88416,
+      "estimatedGrossReturnPercent": 50.221158,
+      "meanCasinoResult95CI_AR": [
+        4965.103515,
+        4990.664805
+      ],
+      "meanGrossReturn95CI_Percent": [
+        50.093352,
+        50.348965
+      ],
+      "casinoResultPercentilesAR": {
+        "p05": 4477.5,
+        "p50": 4986.52,
+        "p95": 5440
+      },
+      "casinoProfitableFraction": 1,
+      "casinoLossFraction": 0,
+      "casinoBreakEvenFraction": 0,
+      "positivePayoutFraction": 1,
+      "payoutAboveChargeFraction": 0.058535,
+      "wholeRoundCapFraction": 0,
+      "caps": 0,
+      "ordinaryBudgetCaps": 128,
+      "bonusPaymentRounds": 23369,
+      "bonusPaymentCents": 11684500,
+      "legendaryFrames": 0,
+      "naturalOrBoughtBonuses": 200000,
+      "freeSpinsPlayed": 1665988,
+      "unchargedGuardFailures": 0,
+      "casinoReserve10000ARBreachSessions": 0,
+      "casinoReserveExactlyZeroSessions": 0,
+      "minimumUnguardedReserveAR": 9937.5,
+      "elapsedSeconds": 62.855846,
+      "repeatedSessions": {
+        "sessions": 2000,
+        "transactions": 200000,
+        "meanPayoutAR": 5022.11584,
+        "meanCasinoResultAR": 4977.88416,
+        "estimatedGrossReturnPercent": 50.221158,
+        "meanCasinoResult95CI_AR": [
+          4965.103515,
+          4990.664805
+        ],
+        "meanGrossReturn95CI_Percent": [
+          50.093352,
+          50.348965
+        ],
+        "casinoResultPercentilesAR": {
+          "p05": 4477.5,
+          "p50": 4986.52,
+          "p95": 5440
+        },
+        "casinoProfitableFraction": 1,
+        "casinoLossFraction": 0,
+        "casinoBreakEvenFraction": 0,
+        "positivePayoutFraction": 1,
+        "payoutAboveChargeFraction": 0.058535,
+        "wholeRoundCapFraction": 0,
+        "caps": 0,
+        "ordinaryBudgetCaps": 128,
+        "bonusPaymentRounds": 23369,
+        "bonusPaymentCents": 11684500,
+        "legendaryFrames": 0,
+        "naturalOrBoughtBonuses": 200000,
+        "freeSpinsPlayed": 1665988,
+        "unchargedGuardFailures": 0,
+        "casinoReserve10000ARBreachSessions": 0,
+        "casinoReserveExactlyZeroSessions": 0,
+        "minimumUnguardedReserveAR": 9937.5,
+        "elapsedSeconds": 62.855846
+      },
+      "example": {
+        "seed": "indictus-lexof-v10-current-standard-independent-sha256-sfc32-2026-10-09/volume/luck/0",
+        "totalStakesAR": 10000,
+        "payoutAR": 5012.5,
+        "casinoResultAR": 4987.5,
+        "minReserveAR": 10000,
+        "paidRounds": [
+          {
+            "transaction": 1,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 2,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 3,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 17.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 4,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 105,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 5,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 6,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 7,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 8,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 9,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 10,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 11,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 12,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 13,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 14,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 15,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 16,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 17,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 18,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 19,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 122.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 20,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 21,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 22,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 23,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 24,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 25,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 26,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 17.5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 27,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 28,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 29,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 30,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 31,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 32,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 33,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 34,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 35,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 36,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 37,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 17.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 38,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 39,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 40,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 41,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 42,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 43,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 44,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 45,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 46,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 47,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 48,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 122.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 49,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 50,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 51,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 52,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 53,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 54,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 55,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 105,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 56,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 57,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 58,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 59,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 60,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 61,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 62,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 63,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 64,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 65,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 66,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 67,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 68,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 69,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 70,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 71,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 72,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 73,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 74,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 75,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 76,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 77,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 78,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 79,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 80,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 81,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 82,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 83,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 17.5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 84,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 85,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 86,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 87,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 88,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 89,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 35,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 90,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 91,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 70,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 92,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 17.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 93,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 94,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 95,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 96,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 97,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 105,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 98,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          },
+          {
+            "transaction": 99,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 52.5,
+            "capReached": false,
+            "freeSpinsPlayed": 10
+          },
+          {
+            "transaction": 100,
+            "baseStakeAR": 5,
+            "chargeAR": 100,
+            "payoutAR": 87.5,
+            "capReached": false,
+            "freeSpinsPlayed": 8
+          }
+        ]
+      },
+      "inspectionCounts": {
+        "transactions": 200000,
+        "gridsChecked": 6710946,
+        "spins": 1665988,
+        "capRounds": 0,
+        "positive": 200000,
+        "aboveCost": 11707,
+        "bonuses": 200000,
+        "freeSpins": 1665988,
+        "retriggerSpinsAwarded": 66064,
+        "luckToGoldUpgrades": 93,
+        "guaranteedTreasureTokens": 0,
+        "collectionFrames": 187331,
+        "activationTokenMaximumObserved": 1,
+        "activationGrids": 3046684,
+        "clovers": {
+          "2": 58169,
+          "3": 43791,
+          "4": 332,
+          "5": 349,
+          "10": 210
+        },
+        "bonusPaymentRounds": 23369,
+        "bonusPaymentCents": 11684500,
+        "legendaryFrames": 0,
+        "ordinaryCapRounds": 128,
+        "guards": 0
+      },
+      "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "game": "lecipher",
+      "name": "LeXof",
+      "mode": "buy",
+      "bonusTier": "gold",
+      "baseStakeAR": 5,
+      "bonusBuyMultiplier": 25,
+      "payoutScaleBasisPoints": 4825,
+      "transactionPlan": {
+        "paidTransactions": 0,
+        "buyTransactions": 80,
+        "paidStakeAR": 0,
+        "buyChargeAR": 125,
+        "totalStakesAR": 10000,
+        "mixed": false
+      },
+      "sessions": 2000,
+      "transactions": 160000,
+      "meanPayoutAR": 5001.0812,
+      "meanCasinoResultAR": 4998.9188,
+      "estimatedGrossReturnPercent": 50.010812,
+      "meanCasinoResult95CI_AR": [
+        4985.926199,
+        5011.911401
+      ],
+      "meanGrossReturn95CI_Percent": [
+        49.880886,
+        50.140738
+      ],
+      "casinoResultPercentilesAR": {
+        "p05": 4517.22,
+        "p50": 4996.56,
+        "p95": 5490.01
+      },
+      "casinoProfitableFraction": 1,
+      "casinoLossFraction": 0,
+      "casinoBreakEvenFraction": 0,
+      "positivePayoutFraction": 1,
+      "payoutAboveChargeFraction": 0.030125,
+      "wholeRoundCapFraction": 0,
+      "caps": 0,
+      "ordinaryBudgetCaps": 868,
+      "bonusPaymentRounds": 9512,
+      "bonusPaymentCents": 5133371,
+      "legendaryFrames": 0,
+      "naturalOrBoughtBonuses": 160000,
+      "freeSpinsPlayed": 2013278,
+      "unchargedGuardFailures": 0,
+      "casinoReserve10000ARBreachSessions": 0,
+      "casinoReserveExactlyZeroSessions": 0,
+      "minimumUnguardedReserveAR": 9975,
+      "elapsedSeconds": 105.639297,
+      "repeatedSessions": {
+        "sessions": 2000,
+        "transactions": 160000,
+        "meanPayoutAR": 5001.0812,
+        "meanCasinoResultAR": 4998.9188,
+        "estimatedGrossReturnPercent": 50.010812,
+        "meanCasinoResult95CI_AR": [
+          4985.926199,
+          5011.911401
+        ],
+        "meanGrossReturn95CI_Percent": [
+          49.880886,
+          50.140738
+        ],
+        "casinoResultPercentilesAR": {
+          "p05": 4517.22,
+          "p50": 4996.56,
+          "p95": 5490.01
+        },
+        "casinoProfitableFraction": 1,
+        "casinoLossFraction": 0,
+        "casinoBreakEvenFraction": 0,
+        "positivePayoutFraction": 1,
+        "payoutAboveChargeFraction": 0.030125,
+        "wholeRoundCapFraction": 0,
+        "caps": 0,
+        "ordinaryBudgetCaps": 868,
+        "bonusPaymentRounds": 9512,
+        "bonusPaymentCents": 5133371,
+        "legendaryFrames": 0,
+        "naturalOrBoughtBonuses": 160000,
+        "freeSpinsPlayed": 2013278,
+        "unchargedGuardFailures": 0,
+        "casinoReserve10000ARBreachSessions": 0,
+        "casinoReserveExactlyZeroSessions": 0,
+        "minimumUnguardedReserveAR": 9975,
+        "elapsedSeconds": 105.639297
+      },
+      "example": {
+        "seed": "indictus-lexof-v10-current-standard-independent-sha256-sfc32-2026-10-09/volume/gold/0",
+        "totalStakesAR": 10000,
+        "payoutAR": 4500.94,
+        "casinoResultAR": 5499.06,
+        "minReserveAR": 10000,
+        "paidRounds": [
+          {
+            "transaction": 1,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 34.42,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 2,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 16.75,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 3,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 59.38,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 4,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 30.77,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 5,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 69.58,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 6,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 14.59,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 7,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 68.26,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 8,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 23.56,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 9,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 90.85,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 10,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 57.97,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 11,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 49.61,
+            "capReached": false,
+            "freeSpinsPlayed": 18
+          },
+          {
+            "transaction": 12,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 91.54,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 13,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 31.19,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 14,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 6.25,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 15,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 80.39,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 16,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 55.32,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 17,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 74.71,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 18,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 30.54,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 19,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 108.75,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 20,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 36.3,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 21,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 78.13,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 22,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 34.8,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 23,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 33.26,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 24,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 81.11,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 25,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 64.81,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 26,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 71.1,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 27,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 53.34,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 28,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 31.75,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 29,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 57.14,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 30,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 102.98,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 31,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 72.78,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 32,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 97.53,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 33,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 34.75,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 34,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 105.3,
+            "capReached": false,
+            "freeSpinsPlayed": 16
+          },
+          {
+            "transaction": 35,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 48.25,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 36,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 135.77,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 37,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 54.91,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 38,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 58.53,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 39,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 16,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 40,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 40.54,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 41,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 113.94,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 42,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 63.15,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 43,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 39.31,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 44,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 70.26,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 45,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 45.77,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 46,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 78.75,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 47,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 45.77,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 48,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 109.34,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 49,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 26.38,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 50,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 45.98,
+            "capReached": false,
+            "freeSpinsPlayed": 16
+          },
+          {
+            "transaction": 51,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 86.52,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 52,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 78.21,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 53,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 35.78,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 54,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 86.84,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 55,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 6.25,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 56,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 27.73,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 57,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 63.18,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 58,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 65.41,
+            "capReached": false,
+            "freeSpinsPlayed": 16
+          },
+          {
+            "transaction": 59,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 6.25,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 60,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 22.59,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 61,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 76.22,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 62,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 25.35,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 63,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 135.77,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 64,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 6.25,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 65,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 82.67,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 66,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 18.5,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 67,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 11.03,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 68,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 30,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 69,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 13.78,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 70,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 70.62,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 71,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 59.59,
+            "capReached": false,
+            "freeSpinsPlayed": 14
+          },
+          {
+            "transaction": 72,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 6.25,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 73,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 51.06,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 74,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 43.92,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 75,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 64.18,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 76,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 73.9,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 77,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 88.77,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 78,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 126.39,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 79,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 65,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          },
+          {
+            "transaction": 80,
+            "baseStakeAR": 5,
+            "chargeAR": 125,
+            "payoutAR": 30.77,
+            "capReached": false,
+            "freeSpinsPlayed": 12
+          }
+        ]
+      },
+      "inspectionCounts": {
+        "transactions": 160000,
+        "gridsChecked": 8843998,
+        "spins": 2013278,
+        "capRounds": 0,
+        "positive": 160000,
+        "aboveCost": 4820,
+        "bonuses": 160000,
+        "freeSpins": 2013278,
+        "retriggerSpinsAwarded": 94006,
+        "luckToGoldUpgrades": 0,
+        "guaranteedTreasureTokens": 0,
+        "collectionFrames": 776794,
+        "activationTokenMaximumObserved": 1,
+        "activationGrids": 3960114,
+        "clovers": {
+          "2": 362125,
+          "3": 272075,
+          "4": 2200,
+          "5": 2238,
+          "10": 1151
+        },
+        "bonusPaymentRounds": 9512,
+        "bonusPaymentCents": 5133371,
+        "legendaryFrames": 0,
+        "ordinaryCapRounds": 868,
+        "guards": 0
+      },
+      "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    }
+  ],
+  "houseIndependentAudit": {
+    "main": [
+      {
+        "mode": "paid",
+        "count": 500000,
+        "baseStakeAR": 50,
+        "chargeAR": 50,
+        "estimatedRTPPercent": 50.736634,
+        "rtpMean95CI_Percent": [
+          50.092733,
+          51.380535
+        ],
+        "expectedCasinoGrossPer10000AR": 4926.3366,
+        "cap": {
+          "count": 0,
+          "total": 500000,
+          "fraction": 0
+        },
+        "ordinaryCap": {
+          "count": 942,
+          "total": 500000,
+          "fraction": 0.001884
+        },
+        "positive": {
+          "count": 132896,
+          "total": 500000,
+          "fraction": 0.265792
+        },
+        "payoutAboveCharge": {
+          "count": 36593,
+          "total": 500000,
+          "fraction": 0.073186
+        },
+        "bonusWilds": {
+          "count": 2348,
+          "total": 2949,
+          "fraction": 0.7962021024075958
+        },
+        "perReelFreshWilds": {
+          "paid": [
+            {
+              "count": 15,
+              "total": 1500000,
+              "fraction": 0.00001
+            },
+            {
+              "count": 62615,
+              "total": 1500000,
+              "fraction": 0.041743333333333334
+            },
+            {
+              "count": 21,
+              "total": 1500000,
+              "fraction": 0.000014
+            }
+          ],
+          "free": [
+            {
+              "count": 1,
+              "total": 102958,
+              "fraction": 0.000009712698381864449
+            },
+            {
+              "count": 3638,
+              "total": 81580,
+              "fraction": 0.044594263299828386
+            },
+            {
+              "count": 1,
+              "total": 102954,
+              "fraction": 0.00000971307574256464
+            }
+          ]
+        },
+        "bonusPayment": {
+          "count": 0,
+          "total": 500000,
+          "fraction": 0
+        },
+        "largePayouts": {
+          "20": {
+            "count": 1935,
+            "total": 500000,
+            "fraction": 0.00387
+          },
+          "25": {
+            "count": 942,
+            "total": 500000,
+            "fraction": 0.001884
+          },
+          "30": {
+            "count": 0,
+            "total": 500000,
+            "fraction": 0
+          }
+        },
+        "payoutBaseMultipliers": {
+          "p05": 0,
+          "p50": 0,
+          "p95": 3.185,
+          "p99": 12.6334,
+          "maximum": 25
+        },
+        "checks": {
+          "rounds": 500000,
+          "capRounds": 0,
+          "ordinaryCapRounds": 942,
+          "positive": 132896,
+          "aboveCost": 36593,
+          "bonuses": 2949,
+          "bonusWilds": 2348,
+          "freeSpins": 34321,
+          "bonusPaymentRounds": 0,
+          "bonusPaymentCents": 0,
+          "awards": {
+            "count": 2949,
+            "sum": 34321,
+            "exact": {
+              "9": 169,
+              "10": 500,
+              "11": 801,
+              "12": 697,
+              "13": 456,
+              "14": 226,
+              "15": 76,
+              "16": 16,
+              "17": 7,
+              "18": 1
+            }
+          },
+          "draws": {
+            "paid": [
+              1500000,
+              1500000,
+              1500000
+            ],
+            "free": [
+              102958,
+              81580,
+              102954
+            ]
+          },
+          "wilds": {
+            "paid": [
+              15,
+              62615,
+              21
+            ],
+            "free": [
+              1,
+              3638,
+              1
+            ]
+          },
+          "wildValues": {
+            "2": 2704,
+            "3": 936
+          },
+          "endingSticky": 3640,
+          "tripleHorizontalWildSpins": 0,
+          "legendaryFrames": 0,
+          "threshold": {
+            "20": 1935,
+            "25": 942,
+            "30": 0
+          },
+          "guards": 0
+        },
+        "elapsedSeconds": 11.230371
+      },
+      {
+        "mode": "buy",
+        "count": 100000,
+        "baseStakeAR": 50,
+        "chargeAR": 1000,
+        "estimatedRTPPercent": 50.625178,
+        "rtpMean95CI_Percent": [
+          50.399796,
+          50.850559
+        ],
+        "expectedCasinoGrossPer10000AR": 4937.482221,
+        "cap": {
+          "count": 0,
+          "total": 100000,
+          "fraction": 0
+        },
+        "ordinaryCap": {
+          "count": 2371,
+          "total": 100000,
+          "fraction": 0.02371
+        },
+        "positive": {
+          "count": 100000,
+          "total": 100000,
+          "fraction": 1
+        },
+        "payoutAboveCharge": {
+          "count": 11653,
+          "total": 100000,
+          "fraction": 0.11653
+        },
+        "bonusWilds": {
+          "count": 79370,
+          "total": 100000,
+          "fraction": 0.7937
+        },
+        "perReelFreshWilds": {
+          "paid": [
+            {
+              "count": 0,
+              "total": 0,
+              "fraction": null
+            },
+            {
+              "count": 0,
+              "total": 0,
+              "fraction": null
+            },
+            {
+              "count": 0,
+              "total": 0,
+              "fraction": null
+            }
+          ],
+          "free": [
+            {
+              "count": 41,
+              "total": 3509512,
+              "fraction": 0.000011682535919523854
+            },
+            {
+              "count": 123683,
+              "total": 2774873,
+              "fraction": 0.04457249034460316
+            },
+            {
+              "count": 42,
+              "total": 3509553,
+              "fraction": 0.000011967336011167235
+            }
+          ]
+        },
+        "bonusPayment": {
+          "count": 22917,
+          "total": 100000,
+          "fraction": 0.22917
+        },
+        "largePayouts": {
+          "20": {
+            "count": 11653,
+            "total": 100000,
+            "fraction": 0.11653
+          },
+          "25": {
+            "count": 2371,
+            "total": 100000,
+            "fraction": 0.02371
+          },
+          "30": {
+            "count": 0,
+            "total": 100000,
+            "fraction": 0
+          }
+        },
+        "payoutBaseMultipliers": {
+          "p05": 1,
+          "p50": 10.4,
+          "p95": 23.4,
+          "p99": 25,
+          "maximum": 25
+        },
+        "checks": {
+          "rounds": 100000,
+          "capRounds": 0,
+          "ordinaryCapRounds": 2371,
+          "positive": 100000,
+          "aboveCost": 11653,
+          "bonuses": 100000,
+          "bonusWilds": 79370,
+          "freeSpins": 1169927,
+          "bonusPaymentRounds": 22917,
+          "bonusPaymentCents": 92832113,
+          "awards": {
+            "count": 100000,
+            "sum": 1169927,
+            "exact": {
+              "9": 5223,
+              "10": 16749,
+              "11": 25768,
+              "12": 24490,
+              "13": 16057,
+              "14": 7718,
+              "15": 2895,
+              "16": 865,
+              "17": 194,
+              "18": 34,
+              "19": 6,
+              "20": 1
+            }
+          },
+          "draws": {
+            "paid": [
+              0,
+              0,
+              0
+            ],
+            "free": [
+              3509512,
+              2774873,
+              3509553
+            ]
+          },
+          "wilds": {
+            "paid": [
+              0,
+              0,
+              0
+            ],
+            "free": [
+              41,
+              123683,
+              42
+            ]
+          },
+          "wildValues": {
+            "2": 92901,
+            "3": 30865
+          },
+          "endingSticky": 123766,
+          "tripleHorizontalWildSpins": 0,
+          "legendaryFrames": 0,
+          "threshold": {
+            "20": 11653,
+            "25": 2371,
+            "30": 0
+          },
+          "guards": 0
+        },
+        "elapsedSeconds": 25.702846
+      }
+    ],
+    "methodology": {
+      "algorithm": "SHA256-seeded sfc32, 20-word warmup, unbiased integer rejection sampling, independent seed and RNG family from calibration.",
+      "holdout": "500000 paid and100000 bought transactions at50AR base, all bonus/free spins/caps included.",
+      "volume": "2000 independent series per exact10000AR plan:100paid×100AR;100buys×100AR(base5);2maxbuys×5000AR(base250).",
+      "ci": "Normal95% Monte Carlo intervals of independent round/session means. No exact RTP/rare-event or solvency claim.",
+      "guardFailures": "Any engine guard aborts; no rerolls or skipping.",
+      "minimum": "5% equivalent purchase20×base =1×base for whole round with a bonus; natural paid launch counts. Separate payment frame only.",
+      "bodyBudgets": "Ordinary25×whole-round and2.6×each free spin. Actual hood/WILD/WILD/WILD/hood alone awards40×base−1AR. Budgets configured beforeRNG.",
+      "bankroll": "Ungated research with sufficient player funds. Protected DEMO admission is separate and client code is not trusted real-money authority."
+    }
+  },
+  "lecipherIndependentAudit": {
+    "main": [
+      {
+        "mode": "paid",
+        "bonusTier": "luck",
+        "count": 100000,
+        "baseStakeAR": 50,
+        "chargeAR": 50,
+        "estimatedRTPPercent": 49.315585,
+        "rtpMean95CI_Percent": [
+          47.812038,
+          50.819133
+        ],
+        "expectedCasinoGrossPer10000AR": 5068.44146,
+        "wholeRoundCapFraction": 0,
+        "positivePayoutFraction": 0.23609,
+        "payoutAboveChargeFraction": 0.0875,
+        "naturalOrBoughtBonuses": 1032,
+        "freeSpinsPlayed": 9053,
+        "payoutBaseMultipliers": {
+          "p05": 0,
+          "p50": 0,
+          "p95": 2.0494,
+          "p99": 11.6084
+        },
+        "checks": {
+          "transactions": 100000,
+          "gridsChecked": 470620,
+          "spins": 109053,
+          "capRounds": 0,
+          "positive": 23609,
+          "aboveCost": 8750,
+          "bonuses": 1032,
+          "freeSpins": 9053,
+          "retriggerSpinsAwarded": 378,
+          "luckToGoldUpgrades": 1,
+          "guaranteedTreasureTokens": 88,
+          "collectionFrames": 13354,
+          "activationTokenMaximumObserved": 1,
+          "activationGrids": 179900,
+          "clovers": {
+            "2": 3874,
+            "3": 2952,
+            "4": 33,
+            "5": 17,
+            "10": 19
+          },
+          "bonusPaymentRounds": 81,
+          "bonusPaymentCents": 400084,
+          "legendaryFrames": 0,
+          "ordinaryCapRounds": 301,
+          "guards": 0
+        },
+        "cloverTotal": 6895,
+        "largeCloverFraction": 0.010007251631617115,
+        "elapsedSeconds": 5.774892
+      },
+      {
+        "mode": "buy",
+        "bonusTier": "luck",
+        "count": 100000,
+        "baseStakeAR": 50,
+        "chargeAR": 1000,
+        "estimatedRTPPercent": 50.309482,
+        "rtpMean95CI_Percent": [
+          50.131352,
+          50.487612
+        ],
+        "expectedCasinoGrossPer10000AR": 4969.051797,
+        "wholeRoundCapFraction": 0,
+        "positivePayoutFraction": 1,
+        "payoutAboveChargeFraction": 0.06057,
+        "naturalOrBoughtBonuses": 100000,
+        "freeSpinsPlayed": 833051,
+        "payoutBaseMultipliers": {
+          "p05": 1,
+          "p50": 10.5,
+          "p95": 21,
+          "p99": 24.5
+        },
+        "checks": {
+          "transactions": 100000,
+          "gridsChecked": 3356124,
+          "spins": 833051,
+          "capRounds": 0,
+          "positive": 100000,
+          "aboveCost": 6057,
+          "bonuses": 100000,
+          "freeSpins": 833051,
+          "retriggerSpinsAwarded": 33072,
+          "luckToGoldUpgrades": 47,
+          "guaranteedTreasureTokens": 0,
+          "collectionFrames": 94019,
+          "activationTokenMaximumObserved": 1,
+          "activationGrids": 1524038,
+          "clovers": {
+            "2": 29323,
+            "3": 21818,
+            "4": 189,
+            "5": 179,
+            "10": 107
+          },
+          "bonusPaymentRounds": 11883,
+          "bonusPaymentCents": 59415000,
+          "legendaryFrames": 0,
+          "ordinaryCapRounds": 56,
+          "guards": 0
+        },
+        "cloverTotal": 51616,
+        "largeCloverFraction": 0.009202572845629262,
+        "elapsedSeconds": 42.357162
+      },
+      {
+        "mode": "buy",
+        "bonusTier": "gold",
+        "count": 100000,
+        "baseStakeAR": 50,
+        "chargeAR": 1250,
+        "estimatedRTPPercent": 50.044315,
+        "rtpMean95CI_Percent": [
+          49.881893,
+          50.206736
+        ],
+        "expectedCasinoGrossPer10000AR": 4995.568544,
+        "wholeRoundCapFraction": 0,
+        "positivePayoutFraction": 1,
+        "payoutAboveChargeFraction": 0.02997,
+        "naturalOrBoughtBonuses": 100000,
+        "freeSpinsPlayed": 1258293,
+        "payoutBaseMultipliers": {
+          "p05": 1.25,
+          "p50": 12.4004,
+          "p95": 23.754,
+          "p99": 28.143
+        },
+        "checks": {
+          "transactions": 100000,
+          "gridsChecked": 5528874,
+          "spins": 1258293,
+          "capRounds": 0,
+          "positive": 100000,
+          "aboveCost": 2997,
+          "bonuses": 100000,
+          "freeSpins": 1258293,
+          "retriggerSpinsAwarded": 58774,
+          "luckToGoldUpgrades": 0,
+          "guaranteedTreasureTokens": 0,
+          "collectionFrames": 485153,
+          "activationTokenMaximumObserved": 1,
+          "activationGrids": 2476490,
+          "clovers": {
+            "2": 226072,
+            "3": 169787,
+            "4": 1407,
+            "5": 1389,
+            "10": 777
+          },
+          "bonusPaymentRounds": 5961,
+          "bonusPaymentCents": 32086265,
+          "legendaryFrames": 0,
+          "ordinaryCapRounds": 571,
+          "guards": 0
+        },
+        "cloverTotal": 399432,
+        "largeCloverFraction": 0.00894520218710569,
+        "elapsedSeconds": 79.082126
+      }
+    ],
+    "methodology": {
+      "algorithm": "SHA-256-seeded sfc32, 20-word warmup, unbiased integer rejection sampling",
+      "holdout": "100000 independent transactions per paid/Luck/Gold mode at50AR base; includes every naturally triggered/bought free spin, retrigger and cap.",
+      "volume": "2000 independent sessions per plan, each charging exactly10000AR: paid100×100AR; Luck100×100AR(base5); Gold80×125AR(base5).",
+      "bankroll": "Fixed turnover under sufficient funding with admission disabled. Any negative or zero research reserve is not a current protected DEMO ledger result. Client-side DEMO reserve is not a trusted shared server wallet.",
+      "ci": "Normal95% Monte Carlo intervals for independent round/session means; not an exact-RTP or solvency proof.",
+      "guards": "Any safety-guard exception aborts the audit. No failed transaction is silently skipped, rerolled or charged.",
+      "inspect": "Integer cents, global cap40×stake−100cents, ordinary round budget30×, ordinary free-spin budgets Luck3.5×/Gold3×/Treasure3×, minimum bonus payments and actual legendary frames, charge only first spin, exact frame/spin/ledger sums, all free spins, and at most one visible activation token in every initial/terminal/before/after grid. Collection reward cells are distinct from activation tokens.",
+      "seeds": "Holdout and volume labels are disjoint. Frozen source author must confirm this masterSeed/RNG differs from calibration before execution."
+    }
+  },
+  "houseMaxBuyStress": {
+    "game": "maskhouse",
+    "name": "Mask House",
+    "mode": "buy",
+    "bonusTier": "sticky",
+    "baseStakeAR": 250,
+    "bonusBuyMultiplier": 20,
+    "payoutScaleBasisPoints": 60000,
+    "transactionPlan": {
+      "paidTransactions": 0,
+      "buyTransactions": 2,
+      "paidStakeAR": 0,
+      "buyChargeAR": 5000,
+      "totalStakesAR": 10000,
+      "mixed": false
+    },
+    "sessions": 2000,
+    "transactions": 4000,
+    "meanPayoutAR": 5107.833015,
+    "meanCasinoResultAR": 4892.166985,
+    "estimatedGrossReturnPercent": 51.07833,
+    "meanCasinoResult95CI_AR": [
+      4779.686747,
+      5004.647223
+    ],
+    "meanGrossReturn95CI_Percent": [
+      49.953528,
+      52.203133
+    ],
+    "casinoResultPercentilesAR": {
+      "p05": 250,
+      "p50": 4800,
+      "p95": 9500
+    },
+    "casinoProfitableFraction": 0.9705,
+    "casinoLossFraction": 0.0295,
+    "casinoBreakEvenFraction": 0,
+    "positivePayoutFraction": 1,
+    "payoutAboveChargeFraction": 0.12175,
+    "wholeRoundCapFraction": 0,
+    "ordinaryBudgetCapFraction": 0.025,
+    "caps": 0,
+    "bonusPaymentRounds": 904,
+    "naturalOrBoughtBonuses": 4000,
+    "freeSpinsPlayed": 46714,
+    "unchargedGuardFailures": 0,
+    "casinoReserve10000ARBreachSessions": 0,
+    "elapsedSeconds": 1.036066,
+    "repeatedSessions": {
+      "sessions": 2000,
+      "transactions": 4000,
+      "meanPayoutAR": 5107.833015,
+      "meanCasinoResultAR": 4892.166985,
+      "estimatedGrossReturnPercent": 51.07833,
+      "meanCasinoResult95CI_AR": [
+        4779.686747,
+        5004.647223
+      ],
+      "meanGrossReturn95CI_Percent": [
+        49.953528,
+        52.203133
+      ],
+      "casinoResultPercentilesAR": {
+        "p05": 250,
+        "p50": 4800,
+        "p95": 9500
+      },
+      "casinoProfitableFraction": 0.9705,
+      "casinoLossFraction": 0.0295,
+      "casinoBreakEvenFraction": 0,
+      "positivePayoutFraction": 1,
+      "payoutAboveChargeFraction": 0.12175,
+      "wholeRoundCapFraction": 0,
+      "ordinaryBudgetCapFraction": 0.025,
+      "caps": 0,
+      "bonusPaymentRounds": 904,
+      "naturalOrBoughtBonuses": 4000,
+      "freeSpinsPlayed": 46714,
+      "unchargedGuardFailures": 0,
+      "casinoReserve10000ARBreachSessions": 0,
+      "elapsedSeconds": 1.036066
+    },
+    "example": {
+      "seed": "indictus-house-structure-v10-current-standard-independent-sfc32-holdout-2026-10-09/volume/buy/25000/0",
+      "totalStakesAR": 10000,
+      "payoutAR": 4586.75,
+      "casinoResultAR": 5413.25,
+      "minReserveAR": 10000,
+      "paidRounds": [
+        {
+          "transaction": 1,
+          "baseStakeAR": 250,
+          "chargeAR": 5000,
+          "payoutAR": 686.75,
+          "capReached": false,
+          "freeSpinsPlayed": 12
+        },
+        {
+          "transaction": 2,
+          "baseStakeAR": 250,
+          "chargeAR": 5000,
+          "payoutAR": 3900,
+          "capReached": false,
+          "freeSpinsPlayed": 11
+        }
+      ]
+    },
+    "inspectionCounts": {
+      "rounds": 4000,
+      "capRounds": 0,
+      "ordinaryCapRounds": 100,
+      "positive": 4000,
+      "aboveCost": 487,
+      "bonuses": 4000,
+      "bonusWilds": 3188,
+      "freeSpins": 46714,
+      "bonusPaymentRounds": 904,
+      "bonusPaymentCents": 18014408,
+      "awards": {
+        "count": 4000,
+        "sum": 46714,
+        "exact": {
+          "9": 216,
+          "10": 714,
+          "11": 991,
+          "12": 958,
+          "13": 657,
+          "14": 319,
+          "15": 106,
+          "16": 30,
+          "17": 7,
+          "18": 1,
+          "19": 1
+        }
+      },
+      "draws": {
+        "paid": [
+          0,
+          0,
+          0
+        ],
+        "free": [
+          140127,
+          110518,
+          140141
+        ]
+      },
+      "wilds": {
+        "paid": [
+          0,
+          0,
+          0
+        ],
+        "free": [
+          1,
+          4935,
+          1
+        ]
+      },
+      "wildValues": {
+        "2": 3707,
+        "3": 1230
+      },
+      "endingSticky": 4937,
+      "tripleHorizontalWildSpins": 0,
+      "legendaryFrames": 0,
+      "threshold": {
+        "20": 487,
+        "25": 100,
+        "30": 0
+      },
+      "guards": 0
+    },
+    "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+  },
+  "awardDistribution": {
+    "weights": [
+      [
+        1,
+        72
+      ],
+      [
+        2,
+        26
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "draws": 9,
+    "totalOutcomes": "1000000000000000000",
+    "mean": 11.700000000000001,
+    "fraction11or12": 0.5003403508045579,
+    "fraction15orMore": 0.0401824213982249,
+    "distribution": [
+      {
+        "spins": 9,
+        "count": "51998697814228992",
+        "probability": 0.05199869781422899
+      },
+      {
+        "spins": 10,
+        "count": "168995767896244224",
+        "probability": 0.16899576789624424
+      },
+      {
+        "spins": 11,
+        "count": "257104672525910016",
+        "probability": 0.25710467252591
+      },
+      {
+        "spins": 12,
+        "count": "243235678278647808",
+        "probability": 0.2432356782786478
+      },
+      {
+        "spins": 13,
+        "count": "160319844903813120",
+        "probability": 0.16031984490381312
+      },
+      {
+        "spins": 14,
+        "count": "78162917182930944",
+        "probability": 0.07816291718293095
+      },
+      {
+        "spins": 15,
+        "count": "29208099639656448",
+        "probability": 0.029208099639656447
+      },
+      {
+        "spins": 16,
+        "count": "8552515116367872",
+        "probability": 0.008552515116367872
+      },
+      {
+        "spins": 17,
+        "count": "1989106210768896",
+        "probability": 0.001989106210768896
+      },
+      {
+        "spins": 18,
+        "count": "370172984629760",
+        "probability": 0.00037017298462976
+      },
+      {
+        "spins": 19,
+        "count": "55252950299136",
+        "probability": 0.000055252950299136
+      },
+      {
+        "spins": 20,
+        "count": "6599162898432",
+        "probability": 0.000006599162898432
+      },
+      {
+        "spins": 21,
+        "count": "626030942208",
+        "probability": 6.26030942208e-7
+      },
+      {
+        "spins": 22,
+        "count": "46536182784",
+        "probability": 4.6536182784e-8
+      },
+      {
+        "spins": 23,
+        "count": "2651397120",
+        "probability": 2.65139712e-9
+      },
+      {
+        "spins": 24,
+        "count": "111740928",
+        "probability": 1.11740928e-10
+      },
+      {
+        "spins": 25,
+        "count": "3280896",
+        "probability": 3.280896e-12
+      },
+      {
+        "spins": 26,
+        "count": "59904",
+        "probability": 5.9904e-14
+      },
+      {
+        "spins": 27,
+        "count": "512",
+        "probability": 5.12e-16
+      }
+    ]
+  },
+  "rareTailProof": {
+    "passed": true,
+    "generatedAt": "2026-10-09T12:17:24.097Z",
+    "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "sourcePath": "math-research/mask-structure-v10-audit/mask-slots.js",
+    "boundType": "Exact rational union upper bounds for standard House paid/sticky and LeXof paid/luck/gold generated attempts only; new feature variants are outside these bounds. Not exact cap frequencies or a universal guarantee about accepted rounds.",
+    "house": {
+      "bought": {
+        "numerator": "27602574102967074740849156628879430195501255636939214709493905250642331841885298309753564564548126178404921613689779876378741435054944241301997340607050765080532240420950352796554968349819512184027604785694622359085672504951923160295676735653312901512951105907397192744801674000891565260474963320812170104691683433784",
+        "denominator": "6576429287317626152073787450099943729355900871296064250213515945269817179957365945113598658532017603763363515666363780691845317014139023451176540540315614733570883077308797755892544712489382078620715450370266216955248366079687110602348087735214956990802874918578613900350796458407745994937290578263855422846972942352294921875",
+        "upperBoundDecimal": "0.000000004197197734064822306829637364",
+        "upperBound": 4.1971977340648226e-9,
+        "reciprocalUpperBound": 238254202.7705564
+      },
+      "paidSingleGrid": {
+        "numerator": "5",
+        "denominator": "23475449931174",
+        "upperBoundDecimal": "0.000000000000212988463039436686289390",
+        "upperBound": 2.129884630394367e-13,
+        "reciprocalUpperBound": 4695089986234.8
+      },
+      "naturalLaunchBonusTriggerProbability": {
+        "numerator": "229186606761",
+        "denominator": "38806720086016",
+        "upperBoundDecimal": "0.005905848426587007140482163754223139",
+        "upperBound": 0.005905848426587007,
+        "reciprocalUpperBound": 169.32368184360948
+      },
+      "paidWholeRoundIncludingNaturalBonus": {
+        "numerator": "9846445999606212658399810173861882196948738060109180418381926196742736948057975812445099860030543696735260754940553142350585319262771842684469377553120915064691874632895252512049259058980995360153516884682756906688231490627133010129895186467769440414164978273885572102024769515497905255002726765747480532547956099206407083663",
+        "denominator": "393842053269155572108206512364693502513374977290770944144210055632695844602042757285141327884134136414515154962947019782419435896093666531529975185946108153872450272618354856215036852648007838406695647464247341953534559861936047601025802606246132855534536238705560426875739680850301161763971500817668996751308441162109375000000000000000",
+        "upperBoundDecimal": "0.000000000025001002096840719128960501",
+        "upperBound": 2.500100209684072e-11,
+        "reciprocalUpperBound": 39998396709.320946
+      },
+      "formulaBought": "20 * sum_T P(T) * T * (40/860)^2 * [1-(86000/86001)^T]^2 * [1-(860/900)^T]",
+      "formulaPaid": "20*(40/920)^2*(1/86001)^2*(40/960)",
+      "formulaNatural": "paidSingleGridBound + exactPaidTriggerProbability * boughtBonusBound",
+      "TWeights": "Sum of9 independent picks with weights1:72,2:26,3:2;9<=T<=27; no retrigger; paid-launch wilds are not sticky."
+    },
+    "lexof": {
+      "freshCellTenCloverProbability": {
+        "numerator": "7",
+        "denominator": "56500",
+        "upperBoundDecimal": "0.000123893805309734513274336283185840",
+        "upperBound": 0.0001238938053097345,
+        "reciprocalUpperBound": 8071.428571428572
+      },
+      "wholeAttemptUpperBound": {
+        "numerator": "2401",
+        "denominator": "50952300312500",
+        "upperBoundDecimal": "0.000000000047122504485061858805552823",
+        "upperBound": 4.712250448506186e-11,
+        "reciprocalUpperBound": 21221282928.987923
+      },
+      "formula": "(6-1)*(5-1) * 200 spins * 50 collections per spin * [(7/100)*(1/565)]^4",
+      "interpretation": "A specified2x2 square qualifies only when all four cells are fresh x10clovers from the same collection. Gold/activation selection cannot increase the conditional collection reward probability: both reward tables are separately, independently drawn after the eligible fresh cells have been chosen. Fixed pots are fresh:false and never qualify."
+    },
+    "conservativeFinancialReserve": {
+      "actualMaskGrossCapFormula": "40*stakeCents-100",
+      "maxStakeAR": 250,
+      "maxGrossPayoutAR": 9999,
+      "maskHousePaidMaxNetLossAR": 9749,
+      "maskHouseBuyMaxNetLossAR": 4999,
+      "lexofLuckBuyMaxNetLossAR": 4999,
+      "lexofGoldBuyMaxNetLossAR": 3749,
+      "bonanzaCapUnchanged": 100,
+      "blackjackMaxGrossUnchanged": 2.5
+    },
+    "bodyBudgetConditions": [
+      "Only actual visible declared legendary conditions may exceed the ordinary whole-round budget.",
+      "The explicit5%equivalent-purchase minimum is below the body budget and cannot independently reach the hard cap.",
+      "No account, balance, house reserve or prior result changes fixed tables.",
+      "Full possible maximum is reserved before RNG even if its upper tail is extremely rare."
+    ],
+    "limitations": [
+      "These are upper bounds, not equalities or estimated exact hit frequencies.",
+      "Bounds describe generated attempts. Engine safety-limit exceptions reject without charging and are not silently retried; conditional probability among accepted rounds would additionally require an acceptance-probability bound.",
+      "The House natural-trigger multiplication relies on fresh independent free-spin RNG and an empty sticky map at entry, verified in source/fixture.",
+      "Finite simulation with zero observed caps alone cannot prove billion-scale rarity.",
+      "BrowserDEMO funds/reserve are local and forgeable; no real-payment solvency claim."
+    ]
+  },
+  "regression": {
+    "checks": 1947677,
+    "sourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+  }
+}

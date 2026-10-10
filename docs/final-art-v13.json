@@ -1,0 +1,136 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "promptFile": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\art-deliverables\\final-art-prompts-v13.json",
+  "originalsDirectory": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\art-deliverables",
+  "assets": [
+    {
+      "url": "/hall-bonanza-cover-v12.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\hall-bonanza-cover-v12.webp",
+      "width": 959,
+      "height": 540,
+      "hasAlpha": false,
+      "bytes": 94666,
+      "sha256": "54041239a8fe4b32bcb64c2e0ea386249f6bb2096ff2548dfee258f8c5edf962"
+    },
+    {
+      "url": "/maskhouse-cover-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\maskhouse-cover-v13.webp",
+      "width": 960,
+      "height": 540,
+      "hasAlpha": false,
+      "bytes": 105960,
+      "sha256": "3680399932007c113addbac09fbdde09e7e97a917c52f9e31b884415a3fa2be0"
+    },
+    {
+      "url": "/hall-lexof-cover-v12.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\hall-lexof-cover-v12.webp",
+      "width": 960,
+      "height": 540,
+      "hasAlpha": false,
+      "bytes": 86432,
+      "sha256": "15964f64aa6c044ebb3f9da83d6a85f53b67f397fef6b0956fa66a66f22cbdbc"
+    },
+    {
+      "url": "/bonanza-commercial-scene-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\bonanza-commercial-scene-v13.webp",
+      "width": 1536,
+      "height": 1024,
+      "hasAlpha": false,
+      "bytes": 189030,
+      "sha256": "20a05f3a435e865182086fd31b6af128404465fa72b2b454769bd69f132fa7f7"
+    },
+    {
+      "url": "/bonanza-commercial-atlas-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\bonanza-commercial-atlas-v13.webp",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "bytes": 279580,
+      "sha256": "377f5a7785526417c9dbe4baab59cf509f088e17d34945404c2f1e71d0b7faf7"
+    },
+    {
+      "url": "/bonanza-commercial-mascot-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\bonanza-commercial-mascot-v13.webp",
+      "width": 1448,
+      "height": 1448,
+      "hasAlpha": true,
+      "bytes": 403472,
+      "sha256": "a4fcfaf2c1e164c5d5a0f0a620bfc51d3f586b09d71984587d1f116aea0ca548"
+    },
+    {
+      "url": "/maskhouse-manor-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\maskhouse-manor-v13.webp",
+      "width": 1200,
+      "height": 800,
+      "hasAlpha": false,
+      "bytes": 159912,
+      "sha256": "9a63a22f0ed8e8161e8ed7e5c6660fbb548c08e5fda41250a749fa81a131b7f8"
+    },
+    {
+      "url": "/maskhouse-symbols-packed-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\maskhouse-symbols-packed-v13.webp",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "bytes": 322484,
+      "sha256": "cd8422e477bfe4cc6121b284bf2bc9b4208a3247aad5ef295f9134697210a9a1"
+    },
+    {
+      "url": "/maskhouse-host-sprites-packed-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\maskhouse-host-sprites-packed-v13.webp",
+      "width": 2172,
+      "height": 724,
+      "hasAlpha": true,
+      "bytes": 247112,
+      "sha256": "9ce10061dc76028e737786094e08609aecad32a4b5e0649ea51a457c6cbe83e5"
+    },
+    {
+      "url": "/maskhouse-host-dance-packed-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\maskhouse-host-dance-packed-v13.webp",
+      "width": 1448,
+      "height": 724,
+      "hasAlpha": true,
+      "bytes": 256310,
+      "sha256": "4287312d70471259e8ea0f1a795b0497065955b7a7de0a194c1ffd857991f9ce"
+    },
+    {
+      "url": "/lexof-scene-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\lexof-scene-v13.webp",
+      "width": 1200,
+      "height": 800,
+      "hasAlpha": false,
+      "bytes": 205110,
+      "sha256": "bd227738eecc141cf82569a960145eaf11f7790ab4281ce2cdcc65cfef8063a6"
+    },
+    {
+      "url": "/lexof-symbols-packed-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\lexof-symbols-packed-v13.webp",
+      "width": 1448,
+      "height": 1086,
+      "hasAlpha": true,
+      "bytes": 284532,
+      "sha256": "48176a52e45e228ba1b2da431a6204c1349b249e80163a903e367a1490e8c94c"
+    },
+    {
+      "url": "/lexof-fox-sprites-packed-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\lexof-fox-sprites-packed-v13.webp",
+      "width": 2172,
+      "height": 724,
+      "hasAlpha": true,
+      "bytes": 282070,
+      "sha256": "29d6cafb35a8b92f032e6a093b22871271b49a015eb45daa477f038a656c2b6d"
+    },
+    {
+      "url": "/lexof-fox-dance-packed-v13.webp",
+      "path": "C:\\Users\\John\\Documents\\Codex\\2026-10-06\\codex-chatgpt-chatgpt-codex-openai-help\\indictus-site\\public\\lexof-fox-dance-packed-v13.webp",
+      "width": 1448,
+      "height": 724,
+      "hasAlpha": true,
+      "bytes": 184812,
+      "sha256": "54d249189cfe716aa7d2216943a40cf88a2acc79fa38c1ccd88a43050e3b9c74"
+    }
+  ],
+  "totalBytes": 3101482,
+  "packing": "Existing raster symbols and connected character poses uniformly contained in independent alpha cells. Original colors preserved; unchanged source PNGs retained. No adjacent pose pixels in the exported cells.",
+  "motion": "Finite credited-outcome reactions and four-frame dances; hidden-tab pause and reduced motion; movement does not generate outcomes."
+}

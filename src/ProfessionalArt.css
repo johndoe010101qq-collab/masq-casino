@@ -1,0 +1,433 @@
+/* Graphite / paper / vermillion. No dependency on the previous art styles. */
+.indictus-app.indictus-app {
+  --ui-font: Arial, "Segoe UI", sans-serif;
+  --display: var(--ui-font);
+  --red: #ed493a;
+  --red-hover: #ff5a49;
+  --muted: #9b9c9d;
+  --text: #f3f3ef;
+  color: var(--text);
+  background: #101113;
+  font: 15px/1.5 var(--ui-font);
+  -webkit-font-smoothing: antialiased;
+}
+.indictus-app :focus-visible { outline: 2px solid #f3f3ef; outline-offset: 4px; }
+.indictus-app :is(h1,h2,h3,.wordmark,.hall-wallet strong,.card-copy>strong,
+  .stake-input,.physical-result strong,.plinko-stake-tools output,
+  .blackjack-stake-tools output,.blackjack-hand-label strong,.payout-title,
+  .payout-amount,.slot-stake-value,.slot-total-value,.purchase-price,
+  .bonanza-group-payout strong,.bonanza-spin-summary strong,
+  .bonanza-announcement>strong,.entrance-rule-panel>strong,
+  .entrance-rule-art b,.bonanza-readout strong,.slot-info-letter) {
+  font-family: var(--ui-font) !important;
+  font-weight: 700;
+  letter-spacing: -.035em;
+  text-shadow: none;
+}
+.indictus-app.indictus-app .indictus-header { min-height:84px; gap:25px; background:#101113; border-bottom:1px solid #34373b; box-shadow:none; }
+.indictus-app.indictus-app .hall-brand { padding:0; gap:6px; }
+.indictus-app.indictus-app .hall-brand::before { display:none; }
+.indictus-app.indictus-app .wordmark { font-size:24px; font-weight:800; letter-spacing:.1em; color:#f3f3ef; }
+.indictus-app.indictus-app .wordmark>span { color:#ed493a; }
+.indictus-app.indictus-app .brand-subtitle { font-size:9px; color:#979899; letter-spacing:.32em; }
+.indictus-app.indictus-app .header-nav button { padding:11px 0; color:#939495; font-size:13px !important; }
+.indictus-app.indictus-app .header-nav button.active { color:#f3f3ef; border-color:#ed493a; }
+.indictus-app.indictus-app .hall-wallet { gap:2px; }
+.indictus-app.indictus-app .hall-wallet>span { color:#919293; font-size:10px !important; letter-spacing:.08em; }
+.indictus-app.indictus-app .hall-wallet strong { color:#f3f3ef; font-size:23px; font-weight:700; }
+.indictus-app.indictus-app .hall-wallet small { color:#919293; font-size:10px; }
+.indictus-app.indictus-app .demo-badge { border-color:#3d3e3f; border-radius:2px; background:none; color:#959697; font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+.indictus-app.indictus-app .audio-button { min-height:36px; padding:5px 0; border:0; border-radius:0; background:none; color:#666768; box-shadow:none; font-size:22px; }
+.indictus-app.indictus-app .audio-button.active { color:#e7e9e8; }
+.indictus-app.indictus-app .audio-button span { font-size:11px !important; color:#949596; }
+.indictus-app.indictus-app .profile-name { color:#898a8b; font-size:12px; }
+.indictus-app.indictus-app .indictus-main { padding-top:36px; padding-bottom:48px; }
+.indictus-app.indictus-app .skip-link { border-radius:2px; background:#ed493a; color:#fff; opacity:0; pointer-events:none; }
+.indictus-app.indictus-app .skip-link:focus { opacity:1; pointer-events:auto; }
+
+/* One physical object and direct typography. */
+.indictus-app.indictus-app .promo { height:380px; border:0; border-radius:0; background:#16181a; box-shadow:none; }
+.indictus-app.indictus-app .promo::before,
+.indictus-app.indictus-app .promo::after { display:none; }
+.indictus-app.indictus-app .promo-copy { max-width:61%; padding:43px 44px; }
+.indictus-app.indictus-app .promo-kicker { display:block; padding:0; border:0; background:none; color:#919293; font-size:10px; font-weight:700; letter-spacing:.18em; }
+.indictus-app.indictus-app .promo h1 { margin:19px 0 16px; color:#f3f3ef; font-size:clamp(44px,4.8vw,60px); font-weight:700; line-height:1.01; letter-spacing:-.05em; text-shadow:none; }
+.indictus-app.indictus-app .promo p { max-width:360px; margin:0 0 27px; color:#a3a4a5; font-size:13px; line-height:1.6; }
+.indictus-app.indictus-app .promo-art.promo-art-studio { width:46%; height:100%; right:-2%; top:0; opacity:1; background:none; }
+.indictus-app.indictus-app .promo-art.promo-art-raster { background:none; }
+.indictus-app.indictus-app .promo-art-studio>div { height:100%; }
+.indictus-app.indictus-app .promo-art-studio canvas { background:transparent; border-radius:0; mask-image:none; }
+.indictus-app.indictus-app .promo-action { min-height:45px !important; padding:13px 19px !important; border:0 !important; border-radius:2px; background:#ed493a; color:#fff; box-shadow:none; text-shadow:none; font-size:12px !important; font-weight:700; }
+.indictus-app.indictus-app .promo-action:hover:not(:disabled) { background:#ff5a49; box-shadow:none; }
+.indictus-app.indictus-app .promo-nav { bottom:21px; right:30px; gap:6px; }
+.indictus-app.indictus-app .promo-nav>button:not(.promo-pause) { height:25px; width:26px; border-top:11px solid transparent; border-bottom:11px solid transparent; border-radius:0; background-color:#505152; background-clip:padding-box; }
+.indictus-app.indictus-app .promo-nav>button.selected { background-color:#ed493a; }
+.indictus-app.indictus-app .promo-pause { color:#a4a5a6 !important; }
+.indictus-app.indictus-app .catalog-heading { margin:39px 0 23px; }
+.indictus-app.indictus-app .catalog-heading h2 { color:#f3f3ef; font-size:28px; font-weight:700; letter-spacing:-.04em; }
+.indictus-app.indictus-app .catalog-heading h2 span { padding:0; border:0; background:none; color:#78797a; font-size:11px; }
+.indictus-app.indictus-app .catalog-heading>span { color:#707172; font-size:10px; letter-spacing:.16em; }
+.indictus-app.indictus-app .games-grid { gap:30px 23px; }
+.indictus-app.indictus-app .game-card { border:0 !important; border-radius:0; background:none; box-shadow:none; }
+.indictus-app.indictus-app .game-card:hover,
+.indictus-app.indictus-app .game-card:focus-visible { transform:translateY(-2px); box-shadow:none; }
+.indictus-app.indictus-app .card-art { height:225px; border:0; background:#16181a; }
+.indictus-app.indictus-app .card-art::after { display:none; }
+.indictus-app.indictus-app .card-art canvas { mask-image:none; }
+.indictus-app.indictus-app .card-rate { top:13px; right:14px; padding:4px 6px; border:0; border-radius:0; background:#16181acc; box-shadow:none; color:#98999a; font-size:10px; font-weight:600; letter-spacing:.05em; }
+.indictus-app.indictus-app .card-copy { padding:17px 0 5px; gap:7px; border-top:1px solid #34373b; }
+.indictus-app.indictus-app .card-copy strong { color:#f3f3ef; font-size:25px; font-weight:700; letter-spacing:-.035em; text-shadow:none; }
+.indictus-app.indictus-app .card-copy>span { color:#8a8b8c; font-size:12px !important; }
+.indictus-app.indictus-app .card-play { right:0; bottom:8px; color:#ed493a; font-size:11px; }
+.indictus-app.indictus-app .game-card-blackjack { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; align-items:center; background:#16181a; }
+.indictus-app.indictus-app .game-card-blackjack .card-art { height:250px; border-right:1px solid #34373b; }
+.indictus-app.indictus-app .game-card-blackjack .card-copy { padding:28px 35px; border-top:0; }
+.indictus-app.indictus-app .game-card-blackjack .card-copy strong { font-size:32px; }
+.indictus-app.indictus-app .game-card-blackjack .card-play { right:35px; bottom:28px; }
+.indictus-app.indictus-app .mini-machine { padding:22px 43px; }
+.indictus-app.indictus-app .mini-symbols { border:1px solid #505152; border-radius:0; background:#dce0e3; box-shadow:none; gap:1px; padding:3px; }
+.indictus-app.indictus-app .mini-symbols>span { border-radius:0; background-color:#dce0e3; image-rendering:auto; }
+
+/* An open stage and one compact instrument column. */
+.indictus-app.indictus-app .back-button { min-height:35px; margin-bottom:21px; padding:5px 0 !important; border:0 !important; border-radius:0; background:none; box-shadow:none; color:#929394 !important; font-size:12px; }
+.indictus-app.indictus-app .back-button:hover:not(:disabled) { color:#f3f3ef !important; background:none; }
+.indictus-app.indictus-app .room-heading { align-items:flex-end; margin-bottom:26px; }
+.indictus-app.indictus-app .room-heading h1 { margin-top:11px; color:#f3f3ef; font-size:58px; font-weight:700; line-height:.99; letter-spacing:-.05em; text-shadow:none; }
+.indictus-app.indictus-app .room-heading h1 span { color:#ed493a; }
+.indictus-app.indictus-app .room-heading .eyebrow { color:#868788; font-size:10px; font-weight:600; letter-spacing:.17em; }
+.indictus-app.indictus-app .room-heading p { color:#959697; font-size:13px !important; }
+.indictus-app.indictus-app .room-heading .rules-button { min-height:34px; padding:7px 0; border:0 !important; border-bottom:1px solid #5f6061 !important; border-radius:0; background:none; box-shadow:none; color:#acadae; font-size:12px; }
+.indictus-app.indictus-app .room-heading .rules-button:hover { border-color:#f3f3ef !important; background:none; color:#f3f3ef; }
+.indictus-app.indictus-app .room-layout { grid-template-columns:minmax(0,1fr) 300px; gap:36px; }
+.indictus-app.indictus-app .physical-stage { min-height:520px; padding:0; border:0; border-radius:0; background:none; box-shadow:none; }
+.indictus-app.indictus-app .physical-stage::before,
+.indictus-app.indictus-app .physical-stage::after { display:none; }
+.indictus-app.indictus-app .physical-canvas { inset:49px 0 91px; border-radius:0; box-shadow:none; }
+.indictus-app.indictus-app .physical-canvas canvas { border-radius:0; mask-image:none; }
+.indictus-app.indictus-app .stage-label { top:17px; left:0; right:0; color:#818283; font-size:10px; font-weight:600; letter-spacing:.13em; }
+.indictus-app.indictus-app .stage-label small { padding:0; border:0; background:none; color:#8b8c8d; font-size:11px; }
+.indictus-app.indictus-app .physical-result,
+.indictus-app.indictus-app .blackjack-live-status { left:0; right:0; bottom:13px; padding:16px 0; min-height:62px; border:0; border-top:1px solid #34373b; border-radius:0; background:none; box-shadow:none; color:#a6a7a8; font-size:13px; }
+.indictus-app.indictus-app .physical-result strong { color:#f3f3ef; font-size:19px; font-weight:600; letter-spacing:-.035em; }
+.indictus-app.indictus-app .physical-result small { color:#737475; font-size:11px; }
+.indictus-app.indictus-app .physical-result button { min-height:33px; padding:7px 10px; border:1px solid #494a4b; border-radius:2px; background:none; color:#aeafb0; font-size:11px !important; }
+.indictus-app.indictus-app .physical-stage.is-running { border:0; }
+.indictus-app.indictus-app .room-bet { padding:26px; border:0; border-radius:2px; background:#1a1d21; box-shadow:none; gap:20px; }
+.indictus-app.indictus-app .room-bet>label,
+.indictus-app.indictus-app .room-bet legend { color:#b1b2b3; font-size:11px; font-weight:500; letter-spacing:.02em; }
+.indictus-app.indictus-app .room-bet>label span { color:#6f7071; font-size:10px; }
+.indictus-app.indictus-app .room-bet .stake-input { height:61px; border:0; border-bottom:1px solid #606162; border-radius:0; background:#121519; box-shadow:none; color:#f3f3ef; font-size:30px; font-weight:600; padding:0 12px; }
+.indictus-app.indictus-app .room-bet .stake-input:focus { border-color:#f3f3ef; outline-offset:2px; }
+.indictus-app.indictus-app .room-bet .stake-tools { gap:6px; }
+.indictus-app.indictus-app .room-bet .stake-tools button,
+.indictus-app.indictus-app .plinko-stake-tools button,
+.indictus-app.indictus-app .blackjack-stake-tools button,
+.indictus-app.indictus-app .blackjack-actions button { border:1px solid #464748 !important; border-radius:2px; background:#262728; box-shadow:none; color:#b2b3b4; font-size:12px; }
+.indictus-app.indictus-app .room-bet .stake-tools button:hover:not(:disabled),
+.indictus-app.indictus-app .plinko-stake-tools button:hover:not(:disabled),
+.indictus-app.indictus-app .blackjack-stake-tools button:hover:not(:disabled),
+.indictus-app.indictus-app .blackjack-actions button:hover:not(:disabled) { border-color:#c8c9ca !important; background:#353637; color:#f3f3ef; }
+.indictus-app.indictus-app .room-bet>small,
+.indictus-app.indictus-app .room-bet .demo-explanation { color:#7c7d7e; font-size:11px; }
+.indictus-app.indictus-app .room-choices { gap:6px; }
+.indictus-app.indictus-app .room-choices label { min-height:47px; padding:9px 5px; border:1px solid #444546; border-radius:2px; background:#222324; box-shadow:none; color:#999a9b; font-size:13px; }
+.indictus-app.indictus-app .room-choices label.selected { border-color:#f3f3ef; background:#f3f3ef; box-shadow:none; color:#101113; font-weight:700; }
+.indictus-app.indictus-app .room-choices .option-red { color:#ed493a; background:#25272a; }
+.indictus-app.indictus-app .room-choices .option-red.selected,
+.indictus-app.indictus-app .room-choices .option-black.selected { border-color:#f3f3ef; background:#f3f3ef; color:#101113; }
+.indictus-app.indictus-app .chance-meta { padding-top:13px; border-top:1px solid #3f4041; color:#929394; font-size:11px; }
+.indictus-app.indictus-app .chance-meta strong { color:#d6d7d8; font-weight:600; }
+.indictus-app.indictus-app .room-bet>.primary { min-height:50px; border:0 !important; border-radius:2px; background:#ed493a; box-shadow:none; color:#fff; text-shadow:none; font-size:13px !important; font-weight:700; }
+.indictus-app.indictus-app .room-bet>.primary:hover:not(:disabled) { background:#ff5a49; box-shadow:none; }
+.indictus-app.indictus-app .plinko-stage,
+.indictus-app.indictus-app .blackjack-stage { min-height:540px; background:none; }
+.indictus-app.indictus-app .plinko-canvas { inset:47px 0 62px; }
+.indictus-app.indictus-app .plinko-static-rates { left:0; right:0; bottom:16px; gap:3px; color:#9fa0a1; font-size:11px; }
+.indictus-app.indictus-app .plinko-static-rates>span { padding:7px 0; border:0; border-top:1px solid #515253; border-radius:0; background:none; box-shadow:none; font-weight:500; }
+.indictus-app.indictus-app .plinko-static-rates>span:first-child,
+.indictus-app.indictus-app .plinko-static-rates>span:last-child { border-color:#ed493a; color:#ed493a; }
+.indictus-app.indictus-app .plinko-stake-tools,
+.indictus-app.indictus-app .blackjack-stake-tools { padding:0; border:0; border-bottom:1px solid #636465; border-radius:0; background:#171819; }
+.indictus-app.indictus-app .plinko-stake-tools button,
+.indictus-app.indictus-app .blackjack-stake-tools button { border:0 !important; height:50px; background:none; font-size:22px; }
+.indictus-app.indictus-app .plinko-stake-tools output,
+.indictus-app.indictus-app .blackjack-stake-tools output { color:#f3f3ef; font-size:26px; font-weight:600; }
+.indictus-app.indictus-app .plinko-limit,
+.indictus-app.indictus-app .blackjack-rule-copy { color:#919293; font-size:12px; }
+.indictus-app.indictus-app .plinko-flight-status { margin:0; padding:11px 0; border:0; border-top:1px solid #464748; border-radius:0; background:none; color:#b1b2b3; }
+.indictus-app.indictus-app .plinko-receipts,
+.indictus-app.indictus-app .blackjack-receipt { padding:17px 0; border:0; border-top:1px solid #454647; border-radius:0; background:none; box-shadow:none; }
+.indictus-app.indictus-app .plinko-latest { color:#dedfe0; }
+.indictus-app.indictus-app .plinko-latest small,
+.indictus-app.indictus-app .plinko-receipt { color:#919293; }
+.indictus-app.indictus-app .plinko-receipt { border-color:#404142; }
+.indictus-app.indictus-app .blackjack-physical-canvas { inset:64px 0 83px; }
+.indictus-app.indictus-app .blackjack-hand-label { left:0; color:#999a9b; font-size:11px; }
+.indictus-app.indictus-app .blackjack-hand-label strong { min-width:28px; padding:2px 5px; border:1px solid #5b5c5d; border-radius:2px; background:#2b2c2d; color:#d9dadb; box-shadow:none; font-size:17px; }
+.indictus-app.indictus-app .blackjack-live-status { justify-content:flex-start; color:#b5b6b7; }
+.indictus-app.indictus-app .blackjack-resolved .blackjack-live-status { border-color:#ed493a; box-shadow:none; }
+.indictus-app.indictus-app .blackjack-actions button { min-height:44px; font-weight:600; }
+.indictus-app.indictus-app .blackjack-returns { gap:9px; padding:12px 0; border-top:1px solid #434445; border-bottom:1px solid #434445; }
+.indictus-app.indictus-app .blackjack-returns dt { color:#8c8d8e; font-size:11px; }
+.indictus-app.indictus-app .blackjack-returns dd { color:#bfc0c1; font-size:12px; }
+.indictus-app.indictus-app .blackjack-receipt>span { color:#939495; }
+.indictus-app.indictus-app .blackjack-receipt strong { color:#d5d6d7; }
+
+.indictus-app.indictus-app .hall-history { margin-top:42px; padding:0; border:0; border-top:1px solid #34373b; border-radius:0; background:none; box-shadow:none; }
+.indictus-app.indictus-app .history-heading { padding:21px 0 17px; }
+.indictus-app.indictus-app .history-heading h2 { color:#dadbdc; font-size:20px; font-weight:600; letter-spacing:-.025em; }
+.indictus-app.indictus-app .history-heading>span,
+.indictus-app.indictus-app .history-columns { color:#878889; font-size:10px; }
+.indictus-app.indictus-app .history-columns,
+.indictus-app.indictus-app .hall-history li { grid-template-columns:minmax(90px,1fr) 95px 105px; }
+.indictus-app.indictus-app .hall-history li { border-color:#393a3b; color:#babbbc; font-size:12px; }
+.indictus-app.indictus-app .hall-history li>span:last-child { color:#dddedf; }
+.indictus-app.indictus-app .hall-history li small,
+.indictus-app.indictus-app .empty-history { color:#898a8b; font-size:11px; }
+.indictus-app.indictus-app .indictus-footer { border-color:#3b3c3d; color:#7e7f80; font-size:10px; }
+.indictus-app.indictus-app .indictus-footer button { color:#a9aaab; font-size:11px; }
+
+/* A cold light contact sheet makes the black physical symbols legible. */
+.indictus-app .bonanza-slot { --slot-display:var(--ui-font); --slot-text:#f3f3ef; --slot-muted:#919293; --slot-cream:#d9dadb; --slot-red:#ed493a; }
+.indictus-app .bonanza-slot .bonanza-heading { align-items:flex-end; gap:25px; padding:0; margin-bottom:27px; }
+.indictus-app .bonanza-slot .bonanza-heading h2 { color:#f3f3ef; font-size:52px; font-weight:700; line-height:1; letter-spacing:-.045em; text-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-eyebrow { color:#8b8c8d; font-size:10px; font-weight:600; letter-spacing:.16em; }
+.indictus-app .bonanza-slot .bonanza-heading-info { color:#8b8c8d; gap:9px; }
+.indictus-app .bonanza-slot .bonanza-heading-info strong { color:#cdcecf; font:600 16px/1.2 var(--ui-font); letter-spacing:-.02em; }
+.indictus-app .bonanza-slot .bonanza-play-layout { grid-template-columns:minmax(0,1fr) 300px; gap:36px; }
+.indictus-app .bonanza-slot .bonanza-cabinet { justify-content:center; gap:17px; padding:0; border:0; border-radius:0; background:none; box-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-cabinet::before { display:none; }
+.indictus-app .bonanza-slot .bonanza-status { width:min(100%,570px); margin:0 auto; padding:8px 0; border:0; background:none; color:#909192; font-size:10px; }
+.indictus-app .bonanza-slot .bonanza-status>span:last-child { color:#b8b9ba; letter-spacing:.07em; }
+.indictus-app .bonanza-slot .bonanza-field-shell { width:min(100%,570px); border:1px solid #bdbebf; border-radius:0; background:#dce0e3; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-grid { background:#dce0e3; }
+.indictus-app .bonanza-slot .slot-cell { padding:3px; }
+.indictus-app .bonanza-slot .slot-cell::before { inset:0; border:1px solid #a4a5a622; border-radius:0; background:none; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-sprite { filter:drop-shadow(0 2px 2px #0002); }
+.indictus-app .bonanza-slot .slot-cell.winning::before { border-color:#ed493aaa; background:#ed493a12; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-cell.scatter-active::before { border-color:#ed493a99; background:#ed493a12; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-bomb-value { border:0; border-radius:1px; background:#ed493a; color:#fff; box-shadow:none; text-shadow:none; font:700 clamp(11px,3cqw,18px)/1 var(--ui-font); padding:3px 5px; }
+.indictus-app .bonanza-slot .bonanza-readout { width:min(100%,570px); padding:15px 0 0; border:0; border-top:1px solid #34373b; border-radius:0; background:none; box-shadow:none; color:#939495; }
+.indictus-app .bonanza-slot .bonanza-readout strong { color:#f3f3ef; font-size:27px; font-weight:600; text-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-readout>span:last-child strong { color:#bcbdbe; font-size:19px; }
+.indictus-app .bonanza-slot .bonanza-group-payout { padding:5px 2px; border:1px solid #38393a88; border-radius:1px; background:#f3f3eff0; }
+.indictus-app .bonanza-slot .bonanza-group-payout strong { color:#101113; font-size:clamp(13px,4.6cqw,23px); font-weight:700; text-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-group-payout span { color:#626364; text-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-spin-summary { border:1px solid #4c4d4e; border-radius:1px; background:#f3f3eff5; color:#656667; box-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-spin-summary strong { color:#101113; font-size:clamp(23px,6.3cqw,36px); font-weight:700; }
+.indictus-app .bonanza-slot .bonanza-announcement { background:#dce0e3f7; box-shadow:none; gap:13px; }
+.indictus-app .bonanza-slot .bonanza-announcement::before,
+.indictus-app .bonanza-slot .bonanza-announcement::after { display:none; }
+.indictus-app .bonanza-slot .bonanza-announcement img { width:clamp(55px,18%,110px); filter:none; }
+.indictus-app .bonanza-slot .bonanza-announcement>strong { color:#101113; font-weight:700; text-shadow:none; }
+.indictus-app .bonanza-slot .bonanza-announcement .bonus-eyebrow { color:#ed493a !important; letter-spacing:.12em !important; }
+.indictus-app .bonanza-slot .bonanza-announcement>.bonus-copy { color:#393a3b; font-weight:500; }
+.indictus-app .bonanza-slot .bonanza-announcement>span:last-child { color:#737475; }
+.indictus-app .bonanza-slot .slot-controls { --slot-muted:#8f9091; --slot-text:#e0e1e2; padding:26px; gap:21px; border:0; border-radius:2px; background:#1a1d21; box-shadow:none; font-family:var(--ui-font); }
+.indictus-app .bonanza-slot .slot-stake-caption { color:#98999a; font-size:11px; }
+.indictus-app .bonanza-slot .slot-stake-row { padding:0; border:0; border-bottom:1px solid #737475; border-radius:0; background:#171819; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-stake-value { color:#f3f3ef; font-size:27px; font-weight:600; }
+.indictus-app .bonanza-slot .slot-stake-step { min-height:49px; border-radius:0; background:none; color:#acadae; }
+.indictus-app .bonanza-slot .slot-stake-step:hover:enabled { background:#333435; }
+.indictus-app .bonanza-slot .slot-controls-note { color:#8e8f90; font-size:10px; }
+.indictus-app .bonanza-slot .slot-controls-note strong { color:#c4c5c6; }
+.indictus-app .bonanza-slot .slot-spin-button { min-height:50px; border:0; border-radius:2px; background:#ed493a; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-spin-face { min-height:50px; color:#fff; border-radius:2px; }
+.indictus-app .bonanza-slot .slot-spin-word { font-size:13px; font-weight:700; letter-spacing:0; }
+.indictus-app .bonanza-slot .slot-spin-button:hover:enabled { background:#ff5a49; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-spin-button:disabled { background:#ed493a; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-buy-button { min-height:59px; border:1px solid #777879; border-radius:2px; background:#2d2e2f !important; color:#d7d8d9 !important; box-shadow:none; }
+.indictus-app .bonanza-slot .slot-buy-button:hover:enabled { border-color:#dbdcdd; background:#3d3e3f !important; }
+.indictus-app .bonanza-slot .slot-buy-button:disabled { border-color:#777879; background:#2d2e2f !important; color:#d7d8d9 !important; }
+.indictus-app .bonanza-slot .slot-buy-art { filter:none; }
+.indictus-app .bonanza-slot .slot-buy-label { font-size:12px; font-weight:600; }
+.indictus-app .bonanza-slot .slot-buy-price { color:#a2a3a4; font-size:10px; }
+.indictus-app .bonanza-slot .slot-totals { border-color:#494a4b; }
+.indictus-app .bonanza-slot .slot-total-label { color:#9c9d9e; font-size:10px; }
+.indictus-app .bonanza-slot .slot-total-value { color:#d0d1d2; font-size:17px; font-weight:600; }
+.indictus-app .bonanza-slot .slot-tool-button,
+.indictus-app .bonanza-slot .slot-skip-button { border-color:#656667; border-radius:2px; background:#343536; color:#bdbebf; }
+.indictus-app .bonanza-slot .slot-tool-button:hover:enabled,
+.indictus-app .bonanza-slot .slot-skip-button:hover:enabled { background:#48494a; }
+.indictus-app .bonanza-slot .slot-tool-button[aria-pressed="true"] { border-color:#e9eaeb; background:#dddedf; color:#212223; }
+.indictus-app .bonanza-slot .slot-tool-button[aria-pressed="true"] .slot-audio-dot { background:#363738; }
+
+/* Bonus and rule dialogs have direct editorial hierarchy. */
+.indictus-app.indictus-app .hall-rules,
+.indictus-app.indictus-app .slot-rules-dialog,
+.indictus-app.indictus-app .slot-purchase-dialog,
+.indictus-app.indictus-app .bonanza-entrance-dialog { border:1px solid #575859; border-radius:2px; background:#212223; color:#e1e2e3; box-shadow:0 25px 80px #0009; }
+.indictus-app.indictus-app .hall-rules::backdrop,
+.indictus-app.indictus-app .slot-rules-dialog::backdrop,
+.indictus-app.indictus-app .slot-purchase-dialog::backdrop,
+.indictus-app.indictus-app .bonanza-entrance-dialog::backdrop { background:#111213e3; backdrop-filter:blur(4px); }
+.indictus-app.indictus-app .hall-rules>div { padding:32px; }
+.indictus-app.indictus-app .hall-rules h2,
+.indictus-app.indictus-app .slot-rules-heading h2 { color:#f3f3ef; font-size:30px; font-weight:700; }
+.indictus-app.indictus-app .hall-rules p,
+.indictus-app.indictus-app .slot-rules-dialog p { color:#b2b3b4; font-size:13px; line-height:1.7; }
+.indictus-app.indictus-app .hall-rules .eyebrow { color:#a1a2a3; }
+.indictus-app.indictus-app .hall-rules .secondary,
+.indictus-app.indictus-app .slot-rules-dialog button { border-color:#838485 !important; border-radius:2px; background:#3e3f40; color:#d8d9da; }
+.indictus-app.indictus-app .slot-rules-dialog th,
+.indictus-app.indictus-app .slot-rules-dialog td { border-color:#4d4e4f; }
+.indictus-app.indictus-app .slot-rules-demo { color:#98999a !important; }
+.indictus-app.indictus-app .slot-purchase-dialog { padding:35px 32px; }
+.indictus-app.indictus-app .purchase-mask { width:67px; height:78px; filter:none; }
+.indictus-app.indictus-app .slot-purchase-dialog h2 { color:#f3f3ef; font-size:34px; line-height:1.07; font-weight:700; text-shadow:none; }
+.indictus-app.indictus-app .slot-purchase-dialog p { color:#aeafb0; }
+.indictus-app.indictus-app .slot-purchase-dialog p strong { color:#dedfe0; }
+.indictus-app.indictus-app .purchase-price { color:#f3f3ef; font-size:45px; font-weight:700; text-shadow:none; }
+.indictus-app.indictus-app .slot-purchase-dialog button { border-color:#838485; border-radius:2px; background:#414243; color:#cdcecf; }
+.indictus-app.indictus-app .slot-purchase-dialog .purchase-confirm { border:0; background:#ed493a; color:#fff; box-shadow:none; }
+.indictus-app.indictus-app .slot-purchase-dialog .purchase-confirm:hover { background:#ff5a49; }
+.indictus-app.indictus-app .slot-purchase-dialog .purchase-cancel:hover { background:#555657; }
+.indictus-app.indictus-app .bonanza-entrance-dialog { width:min(970px,calc(100vw - 32px)); padding:35px 35px 30px; text-align:left; }
+.indictus-app.indictus-app .entrance-heading { display:grid; grid-template-columns:minmax(0,1fr) 64px; grid-template-areas:"title mark" "copy mark"; align-items:center; gap:11px 20px; }
+.indictus-app.indictus-app .entrance-mask { grid-area:mark; width:56px; height:66px; filter:none; }
+.indictus-app.indictus-app .entrance-heading h2 { grid-area:title; color:#f3f3ef; font-size:44px; font-weight:700; letter-spacing:-.045em; text-shadow:none; }
+.indictus-app.indictus-app .entrance-heading h2 span { color:#ed493a; }
+.indictus-app.indictus-app .entrance-heading p { grid-area:copy; color:#a9aaab; font-size:12px; }
+.indictus-app.indictus-app .entrance-rule-panels { grid-template-columns:repeat(3,minmax(0,1fr)); margin:29px 0 27px; gap:22px; }
+.indictus-app.indictus-app .entrance-rule-panel { display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:21px 0 0; border:0; border-top:1px solid #797a7b; border-radius:0; background:none; box-shadow:none; text-align:left; }
+.indictus-app.indictus-app .entrance-rule-art { height:95px; justify-content:center; }
+.indictus-app.indictus-app .entrance-rule-art .slot-sprite { position:static; width:86px; height:86px; flex:0 1 86px; filter:none; }
+.indictus-app.indictus-app .entrance-rule-panel:first-child .slot-sprite { position:static; width:69px; height:69px; flex:0 1 69px; }
+.indictus-app.indictus-app .entrance-rule-art img { width:75px; height:88px; filter:none; }
+.indictus-app.indictus-app .entrance-rule-art b { bottom:2px; color:#f3f3ef; font-size:25px; font-weight:700; text-shadow:none; }
+.indictus-app.indictus-app .entrance-rule-panel>strong { color:#dfe0e1; font-size:19px; font-weight:600; letter-spacing:-.03em; }
+.indictus-app.indictus-app .entrance-rule-panel p { color:#abacad; font-size:12px; line-height:1.65; }
+.indictus-app.indictus-app .entrance-continue { width:min(100%,260px); min-height:48px; margin:0; border:0; border-radius:2px; background:#ed493a; color:#fff; box-shadow:none; font-size:12px; font-weight:700; }
+.indictus-app.indictus-app .entrance-continue:hover { background:#ff5a49; }
+.indictus-app.indictus-app .entrance-key-hint { color:#9b9c9d; font-size:10px; margin-top:13px; }
+.indictus-app.indictus-app .payout-dialog { background:#131415f5; }
+.indictus-app.indictus-app .payout-sheet { max-width:730px; padding:40px 35px; border:1px solid #727374; border-radius:2px; background:#2a2b2c; box-shadow:0 20px 70px #0006; }
+.indictus-app.indictus-app .payout-sheet::before { display:none; }
+.indictus-app.indictus-app .payout-game { color:#b0b1b2; font-size:11px; letter-spacing:.14em; }
+.indictus-app.indictus-app .payout-title { color:#f3f3ef; font-size:clamp(30px,4.7vw,48px); font-weight:700; line-height:1.05; letter-spacing:-.04em; text-shadow:none; }
+.indictus-app.indictus-app .payout-amount { margin:23px 0 31px; color:#f3f3ef; font-size:clamp(57px,9vw,105px); font-weight:700; letter-spacing:-.055em; text-shadow:none; }
+.indictus-app.indictus-app .payout-currency { color:#b3b4b5; }
+.indictus-app.indictus-app .payout-accounting { border-color:#6b6c6d; border-radius:0; background:none; }
+.indictus-app.indictus-app .payout-accounting>div+div { border-color:#6b6c6d; }
+.indictus-app.indictus-app .payout-accounting dt { color:#a6a7a8; font-size:11px; }
+.indictus-app.indictus-app .payout-accounting dd { color:#d7d8d9; font-size:23px; }
+.indictus-app.indictus-app .payout-accounting dd span { color:#a3a4a5; }
+.indictus-app.indictus-app .payout-description { color:#bcbdbe; font-size:12px; }
+.indictus-app.indictus-app .payout-continue { min-height:47px; border:0; border-radius:2px; background:#ed493a; color:#fff; box-shadow:none; font-size:13px; font-weight:700; }
+.indictus-app.indictus-app .payout-continue:hover { background:#ff5a49; }
+.indictus-app.indictus-app .payout-dismiss { border-color:#777879; border-radius:2px; background:#444546; color:#d1d2d3; }
+.indictus-app.indictus-app .payout-hint { color:#9b9c9d; font-size:11px; }
+
+@media(max-width:900px) {
+  .indictus-app.indictus-app .indictus-header { gap:15px; }
+  .indictus-app.indictus-app .room-layout { grid-template-columns:minmax(0,1fr) 265px; gap:24px; }
+  .indictus-app.indictus-app .room-bet { padding:22px; }
+  .indictus-app.indictus-app .card-art { height:190px; }
+  .indictus-app.indictus-app .card-copy strong { font-size:23px; }
+  .indictus-app .bonanza-slot .bonanza-play-layout { grid-template-columns:minmax(0,1fr) 265px; gap:24px; }
+  .indictus-app .bonanza-slot .slot-controls { padding:22px; }
+}
+@media(max-width:760px) {
+  .indictus-app .bonanza-slot .bonanza-play-layout { grid-template-columns:minmax(0,1fr); gap:23px; }
+  .indictus-app.indictus-app .entrance-rule-panels { grid-template-columns:minmax(0,1fr); gap:18px; margin:25px 0; }
+  .indictus-app.indictus-app .entrance-rule-panel { display:grid; grid-template-columns:80px minmax(0,1fr); gap:5px 13px; padding:15px 0 0; }
+  .indictus-app.indictus-app .entrance-rule-art { grid-row:1/3; height:73px; }
+  .indictus-app.indictus-app .entrance-rule-art .slot-sprite { width:39px; height:52px; flex-basis:39px; }
+  .indictus-app.indictus-app .entrance-rule-panel:first-child .slot-sprite { position:absolute; width:44px; height:44px; }
+  .indictus-app.indictus-app .entrance-rule-panel:first-child .slot-sprite:nth-child(1) { left:-2px; top:5px; }
+  .indictus-app.indictus-app .entrance-rule-panel:first-child .slot-sprite:nth-child(2) { left:18px; top:28px; }
+  .indictus-app.indictus-app .entrance-rule-panel:first-child .slot-sprite:nth-child(3) { right:-2px; top:5px; }
+  .indictus-app.indictus-app .entrance-rule-art img { width:56px; height:67px; }
+  .indictus-app.indictus-app .entrance-rule-art b { bottom:2px; font-size:20px; }
+  .indictus-app.indictus-app .entrance-rule-panel>strong { font-size:17px; }
+  .indictus-app.indictus-app .entrance-rule-panel p { font-size:11px; }
+}
+@media(max-width:650px) {
+  .indictus-app.indictus-app .indictus-header { min-height:72px; padding:12px 14px; gap:10px; }
+  .indictus-app.indictus-app .wordmark { font-size:20px; letter-spacing:.07em; }
+  .indictus-app.indictus-app .brand-subtitle { font-size:8px !important; }
+  .indictus-app.indictus-app .hall-wallet { min-width:61px; }
+  .indictus-app.indictus-app .hall-wallet strong { font-size:20px; }
+  .indictus-app.indictus-app .demo-badge { display:none; }
+  .indictus-app.indictus-app .audio-button { min-width:25px; padding:4px 0; font-size:21px; }
+  .indictus-app.indictus-app .audio-button span { display:none; }
+  .indictus-app.indictus-app .indictus-main { width:calc(100% - 28px); padding:23px 0 32px; }
+  .indictus-app.indictus-app .promo { height:335px; }
+  .indictus-app.indictus-app .promo-copy { max-width:86%; padding:29px 22px; }
+  .indictus-app.indictus-app .promo h1 { font-size:43px; margin:18px 0 16px; }
+  .indictus-app.indictus-app .promo p { max-width:218px; font-size:12px; margin-bottom:24px; }
+  .indictus-app.indictus-app .promo-art.promo-art-studio { width:41%; height:65%; right:-10%; top:26%; opacity:.65; }
+  .indictus-app.indictus-app .promo-nav { right:18px; bottom:17px; }
+  .indictus-app.indictus-app .promo-action { min-height:43px !important; padding:12px 15px !important; }
+  .indictus-app.indictus-app .catalog-heading { margin:31px 0 20px; }
+  .indictus-app.indictus-app .catalog-heading h2 { font-size:25px; }
+  .indictus-app.indictus-app .games-grid { gap:25px 13px; }
+  .indictus-app.indictus-app .card-art { height:160px; }
+  .indictus-app.indictus-app .card-copy { padding:15px 0 3px; gap:6px; }
+  .indictus-app.indictus-app .card-copy strong { font-size:22px; }
+  .indictus-app.indictus-app .card-copy>span { font-size:11px !important; line-height:1.5; }
+  .indictus-app.indictus-app .card-rate { top:9px; right:8px; font-size:9px; }
+  .indictus-app.indictus-app .mini-machine { padding:21px 12px; }
+  .indictus-app.indictus-app .game-card-blackjack .card-art { height:195px; }
+  .indictus-app.indictus-app .game-card-blackjack .card-copy { padding:16px; }
+  .indictus-app.indictus-app .game-card-blackjack .card-copy strong { font-size:22px; }
+  .indictus-app.indictus-app .room-layout { grid-template-columns:minmax(0,1fr); gap:22px; }
+  .indictus-app.indictus-app .room-heading { margin-bottom:21px; }
+  .indictus-app.indictus-app .room-heading h1 { font-size:46px; }
+  .indictus-app.indictus-app .room-heading p { font-size:12px !important; }
+  .indictus-app.indictus-app .physical-stage { min-height:410px; }
+  .indictus-app.indictus-app .physical-canvas { inset:43px 0 81px; }
+  .indictus-app.indictus-app .stage-label { top:12px; font-size:9px; }
+  .indictus-app.indictus-app .stage-label small { font-size:10px; }
+  .indictus-app.indictus-app .physical-result { bottom:0; min-height:57px; padding:14px 0; font-size:12px; }
+  .indictus-app.indictus-app .physical-result strong { font-size:17px; }
+  .indictus-app.indictus-app .room-bet { padding:23px; }
+  .indictus-app.indictus-app .plinko-stage,
+  .indictus-app.indictus-app .blackjack-stage { min-height:440px; }
+  .indictus-app.indictus-app .plinko-canvas { inset:43px 0 52px; }
+  .indictus-app.indictus-app .plinko-static-rates { bottom:8px; font-size:10px; }
+  .indictus-app.indictus-app .blackjack-physical-canvas { inset:60px 0 80px; }
+  .indictus-app.indictus-app .blackjack-live-status { font-size:12px; }
+  .indictus-app .bonanza-slot .bonanza-heading { gap:14px; margin-bottom:21px; }
+  .indictus-app .bonanza-slot .bonanza-heading h2 { font-size:36px; }
+  .indictus-app .bonanza-slot .bonanza-heading-info strong { font-size:13px; }
+  .indictus-app .bonanza-slot .bonanza-readout strong { font-size:24px; }
+  .indictus-app .bonanza-slot .bonanza-readout>span:last-child strong { font-size:17px; }
+  .indictus-app .bonanza-slot .slot-controls { padding:23px; }
+  .indictus-app.indictus-app .hall-history { margin-top:34px; }
+  .indictus-app.indictus-app .history-heading h2 { font-size:19px; }
+  .indictus-app.indictus-app .history-columns,
+  .indictus-app.indictus-app .hall-history li { grid-template-columns:minmax(85px,1fr) 67px 76px; gap:8px; }
+  .indictus-app.indictus-app .bonanza-entrance-dialog { padding:25px 20px 23px; }
+  .indictus-app.indictus-app .entrance-heading { grid-template-columns:minmax(0,1fr) 42px; gap:9px 12px; }
+  .indictus-app.indictus-app .entrance-mask { width:38px; height:46px; }
+  .indictus-app.indictus-app .entrance-heading h2 { font-size:29px; }
+  .indictus-app.indictus-app .entrance-heading p { font-size:11px; }
+  .indictus-app.indictus-app .entrance-continue { width:100%; }
+  .indictus-app.indictus-app .slot-purchase-dialog { padding:28px 20px; }
+  .indictus-app.indictus-app .slot-purchase-dialog h2 { font-size:29px; }
+  .indictus-app.indictus-app .purchase-price { font-size:39px; }
+  .indictus-app.indictus-app .payout-sheet { padding:31px 20px; }
+  .indictus-app.indictus-app .payout-title { font-size:31px; }
+  .indictus-app.indictus-app .payout-amount { font-size:clamp(51px,14vw,76px); margin-top:21px; }
+  .indictus-app.indictus-app .payout-accounting dd { font-size:18px; }
+}
+@media(max-width:360px) {
+  .indictus-app.indictus-app .indictus-header { padding-right:10px; padding-left:10px; gap:8px; }
+  .indictus-app.indictus-app .wordmark { font-size:18px; }
+  .indictus-app.indictus-app .hall-wallet strong { font-size:18px; }
+  .indictus-app.indictus-app .promo-copy { padding-left:18px; }
+  .indictus-app.indictus-app .promo h1 { font-size:38px; }
+  .indictus-app.indictus-app .card-art { height:143px; }
+  .indictus-app.indictus-app .card-copy strong { font-size:20px; }
+  .indictus-app.indictus-app .game-card-blackjack .card-copy { padding:13px; }
+  .indictus-app.indictus-app .game-card-blackjack .card-copy strong { font-size:20px; }
+  .indictus-app .bonanza-slot .bonanza-heading h2 { font-size:32px; }
+  .indictus-app .bonanza-slot .bonanza-heading-info strong { font-size:12px; }
+  .indictus-app .bonanza-slot .slot-controls { padding:20px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .indictus-app *, .indictus-app *::before, .indictus-app *::after { animation:none !important; transition:none !important; }
+  .indictus-app.indictus-app .game-card:hover,
+  .indictus-app.indictus-app .game-card:focus-visible { transform:none; }
+}

@@ -1,0 +1,107 @@
+{
+  "source": "art-deliverables/maskhouse-host-sprites-v13.png",
+  "target": "indictus-site/public/maskhouse-host-sprites-packed-v13.webp",
+  "columns": 6,
+  "rows": 1,
+  "width": 2172,
+  "height": 724,
+  "hasAlpha": true,
+  "packing": [
+    {
+      "frame": 0,
+      "sourceRect": {
+        "left": 36,
+        "top": 13,
+        "width": 292,
+        "height": 689
+      },
+      "scale": 0.7455357142857143,
+      "frameRect": {
+        "x": 72,
+        "y": 176,
+        "width": 218,
+        "height": 514
+      }
+    },
+    {
+      "frame": 1,
+      "sourceRect": {
+        "left": 390,
+        "top": 13,
+        "width": 292,
+        "height": 689
+      },
+      "scale": 0.7455357142857143,
+      "frameRect": {
+        "x": 72,
+        "y": 176,
+        "width": 218,
+        "height": 514
+      }
+    },
+    {
+      "frame": 2,
+      "sourceRect": {
+        "left": 747,
+        "top": 13,
+        "width": 261,
+        "height": 688
+      },
+      "scale": 0.7455357142857143,
+      "frameRect": {
+        "x": 84,
+        "y": 177,
+        "width": 195,
+        "height": 513
+      }
+    },
+    {
+      "frame": 3,
+      "sourceRect": {
+        "left": 1024,
+        "top": 7,
+        "width": 448,
+        "height": 695
+      },
+      "scale": 0.7455357142857143,
+      "frameRect": {
+        "x": 14,
+        "y": 172,
+        "width": 334,
+        "height": 518
+      }
+    },
+    {
+      "frame": 4,
+      "sourceRect": {
+        "left": 1476,
+        "top": 14,
+        "width": 326,
+        "height": 687
+      },
+      "scale": 0.7455357142857143,
+      "frameRect": {
+        "x": 60,
+        "y": 178,
+        "width": 243,
+        "height": 512
+      }
+    },
+    {
+      "frame": 5,
+      "sourceRect": {
+        "left": 1812,
+        "top": 12,
+        "width": 360,
+        "height": 689
+      },
+      "scale": 0.7455357142857143,
+      "frameRect": {
+        "x": 47,
+        "y": 176,
+        "width": 268,
+        "height": 514
+      }
+    }
+  ]
+}

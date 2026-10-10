@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "renders": 34,
+  "checks": 500,
+  "componentSHA256": "65c90a2201fefdb4efb4f13585db65694d3ed91065c66d46a240ab6ec916edd7",
+  "bonComponentSHA256": "1f829f08e9e6e8fb741c4f5be1c25c45fe06d949f1a9a8d3754ba974702b7fe5",
+  "scope": "Current copied Site source, in-memory JSX build and React SSR; no external publication or live browser claim",
+  "importsResolvedAgainst": "indictus-site/src",
+  "tests": [
+    "Vite8/Rolldown in-memory JSX module build and React SSR for all27 global50/55/60 combinations",
+    "All Bon fixed weights, probabilities and1.8m actual-engine holdout rows present with hash provenance",
+    "Mask statistics source checks and rare-bound explanations unchanged",
+    "No Bon profile gift lottery text or visible profile gift counts",
+    "Invalid settings fail visibly"
+  ]
+}

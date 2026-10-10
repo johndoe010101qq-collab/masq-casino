@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checks": 42,
+  "renders": 6,
+  "sourceSHA256": {
+    "BonusPurchaseFloorRules.jsx": "033798bb63d9e2f17bcbb769af131442c09dd490e76977e425133a358531c9df",
+    "BonanzaFixedProfileRules.jsx": "d51ede70b6b828db1163115399969c9693f9077cf24e0177021599855b52f591"
+  },
+  "scope": "Focused current floor JSX in-memory Vite build and React SSR; twelve old-source endpoint reference rows only, no live browser/publication or all46 math claim"
+}

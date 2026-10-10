@@ -1,0 +1,144 @@
+/* Cabinet and atlas match the exported 3:2 scene and fixed square cells. */
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-cabinet {
+  position:relative; display:block; aspect-ratio:3/2; min-height:0; max-height:none;
+  padding:0; overflow:hidden; container-type:inline-size; isolation:isolate;
+  border:1px solid #ce9c40; border-radius:13px 13px 0 0;
+  background:#2d1933 url('/bonanza-commercial-scene-v13.webp') center / cover no-repeat;
+  box-shadow:0 14px 40px #0006;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-heading {
+  position:absolute; z-index:3; left:33%; right:21%; top:4.7%; margin:0; padding:0;
+  justify-content:center; pointer-events:none;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-heading h2 {
+  margin:0; font:900 clamp(28px,5.6cqw,72px)/1 'Arial Black','Trebuchet MS',Arial,sans-serif;
+  letter-spacing:.015em; text-transform:uppercase; color:#ffe278;
+  background:none; -webkit-text-fill-color:#ffe278; -webkit-text-stroke:.65px #773716;
+  text-shadow:0 1px 0 #fff7bd,0 3px 0 #bb6b12,0 5px 0 #77281b,0 7px 0 #320d21; filter:none;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-field-shell {
+  position:absolute; left:25.8%; width:65.7%; top:20.8%; height:59.4%; max-width:none;
+  margin:0; padding:0; border:0; border-radius:8px; background:#eef8e900;
+  box-shadow:none; container-type:inline-size;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-grid {
+  width:100%; height:100%; aspect-ratio:auto; background:transparent;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-cell {
+  display:grid; place-items:center; padding:3px; container-type:size;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-cell .slot-sprite {
+  width:min(100cqw,100cqh); height:min(100cqw,100cqh); aspect-ratio:1;
+  max-width:100%; max-height:100%; filter:drop-shadow(0 3px 1px #33322d45);
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-cell::before {border-color:transparent;background:transparent;}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-cell.winning::before {
+  inset:4%; border:2px solid #ffeaa2; border-radius:10px; background:#edb82215;
+  box-shadow:inset 0 0 13px #ffd26555,0 0 8px #cf93288c;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-bomb-value {
+  right:12%; bottom:5%; border:1px solid #ffe296; border-radius:5px;
+  background:#7c1629; color:#fff1a7; box-shadow:0 2px 0 #3e1323;
+  font:800 clamp(12px,4cqw,24px)/1 'Barlow Condensed',Arial,sans-serif;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-readout {
+  position:absolute; z-index:3; left:25.8%; width:65.7%; bottom:1.5%; margin:0; padding:0;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px;
+  border:0; background:transparent; color:#ffe6b1; font:600 clamp(11px,1.8cqw,20px)/1.2 Arial,sans-serif;
+}
+.bonanza-win-total {display:flex; justify-content:center; gap:12px; align-items:baseline;}
+.bonanza-win-total>span {color:#ffda73; font:900 clamp(13px,2.3cqw,26px)/1 'Arial Black',Arial,sans-serif; letter-spacing:.015em; text-shadow:0 2px 0 #733219,0 3px 1px #291216;}
+.bonanza-win-total small {font-size:.48em;}
+.bonanza-win-detail {display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:4px 10px; min-height:18px; color:#ffedc9; font:500 clamp(9px,1.1cqw,13px)/1.2 Arial,sans-serif;}
+.bonanza-win-group {display:inline-flex; align-items:center; gap:4px; white-space:nowrap;}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-win-group .slot-sprite {
+  width:24px; height:24px; flex:0 0 24px; aspect-ratio:1;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-readout strong {
+  color:#fff4ce; font:900 clamp(25px,4.4cqw,52px)/1 'Arial Black',Arial,sans-serif;
+  margin:0; text-shadow:0 2px 0 #bc803b,0 4px 0 #502116,0 5px 2px #291216;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-status {
+  position:absolute; z-index:4; left:1.8%; right:auto; top:2.5%; width:19%; margin:0; padding:0;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonus-spin-counter {
+  width:100%; min-width:0; padding:7px 8px; gap:2px; border:1px solid #e7c177; border-radius:9px;
+  background:#371530e8; box-shadow:inset 0 1px 0 #ffffff40,0 3px 0 #0d172c;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonus-spin-counter span {
+  font:600 clamp(9px,1.3cqw,14px)/1.2 Arial,sans-serif; color:#f4deba;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonus-spin-counter strong {
+  font:800 clamp(26px,4.6cqw,49px)/1 'Barlow Condensed',Arial,sans-serif; color:#ffda69;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-group-payout {
+  color:#ffedb3; border-color:#ffe393; background:#622239f2; box-shadow:0 4px 0 #301526,0 0 15px #ffc14655;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-group-payout span {color:#ffe8cf;}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-spin-summary,
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-announcement {
+  background:radial-gradient(ellipse at 50% 30%,#653156f7,#261328f5 85%); color:#fff0c9;
+  border-color:#eac97b;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-announcement>strong {color:#ffe487;}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-purchase-dialog,
+.indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-entrance-dialog {
+  background:radial-gradient(ellipse at 50% 0,#51244c,#191b36 80%); border-color:#cda85d;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .entrance-rule-panel {
+  border-color:#82688d; background:#261c3d; color:#fff0d2;
+}
+.indictus-app.indictus-app .bonanza-slot.raster-slot .slot-controls {
+  --dock-panel:#251a32; --dock-raised:#40314a; --dock-line:#705369;
+  --dock-accent:#cc9b45; --dock-text:#fff0d5; --dock-muted:#cbb6cc;
+}
+
+.bonanza-mascot {position:absolute; z-index:3; left:1.4%; bottom:10.5%; width:24%; aspect-ratio:1/2; pointer-events:none;}
+.bonanza-mascot-body {width:100%; aspect-ratio:1/2; transform-origin:50% 96%; animation:bonanza-mascot-breathe 5.8s ease-in-out infinite;}
+.bonanza-mascot-sprite {display:block; width:100%; height:100%; background:url('/bonanza-commercial-mascot-v13.webp') 0 0 / 400% 200% no-repeat; filter:drop-shadow(0 6px 3px #13223855);}
+.bonanza-mascot[data-pose='idle'] .bonanza-mascot-sprite {animation:bonanza-mascot-blink 6s steps(1,end) infinite;}
+.bonanza-mascot[data-pose='watch'] .bonanza-mascot-body {animation:bonanza-mascot-watch calc(1.1s / var(--slot-speed,1)) ease-in-out infinite;}
+.bonanza-mascot[data-pose='bonus'] .bonanza-mascot-body {animation:bonanza-mascot-surprise calc(.75s / var(--slot-speed,1)) ease-out both;}
+.bonanza-mascot[data-pose='win'] .bonanza-mascot-body {animation:bonanza-mascot-sway calc(1.3s / var(--slot-speed,1)) ease-in-out infinite;}
+.bonanza-mascot[data-pose='win'] .bonanza-mascot-sprite {animation:bonanza-mascot-dance calc(1.3s / var(--slot-speed,1)) steps(1,end) infinite;}
+.bonanza-mascot[data-pose='win'][data-transient='true'] .bonanza-mascot-sprite {
+  animation:bonanza-mascot-dance calc(1.3s / var(--slot-speed,1)) steps(1,end) infinite,
+    bonanza-mascot-outcome calc(2.6s / var(--slot-speed,1)) steps(1,end) both;
+}
+@keyframes bonanza-mascot-blink {0%,94%,100%{background-position:0% 0%;}95%,98%{background-position:33.333333% 0%;}}
+@keyframes bonanza-mascot-breathe {50%{transform:translateY(-.6%) scale(1.008);}}
+@keyframes bonanza-mascot-watch {50%{transform:rotate(-1deg) translateY(-.5%);}}
+@keyframes bonanza-mascot-surprise {0%{transform:scale(.98) rotate(-3deg);}45%{transform:scale(1.06) rotate(3deg);}100%{transform:none;}}
+@keyframes bonanza-mascot-sway {0%,100%{transform:rotate(-1.5deg);}50%{transform:rotate(1.5deg) translateY(-1%);}}
+@keyframes bonanza-mascot-dance {
+  0%,24.99%{background-position:0% 100%;}25%,49.99%{background-position:33.333333% 100%;}
+  50%,74.99%{background-position:66.666667% 100%;}75%,100%{background-position:100% 100%;}
+}
+@keyframes bonanza-mascot-outcome {from,to{opacity:1;}}
+.bonanza-slot[data-playback-paused='true'] .bonanza-mascot * {animation-play-state:paused!important;}
+.bonanza-mascot[data-reduced-motion='true'] * {animation:none!important;transition:none!important;}
+
+@media(max-width:760px) {
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-cabinet {aspect-ratio:3/4; background-position:66% center;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-heading {left:25%;right:4%;top:4.5%;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-heading h2 {font-size:clamp(25px,7.4cqw,44px);}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-field-shell {
+    left:4%; width:92%; top:25%; height:60%; border:2px solid #d39b44;
+    background:linear-gradient(#eef8e9f5,#e3efdef5); box-shadow:0 0 0 2px #fae4a699,0 4px 0 #432643;
+  }
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .slot-cell {padding:2px;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-status {left:auto;right:4%;top:13.5%;width:44%;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonus-spin-counter {display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 7px;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonus-spin-counter span {font-size:10px;max-width:70px;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonus-spin-counter strong {font-size:31px;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-readout {left:4%;width:92%;bottom:1.5%;font-size:11px;gap:3px;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-readout strong {font-size:clamp(24px,7.2cqw,37px);}
+  .bonanza-win-total {gap:7px;}
+  .bonanza-win-total>span {font-size:16px;}
+  .bonanza-win-detail {font-size:9px;gap:3px 6px;}
+  .bonanza-group-unit {display:none;}
+  .indictus-app.indictus-app .bonanza-slot.raster-slot .bonanza-win-group .slot-sprite {width:18px;height:18px;flex-basis:18px;}
+  .bonanza-mascot {left:1.2%;top:.5%;bottom:auto;width:24%;height:22%;aspect-ratio:auto;overflow:hidden;}
+  .bonanza-mascot-body {height:auto;}
+}
+@media(prefers-reduced-motion:reduce) {.bonanza-mascot * {animation:none!important;transition:none!important;}}

@@ -1,0 +1,423 @@
+.slot-controls-shell {
+  width: 100%;
+  min-width: 0;
+  container-name: indictus-slot-controls;
+  container-type: inline-size;
+}
+.slot-controls {
+  --slot-panel: #17191c;
+  --slot-line: #44413c;
+  --slot-muted: #aaa79f;
+  --slot-text: #eee8db;
+  --slot-red: #8f293b;
+  --slot-cream: #d1c7af;
+  display: grid;
+  grid-template-columns:
+    minmax(154px, 1fr) minmax(182px, 1.25fr)
+    minmax(168px, .95fr) 92px minmax(106px, .7fr);
+  grid-template-areas:
+    "buy totals stake spin tools"
+    "note note note skip tools";
+  gap: 10px 12px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid var(--slot-line);
+  border-radius: 7px;
+  background: var(--slot-panel);
+  color: var(--slot-text);
+  font-family: "Bahnschrift", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.slot-controls *, .slot-controls *::before, .slot-controls *::after {
+  box-sizing: border-box;
+}
+.slot-controls button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.slot-controls button:focus-visible {
+  outline: 2px solid #fff4d4;
+  outline-offset: 4px;
+}
+.slot-controls button:disabled {
+  cursor: default;
+}
+.slot-buy-button {
+  grid-area: buy;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1px solid #e8dcc0;
+  border-radius: 4px;
+  background: var(--slot-cream);
+  color: #161719 !important;
+  text-align: left;
+  box-shadow: inset 0 -3px 0 #a69b83;
+  transition: background .15s, transform .15s;
+}
+.slot-buy-button:hover:enabled { background: #e0d5bc; }
+.slot-buy-button:active:enabled { transform: translateY(1px); }
+.slot-buy-button:disabled {
+  background: #5c594f;
+  border-color: #787266;
+  color: #e0dcd1 !important;
+  box-shadow: none;
+}
+.slot-buy-art {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 42px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+.slot-buy-copy { display: block; min-width: 0; }
+.slot-buy-label { display: block; font-size: 15px; font-weight: 700; }
+.slot-buy-price {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+  align-items: baseline;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.slot-buy-multiplier { font-size: 11px; font-weight: 700; }
+.slot-totals {
+  grid-area: totals;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  min-width: 0;
+}
+.slot-total { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.slot-total-label {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--slot-muted);
+}
+.slot-total-value {
+  display: block;
+  min-width: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.slot-last-payout .slot-total-value { color: #d0c7b1; }
+.slot-stake-control { grid-area: stake; min-width: 0; }
+.slot-stake-caption {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--slot-muted);
+  text-align: center;
+  font-size: 11px;
+}
+.slot-stake-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid #555148;
+  border-radius: 4px;
+  background: #0d1013;
+}
+.slot-stake-step {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: #303235;
+  font-size: 24px !important;
+  line-height: 1;
+}
+.slot-stake-step:hover:enabled { background: #474746; }
+.slot-stake-step:disabled { opacity: .35; }
+.slot-stake-value {
+  min-width: 0;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.slot-spin-button {
+  grid-area: spin;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  padding: 6px;
+  border: 2px solid #cbbda0;
+  border-radius: 50%;
+  background: #0c0e10;
+  box-shadow: 0 3px 0 #030405;
+  transition: transform .15s, border-color .15s;
+}
+.slot-spin-face {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border: 1px solid #c4848e;
+  border-radius: 50%;
+  background: var(--slot-red);
+}
+.slot-spin-word {
+  max-width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .035em;
+}
+.slot-spin-art { width: 76%; height: 76%; object-fit: contain; }
+.slot-spin-button:hover:enabled {
+  border-color: #f0e2c6;
+  transform: scale(1.035);
+}
+.slot-spin-button:active:enabled { transform: scale(.97); }
+.slot-spin-button:disabled { border-color: #615d54; }
+.slot-spin-button:disabled .slot-spin-face {
+  border-color: #5b464b;
+  background: #482830;
+  color: #c1b8b6;
+}
+.slot-controls[data-busy="true"] .slot-spin-face {
+  animation: indictus-spin-breathe 1.25s ease-in-out infinite;
+}
+@keyframes indictus-spin-breathe {
+  0%, 100% { opacity: .72; }
+  50% { opacity: 1; }
+}
+.slot-tool-buttons {
+  grid-area: tools;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.slot-tool-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 6px 7px;
+  border: 1px solid #514e46;
+  border-radius: 3px;
+  background: #222529;
+  font-size: 11px !important;
+  line-height: 1.1;
+}
+.slot-tool-button:hover:enabled { background: #333639; }
+.slot-tool-button:disabled { opacity: .4; }
+.slot-tool-button[aria-pressed="true"] {
+  border-color: #b5a78d;
+  background: #35342f;
+}
+.slot-audio-dot {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: #65665f;
+}
+.slot-tool-button[aria-pressed="true"] .slot-audio-dot {
+  background: #e7d9b5;
+}
+.slot-info-button { min-width: 44px; }
+.slot-info-letter { font-family: Georgia, serif; font-size: 19px; font-weight: 700; }
+.slot-skip-button {
+  grid-area: skip;
+  justify-self: stretch;
+  min-width: 0;
+  min-height: 44px;
+  padding: 5px 4px;
+  border: 1px solid #7e7163;
+  border-radius: 3px;
+  background: #292924;
+  font-size: 12px !important;
+  line-height: 1.1;
+  text-align: center;
+}
+.slot-skip-button:hover:enabled { background: #403d34; }
+.slot-skip-button:disabled { opacity: .28; }
+.slot-controls-note {
+  grid-area: note;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  min-width: 0;
+  padding-top: 3px;
+  color: var(--slot-muted);
+  font-size: 11px;
+  line-height: 1.3;
+}
+.slot-controls-note strong { color: #d0c7b1; font-weight: 600; }
+
+@container indictus-slot-controls (max-width: 850px) {
+  .slot-controls {
+    grid-template-columns: minmax(132px, 1fr) minmax(154px, 1.2fr)
+      minmax(154px, 1fr) 82px;
+    grid-template-areas:
+      "buy totals stake spin"
+      "note tools tools skip";
+    gap: 10px;
+    padding: 12px;
+  }
+  .slot-spin-button { width: 82px; height: 82px; }
+  .slot-tool-buttons { justify-content: flex-end; flex-wrap: nowrap; }
+  .slot-total-value { font-size: 17px; }
+}
+
+@container indictus-slot-controls (max-width: 620px) {
+  .slot-controls {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 76px;
+    grid-template-areas:
+      "totals totals totals"
+      "buy buy spin"
+      "stake stake spin"
+      "tools tools skip"
+      "note note note";
+    gap: 10px 8px;
+    padding: 11px;
+  }
+  .slot-totals {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #363630;
+  }
+  .slot-total-value { font-size: 20px; }
+  .slot-buy-button { min-height: 57px; padding: 8px 10px; }
+  .slot-buy-label { font-size: 14px; }
+  .slot-buy-price { margin-top: 4px; }
+  .slot-buy-art { width: 27px; height: 36px; flex-basis: 27px; }
+  .slot-stake-caption { margin-bottom: 4px; text-align: left; }
+  .slot-stake-value { font-size: 18px; }
+  .slot-spin-button { width: 76px; height: 76px; }
+  .slot-spin-word { font-size: 14px; }
+  .slot-tool-buttons { justify-content: flex-start; }
+  .slot-tool-button { min-height: 44px; }
+  .slot-skip-button { min-height: 44px; }
+  .slot-controls-note { justify-content: space-between; padding-top: 0; }
+}
+
+@container indictus-slot-controls (max-width: 350px) {
+  .slot-controls {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 64px;
+    gap: 9px 6px;
+    padding: 9px;
+  }
+  .slot-spin-button { width: 64px; height: 64px; padding: 4px; }
+  .slot-spin-word { font-size: 12px; letter-spacing: 0; }
+  .slot-buy-button { gap: 6px; padding: 8px; }
+  .slot-buy-art { width: 23px; height: 31px; flex-basis: 23px; }
+  .slot-buy-label { font-size: 13px; }
+  .slot-buy-price { font-size: 11px; gap: 3px 6px; }
+  .slot-total-value { font-size: 18px; }
+  .slot-tool-buttons { gap: 4px; }
+  .slot-tool-button { padding: 6px; font-size: 11px !important; gap: 4px; }
+  .slot-info-button { min-width: 44px; }
+  .slot-stake-row { grid-template-columns: 44px minmax(0, 1fr) 44px; }
+  .slot-stake-step { width: 44px; }
+  .slot-stake-value { font-size: 16px; }
+  .slot-controls-note { font-size: 11px; gap: 4px 8px; }
+}
+
+/* Fallback for browsers without container queries. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 850px) {
+    .slot-controls {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 76px;
+      grid-template-areas:
+        "totals totals totals"
+        "buy buy spin"
+        "stake stake spin"
+        "tools tools skip"
+        "note note note";
+      gap: 10px 8px;
+      padding: 11px;
+    }
+    .slot-spin-button { width: 76px; height: 76px; }
+    .slot-tool-buttons { justify-content: flex-start; flex-wrap: nowrap; }
+    .slot-controls-note { justify-content: space-between; }
+  }
+  @media (max-width: 350px) {
+    .slot-controls {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 64px;
+      gap: 9px 6px;
+      padding: 9px;
+    }
+    .slot-spin-button { width: 64px; height: 64px; padding: 4px; }
+    .slot-spin-word { font-size: 12px; }
+    .slot-tool-button { font-size: 11px !important; padding: 6px; }
+    .slot-stake-value { font-size: 16px; }
+  }
+}
+.slot-controls[data-reduced-motion="true"] *,
+.slot-controls[data-reduced-motion="true"] *::before,
+.slot-controls[data-reduced-motion="true"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slot-controls *, .slot-controls *::before, .slot-controls *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* The existing published game keeps its controls in a vertical side panel. */
+.bonanza-play-layout .slot-controls-shell{height:100%;container-type:normal}
+.bonanza-play-layout .slot-controls{--slot-panel:#12161b;--slot-line:#2b3038;--slot-muted:#929daa;--slot-text:#eef0f2;--slot-red:#9e2833;display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"stake" "note" "spin" "buy" "totals" "tools" "skip";gap:17px;padding:24px;border:1px solid var(--slot-line);border-radius:6px;background:var(--slot-panel);height:100%;align-content:start;font:12px/1.5 Arial,sans-serif}
+.bonanza-play-layout .slot-stake-caption{text-align:left;margin-bottom:8px;font-size:11px}
+.bonanza-play-layout .slot-stake-row{grid-template-columns:44px minmax(0,1fr) 44px;background:#090d12;border-color:#454b55;padding:3px}
+.bonanza-play-layout .slot-stake-value{font:26px/1 Impact,"Arial Narrow",Arial,sans-serif;font-weight:400}
+.bonanza-play-layout .slot-stake-step{background:#252b33;color:#c5cbd4;border-radius:3px;font-size:22px!important}
+.bonanza-play-layout .slot-stake-step:hover:enabled{background:#353d48}
+.bonanza-play-layout .slot-controls-note{display:flex;flex-direction:column;gap:5px;justify-content:start;padding:0;color:#848e9a;font-size:10px}
+.bonanza-play-layout .slot-controls-note strong{color:#c2c9d2}
+.bonanza-play-layout .slot-spin-button{justify-self:stretch;width:100%;height:auto;min-height:50px;padding:0;border:0;border-radius:4px;background:#9e2833;box-shadow:none;transform:none}
+.bonanza-play-layout .slot-spin-face{min-height:50px;padding:14px 20px;border:0;border-radius:4px;background:transparent;display:flex;justify-content:space-between}
+.bonanza-play-layout .slot-spin-face::after{content:"↗";font-size:15px;font-weight:400}
+.bonanza-play-layout .slot-spin-word{font:700 13px/1.3 Arial,sans-serif;letter-spacing:.01em;text-align:left}
+.bonanza-play-layout .slot-spin-button:hover:enabled{transform:none;background:#b73441}
+.bonanza-play-layout .slot-spin-button:active:enabled{transform:translateY(1px)}
+.bonanza-play-layout .slot-spin-button:disabled{opacity:.45;background:#9e2833}
+.bonanza-play-layout .slot-spin-button:disabled .slot-spin-face{background:transparent;color:#fff3f4}
+.bonanza-play-layout .slot-controls[data-busy="true"] .slot-spin-face{animation:none}
+.bonanza-play-layout .slot-buy-button{background:#242b34!important;color:#d0d5dc!important;box-shadow:none;border:1px solid #3a424d;border-radius:4px;min-height:55px;padding:11px 12px}
+.bonanza-play-layout .slot-buy-button:hover:enabled{background:#323b47!important}
+.bonanza-play-layout .slot-buy-button:disabled{opacity:.45;background:#242b34!important;color:#d0d5dc!important;border-color:#3a424d}
+.bonanza-play-layout .slot-buy-art{width:28px;height:34px;flex-basis:28px}
+.bonanza-play-layout .slot-buy-label{font-size:12px;font-weight:400}
+.bonanza-play-layout .slot-buy-price{font-size:10px;margin-top:3px;gap:4px 8px;color:#929daa}
+.bonanza-play-layout .slot-totals{grid-template-columns:minmax(0,1fr);padding:14px 0 0;border-top:1px solid #2a3039;gap:0}
+.bonanza-play-layout .slot-total{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+.bonanza-play-layout .slot-total-label{font-size:10px;color:#87929f}
+.bonanza-play-layout .slot-total-value{font:19px/1 Impact,"Arial Narrow",Arial,sans-serif;font-weight:400;color:#c2c9d2}
+.bonanza-play-layout .slot-tool-buttons{justify-content:start;flex-wrap:nowrap;gap:6px}
+.bonanza-play-layout .slot-tool-button{min-height:40px;border-color:#343c47;background:#1b2129;border-radius:3px;font-size:10px!important;padding:8px;flex:1}
+.bonanza-play-layout .slot-info-button{flex:0 0 40px;min-width:40px}
+.bonanza-play-layout .slot-tool-button[aria-pressed="true"]{border-color:#9f5360;background:#39212a;color:#fff0f2}
+.bonanza-play-layout .slot-tool-button[aria-pressed="true"] .slot-audio-dot{background:#d39aa4}
+.bonanza-play-layout .slot-skip-button{min-height:40px;padding:10px;border:1px solid #343c47;border-radius:4px;background:#1b2129;color:#b9c1cd;font-size:11px!important}
+.bonanza-play-layout .slot-skip-button:hover:enabled{background:#323b47}
+@media(max-width:760px){.bonanza-play-layout .slot-controls{height:auto;padding:20px}}
+@media(max-width:400px){.bonanza-play-layout .slot-controls{padding:16px}}

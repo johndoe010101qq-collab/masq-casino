@@ -1,0 +1,49 @@
+@font-face{font-family:'Indictus Manrope';src:url('/fonts/Manrope-Variable.ttf') format('truetype');font-style:normal;font-weight:200 800;font-display:swap}
+@font-face{font-family:'Indictus Unbounded';src:url('/fonts/Unbounded-Variable.ttf') format('truetype');font-style:normal;font-weight:200 900;font-display:swap}
+html{background:#0d0e12;scroll-padding-top:100px}body{margin:0}
+.indictus-app.app-shell14{--ui-font:'Indictus Manrope',Arial,sans-serif;--lobby-display:'Indictus Unbounded','Indictus Manrope',Arial,sans-serif;--shell-cream:#f2ecdf;--shell-muted:#9d9da4;--shell-gold:#d8bd83;background:#0d0e12;color:var(--shell-cream);font-family:var(--ui-font);min-height:100svh}
+.app-shell14.app-shell14 button,.app-shell14.app-shell14 input{font-family:var(--ui-font)}
+.app-shell14.app-shell14 button:focus-visible,.app-shell14.app-shell14 input:focus-visible{outline:2px solid #e1c58c;outline-offset:4px}
+.app-shell14.app-shell14 .indictus-header{position:relative;z-index:20;min-height:94px;display:flex;flex-wrap:nowrap;align-items:center;gap:32px;padding:20px max(32px,calc((100vw - 1280px)/2));background:#111216;border:0;border-bottom:1px solid #ffffff0c;box-shadow:none}
+.app-shell14.app-shell14 .hall-brand{display:flex;align-items:center;gap:13px;min-width:0;flex-shrink:0;grid-column:auto;grid-row:auto}
+.shell14-brand-seal{display:flex;align-items:center;justify-content:center;width:39px;height:44px}
+.app-shell14.app-shell14 .brand-emblem{display:block;width:34px;height:40px;object-fit:contain;filter:none}
+.app-shell14.app-shell14 .brand-type{display:grid;gap:8px}
+.app-shell14.app-shell14 .wordmark{font-family:var(--lobby-display)!important;font-weight:700;font-size:23px;letter-spacing:-.05em;line-height:1;color:#f2ecdf}
+.app-shell14.app-shell14 .wordmark>span{color:#dd544b}
+.app-shell14.app-shell14 .brand-subtitle{font-family:var(--ui-font);font-size:8px;font-weight:700;letter-spacing:.47em;line-height:1;color:#b6a987}
+.app-shell14.app-shell14 .header-nav{position:static;display:flex;align-items:center;gap:26px;margin:0;padding:0;grid-column:auto;grid-row:auto}
+.app-shell14.app-shell14 .header-nav button{position:relative;min-height:44px;background:none;padding:10px 0;font-family:var(--ui-font);font-size:13px;font-weight:650;color:#8c8c95;border:0;white-space:nowrap}
+.app-shell14.app-shell14 .header-nav button.active{color:#f2ecdf;border:0}
+.app-shell14.app-shell14 .header-nav button.active::after{content:'';position:absolute;bottom:1px;left:0;right:0;height:2px;background:#d6b479;border-radius:2px}
+.shell14-account-tools{display:flex;align-items:center;gap:22px;margin-left:auto;min-width:0}
+.app-shell14.app-shell14 .hall-wallet{margin:0;min-width:106px;gap:5px;white-space:nowrap}
+.app-shell14.app-shell14 .hall-wallet>span{font-family:var(--ui-font);font-size:10px;letter-spacing:.02em;color:#8e8e99}
+.app-shell14.app-shell14 .hall-wallet strong{font-family:var(--ui-font);font-size:22px;line-height:1;font-weight:800;letter-spacing:-.04em;color:#e7d1a5;font-variant-numeric:tabular-nums}
+.app-shell14.app-shell14 .hall-wallet small{margin-left:5px;font-family:var(--ui-font);font-size:10px;color:#b4a98e;font-weight:600;letter-spacing:0}
+.shell14-sound-controls{display:flex;gap:3px;padding-left:18px;border-left:1px solid #ffffff10}
+.app-shell14.app-shell14 .audio-button{display:grid;place-items:center;width:38px;min-width:38px;height:40px;min-height:40px;padding:0;background:transparent;border:0;border-radius:8px;opacity:1;color:#6f707b;transition:color .18s,background .18s;grid-column:auto;grid-row:auto}
+.app-shell14.app-shell14 .audio-button.active{color:#d8bf8d;background:#d8bf8d0a}
+.app-shell14.app-shell14 .audio-button:hover{color:#f2ecdf;background:#ffffff08}
+.audio-button svg{width:19px;height:19px}
+.shell14-profile{display:flex;align-items:center;gap:11px;min-width:0}
+.shell14-avatar{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border:1px solid #ccb78335;border-radius:50%;background:#1d1a17}
+.shell14-avatar img{width:24px;height:29px;object-fit:contain}
+.shell14-profile-copy{display:grid;gap:5px;min-width:0;max-width:112px}
+.app-shell14.app-shell14 .profile-name{display:block;font-family:var(--ui-font);color:#ece6d9;font-size:12px;line-height:1.2;font-weight:700;max-width:112px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.shell14-profile-copy small{font-size:10px;color:#7e7e89}
+.app-shell14.app-shell14 .demo-admin-entry{min-height:34px;padding:8px 11px;background:#211d17;border:1px solid #bea66d40;border-radius:5px;color:#c5ad7e;font-size:10px;white-space:nowrap}
+.app-shell14.app-shell14[data-view='hall'] .indictus-main{width:calc(100% - 64px);max-width:1280px;padding:32px 0 64px;margin:0 auto}
+.app-shell14.app-shell14 .shell14-footer{max-width:1280px;width:calc(100% - 64px);margin:0 auto;padding:30px 0 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:none;border:0;border-top:1px solid #ffffff0c;color:#74747e;font-family:var(--ui-font);font-size:11px}
+.shell14-footer>div{display:flex;gap:22px;align-items:center}
+.shell14-footer>div:first-child{flex:1;min-width:0}
+.shell14-footer .shell14-footer-brand{font-family:var(--lobby-display);font-size:13px;font-weight:650;letter-spacing:-.035em;color:#b7ad99}
+.app-shell14.app-shell14 .shell14-footer button{font-family:var(--ui-font);font-size:11px;font-weight:600;color:#9999a3;white-space:nowrap}
+.shell14-mobile-nav{display:none}
+.shell14-connection{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 16px;padding:11px 20px;border-bottom:1px solid #d8bd8318;background:#211e18;color:#c5b79b;font-family:var(--ui-font);font-size:11px;line-height:1.6}
+@media(min-width:1800px){.app-shell14.app-shell14[data-view='hall'] .indictus-main{padding-top:46px}}
+@media(max-width:1150px){.app-shell14.app-shell14 .indictus-header{gap:24px}.shell14-account-tools{gap:14px}.shell14-profile-copy{display:none}.shell14-sound-controls{padding-left:10px}.app-shell14.app-shell14 .header-nav{gap:21px}.app-shell14.app-shell14 .wordmark{font-size:21px}}
+@media(max-width:900px){.app-shell14.app-shell14 .indictus-header{gap:16px;padding-left:24px;padding-right:24px;min-height:85px}.app-shell14.app-shell14 .header-nav{display:none}.shell14-account-tools{gap:13px}.shell14-profile-copy{display:grid}.app-shell14.app-shell14[data-view='hall'] .indictus-main{width:calc(100% - 48px)}.app-shell14.app-shell14 .shell14-footer{width:calc(100% - 48px)}.shell14-footer>div:first-child{align-items:flex-start;flex-direction:column;gap:10px}}
+@media(max-width:780px){html{scroll-padding-top:25px}.app-shell14.app-shell14{padding-bottom:calc(72px + env(safe-area-inset-bottom))}.app-shell14.app-shell14 .indictus-header{min-height:80px;padding:18px 20px;gap:12px}.app-shell14.app-shell14 .wordmark{font-size:20px}.app-shell14.app-shell14 .brand-type{gap:7px}.app-shell14.app-shell14 .brand-subtitle{font-size:7px}.shell14-brand-seal{width:31px;height:37px}.app-shell14.app-shell14 .brand-emblem{width:28px;height:34px}.app-shell14.app-shell14 .hall-brand{gap:9px}.shell14-profile{display:none}.shell14-account-tools{gap:10px}.app-shell14.app-shell14 .hall-wallet{min-width:88px}.app-shell14.app-shell14 .hall-wallet strong{font-size:21px}.shell14-sound-controls{padding:0;border:0}.app-shell14.app-shell14 .audio-button{width:32px;min-width:32px;height:40px}.audio-button svg{width:17px;height:17px}.app-shell14.app-shell14[data-view='hall'] .indictus-main{width:calc(100% - 40px);padding-top:22px;padding-bottom:40px}.app-shell14.app-shell14 .demo-admin-entry{position:absolute;right:20px;top:82px;z-index:25}.app-shell14.app-shell14 .shell14-footer{width:calc(100% - 40px);padding:22px 0;align-items:flex-start;font-size:10px}.shell14-footer>div{gap:13px}.shell14-footer>div:last-child{flex-direction:column;align-items:flex-end}.app-shell14.app-shell14 .shell14-footer button{font-size:10px}.shell14-mobile-nav{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:#15161bf5;backdrop-filter:blur(16px);padding:8px 12px calc(8px + env(safe-area-inset-bottom));border-top:1px solid #ffffff10}.shell14-mobile-nav button{display:grid;justify-items:center;gap:5px;min-height:49px;padding:6px 4px 4px;color:#777885;background:none;border-radius:8px;font-family:var(--ui-font);font-size:10px;font-weight:650;line-height:1.3}.shell14-mobile-nav button svg{width:21px;height:21px}.shell14-mobile-nav button.active{color:#e0c58e;background:#e0c58e07}}
+@media(max-width:430px){.app-shell14.app-shell14 .indictus-header{padding:17px 15px;gap:8px}.app-shell14.app-shell14 .wordmark{font-size:18px}.shell14-brand-seal{display:none}.shell14-account-tools{gap:7px}.shell14-sound-controls{gap:0}.app-shell14.app-shell14 .hall-wallet{min-width:82px}.app-shell14.app-shell14 .hall-wallet strong{font-size:19px}.app-shell14.app-shell14 .hall-wallet>span{font-size:9px}.app-shell14.app-shell14 .audio-button{width:28px;min-width:28px;min-height:36px}.app-shell14.app-shell14[data-view='hall'] .indictus-main{width:calc(100% - 30px);padding-top:17px}.app-shell14.app-shell14 .shell14-footer{width:calc(100% - 30px)}.app-shell14.app-shell14 .demo-admin-entry{right:15px;top:76px}}
+@media(prefers-reduced-motion:reduce){.app-shell14.app-shell14 .audio-button{transition:none}}

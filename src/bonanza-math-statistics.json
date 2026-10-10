@@ -1,0 +1,1100 @@
+{
+  "generatedAt": "2026-10-09T12:30:02.699Z",
+  "rulesVersion": "indictus-demo-2026-10-09-v11",
+  "engineSha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+  "candidateCanonicalSHA256": "bb5048871270d710319e6c6d7e162248b6dbc7b117aa08af30570261a0b5e0df",
+  "candidateFileSHA256": "bdc4b8ca5ddc804a45724e72fee31a4dc922108f9708ed01bea6806732c57fa3",
+  "targetReturnWorkingHypothesis": 0.5,
+  "maxWinMultiplier": 100,
+  "winCapOffsetCents": 100,
+  "bonusBuyMultiplier": 50,
+  "minimumUserStake": 5,
+  "maximumUserStake": 100,
+  "userStakeStep": 5,
+  "sharedNaturalAndBoughtBonus": true,
+  "paidAndNaturalV7Unchanged": false,
+  "holdout20kSubsetOf100k": true,
+  "definitions": {
+    "positivePayout": "Complete gross payout abovezero; include all awarded/retriggered spins evenafter monetary cap.",
+    "playerProfit": "Complete gross payout strictly above charged price. A bought round costs50times base stake.",
+    "zeroPayout": "Complete gross payout exactlyzero.",
+    "breakEven": "Complete gross payout exactly equal charged price.",
+    "estimatedReturn": "Gross payouts divided by charges; reproducible MonteCarlo estimate, not certified exact theoretical RTP.",
+    "casinoRevenue": "Charges minus payouts before operating costs.",
+    "bonus": "Natural,bought andpreview use identical frozen weights/paytables.",
+    "reserveDiagnostic": "10000AR starting house cash with unrestricted admission. Fixed-volume series bypass Hall reserve admission; they are not forecast of funded shared casino.",
+    "reserveExhausted": "Compatibilityfield means cash minimum<=0; zero andnegative separate.",
+    "reserveAdmission": "LocalHall reserves maximum net liability beforeRNG; this clientDEMO is not a trusted funded shared backend.",
+    "frequency95CI": "Wilson95% binomial interval.",
+    "return95CI": "Approximate normal95% interval for mean; not per-series guarantee."
+  },
+  "changes": {
+    "freeCellBombWeight": 3,
+    "totalFreeWeight": 905,
+    "freeCellScatterWeight": 1,
+    "randomIndividualBombMaximum": 25,
+    "highIndividualBombShare": 0.0004058853373921867,
+    "freeShape": "gentle individual tiers",
+    "freeScale": 1.5330169501339697,
+    "baseScale": 0.9501563607069841,
+    "baselineEngineSha256": "8604cb3126548dbae539c6a89c34c60bc6133138ba6c94eaf1a97ca293f2f886",
+    "allAwardedFreeSpinsContinue": true,
+    "winCapOffsetCents": 100,
+    "creditedAmountsSeparateFromNominal": true
+  },
+  "holdout20k": {
+    "paid": {
+      "mode": "paid",
+      "sampleRounds": 20000,
+      "seed": 300946081,
+      "seedHex": "0x11f012a1",
+      "stakeCents": 1000,
+      "chargeCentsPerRound": 1000,
+      "totalChargeCents": 20000000,
+      "totalPayoutCents": 10100700,
+      "estimatedGrossReturn": 0.5050350000000011,
+      "estimatedGrossReturnPercent": 50.50350000000011,
+      "estimatedGrossReturn95CI": [
+        0.4656555809967914,
+        0.5444144190032109
+      ],
+      "standardError": 0.02009154030776006,
+      "zeroPayoutFrequency": 0.8602,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.8858,
+      "playerProfitFrequency95CI": [
+        0.10986588700942473,
+        0.11868229345607148
+      ],
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 11.9,
+        "p95": 26.4,
+        "p99": 65.9,
+        "minimum": 0,
+        "maximum": 999
+      },
+      "netProfitDistributionAR": {
+        "median": -10,
+        "p90": 1.9000000000000004,
+        "p95": 16.4,
+        "p99": 55.900000000000006
+      },
+      "positivePayoutFrequency": 0.1398,
+      "positivePayoutFrequency95CI": [
+        0.13506302017886979,
+        0.14467532767927366
+      ],
+      "playerProfitFrequency": 0.1142,
+      "caps": 1,
+      "capFrequency": 0.00005,
+      "capFrequency95CI": [
+        0.00000882605523813606,
+        0.00028319785280960614
+      ],
+      "freeSpins": 910,
+      "bonusTriggeredFrequency": 0.00455,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 3,
+      "totalTumbles": 4276,
+      "randomBombAudit": {
+        "freeFreshCells": 36769,
+        "bombs": 126,
+        "density": 0.0034267997497892245,
+        "densityMinusExpected": 0.0001118826227174013,
+        "expectedDensityStandardError": 0.0002997605021653918,
+        "densityZScore": 0.3732400429982949,
+        "conditionalMeanMultiplier": 2.0873015873015874,
+        "observedBombValues": {
+          "2": 118,
+          "3": 7,
+          "4": 0,
+          "5": 0,
+          "6": 1,
+          "8": 0,
+          "10": 0,
+          "12": 0,
+          "15": 0,
+          "20": 0,
+          "25": 0
+        },
+        "forbiddenBombs": 0
+      },
+      "estimatedReturn": 0.5050350000000011,
+      "estimatedReturn95CI": [
+        0.4656555809967914,
+        0.5444144190032109
+      ]
+    },
+    "buy": {
+      "mode": "buy",
+      "sampleRounds": 20000,
+      "seed": 300946082,
+      "seedHex": "0x11f012a2",
+      "stakeCents": 1000,
+      "chargeCentsPerRound": 50000,
+      "totalChargeCents": 1000000000,
+      "totalPayoutCents": 504362340,
+      "estimatedGrossReturn": 0.5043623400000015,
+      "estimatedGrossReturnPercent": 50.43623400000015,
+      "estimatedGrossReturn95CI": [
+        0.5010391628859313,
+        0.5076855171140716
+      ],
+      "standardError": 0.001695498527586812,
+      "zeroPayoutFrequency": 0.0006,
+      "breakEvenFrequency": 0.00005,
+      "playerLossFrequency": 0.9638,
+      "playerProfitFrequency95CI": [
+        0.03365077331253098,
+        0.03882738508280445
+      ],
+      "payoutDistributionAR": {
+        "median": 235.3,
+        "p90": 405.9,
+        "p95": 466.90999999999985,
+        "p99": 628.4019999999997,
+        "minimum": 0,
+        "maximum": 999
+      },
+      "netProfitDistributionAR": {
+        "median": -264.7,
+        "p90": -94.10000000000002,
+        "p95": -33.090000000000146,
+        "p99": 128.4019999999997
+      },
+      "positivePayoutFrequency": 0.9994,
+      "positivePayoutFrequency95CI": [
+        0.9989514539724205,
+        0.9996567333669553
+      ],
+      "playerProfitFrequency": 0.03615,
+      "caps": 6,
+      "capFrequency": 0.0003,
+      "capFrequency95CI": [
+        0.0001374978367040132,
+        0.0006544300497875494
+      ],
+      "freeSpins": 200015,
+      "bonusTriggeredFrequency": 1,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 4,
+      "totalTumbles": 211244,
+      "randomBombAudit": {
+        "freeFreshCells": 8048102,
+        "bombs": 26614,
+        "density": 0.0033068666376246227,
+        "densityMinusExpected": -0.000008050489447200548,
+        "expectedDensityStandardError": 0.000020261359435088824,
+        "densityZScore": -0.39733214708479186,
+        "conditionalMeanMultiplier": 2.1236191478169384,
+        "observedBombValues": {
+          "2": 24341,
+          "3": 1820,
+          "4": 224,
+          "5": 121,
+          "6": 66,
+          "8": 19,
+          "10": 8,
+          "12": 6,
+          "15": 3,
+          "20": 4,
+          "25": 2
+        },
+        "forbiddenBombs": 0
+      },
+      "estimatedReturn": 0.5043623400000015,
+      "estimatedReturn95CI": [
+        0.5010391628859313,
+        0.5076855171140716
+      ]
+    }
+  },
+  "holdout100k": {
+    "paid": {
+      "mode": "paid",
+      "sampleRounds": 100000,
+      "seed": 300946081,
+      "seedHex": "0x11f012a1",
+      "stakeCents": 1000,
+      "chargeCentsPerRound": 1000,
+      "totalChargeCents": 100000000,
+      "totalPayoutCents": 50300940,
+      "estimatedGrossReturn": 0.5030093999999922,
+      "estimatedGrossReturnPercent": 50.300939999999216,
+      "estimatedGrossReturn95CI": [
+        0.48528958780240233,
+        0.520729212197582
+      ],
+      "standardError": 0.009040720508974401,
+      "zeroPayoutFrequency": 0.85852,
+      "breakEvenFrequency": 0,
+      "playerLossFrequency": 0.884,
+      "playerProfitFrequency95CI": [
+        0.114029959859892,
+        0.11799954249474556
+      ],
+      "payoutDistributionAR": {
+        "median": 0,
+        "p90": 11.9,
+        "p95": 26.4,
+        "p99": 65.8,
+        "minimum": 0,
+        "maximum": 999
+      },
+      "netProfitDistributionAR": {
+        "median": -10,
+        "p90": 1.9000000000000004,
+        "p95": 16.4,
+        "p99": 55.8
+      },
+      "positivePayoutFrequency": 0.14148,
+      "positivePayoutFrequency95CI": [
+        0.1393336453479504,
+        0.14365389940253043
+      ],
+      "playerProfitFrequency": 0.116,
+      "caps": 5,
+      "capFrequency": 0.00005,
+      "capFrequency95CI": [
+        0.00002135687940877151,
+        0.00011705380340643748
+      ],
+      "freeSpins": 4480,
+      "bonusTriggeredFrequency": 0.00448,
+      "maximumSpinsInRound": 11,
+      "continuedSpinsAfterFirstClipping": 37,
+      "totalTumbles": 21476,
+      "randomBombAudit": {
+        "freeFreshCells": 180782,
+        "bombs": 620,
+        "density": 0.003429544976822914,
+        "densityMinusExpected": 0.00011462784975109063,
+        "expectedDensityStandardError": 0.00013518786942542336,
+        "densityZScore": 0.8479152030302933,
+        "conditionalMeanMultiplier": 2.1145161290322583,
+        "observedBombValues": {
+          "2": 570,
+          "3": 38,
+          "4": 6,
+          "5": 3,
+          "6": 3,
+          "8": 0,
+          "10": 0,
+          "12": 0,
+          "15": 0,
+          "20": 0,
+          "25": 0
+        },
+        "forbiddenBombs": 0
+      },
+      "estimatedReturn": 0.5030093999999922,
+      "estimatedReturn95CI": [
+        0.48528958780240233,
+        0.520729212197582
+      ]
+    },
+    "buy": {
+      "mode": "buy",
+      "sampleRounds": 100000,
+      "seed": 300946082,
+      "seedHex": "0x11f012a2",
+      "stakeCents": 1000,
+      "chargeCentsPerRound": 50000,
+      "totalChargeCents": 5000000000,
+      "totalPayoutCents": 2519135680,
+      "estimatedGrossReturn": 0.5038271359999923,
+      "estimatedGrossReturnPercent": 50.38271359999923,
+      "estimatedGrossReturn95CI": [
+        0.5023561820596372,
+        0.5052980899403474
+      ],
+      "standardError": 0.000750486704262844,
+      "zeroPayoutFrequency": 0.00059,
+      "breakEvenFrequency": 0.00002,
+      "playerLossFrequency": 0.96496,
+      "playerProfitFrequency95CI": [
+        0.03389835151935039,
+        0.036177372451637546
+      ],
+      "payoutDistributionAR": {
+        "median": 235.9,
+        "p90": 404.8,
+        "p95": 467.1,
+        "p99": 616.0009999999995,
+        "minimum": 0,
+        "maximum": 999
+      },
+      "netProfitDistributionAR": {
+        "median": -264.1,
+        "p90": -95.19999999999999,
+        "p95": -32.89999999999998,
+        "p99": 116.00099999999952
+      },
+      "positivePayoutFrequency": 0.99941,
+      "positivePayoutFrequency95CI": [
+        0.9992390944546211,
+        0.99954253635025
+      ],
+      "playerProfitFrequency": 0.03502,
+      "caps": 38,
+      "capFrequency": 0.00038,
+      "capFrequency95CI": [
+        0.00027688023458638647,
+        0.000521505094642806
+      ],
+      "freeSpins": 1000065,
+      "bonusTriggeredFrequency": 1,
+      "maximumSpinsInRound": 15,
+      "continuedSpinsAfterFirstClipping": 97,
+      "totalTumbles": 1053961,
+      "randomBombAudit": {
+        "freeFreshCells": 40217713,
+        "bombs": 134113,
+        "density": 0.003334674947827093,
+        "densityMinusExpected": 0.00001975782075526976,
+        "expectedDensityStandardError": 0.000009063723150573,
+        "densityZScore": 2.179879110056521,
+        "conditionalMeanMultiplier": 2.1222849388202487,
+        "observedBombValues": {
+          "2": 122539,
+          "3": 9443,
+          "4": 1066,
+          "5": 557,
+          "6": 289,
+          "8": 109,
+          "10": 46,
+          "12": 22,
+          "15": 12,
+          "20": 18,
+          "25": 12
+        },
+        "forbiddenBombs": 0
+      },
+      "estimatedReturn": 0.5038271359999923,
+      "estimatedReturn95CI": [
+        0.5023561820596372,
+        0.5052980899403474
+      ]
+    }
+  },
+  "volumeAudit": {
+    "source": "bonanza-10000-volume-results.json",
+    "sourceSha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "seriesPerScenario": 10000,
+    "scenarios": [
+      {
+        "id": "bonanza-paid-100",
+        "mode": "paid",
+        "series": 10000,
+        "volumeARPerSeries": 10000,
+        "stakeAR": 100,
+        "chargeARPerRound": 100,
+        "paidRoundsPerSeries": 100,
+        "sampledPaidRounds": 1000000,
+        "estimatedReturn": 0.49423555999999996,
+        "estimatedReturn95CI": [
+          0.48860737082889605,
+          0.4998637491711039
+        ],
+        "positivePayoutFrequency": 0.139324,
+        "positivePayoutFrequency95CI": [
+          0.13864666821031887,
+          0.14000410292487872
+        ],
+        "zeroPayoutFrequency": 0.860676,
+        "playerProfitFrequency": 0.114002,
+        "playerProfitFrequency95CI": [
+          0.11338056743582284,
+          0.11462639825261775
+        ],
+        "meanCasinoRevenueARPer10000Volume": 5057.6444,
+        "casinoRevenueP05AR": -605.0999999999999,
+        "casinoRevenueP95AR": 8124,
+        "profitableSeriesFraction": 0.9374,
+        "lossSeriesFraction": 0.0626,
+        "caps": 65,
+        "capFrequency": 0.000065,
+        "capFrequency95CI": [
+          0.00005100277626743479,
+          0.00008283830956864983
+        ],
+        "failedAttempts": 0,
+        "reserveExhaustedSeriesFractionWith10000OpeningReserve": 0.0029,
+        "reserveStrictlyNegativeSeriesFractionWith10000OpeningReserve": 0.0029,
+        "reserveExactlyZeroMinimumSeriesFractionWith10000OpeningReserve": 0,
+        "minimumObservedCasinoCashWith10000OpeningReserve": -8274
+      },
+      {
+        "id": "bonanza-bonus-40",
+        "mode": "buy",
+        "series": 10000,
+        "volumeARPerSeries": 10000,
+        "stakeAR": 5,
+        "chargeARPerRound": 250,
+        "paidRoundsPerSeries": 40,
+        "sampledPaidRounds": 400000,
+        "estimatedReturn": 0.5022468279999979,
+        "estimatedReturn95CI": [
+          0.501507142972757,
+          0.5029865130272388
+        ],
+        "positivePayoutFrequency": 0.999405,
+        "positivePayoutFrequency95CI": [
+          0.9993244810491204,
+          0.9994759264717659
+        ],
+        "zeroPayoutFrequency": 0.0005950000000000122,
+        "playerProfitFrequency": 0.0342625,
+        "playerProfitFrequency95CI": [
+          0.03370323564940237,
+          0.034830710150582166
+        ],
+        "meanCasinoRevenueARPer10000Volume": 4977.531720000021,
+        "casinoRevenueP05AR": 4343.795,
+        "casinoRevenueP95AR": 5588.955,
+        "profitableSeriesFraction": 1,
+        "lossSeriesFraction": 0,
+        "caps": 154,
+        "capFrequency": 0.000385,
+        "capFrequency95CI": [
+          0.0003288137975851352,
+          0.00045078271516995624
+        ],
+        "failedAttempts": 0,
+        "reserveExhaustedSeriesFractionWith10000OpeningReserve": 0,
+        "reserveStrictlyNegativeSeriesFractionWith10000OpeningReserve": 0,
+        "reserveExactlyZeroMinimumSeriesFractionWith10000OpeningReserve": 0,
+        "minimumObservedCasinoCashWith10000OpeningReserve": 9720.2
+      },
+      {
+        "id": "bonanza-bonus-2",
+        "mode": "buy",
+        "series": 10000,
+        "volumeARPerSeries": 10000,
+        "stakeAR": 100,
+        "chargeARPerRound": 5000,
+        "paidRoundsPerSeries": 2,
+        "sampledPaidRounds": 20000,
+        "estimatedReturn": 0.50275363,
+        "estimatedReturn95CI": [
+          0.4994071167526507,
+          0.5061001432473493
+        ],
+        "positivePayoutFrequency": 0.99905,
+        "positivePayoutFrequency95CI": [
+          0.9985166077179063,
+          0.9993917140516483
+        ],
+        "zeroPayoutFrequency": 0.0009500000000000064,
+        "playerProfitFrequency": 0.0355,
+        "playerProfitFrequency95CI": [
+          0.03302337754781022,
+          0.03815503050357126
+        ],
+        "meanCasinoRevenueARPer10000Volume": 4972.4637,
+        "casinoRevenueP05AR": 1974,
+        "casinoRevenueP95AR": 7395.049999999999,
+        "profitableSeriesFraction": 0.9899,
+        "lossSeriesFraction": 0.01,
+        "caps": 14,
+        "capFrequency": 0.0007,
+        "capFrequency95CI": [
+          0.0004170330400271884,
+          0.0011747412119744872
+        ],
+        "failedAttempts": 0,
+        "reserveExhaustedSeriesFractionWith10000OpeningReserve": 0,
+        "reserveStrictlyNegativeSeriesFractionWith10000OpeningReserve": 0,
+        "reserveExactlyZeroMinimumSeriesFractionWith10000OpeningReserve": 0,
+        "minimumObservedCasinoCashWith10000OpeningReserve": 3128
+      }
+    ],
+    "pooledBuys": {
+      "sampleRounds": 420000,
+      "totalAuditVolumeAR": 200000000,
+      "estimatedReturn": 0.5025002289999989,
+      "estimatedReturn95CI": [
+        0.5007865863261745,
+        0.5042138716738234
+      ],
+      "positivePayoutFrequency": 0.9993880952380951,
+      "zeroPayoutFrequency": 0.000611904761904869,
+      "positivePayoutFrequency95CI": [
+        0.9993085990655366,
+        0.9994584560213231
+      ],
+      "playerProfitFrequency": 0.03432142857142857,
+      "returnWeighting": "Actual paid volume:100millionAR in each buy scenario.",
+      "frequencyWeighting": "Actual transaction counts:400000 small purchases,20000 large purchases."
+    }
+  },
+  "candidateVerification": {
+    "status": "passed",
+    "checks": 786020,
+    "engineSha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "contracts": [
+      "all awarded spins and genuine retriggers complete after monetary cap",
+      "cap100x minus1AR",
+      "uncharged guard failures",
+      "previewzeroledger",
+      "onecharge",
+      "nominal/credited frame cent sums",
+      "survivororder",
+      "uniquecellIDs",
+      "BigInt pathological fixtures"
+    ],
+    "fixtureOld": {
+      "spins": 1,
+      "unplayed": 9,
+      "payoutCents": 100000
+    },
+    "fixtureNew": {
+      "spins": 10,
+      "unplayed": 0,
+      "payoutCents": 99900
+    },
+    "candidateEngineSha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "candidateCanonicalSha256": "bb5048871270d710319e6c6d7e162248b6dbc7b117aa08af30570261a0b5e0df",
+    "assertions": 786020
+  },
+  "tests": {
+    "status": "passed",
+    "checks": 786020,
+    "engineSha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "contracts": [
+      "all awarded spins and genuine retriggers complete after monetary cap",
+      "cap100x minus1AR",
+      "uncharged guard failures",
+      "previewzeroledger",
+      "onecharge",
+      "nominal/credited frame cent sums",
+      "survivororder",
+      "uniquecellIDs",
+      "BigInt pathological fixtures"
+    ],
+    "fixtureOld": {
+      "spins": 1,
+      "unplayed": 9,
+      "payoutCents": 100000
+    },
+    "fixtureNew": {
+      "spins": 10,
+      "unplayed": 0,
+      "payoutCents": 99900
+    }
+  },
+  "exactCellProbabilities": {
+    "version": "indictus-demo-2026-10-09-v11",
+    "rulesVersion": "indictus-demo-2026-10-09-v11",
+    "candidateCanonicalSHA256": "bb5048871270d710319e6c6d7e162248b6dbc7b117aa08af30570261a0b5e0df",
+    "semantics": "Fresh cell tickets only. Initial30-cell probabilities use independent draws and are not full-round hit, profit or return rates.",
+    "base": {
+      "totalWeight": 920,
+      "cells": [
+        {
+          "kind": "hood",
+          "weight": 80,
+          "denominator": 920,
+          "exactFraction": "80/920",
+          "cellProbability": 0.08695652173913043,
+          "cellPercent": 8.695652173913043,
+          "initial30CellsCount8To9": 0.0031878394797303293,
+          "initial30CellsCount10To11": 0.00014124741451165644,
+          "initial30CellsCount12Plus": 0.0000036116466562936457,
+          "initial30CellsCount8Plus": 0.0033326985408982787
+        },
+        {
+          "kind": "suit",
+          "weight": 85,
+          "denominator": 920,
+          "exactFraction": "85/920",
+          "cellProbability": 0.09239130434782608,
+          "cellPercent": 9.239130434782608,
+          "initial30CellsCount8To9": 0.004599358868711218,
+          "initial30CellsCount10To11": 0.000232169755678833,
+          "initial30CellsCount12Plus": 0.0000067820532522882285,
+          "initial30CellsCount8Plus": 0.004838310677642339
+        },
+        {
+          "kind": "glove",
+          "weight": 90,
+          "denominator": 920,
+          "exactFraction": "90/920",
+          "cellProbability": 0.09782608695652174,
+          "cellPercent": 9.782608695652174,
+          "initial30CellsCount8To9": 0.006449223876459503,
+          "initial30CellsCount10To11": 0.00036836124414418425,
+          "initial30CellsCount12Plus": 0.000012211164423216645,
+          "initial30CellsCount8Plus": 0.006829796285026903
+        },
+        {
+          "kind": "laptop",
+          "weight": 95,
+          "denominator": 920,
+          "exactFraction": "95/920",
+          "cellProbability": 0.10326086956521739,
+          "cellPercent": 10.326086956521738,
+          "initial30CellsCount8To9": 0.008815078491895627,
+          "initial30CellsCount10To11": 0.0005662530104109875,
+          "initial30CellsCount12Plus": 0.00002117611737533432,
+          "initial30CellsCount8Plus": 0.009402507619681949
+        },
+        {
+          "kind": "usb",
+          "weight": 100,
+          "denominator": 920,
+          "exactFraction": "100/920",
+          "cellProbability": 0.10869565217391304,
+          "cellPercent": 10.869565217391305,
+          "initial30CellsCount8To9": 0.011774759309619721,
+          "initial30CellsCount10To11": 0.0008460376874015604,
+          "initial30CellsCount12Plus": 0.000035504341095491313,
+          "initial30CellsCount8Plus": 0.012656301338116772
+        },
+        {
+          "kind": "lock",
+          "weight": 105,
+          "denominator": 920,
+          "exactFraction": "105/920",
+          "cellProbability": 0.11413043478260869,
+          "cellPercent": 11.41304347826087,
+          "initial30CellsCount8To9": 0.015403593082658857,
+          "initial30CellsCount10To11": 0.0012319239391827333,
+          "initial30CellsCount12Plus": 0.00005773946969586964,
+          "initial30CellsCount8Plus": 0.016693256491537464
+        },
+        {
+          "kind": "key",
+          "weight": 110,
+          "denominator": 920,
+          "exactFraction": "110/920",
+          "cellProbability": 0.11956521739130435,
+          "cellPercent": 11.956521739130435,
+          "initial30CellsCount8To9": 0.019771596413689203,
+          "initial30CellsCount10To11": 0.001752270658650058,
+          "initial30CellsCount12Plus": 0.00009133424442471117,
+          "initial30CellsCount8Plus": 0.021615201316763973
+        },
+        {
+          "kind": "radio",
+          "weight": 115,
+          "denominator": 920,
+          "exactFraction": "115/920",
+          "cellProbability": 0.125,
+          "cellPercent": 12.5,
+          "initial30CellsCount8To9": 0.024940698127770274,
+          "initial30CellsCount10To11": 0.0024395775311533275,
+          "initial30CellsCount12Plus": 0.00014086896941112578,
+          "initial30CellsCount8Plus": 0.027521144628334732
+        },
+        {
+          "kind": "flag",
+          "weight": 120,
+          "denominator": 920,
+          "exactFraction": "120/920",
+          "cellProbability": 0.13043478260869565,
+          "cellPercent": 13.043478260869565,
+          "initial30CellsCount8To9": 0.030962100992446485,
+          "initial30CellsCount10To11": 0.003330313789675342,
+          "initial30CellsCount12Plus": 0.0002122925930562156,
+          "initial30CellsCount8Plus": 0.034504707375178044
+        },
+        {
+          "kind": "scatter",
+          "weight": 20,
+          "denominator": 920,
+          "exactFraction": "20/920",
+          "cellProbability": 0.021739130434782608,
+          "cellPercent": 2.1739130434782608,
+          "initial30CellsCount4Plus": 0.003895762304135798
+        }
+      ]
+    },
+    "free": {
+      "totalWeight": 905,
+      "cells": [
+        {
+          "kind": "hood",
+          "weight": 45,
+          "denominator": 905,
+          "exactFraction": "45/905",
+          "cellProbability": 0.049723756906077346,
+          "cellPercent": 4.972375690607735,
+          "initial30CellsCount8To9": 0.00008032577112955449,
+          "initial30CellsCount10To11": 0.000001096169794361628,
+          "initial30CellsCount12Plus": 8.499501569169136e-9,
+          "initial30CellsCount8Plus": 0.00008143044042548526
+        },
+        {
+          "kind": "suit",
+          "weight": 49,
+          "denominator": 905,
+          "exactFraction": "49/905",
+          "cellProbability": 0.05414364640883978,
+          "cellPercent": 5.414364640883978,
+          "initial30CellsCount8To9": 0.0001448052156323307,
+          "initial30CellsCount10To11": 0.0000023591250593411132,
+          "initial30CellsCount12Plus": 2.187181693123808e-8,
+          "initial30CellsCount8Plus": 0.00014718621250860305
+        },
+        {
+          "kind": "glove",
+          "weight": 53,
+          "denominator": 905,
+          "exactFraction": "53/905",
+          "cellProbability": 0.05856353591160221,
+          "cellPercent": 5.856353591160221,
+          "initial30CellsCount8To9": 0.00024732551113715117,
+          "initial30CellsCount10To11": 0.000004746800056036392,
+          "initial30CellsCount12Plus": 5.1928571296062414e-8,
+          "initial30CellsCount8Plus": 0.0002521242397644836
+        },
+        {
+          "kind": "laptop",
+          "weight": 57,
+          "denominator": 905,
+          "exactFraction": "57/905",
+          "cellProbability": 0.06298342541436464,
+          "cellPercent": 6.2983425414364635,
+          "initial30CellsCount8To9": 0.00040335841812302517,
+          "initial30CellsCount10To11": 0.00000901687039682409,
+          "initial30CellsCount12Plus": 1.1508880361155413e-7,
+          "initial30CellsCount8Plus": 0.0004124903773234608
+        },
+        {
+          "kind": "usb",
+          "weight": 61,
+          "denominator": 905,
+          "exactFraction": "61/905",
+          "cellProbability": 0.06740331491712707,
+          "cellPercent": 6.740331491712707,
+          "initial30CellsCount8To9": 0.0006320384262170822,
+          "initial30CellsCount10To11": 0.000016296033655898097,
+          "initial30CellsCount12Plus": 2.4032886560159186e-7,
+          "initial30CellsCount8Plus": 0.000648574788738582
+        },
+        {
+          "kind": "lock",
+          "weight": 150,
+          "denominator": 905,
+          "exactFraction": "150/905",
+          "cellProbability": 0.16574585635359115,
+          "cellPercent": 16.574585635359114,
+          "initial30CellsCount8To9": 0.09191691789169687,
+          "initial30CellsCount10To11": 0.017064658519704637,
+          "initial30CellsCount12Plus": 0.001935388787631294,
+          "initial30CellsCount8Plus": 0.1109169651990328
+        },
+        {
+          "kind": "key",
+          "weight": 156,
+          "denominator": 905,
+          "exactFraction": "156/905",
+          "cellProbability": 0.1723756906077348,
+          "cellPercent": 17.23756906077348,
+          "initial30CellsCount8To9": 0.10721043952773623,
+          "initial30CellsCount10To11": 0.02181036749129233,
+          "initial30CellsCount12Plus": 0.002728901839397441,
+          "initial30CellsCount8Plus": 0.13174970885842605
+        },
+        {
+          "kind": "radio",
+          "weight": 162,
+          "denominator": 905,
+          "exactFraction": "162/905",
+          "cellProbability": 0.17900552486187846,
+          "cellPercent": 17.900552486187845,
+          "initial30CellsCount8To9": 0.12340265746513131,
+          "initial30CellsCount10To11": 0.027432146282665496,
+          "initial30CellsCount12Plus": 0.003777335772538041,
+          "initial30CellsCount8Plus": 0.15461213952033487
+        },
+        {
+          "kind": "flag",
+          "weight": 168,
+          "denominator": 905,
+          "exactFraction": "168/905",
+          "cellProbability": 0.1856353591160221,
+          "cellPercent": 18.563535911602212,
+          "initial30CellsCount8To9": 0.14028875133700425,
+          "initial30CellsCount10To11": 0.033989694640222154,
+          "initial30CellsCount12Plus": 0.005139513989490719,
+          "initial30CellsCount8Plus": 0.17941795996671708
+        },
+        {
+          "kind": "scatter",
+          "weight": 1,
+          "denominator": 905,
+          "exactFraction": "1/905",
+          "cellProbability": 0.0011049723756906078,
+          "cellPercent": 0.11049723756906078,
+          "initial30CellsCount4Plus": 3.992584451058833e-8
+        },
+        {
+          "kind": "bomb",
+          "weight": 3,
+          "denominator": 905,
+          "exactFraction": "3/905",
+          "cellProbability": 0.0033149171270718232,
+          "cellPercent": 0.3314917127071823,
+          "initial30CellsCount1Plus": 0.09481207881435882
+        }
+      ]
+    },
+    "bombValues": [
+      {
+        "multiplier": 2,
+        "weight": 9000,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.91324200913242,
+        "unconditionalFreshFreeCellProbability": 0.0030273215772345418
+      },
+      {
+        "multiplier": 3,
+        "weight": 700,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.07102993404363267,
+        "unconditionalFreshFreeCellProbability": 0.00023545834489601991
+      },
+      {
+        "multiplier": 4,
+        "weight": 80,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.008117706747843734,
+        "unconditionalFreshFreeCellProbability": 0.000026909525130973705
+      },
+      {
+        "multiplier": 5,
+        "weight": 40,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.004058853373921867,
+        "unconditionalFreshFreeCellProbability": 0.000013454762565486852
+      },
+      {
+        "multiplier": 6,
+        "weight": 20,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.0020294266869609334,
+        "unconditionalFreshFreeCellProbability": 0.000006727381282743426
+      },
+      {
+        "multiplier": 8,
+        "weight": 8,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.0008117706747843734,
+        "unconditionalFreshFreeCellProbability": 0.0000026909525130973704
+      },
+      {
+        "multiplier": 10,
+        "weight": 3,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.00030441400304414006,
+        "unconditionalFreshFreeCellProbability": 0.0000010091071924115139
+      },
+      {
+        "multiplier": 12,
+        "weight": 1,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.00010147133434804668,
+        "unconditionalFreshFreeCellProbability": 3.363690641371713e-7
+      },
+      {
+        "multiplier": 15,
+        "weight": 1,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.00010147133434804668,
+        "unconditionalFreshFreeCellProbability": 3.363690641371713e-7
+      },
+      {
+        "multiplier": 20,
+        "weight": 1,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.00010147133434804668,
+        "unconditionalFreshFreeCellProbability": 3.363690641371713e-7
+      },
+      {
+        "multiplier": 25,
+        "weight": 1,
+        "denominatorConditionalOnBomb": 9855,
+        "conditionalOnBombProbability": 0.00010147133434804668,
+        "unconditionalFreshFreeCellProbability": 3.363690641371713e-7
+      }
+    ],
+    "bombSummary": {
+      "freeCellWeight": 3,
+      "totalFreeCellWeight": 905,
+      "density": 0.0033149171270718232,
+      "expectedBombsPerInitial30CellGrid": 0.09944751381215469,
+      "chanceAtLeastOneBombPerInitial30CellGrid": 0.09481207881435727,
+      "expectedMultiplierConditionalOnBomb": 2.121359715880264,
+      "weights": [
+        [
+          2,
+          9000
+        ],
+        [
+          3,
+          700
+        ],
+        [
+          4,
+          80
+        ],
+        [
+          5,
+          40
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          20,
+          1
+        ],
+        [
+          25,
+          1
+        ]
+      ],
+      "conditionalValueProbabilities": [
+        {
+          "value": 2,
+          "numerator": 9000,
+          "denominator": 9855,
+          "probability": 0.91324200913242,
+          "perFreeCellProbability": 0.0030273215772345418
+        },
+        {
+          "value": 3,
+          "numerator": 700,
+          "denominator": 9855,
+          "probability": 0.07102993404363267,
+          "perFreeCellProbability": 0.00023545834489601991
+        },
+        {
+          "value": 4,
+          "numerator": 80,
+          "denominator": 9855,
+          "probability": 0.008117706747843734,
+          "perFreeCellProbability": 0.000026909525130973705
+        },
+        {
+          "value": 5,
+          "numerator": 40,
+          "denominator": 9855,
+          "probability": 0.004058853373921867,
+          "perFreeCellProbability": 0.000013454762565486852
+        },
+        {
+          "value": 6,
+          "numerator": 20,
+          "denominator": 9855,
+          "probability": 0.0020294266869609334,
+          "perFreeCellProbability": 0.000006727381282743426
+        },
+        {
+          "value": 8,
+          "numerator": 8,
+          "denominator": 9855,
+          "probability": 0.0008117706747843734,
+          "perFreeCellProbability": 0.0000026909525130973704
+        },
+        {
+          "value": 10,
+          "numerator": 3,
+          "denominator": 9855,
+          "probability": 0.00030441400304414006,
+          "perFreeCellProbability": 0.0000010091071924115139
+        },
+        {
+          "value": 12,
+          "numerator": 1,
+          "denominator": 9855,
+          "probability": 0.00010147133434804668,
+          "perFreeCellProbability": 3.363690641371713e-7
+        },
+        {
+          "value": 15,
+          "numerator": 1,
+          "denominator": 9855,
+          "probability": 0.00010147133434804668,
+          "perFreeCellProbability": 3.363690641371713e-7
+        },
+        {
+          "value": 20,
+          "numerator": 1,
+          "denominator": 9855,
+          "probability": 0.00010147133434804668,
+          "perFreeCellProbability": 3.363690641371713e-7
+        },
+        {
+          "value": 25,
+          "numerator": 1,
+          "denominator": 9855,
+          "probability": 0.00010147133434804668,
+          "perFreeCellProbability": 3.363690641371713e-7
+        }
+      ],
+      "multiplierMeaning": "Individual fresh bomb values only; distinct bombs within a free spin are summed. This is not full-bonus cap probability."
+    }
+  },
+  "mechanicsSourceParity": {
+    "generatedAt": "2026-10-09T12:30:02.687Z",
+    "status": "passed",
+    "baselineEngineSha256": "8604cb3126548dbae539c6a89c34c60bc6133138ba6c94eaf1a97ca293f2f886",
+    "candidateEngineSha256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "candidateCanonicalSHA256": "bb5048871270d710319e6c6d7e162248b6dbc7b117aa08af30570261a0b5e0df",
+    "unchangedSourceFunctions": [
+      "integer",
+      "draw",
+      "pick",
+      "cell",
+      "randomCell",
+      "grid",
+      "findWins",
+      "scatterRate",
+      "createCryptoRandomInt"
+    ],
+    "intentionalRuntimeChanges": [
+      "Cap offset100cents, nonnegative cap validation",
+      "Genuine full free-spin continuation after budget exhaustion",
+      "Separate nominal table amounts and credited cascade/multiplier/scatter amounts",
+      "Successful stop reason alwayscomplete"
+    ],
+    "intentionalParameterChanges": [
+      "Individual free symbol weights:45,49,53,57,61,150,156,162,168",
+      "Free scatter1, bomb3 of905",
+      "Conditional high multipliers rarer",
+      "Gentler shared free pays",
+      "Base pays/scatters scale0.9501563607069841"
+    ],
+    "preservedContracts": [
+      "6x5 grid;8+ matching",
+      "Genuine cascades and stable survivor IDs",
+      "Bomb sum;scatter excluded from multiplier",
+      "10 initialfree,+5 genuine retriggers",
+      "Single50x price;zero preview ledger",
+      "Bounded pure errors before returned ledger"
+    ]
+  },
+  "targetCaveat": "50% is a working calibration target. Bought holdout/volume estimates are slightly above50%; paid large-volume estimate below50%. No retuning after holdout and no exact RTP claim.",
+  "buyerExperienceCaveat": "Almost every bought bonus has some gross payout, but only about3.5% of bought transactions are net-profitable. Gross positive frequency is not winning transaction frequency."
+}

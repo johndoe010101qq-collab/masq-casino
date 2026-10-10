@@ -1,0 +1,59 @@
+{
+  "version": "masq-server-admin-local-v28",
+  "verifiedAt": "2026-10-09T21:34:32.597Z",
+  "applicationId": "e72e9ddb-1792-4481-ad85-f24e64b24611",
+  "localOnly": true,
+  "published": false,
+  "repositoryUploaded": false,
+  "authenticatedOwnerConfigured": false,
+  "financialGameplayEnabled": false,
+  "currencyMode": "unavailable",
+  "gameplayMode": "browser-demo",
+  "checks": {
+    "serverAdmin": {
+      "passed": true,
+      "checks": 178,
+      "externalRequests": 0
+    },
+    "client": {
+      "passed": true
+    },
+    "spwSessionLifecycle": {
+      "passed": true,
+      "usesActualHookAndSDK": true
+    },
+    "hallProfiles": {
+      "passed": true,
+      "checks": 2656
+    },
+    "demoUI": {
+      "passed": true
+    },
+    "staticPackageFixture": {
+      "passed": true,
+      "checks": 225
+    },
+    "productionBuild": {
+      "passed": true
+    },
+    "localProxy": {
+      "publicConfigHttpStatus": 200,
+      "unauthenticatedAdminHttpStatus": 401,
+      "unconfiguredLoginHttpStatus": 503
+    }
+  },
+  "files": {
+    "server/admin-auth.mjs": "56703d5fc3d591d35fd7a43f7d450255a202763afaa03b03d385e6310d5a2177",
+    "server/admin-server.mjs": "53a2cad8a9e11d83e5a5dfc1c480ba3ab01af17c98e64c817a33bb7659e6ba9f",
+    "server/admin-store.mjs": "133a92d40219b03186980b3a22ee878ed9612ffee1a03e2fa67e58bde3a01319",
+    "src/ServerAdminPanel.jsx": "e10babb4c26e97fdd1767c7d27424f317d4cf4f535540cdfb74ed6edea1bf828",
+    "src/ServerAdminPanel.css": "a32fed0645c021152589018f1cec77273e7268729e7db9ea13f48bfc144730ff",
+    "src/ServerAdminPage.jsx": "d528aefb6bb183894082917f4932e604590d5213854180f50aaadf79388b8976",
+    "src/ServerAdminPage.css": "70c8e8883c8946bc0afc262cb5ad7850eecc84c443313e88abaf3f32076ae536",
+    "src/integrations/server-admin-client.js": "91df0c44a078dcb6f7457e353159e61da277e097871cba6dbbdc7b8a2ec3e6ec",
+    "src/integrations/useSPWMini.js": "5a20da665b31d5d9533ce2a1cf18908a8313ee9950e9cedddc0beddaa2c06e38",
+    "tests/server-admin-checks.mjs": "db40951635ac857a78fab99f27fd36e214cd783efe622e9b9b010fb61a7fa6b2",
+    "tests/server-admin-client-checks.mjs": "bcb4f0aa9fcb609ee20ee512b74777dfac75766664d7cd55099da9d45bed07f4",
+    "tests/spw-server-session-checks.mjs": "88483f14a76dc0b62648853e5e73c9de75c53237727f643153f42cc61ee2a08d"
+  }
+}

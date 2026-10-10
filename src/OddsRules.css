@@ -1,0 +1,14 @@
+.odds-page { max-width:1050px; margin:0 auto; color:#e7ded2; }
+.odds-page h1 { margin:24px 0 15px; font:600 clamp(34px,5vw,48px)/1.1 'Barlow Condensed',Arial,sans-serif; }
+.odds-page p { max-width:880px; margin:14px 0; color:#b8bfc2; line-height:1.75; font-size:15px; }
+.odds-page .odds-lead { color:#efe3cf; font-size:18px; }
+.odds-table-scroll { overflow-x:auto; margin:22px 0; border:1px solid #33424b; border-radius:6px; }
+.odds-page table { border-collapse:collapse; width:100%; font-size:14px; text-align:left; font-variant-numeric:tabular-nums; }
+.odds-page th,.odds-page td { padding:13px 16px; border-bottom:1px solid #29373e; white-space:nowrap; }
+.odds-page th { font-weight:600; }
+.odds-page thead,.odds-page caption { background:#17262d; color:#eedbb7; }
+.odds-page caption { padding:14px 16px; text-align:left; font-weight:600; }
+.odds-page tbody tr:last-child>* { border-bottom:0; }
+.odds-page details { padding:21px 0; border-bottom:1px solid #33424b; }
+.odds-page summary { cursor:pointer; font:600 25px/1.2 'Barlow Condensed',Arial,sans-serif; color:#efe5d4; }
+.odds-page .odds-footnote { font-size:13px; color:#949da2; margin-top:25px; }

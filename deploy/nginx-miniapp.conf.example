@@ -1,0 +1,45 @@
+# Replace the domain, certificate paths and root before enabling this example.
+# Deploy only the release webroot. source/ and manifest are outside that root.
+# This is static DEMO hosting, not a signed-profile/payment/admin backend.
+server {
+    listen 80;
+    server_name miniapp.example.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name miniapp.example.com;
+    ssl_certificate /etc/letsencrypt/live/miniapp.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/miniapp.example.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    root /srv/indictus-miniapp/webroot;
+    index index.html;
+    autoindex off;
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Must be an HTTP response header; frame-ancestors in meta is ignored.
+    # Do not add a conflicting X-Frame-Options DENY/SAMEORIGIN header upstream.
+    add_header Content-Security-Policy "frame-ancestors https://spworlds.ru" always;
+    add_header X-Content-Type-Options nosniff always;
+
+    location ~ (^|/)\. {
+        deny all;
+    }
+    location ^~ /api/ {
+        return 404;
+    }
+    location /assets/ {
+        try_files $uri =404;
+        expires 30d;
+    }
+    location = /index.html {
+        try_files $uri =404;
+        expires -1;
+    }
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
