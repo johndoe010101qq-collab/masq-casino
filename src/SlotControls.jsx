@@ -29,6 +29,7 @@ export default function SlotControls({
   reducedMotion = false,
   canSpin = true,
   canBuyBonus = true,
+  bonusMode = null,
   stakeLimits = BONANZA_STAKE_LIMITS,
   buyAtlasUrl,
   buyArtwork,
@@ -45,10 +46,11 @@ export default function SlotControls({
   const validStake = permittedStake(stake, stakeLimits);
   const validBalance = Number.isFinite(balance) && balance >= 0;
   const bonusCost = validStake ? stake * BONANZA_DEMO_RULES.bonusBuyMultiplier : null;
+  const spinCost = validStake ? stake * (bonusMode?.multiplier || 1) : null;
   const locked = Boolean(disabled || busy);
   const stakeCallback = typeof onStakeChange === 'function';
   const spinReady = !locked && validStake && validBalance
-    && balance >= stake && canSpin && typeof onSpin === 'function';
+    && balance >= spinCost && canSpin && typeof onSpin === 'function';
   const buyReady = !locked && validStake && validBalance
     && balance >= bonusCost && canBuyBonus
     && typeof onBuyBonus === 'function';
@@ -75,6 +77,7 @@ export default function SlotControls({
 
   const buyTitle = busy
     ? 'Дождитесь завершения раунда'
+    : bonusMode ? 'Бонусный режим включён до отмены'
     : validStake && validBalance && balance < bonusCost
       ? 'Недостаточно средств для покупки бонуса'
       : 'Купить 10 бесплатных вращений';
@@ -105,7 +108,7 @@ export default function SlotControls({
               alt="" aria-hidden="true" draggable="false" />
           ) : null}
           <span className="slot-buy-copy">
-            <span className="slot-buy-label">Купить бонус</span>
+            <span className="slot-buy-label">{bonusMode?'Бонус включён':'Купить бонус'}</span>
             <span className="slot-buy-price">
               <span>{shownAmount(bonusCost, currency)}</span>
             </span>
@@ -146,15 +149,15 @@ export default function SlotControls({
 
         <button className="slot-spin-button"
           type="button" disabled={!spinReady} onClick={spin}
-          aria-label={busy ? 'Раунд выполняется' : 'Прокрутить слот'}
-          title={busy ? 'Раунд выполняется' : 'Прокрутить слот'}>
+          aria-label={busy ? 'Раунд выполняется' : (bonusMode?'Запустить бонус за ':'Прокрутить слот за ')+shownAmount(spinCost,currency)}
+          title={busy ? 'Раунд выполняется' : (bonusMode?'Запустить бонус за ':'Прокрутить слот за ')+shownAmount(spinCost,currency)}>
           <span className="slot-spin-face">
             {spinArtwork ? (
               <img src={spinArtwork} className="slot-spin-art"
                 alt="" aria-hidden="true" draggable="false" />
             ) : null}
             <span className="slot-spin-arrow" aria-hidden="true">↻</span>
-            <span className="slot-spin-word">{busy ? 'Идёт игра' : 'Крутить'}</span>
+            <span className="slot-spin-word">{busy ? 'Идёт игра' : bonusMode?shownAmount(spinCost,currency):'Крутить'}</span>
           </span>
         </button>
 
@@ -204,6 +207,10 @@ export default function SlotControls({
           Пропустить
         </button>
         </div>
+        {bonusMode&&<div className="slot-dock-feature slot-bonus-mode" role="status">
+          <span><strong>{bonusMode.name}</strong> · каждый запуск {shownAmount(spinCost,currency)}</span>
+          <button type="button" onClick={bonusMode.onDisable}>Отменить бонус</button>
+        </div>}
       </section>
     </div>
   );

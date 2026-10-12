@@ -1,4 +1,5 @@
 import {validateAdminDraft} from '../demo-admin-controls.js';
+import {cleanRewardPolicy} from '../reward-policy.js';
 
 const CAPABILITIES = new Set(['settings:read', 'settings:write', 'audit:read']);
 const ERROR_MESSAGES = Object.freeze({
@@ -51,6 +52,19 @@ function cleanSettingsResult(data) {
   let settings;
   try {settings=validateAdminDraft(data.settings);} catch {failResponse();}
   return {settings,revision:data.revision,...(typeof data.changed==='boolean'?{changed:data.changed}:{})};
+}
+
+function cleanRewardResult(data) {
+  if(!plainObject(data)||!positiveInteger(data.settingsRevision)||typeof data.authorityConfigured!=='boolean')failResponse();
+  let settings;
+  try {settings=cleanRewardPolicy(data.settings);} catch {failResponse();}
+  const amounts={};
+  for(const key of ['availableBudgetCents','outstandingLiabilityCents','entitlementShortfallCents']){
+    if(!Number.isSafeInteger(data[key])||data[key]<0)failResponse();amounts[key]=data[key];
+  }
+  if(!Number.isSafeInteger(data.marginCents)||!Number.isSafeInteger(data.roundCount)||data.roundCount<0)failResponse();
+  return {settings,settingsRevision:data.settingsRevision,authorityConfigured:data.authorityConfigured,
+    ...amounts,marginCents:data.marginCents,roundCount:data.roundCount,...(typeof data.changed==='boolean'?{changed:data.changed}:{})};
 }
 
 function cleanAudit(data) {
@@ -166,6 +180,14 @@ export function createServerAdminClient({fetchImpl=globalThis.fetch?.bind(global
       return getStatus();
     },
     async getSettings(options={}) {return cleanSettingsResult(await request('/api/admin/settings',{signal:options.signal}));},
+    async getRewardBank(options={}) {return cleanRewardResult(await request('/api/admin/rewards',{signal:options.signal}));},
+    async saveRewardPolicy({expectedRevision,settings,reason},options={}) {
+      if(!positiveInteger(expectedRevision))throw new ServerAdminError('INVALID_REVISION');
+      if(typeof reason!=='string'||!textWithin(reason.trim(),500)||reason.length>500||/[\u0000-\u001f\u007f]/.test(reason))throw new ServerAdminError('INVALID_REASON');
+      let cleanSettings;
+      try {cleanSettings=cleanRewardPolicy(settings);} catch {throw new ServerAdminError('INVALID_SETTINGS');}
+      return cleanRewardResult(await request('/api/admin/rewards',{method:'PUT',body:{expectedRevision,settings:cleanSettings,reason:reason.trim()},signal:options.signal}));
+    },
     async saveSettings({expectedRevision,settings,reason},options={}) {
       if(!positiveInteger(expectedRevision))throw new ServerAdminError('INVALID_REVISION');
       if(typeof reason!=='string'||!textWithin(reason.trim(),500)||reason.length>500||/[\u0000-\u001f\u007f]/.test(reason))throw new ServerAdminError('INVALID_REASON');

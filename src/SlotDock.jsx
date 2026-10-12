@@ -9,7 +9,7 @@ export default function SlotDock({ game, stake, onStakeChange, balance, payout, 
   return <form className={'slot-dock theme-'+theme} data-busy={busy} aria-label="Управление слотом"
     onSubmit={event=>{event.preventDefault();onSpin();}}>
     <button className="slot-dock-buy" type="button" disabled={locked||!ready||!validStake}
-      onClick={onShop}><img src={game==='maskhouse'?'/maskhouse-cover.png':'/lecipher-cover.png'} alt=""/><span className="slot-dock-buy-copy"><strong>Бонусы</strong><small>Выбрать режим</small></span></button>
+      onClick={onShop}><img src={game==='maskhouse'?'/maskhouse-cover.png':'/lecipher-cover.png'} alt=""/><span className="slot-dock-buy-copy"><strong>{game==='maskhouse'?'Купить бонус':'Бонусы'}</strong><small>{game==='maskhouse'?'Маскарад':'Выбрать режим'}</small></span></button>
     <div className="slot-dock-totals">
     <div className="slot-dock-balance"><span>Баланс</span><strong>{money(balance)} <small>АР</small></strong></div>
     <div className="slot-dock-payout" aria-live="polite"><span>Выплата</span><strong>{money(payout)} <small>АР</small></strong></div></div>
@@ -20,7 +20,7 @@ export default function SlotDock({ game, stake, onStakeChange, balance, payout, 
     </div></div>
     <button className="slot-dock-spin" type="submit" disabled={locked||!ready||!validStake||balance<Number(stake)*(feature?.multiplier||1)} aria-label={busy?'Раунд выполняется':'Прокрутить слот за '+money(Number(stake)*(feature?.multiplier||1))+' АР'}><span className="slot-spin-face"><span className="slot-spin-arrow" aria-hidden="true">↻</span><span className="slot-spin-word">{busy?'Вращение':money(Number(stake)*(feature?.multiplier||1))+' АР'}</span></span></button>
     <div className="slot-dock-tools"><small id={'stake-help-'+game}>{stakeLimits.min}–{stakeLimits.max} АР</small><button type="button" disabled={locked} onClick={()=>onStakeChange(String(adjustedStake(stakeLimits.max,1,balance,stakeLimits)))}>Макс.</button><button className="slot-dock-skip" type="button" disabled={!busy} onClick={onSkip}>Пропустить</button></div>
-    {feature&&<div className="slot-dock-feature"><span>{feature.name} · следующий спин {money(Number(stake)*feature.multiplier)} АР</span><button type="button" disabled={locked} onClick={feature.onDisable}>Отмена</button></div>}
+    {feature&&<div className={'slot-dock-feature'+(feature.persistent?' slot-bonus-mode':'')} role="status"><span>{feature.name} · {feature.persistent?'каждый запуск':'следующий спин'} {money(Number(stake)*feature.multiplier)} АР</span><button type="button" disabled={locked&&!feature.persistent} onClick={feature.onDisable}>{feature.persistent?'Отменить бонус':'Отмена'}</button></div>}
     {error&&<p className="form-error" role="alert">{error}</p>}
   </form>;
 }

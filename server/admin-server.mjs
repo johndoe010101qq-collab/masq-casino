@@ -3,10 +3,11 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createAdminAuth, AdminAuthError } from './admin-auth.mjs';
 import { createAdminStore, AdminStoreError } from './admin-store.mjs';
+import { createRewardBank, RewardBankError } from './reward-bank.mjs';
 
 export const MAX_JSON_BYTES = 16 * 1024;
 const METHODS = Object.freeze({ '/api/auth/spw': ['POST'], '/api/auth/session': ['DELETE'],
-  '/api/admin/settings': ['GET', 'PUT'], '/api/admin/audit': ['GET'], '/api/config': ['GET'] });
+  '/api/admin/settings': ['GET', 'PUT'], '/api/admin/rewards': ['GET', 'PUT'], '/api/admin/audit': ['GET'], '/api/config': ['GET'] });
 
 class HttpError extends Error {
   constructor(status, code, message) { super(message); this.status = status; this.code = code; }
@@ -62,9 +63,13 @@ function createRateLimit({ now, maxKeys = 1024 }) {
 }
 
 export function createAdminServer({ env = process.env, databasePath = env.MASQ_ADMIN_DB || resolve('server/data/masq-admin.sqlite'),
+  rewardDatabasePath = databasePath === ':memory:' ? ':memory:' : databasePath + '.rewards.sqlite',
   appOrigin = env.MASQ_APP_ORIGIN || 'http://127.0.0.1:5178', now = Date.now } = {}) {
   const origin = configuredOrigin(appOrigin), auth = createAdminAuth({ env, now });
   const store = createAdminStore({ databasePath, now }), rateLimit = createRateLimit({ now });
+  // No browser wager is an authoritative settled round. Until a trusted game
+  // ledger is supplied, the owner can configure this bank but cannot fund/draw it.
+  const rewardBank = createRewardBank({ databasePath: rewardDatabasePath, now });
   const server = createServer(async (request, response) => {
     try {
       const url = new URL(request.url, origin), allowed = METHODS[url.pathname];
@@ -101,6 +106,17 @@ export function createAdminServer({ env = process.env, databasePath = env.MASQ_A
         rateLimit(`write:${address}`, 60);
         send(response, 200, store.update(await readJSON(request), session.profile)); return;
       }
+      if (url.pathname === '/api/admin/rewards') {
+        const session = auth.resolve(request.headers.authorization, request.method === 'PUT' ? 'settings:write' : 'settings:read');
+        if (request.method === 'GET') { send(response, 200, rewardBank.snapshot()); return; }
+        rateLimit(`write:${address}`, 60);
+        const body = await readJSON(request);
+        if (Object.keys(body).length !== 3 || !['settings','expectedRevision','reason'].every(key => Object.hasOwn(body,key)))
+          throw new HttpError(400, 'INVALID_REQUEST', 'Ожидаются настройки, версия и причина изменения.');
+        const result = rewardBank.configure(body.settings, { actorId: session.profile.accountId,
+          reason: body.reason, expectedRevision: body.expectedRevision });
+        send(response, 200, { ...result.snapshot, changed: result.changed }); return;
+      }
       auth.resolve(request.headers.authorization, 'audit:read');
       const parameters = url.searchParams;
       if ([...parameters.keys()].some(key => !['limit', 'cursor'].includes(key))
@@ -115,6 +131,14 @@ export function createAdminServer({ env = process.env, databasePath = env.MASQ_A
       };
       send(response, 200, store.audit({ limit: parseInteger('limit', 50), cursor: parseInteger('cursor', undefined) }));
     } catch (error) {
+      if (error instanceof RewardBankError) {
+        const conflict = error.code === 'REVISION_CONFLICT';
+        const input = ['INVALID_POLICY','INVALID_REQUEST','INVALID_REASON','INVALID_REVISION','INVALID_ID'].includes(error.code);
+        send(response, conflict ? 409 : input ? 400 : 500, { error: { code: conflict ? 'REVISION_CONFLICT' : input ? 'INVALID_REQUEST' : 'INTERNAL_ERROR',
+          message: conflict ? 'Банк наград изменён. Обновите его настройки.' : input ? 'Проверьте настройки банка и причину изменения.' : 'Не удалось прочитать банк наград.' } });
+        if (!request.readableEnded && !request.destroyed) request.resume();
+        return;
+      }
       const known = error instanceof HttpError || error instanceof AdminAuthError || error instanceof AdminStoreError;
       send(response, known ? error.status : 500, { error: { code: known ? error.code : 'INTERNAL_ERROR',
         message: known ? error.message : 'Не удалось выполнить запрос. Настройки не изменены.' } });
@@ -125,7 +149,7 @@ export function createAdminServer({ env = process.env, databasePath = env.MASQ_A
   server.requestTimeout = 15000; server.headersTimeout = 10000; server.keepAliveTimeout = 5000;
   server.maxRequestsPerSocket = 100;
   return Object.freeze({ server, authConfigured: auth.configured, close: () => new Promise((resolveClose, reject) => {
-    const closeStore = () => { try { auth.clear(); store.close(); resolveClose(); } catch (error) { reject(error); } };
+    const closeStore = () => { try { auth.clear(); store.close(); rewardBank.close(); resolveClose(); } catch (error) { reject(error); } };
     if (!server.listening) { closeStore(); return; }
     server.close(error => error ? reject(error) : closeStore());
     server.closeIdleConnections();

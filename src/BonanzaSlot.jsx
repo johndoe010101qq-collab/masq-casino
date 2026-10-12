@@ -94,6 +94,7 @@ function PurchaseDialog({request, cancel, confirm, atlas, fallbackFocus}) {
         Ставка {money(request.stake)} АР</p>
       <strong className="purchase-price">{money(request.cost)} АР</strong>
       <p>Это тот же бонус, который выпадает в обычной игре. Выплаты описаны в «Правилах шансов».</p>
+      <p>После покупки бонусный режим останется включён. Каждый следующий запуск снова стоит {money(request.cost)} АР при этой ставке. Выключить режим можно кнопкой «Отменить бонус».</p>
       <div className="purchase-actions">
         <button type="button" className="purchase-cancel" autoFocus onClick={cancel}>Отмена</button>
         <button type="submit" className="purchase-confirm">Купить за {money(request.cost)} АР</button>
@@ -172,7 +173,7 @@ function RulesDialog({opened, close, atlas, fallbackFocus, limits}) {
     <p>В бонусе появляются множители ×2–×25. Каждый уникальный символ учитывается
       один раз за вращение; значения складываются и умножают выплаты обычных символов.</p>
     <p>Покупка бонуса стоит ×{rules.bonusBuyMultiplier} базовой ставки и даёт
-      {rules.initialFreeSpins} начальных вращений. Стоимость списывается один раз.</p>
+      {rules.initialFreeSpins} начальных вращений. Цена списывается один раз за каждый купленный бонус. После покупки режим сохраняется до отмены; следующий запуск покупает новый бонус.</p>
     <p>Ставки {limits.min}–{limits.max} АР, шаг {limits.step}. Денежные ограничения и реальные вероятности — во вкладке «Правила шансов».</p>
     <p className="slot-rules-demo">Игра на демонстрационных фишках.</p>
     <button type="button" className="slot-rules-dismiss" onClick={close}>Понятно</button>
@@ -197,6 +198,7 @@ export default function BonanzaSlot({
   const [entranceOpen, setEntranceOpen] = useState(true);
   const entrance = useRef(true);
   const [purchase, setPurchase] = useState(null);
+  const [bonusMode, setBonusMode] = useState(false);
   const [purchaseController] = useState(() => createBonusPurchaseController(session));
   const stageFocus = useRef(null);
   const pausedAnimations = useRef([]);
@@ -210,7 +212,10 @@ export default function BonanzaSlot({
   const limits=uiStakeLimits(snapshot,'slots');
   useEffect(()=>{setStake(value=>uiBoundedStake(value,limits));setError('');},[limits.min,limits.max,limits.step]);
   const [roundSpeed,setRoundSpeed]=useState(1);
-  const controls=useSlotPlaybackControls({busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:entranceOpen||showRules||!!purchase,payoutOpen,canAfford:permittedStake(stake,limits)&&snapshot.balance>=stake,getCanAfford:()=>permittedStake(stake,limits)&&session.getSnapshot().balance>=stake,requestSpin:settings=>start('paid',stake,settings.speed)});
+  const canAffordSpin=current=>bonusMode
+    ? !validateBonusPurchase(stake,current.balance,'slots',undefined,uiStakeLimits(current,'slots'))
+    : permittedStake(stake,uiStakeLimits(current,'slots'))&&current.balance>=stake;
+  const controls=useSlotPlaybackControls({busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:entranceOpen||showRules||!!purchase,payoutOpen,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>start(bonusMode?'buy':'paid',stake,settings.speed)});
   const locked = Boolean(snapshot.busy || playing || controls.active);
   useEffect(() => { if (reduced) playback.current?.skip(); }, [reduced]);
 
@@ -287,11 +292,16 @@ export default function BonanzaSlot({
     try {
       const round = purchaseController.confirm(selected.id);
       setPurchase(null);
-      if (round) playRound(round);
+      if (round) {setBonusMode(true);playRound(round);}
     } catch (failure) {
       setPurchase(null);
       setError(failure.message);
     }
+  }
+
+  function cancelBonusMode() {
+    controls.stopAutoplay();
+    setBonusMode(false);
   }
 
   function playRound(round,speed=controls.speed) {
@@ -442,13 +452,14 @@ export default function BonanzaSlot({
       balance={snapshot.balance} lastPayout={lastPayout} currency="АР"
       busy={locked} disabled={controls.active || !atlas || payoutOpen || showRules || !!purchase || entranceOpen}
       skipDisabled={!atlas || payoutOpen || showRules || !!purchase || entranceOpen}
-      canSpin={!payoutOpen} canBuyBonus={!payoutOpen}
+      canSpin={!payoutOpen} canBuyBonus={!payoutOpen&&!bonusMode}
+      bonusMode={bonusMode?{name:'Бонус Bonanza',multiplier:rules.bonusBuyMultiplier,onDisable:cancelBonusMode}:null}
       buyArtwork={atlas?.maskUrl} buyAtlasUrl={atlas?.url} reducedMotion={reduced}
       soundEnabled={sfxEnabled} musicEnabled={musicEnabled}
       showAudioControls={showAudioControls}
       onSound={onSound} onMusic={onMusic}
-      onSpin={() => start('paid')} onBuyBonus={openPurchase}
-      onSkip={() => playback.current?.skip()} onInfo={() => setShowRules(true)} /><SlotPlaybackOptions game="slots" controls={controls} disabled={locked||!atlas||payoutOpen||entranceOpen||showRules||!!purchase}/>
+      onSpin={() => start(bonusMode?'buy':'paid')} onBuyBonus={openPurchase}
+      onSkip={() => playback.current?.skip()} onInfo={() => setShowRules(true)} /><SlotPlaybackOptions game="slots" controls={controls} disabled={locked||!atlas||payoutOpen||entranceOpen||showRules||!!purchase} bonusMode={bonusMode?'Bonanza':null}/>
     </div>
     {error && <p className="bonanza-error" role="alert">{error}</p>}
     <RulesDialog opened={showRules} close={() => setShowRules(false)} atlas={atlas} fallbackFocus={stageFocus} limits={limits}/>

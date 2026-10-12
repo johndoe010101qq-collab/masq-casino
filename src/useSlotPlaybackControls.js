@@ -1,8 +1,9 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {createSlotPlaybackController} from './slot-playback-controller.js';
 
-// requestSpin({mode:'paid',featureMode:null,speed}) must synchronously return true
-// only after HallSession accepted a round. getBusy reads session.getSnapshot().busy.
+// The room resolves its selected ordinary/bonus entry before HallSession accepts
+// a round; requestSpin must synchronously return true only after acceptance.
+// getBusy reads session.getSnapshot().busy; the room checks the full entry cost.
 export function useSlotPlaybackControls(options) {
   const latest=useRef(options);latest.current=options;
   const mounted=useRef(false);

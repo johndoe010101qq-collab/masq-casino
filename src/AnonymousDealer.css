@@ -1,0 +1,65 @@
+/* Existing raster character articulated into a head, torso and two forearms. */
+.bj-dealer-stage{position:relative;grid-row:1;grid-column:1;isolation:isolate;min-width:0;pointer-events:none;user-select:none;-webkit-user-select:none;--dealer-width:222px;}
+.bj-dealer-window{position:absolute;left:50%;bottom:0;width:var(--dealer-width);height:calc(var(--dealer-width) * 1.065);transform:translateX(-50%);overflow:hidden;}
+.bj-dealer-rig{position:absolute;top:calc(var(--dealer-width) * -.453038674);left:0;width:100%;height:calc(var(--dealer-width) * 2);transform-origin:50% 73%;}
+.bj-dealer-art,.bj-dealer-head-joint{position:absolute;inset:0;display:block;}
+.bj-dealer-art{background-image:url('/maskhouse-host-sprites-packed-v13.webp');background-size:600% 100%;background-repeat:no-repeat;background-position:0% 0%;}
+.bj-dealer-torso{clip-path:polygon(31% 48%,69% 48%,70% 66%,65% 70%,64% 75%,36% 75%,35% 70%,30% 66%);}
+.bj-dealer-arm{background-position:80% 0%;}
+.bj-dealer-arm-left{clip-path:polygon(13% 49%,33% 48%,36% 66%,28% 72%,9% 68%,10% 58%);transform-origin:29% 49%;}
+.bj-dealer-arm-right{clip-path:polygon(67% 48%,84% 49%,91% 59%,92% 68%,75% 72%,63% 66%);transform-origin:71% 49%;}
+.bj-dealer-head-joint{transform-origin:48% 48%;}
+.bj-dealer-head{clip-path:polygon(20% 23%,73% 23%,76% 53%,23% 53%);}
+.bj-dealer-nameplate{position:absolute;left:22px;top:22px;display:grid;gap:4px;color:#ecdcc4;text-align:left;letter-spacing:.11em;font:600 11px/1.2 Arial,sans-serif;}
+.bj-dealer-nameplate small{font:12px/1.3 Arial,sans-serif;letter-spacing:.015em;color:#ceb9a2;}
+.bj-dealer-table-edge{position:absolute;left:26%;right:26%;bottom:0;height:5px;border-top:1px solid #b38b5b75;background:#351b27;border-radius:4px;}
+.bj-dealer-shoe{position:absolute;left:calc(50% + 82px);bottom:10px;width:57px;height:34px;transform:rotate(-8deg);border:1px solid #ae815e;background:#22161d;border-radius:4px;box-shadow:0 3px 6px #0006;}
+.bj-dealer-shoe span{position:absolute;inset:6px 8px;border:1px solid #d1b394;border-radius:3px;background:#692c40 url('/blackjack-cardback-v18.svg') center/100% 100% no-repeat;}
+.bj-dealer-shoe span:nth-child(1){transform:translateY(-3px);}
+.bj-dealer-shoe span:nth-child(2){transform:translateY(-1px);}
+.bj-dealer-stage[data-phase='idle'] .bj-dealer-torso,.bj-dealer-stage[data-phase='watch'] .bj-dealer-torso{animation:bj-croupier-breathe 5.6s ease-in-out infinite;}
+.bj-dealer-stage[data-phase='idle'] .bj-dealer-head,.bj-dealer-stage[data-phase='watch'] .bj-dealer-head{animation:bj-croupier-blink 6.4s steps(1,end) infinite;}
+.bj-dealer-stage[data-phase='watch'] .bj-dealer-head-joint{animation:bj-croupier-watch 4.8s ease-in-out infinite;}
+.bj-dealer-stage[data-phase='win'][data-reacting='true'] .bj-dealer-head,.bj-dealer-stage[data-phase='push'][data-reacting='true'] .bj-dealer-head{animation:bj-croupier-nod 1.5s ease-in-out both;}
+.bj-dealer-stage[data-phase='lose'][data-reacting='true'] .bj-dealer-head{animation:bj-croupier-tilt 1.5s ease-in-out both;}
+.bj-dealer-stage[data-phase='win'][data-reacting='true'] .bj-dealer-torso{animation:bj-croupier-welcome 1.5s ease-in-out both;}
+.bj-dealer-stage[data-paused='true'] *{animation-play-state:paused!important;}
+.bj-dealer-stage[data-reduced-motion='true'] *{animation:none!important;}
+.bj-card-flight{position:absolute;inset:0;will-change:transform;}
+.bj-dealer-flight-layer{position:absolute;inset:0;z-index:5;pointer-events:none;}
+.bj-dealer-flying-card{position:absolute;container-type:inline-size;pointer-events:none;filter:drop-shadow(0 7px 7px #0008);}
+@keyframes bj-croupier-breathe{0%,100%{transform:none;}50%{transform:translateY(-.2%) scaleY(1.005);}}
+@keyframes bj-croupier-blink{0%,84%,87.01%,100%{background-position:0% 0%;}84.01%,87%{background-position:20% 0%;}}
+@keyframes bj-croupier-watch{0%,100%{transform:rotate(-.4deg);}50%{transform:rotate(1.2deg);}}
+@keyframes bj-croupier-nod{0%,100%{transform:none;}35%{transform:translateY(.35%) rotate(-1.5deg);}70%{transform:translateY(-.15%);}}
+@keyframes bj-croupier-tilt{0%,100%{transform:none;}45%{transform:rotate(2deg);}}
+@keyframes bj-croupier-welcome{0%,100%{transform:none;}45%{transform:translateY(-.3%);}}
+/* Character, both full card rows and turn buttons each get their own space. */
+.indictus-app.indictus-app .blackjack-stage.bj-has-croupier{min-height:810px;}
+.indictus-app.indictus-app .bj-has-croupier .blackjack-physical-canvas{inset:8px 28px 112px;}
+.indictus-app.indictus-app .bj-has-croupier .blackjack-raster-table{grid-template-rows:236px minmax(160px,1fr) 40px minmax(160px,1fr);gap:8px;}
+.indictus-app.indictus-app .bj-has-croupier .bj-raster-dealer{grid-row:2;}
+.indictus-app.indictus-app .bj-has-croupier .bj-raster-player{grid-row:4;}
+.indictus-app.indictus-app .bj-has-croupier .bj-felt-print{grid-row:3;}
+.indictus-app.indictus-app .bj-has-croupier .bj-felt-print img,.indictus-app.indictus-app .bj-has-croupier .bj-felt-print small{display:none;}
+.indictus-app.indictus-app .bj-has-croupier .bj-felt-print strong{font-size:16px;}
+.indictus-app.indictus-app .bj-has-croupier .bj-felt-print span{font-size:11px;}
+@media(max-width:760px){
+  .bj-dealer-stage{--dealer-width:190px;}
+  .bj-dealer-nameplate{left:5px;top:18px;font-size:10px;letter-spacing:.06em;}
+  .bj-dealer-nameplate small{font-size:10px;}
+  .bj-dealer-shoe{left:calc(50% + 70px);width:48px;height:30px;bottom:8px;}
+  .bj-dealer-table-edge{left:18%;right:18%;}
+  .indictus-app.indictus-app .blackjack-stage.bj-has-croupier{min-height:760px;}
+  .indictus-app.indictus-app .bj-has-croupier .blackjack-physical-canvas{inset:6px 18px 110px;}
+  .indictus-app.indictus-app .bj-has-croupier .blackjack-raster-table{grid-template-rows:206px minmax(152px,1fr) 34px minmax(152px,1fr);}
+}
+@media(max-width:420px){
+  .bj-dealer-stage{--dealer-width:138px;}
+  .bj-dealer-nameplate{left:0;top:14px;font-size:9px;letter-spacing:.035em;}
+  .bj-dealer-shoe{left:calc(50% + 65px);width:44px;height:28px;}
+  .indictus-app.indictus-app .blackjack-stage.bj-has-croupier{min-height:640px;}
+  .indictus-app.indictus-app .bj-has-croupier .blackjack-physical-canvas{inset:4px 12px 110px;}
+  .indictus-app.indictus-app .bj-has-croupier .blackjack-raster-table{grid-template-rows:150px minmax(145px,1fr) 32px minmax(145px,1fr);}
+}
+@media(prefers-reduced-motion:reduce){.bj-dealer-stage *{animation:none!important;}.bj-card-flight{will-change:auto;}}

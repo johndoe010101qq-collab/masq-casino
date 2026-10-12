@@ -93,8 +93,9 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
   const locked = snapshot.busy || payoutOpen;
   return <section className="blackjack-room" aria-label="Blackjack">
     <div className="room-layout">
-      <div className={'physical-stage blackjack-stage ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
-        <div className="physical-canvas blackjack-physical-canvas"><RasterBlackjack view={view} motion={display.motion} /></div>
+      <div className={'physical-stage blackjack-stage bj-has-croupier ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
+        <div className="physical-canvas blackjack-physical-canvas"><RasterBlackjack view={view} motion={display.motion}
+          status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} /></div>
         <div className="blackjack-live-status" role="status" aria-live="polite">
           {view.result?.title ?? statuses[display.status]}
         </div>

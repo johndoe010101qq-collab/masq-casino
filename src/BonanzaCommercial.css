@@ -97,13 +97,13 @@
 .bonanza-mascot-body {width:100%; aspect-ratio:1/2; transform-origin:50% 96%; animation:bonanza-mascot-breathe 5.8s ease-in-out infinite;}
 .bonanza-mascot-sprite {display:block; width:100%; height:100%; background:url('/bonanza-commercial-mascot-v13.webp') 0 0 / 400% 200% no-repeat; filter:drop-shadow(0 6px 3px #13223855);}
 .bonanza-mascot[data-pose='idle'] .bonanza-mascot-sprite {animation:bonanza-mascot-blink 6s steps(1,end) infinite;}
-.bonanza-mascot[data-pose='watch'] .bonanza-mascot-body {animation:bonanza-mascot-watch calc(1.1s / var(--slot-speed,1)) ease-in-out infinite;}
-.bonanza-mascot[data-pose='bonus'] .bonanza-mascot-body {animation:bonanza-mascot-surprise calc(.75s / var(--slot-speed,1)) ease-out both;}
-.bonanza-mascot[data-pose='win'] .bonanza-mascot-body {animation:bonanza-mascot-sway calc(1.3s / var(--slot-speed,1)) ease-in-out infinite;}
-.bonanza-mascot[data-pose='win'] .bonanza-mascot-sprite {animation:bonanza-mascot-dance calc(1.3s / var(--slot-speed,1)) steps(1,end) infinite;}
+.bonanza-mascot[data-pose='watch'] .bonanza-mascot-body {animation:bonanza-mascot-watch 1.1s ease-in-out infinite;}
+.bonanza-mascot[data-pose='bonus'] .bonanza-mascot-body {animation:bonanza-mascot-surprise .75s ease-out both;}
+.bonanza-mascot[data-pose='win'] .bonanza-mascot-body {animation:bonanza-mascot-sway 1.3s ease-in-out infinite;}
+.bonanza-mascot[data-pose='win'] .bonanza-mascot-sprite {animation:bonanza-mascot-dance 1.3s steps(1,end) infinite;}
 .bonanza-mascot[data-pose='win'][data-transient='true'] .bonanza-mascot-sprite {
-  animation:bonanza-mascot-dance calc(1.3s / var(--slot-speed,1)) steps(1,end) infinite,
-    bonanza-mascot-outcome calc(2.6s / var(--slot-speed,1)) steps(1,end) both;
+  animation:bonanza-mascot-dance 1.3s steps(1,end) infinite,
+    bonanza-mascot-outcome 2.6s steps(1,end) both;
 }
 @keyframes bonanza-mascot-blink {0%,94%,100%{background-position:0% 0%;}95%,98%{background-position:33.333333% 0%;}}
 @keyframes bonanza-mascot-breathe {50%{transform:translateY(-.6%) scale(1.008);}}

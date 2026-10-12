@@ -1,0 +1,18 @@
+.server-reward-panel{margin:26px 0;padding:22px;border:1px solid #524d45;border-radius:10px;background:#20211f;color:inherit;}
+.server-reward-panel>header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.server-reward-panel h3{margin:0;font:inherit;font-size:22px;font-weight:700;}
+.server-reward-panel p{font-size:13px;line-height:1.6;}
+.server-reward-panel button{min-height:44px;padding:8px 14px;border:1px solid #71644e;border-radius:6px;background:#33302a;color:inherit;}
+.server-reward-totals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0;}
+.server-reward-totals>div{padding:12px;background:#131715;border-radius:7px;}
+.server-reward-totals dt{font-size:12px;opacity:.7;}
+.server-reward-totals dd{margin:7px 0 0;font-size:20px;font-weight:700;}
+.server-reward-panel fieldset{border:0;padding:0;margin:20px 0;}
+.server-reward-panel legend{font-weight:700;margin-bottom:12px;}
+.server-reward-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+.server-reward-fields label{display:flex;flex-direction:column;gap:7px;font-size:13px;}
+.server-reward-fields label>span{display:flex;align-items:center;gap:8px;}
+.server-reward-fields input{width:130px;max-width:70%;min-height:44px;padding:8px;border:1px solid #776d59;border-radius:6px;background:#ede7d6;color:#282820;font:inherit;}
+.server-reward-panel button:disabled{opacity:.45;}
+.server-reward-panel :is(input,button):focus-visible{outline:2px solid #c9a05e;outline-offset:3px;}
+@media(max-width:600px){.server-reward-panel{padding:16px;}.server-reward-totals{grid-template-columns:1fr;}.server-reward-fields{grid-template-columns:1fr;}}

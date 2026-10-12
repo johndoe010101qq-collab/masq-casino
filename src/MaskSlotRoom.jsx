@@ -67,6 +67,7 @@ function Purchase({game,request,onCancel,onConfirm,returnFocus}) {
   <p id={descriptionId} className="mask-purchase-feature"><strong>{game==='maskhouse'?'9–27':request.bonus.initialFreeSpins}</strong> бесплатных вращений{request.bonus.id==='gold'?' · постоянное золотое поле':''}</p>
   <dl className="mask-purchase-terms"><div><dt>Базовая ставка</dt><dd>{fmt(request.stake)} АР</dd></div><div><dt>Стоимость бонуса</dt><dd>{fmt(request.cost)} АР</dd></div></dl>
   <p className="mask-purchase-note">Минимальная итоговая выплата купленного бонуса — 10% его стоимости. Полные условия — в правилах шансов.</p>
+  <p className="mask-purchase-note">Бонусный режим останется включён до отмены. Каждый следующий запуск снова стоит {fmt(request.cost)} АР при этой ставке.</p>
   <div className="mask-purchase-actions"><button ref={cancel} type="button" onClick={onCancel}>Отмена</button><button type="button" className="primary" onClick={onConfirm}>Купить за {fmt(request.cost)} АР</button></div>
  </dialog>;
 }
@@ -77,6 +78,8 @@ export default function MaskSlotRoom({game,session,snapshot,audio,onSettled,payo
  const [visual,setVisual]=useState({phase:'idle',grid:idle,wins:[],goldenCells:[],freeRemaining:0,totalPayoutCents:0});
  const [atlas,setAtlas]=useState(null),[error,setError]=useState(''),[stake,setStake]=useState('50'),[rulesOpen,setRulesOpen]=useState(false);
  const [purchase,setPurchase]=useState(null),[shopOpen,setShopOpen]=useState(false),[featureMode,setFeatureMode]=useState(null);
+ const [bonusMode,setBonusMode]=useState(null);
+ const pendingPurchase=useRef(null);
  useEffect(()=>{setStake(value=>String(uiBoundedStake(value,limits)));setError('');},[limits.min,limits.max,limits.step]);
  const purchaseTrigger=useRef(null);
  const runner=useRef(null),mounted=useRef(false),stage=useRef(null),pausedAnimations=useRef([]),latest=useRef({audio,onSettled});latest.current={audio,onSettled};
@@ -92,12 +95,28 @@ export default function MaskSlotRoom({game,session,snapshot,audio,onSettled,payo
   changed();document.addEventListener('visibilitychange',changed);return()=>{document.removeEventListener('visibilitychange',changed);pausedAnimations.current=[];};
  },[]);
  const [roundSpeed,setRoundSpeed]=useState(1);
- const controls=useSlotPlaybackControls({busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:!!purchase||shopOpen||rulesOpen,payoutOpen,normalOnly:!featureMode,canAfford:permittedStake(Number(stake),limits)&&snapshot.balance>=Number(stake),getCanAfford:()=>permittedStake(Number(stake),limits)&&session.getSnapshot().balance>=Number(stake),requestSpin:settings=>play('paid',Number(stake),undefined,settings)});
+ const canAffordSpin=current=>bonusMode
+  ? !validateBonusPurchase(Number(stake),current.balance,game,bonusMode,uiStakeLimits(current,game))
+  : permittedStake(Number(stake),uiStakeLimits(current,game))&&current.balance>=Number(stake);
+ const controls=useSlotPlaybackControls({busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:!!purchase||shopOpen||rulesOpen,payoutOpen,normalOnly:!featureMode,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>play(bonusMode?'buy':'paid',Number(stake),bonusMode??undefined,settings)});
  const locked=controls.active||snapshot.busy||payoutOpen||!!purchase||shopOpen,amount=Number(stake),validStake=permittedStake(amount,limits);
  const offers=game==='lecipher'?[...Object.values(LEXOF_FEATURE_RULES).map(item=>({...item,feature:true})),...config.bonusBuys]:config.bonusBuys;
- const feature=featureMode?{...LEXOF_FEATURE_RULES[featureMode],name:featureMode==='hunt'?'Охота за бонусом':'Радужный спин',onDisable:()=>setFeatureMode(null)}:null;
+ const feature=bonusMode?{...config.bonusBuys.find(item=>item.id===bonusMode),name:tierTitle[bonusMode],persistent:true,onDisable:()=>{controls.stopAutoplay();setBonusMode(null);}}:featureMode?{...LEXOF_FEATURE_RULES[featureMode],name:featureMode==='hunt'?'Охота за бонусом':'Радужный спин',onDisable:()=>setFeatureMode(null)}:null;
  const stakeHelpId='stake-help-'+game,errorId='stake-error-'+game;
- function buy(bonus,trigger) {if(snapshot.busy||payoutOpen||purchase||runner.current||!atlas)return;const current=session.getSnapshot(),issue=validateBonusPurchase(amount,current.balance,game,bonus.id,uiStakeLimits(current,game));if(issue){setError(issue);return;}setError('');purchaseTrigger.current=trigger||document.activeElement;setPurchase(Object.freeze({stake:amount,bonus,cost:amount*bonus.multiplier}));}
+ function buy(bonus,trigger) {if(session.getSnapshot().busy||payoutOpen||pendingPurchase.current||runner.current||!atlas)return;const current=session.getSnapshot(),issue=validateBonusPurchase(amount,current.balance,game,bonus.id,uiStakeLimits(current,game));if(issue){setError(issue);return;}setError('');purchaseTrigger.current=trigger||document.activeElement;pendingPurchase.current=Object.freeze({stake:amount,bonus,cost:amount*bonus.multiplier});setPurchase(pendingPurchase.current);}
+ function openBonusShop() {
+  purchaseTrigger.current=document.activeElement;
+  if(offers.length===1&&!offers[0].feature)buy(offers[0],purchaseTrigger.current);
+  else setShopOpen(true);
+ }
+ function confirmPurchase() {
+  const request=pendingPurchase.current;
+  if(!request)return;
+  pendingPurchase.current=null;
+  setPurchase(null);
+  if(play('buy',request.stake,request.bonus.id))setBonusMode(request.bonus.id);
+ }
+ function cancelPurchase() {pendingPurchase.current=null;setPurchase(null);}
  function play(mode='paid',amount=Number(stake),bonusTier,playbackOptions={}) {
   if(snapshot.busy||payoutOpen||runner.current||!atlas)return false;
   let round;try{round=session.begin(game,game,amount,{mode,bonusTier,...(mode==='paid'&&featureMode&&playbackOptions.featureMode!==null?{featureMode}: {})});}catch(e){setError(e.message);return false;}
@@ -126,5 +145,5 @@ export default function MaskSlotRoom({game,session,snapshot,audio,onSettled,payo
    {visual.phase==='bonus-selection'&&<div className="mask-bonus-card mask-bonus-selection" role="status"><span>Маскарад</span><div className="mask-award-tiles">{visual.bonusSelection.map((value,index)=><b key={index} data-revealed={index<(visual.revealed||9)} style={{'--tile':index}}>{index<(visual.revealed||9)?value:'?'}</b>)}</div><strong>{visual.selectionTotal??visual.freeRemaining}</strong><small>бесплатных вращений</small></div>}
    {game==='lecipher'&&visual.phase==='decode'&&atlas&&<div className="lexof-rainbow-feature" key={visual.serial} aria-hidden="true"><span className="mask-slot-symbol" style={{backgroundImage:`url('${atlas.url}')`,backgroundPosition:'66.6667% 100%'}}/><strong>Радуга</strong></div>}
    <SlotWinReadout visual={visual} game={game} atlas={atlas}/>
-  </div><SlotDock game={game} stakeLimits={limits} stake={stake} onStakeChange={value=>{setStake(value);setError('');}} balance={snapshot.balance} payout={(visual.shownPayoutCents??visual.totalPayoutCents)/100} locked={locked} busy={snapshot.busy} ready={!!atlas} validStake={validStake} feature={feature} onSpin={()=>play()} onSkip={()=>runner.current?.finish()} onShop={()=>{purchaseTrigger.current=document.activeElement;setShopOpen(true);}} error={error}/><SlotPlaybackOptions game={game} controls={controls} disabled={locked||!atlas||payoutOpen} autoAllowed={!featureMode&&validStake}/></div>{shopOpen&&<SlotBonusShop game={game} offers={offers} atlas={atlas} stake={amount} balance={snapshot.balance} returnFocus={purchaseTrigger.current} onCancel={()=>setShopOpen(false)} onChoose={bonus=>{setShopOpen(false);if(bonus.feature){setFeatureMode(bonus.id);setError('');}else{setFeatureMode(null);buy(bonus,purchaseTrigger.current);}}}/>}{purchase&&<Purchase game={game} request={purchase} returnFocus={purchaseTrigger.current} onCancel={()=>setPurchase(null)} onConfirm={()=>{const request=purchase;setPurchase(null);play('buy',request.stake,request.bonus.id);}}/>}</section>;
+  </div><SlotDock game={game} stakeLimits={limits} stake={stake} onStakeChange={value=>{setStake(value);setError('');}} balance={snapshot.balance} payout={(visual.shownPayoutCents??visual.totalPayoutCents)/100} locked={locked} busy={snapshot.busy} ready={!!atlas} validStake={validStake} feature={feature} onSpin={()=>play(bonusMode?'buy':'paid',amount,bonusMode??undefined)} onSkip={()=>runner.current?.finish()} onShop={openBonusShop} error={error}/><SlotPlaybackOptions game={game} controls={controls} disabled={locked||!atlas||payoutOpen} autoAllowed={!featureMode&&validStake} bonusMode={bonusMode?tierTitle[bonusMode]:null}/></div>{shopOpen&&<SlotBonusShop game={game} offers={offers} atlas={atlas} stake={amount} balance={snapshot.balance} returnFocus={purchaseTrigger.current} onCancel={()=>setShopOpen(false)} onChoose={bonus=>{setShopOpen(false);if(bonus.feature){setBonusMode(null);setFeatureMode(bonus.id);setError('');}else{setFeatureMode(null);buy(bonus,purchaseTrigger.current);}}}/>}{purchase&&<Purchase game={game} request={purchase} returnFocus={purchaseTrigger.current} onCancel={cancelPurchase} onConfirm={confirmPurchase}/>}</section>;
 }

@@ -72,6 +72,11 @@ assert(jsx.includes("event.animationName==='house-mascot-outcome'"));checks++;
 const css=fs.readFileSync(new URL('HouseMascot.css',root),'utf8'),parsed=postcss.parse(css);
 let dance=false,paused=false,reduced=false,finite=false;
 parsed.walkRules(rule=>{
+  if(rule.selector.includes('.house-mascot'))rule.walkDecls(decl=>{
+    if(/^(animation|transition)(-|$)/.test(decl.prop)){
+      assert(!decl.value.includes('--slot-speed'),'House mascot reactions must keep their own pace at every reel speed');checks++;
+    }
+  });
   if(rule.selector.includes("[data-pose='win']")&&rule.selector.includes('sprite'))rule.walkDecls('background-image',decl=>{dance||=decl.value.includes('/maskhouse-host-dance-packed-v13.webp');});
   if(rule.selector.includes("[data-playback-paused='true']"))rule.walkDecls('animation-play-state',decl=>{paused||=decl.value==='paused'&&decl.important;});
   if(rule.selector.includes("[data-reduced-motion='true']"))rule.walkDecls('animation',decl=>{reduced||=decl.value==='none'&&decl.important;});

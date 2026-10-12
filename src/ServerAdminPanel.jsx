@@ -2,6 +2,7 @@ import React,{useEffect,useId,useRef,useState} from 'react';
 import {ADMIN_GAMES,ADMIN_DEFAULTS,settingsFromSnapshot,validateAdminDraft,draftChanges} from './demo-admin-controls.js';
 import './DemoAdminPanel.css';
 import './ServerAdminPanel.css';
+import ServerRewardPanel from './ServerRewardPanel.jsx';
 
 const ALL_CONTROLS={rtpProfiles:true,classicRtpProfiles:true,stakeLimits:true,presentation:true};
 const groups=[['slots','Слоты'],['classic','Настольные игры'],['presentation','Звук и анимация']];
@@ -151,6 +152,7 @@ export default function ServerAdminPanel({client,onClose,getProfileDetails,onSes
         </div>
       </form>
     </>}
+    {draft&&<ServerRewardPanel client={client} onSessionExpired={onSessionExpired}/>}
     {canAudit&&<section className="server-admin-audit" aria-labelledby={`${uid}-audit`}><div className="server-admin-audit-heading"><h3 id={`${uid}-audit`}>Журнал изменений</h3><button type="button" disabled={pending||loading||auditLoading} onClick={()=>refreshAudit(controller.current.signal)}>{auditLoading?'Загрузка…':'Обновить'}</button></div>{auditError&&<p className="demo-admin-error" role="alert">{auditError}</p>}{!auditLoading&&!auditError&&!audit.length&&<p>Изменений пока нет.</p>}<ol>{audit.map(entry=><li key={entry.id}><div><strong>Версия {entry.revision}</strong><time dateTime={new Date(entry.createdAt).toISOString()}>{timestamp(entry.createdAt)}</time></div><p>{entry.reason}</p><small>{entry.actor.username}</small><details><summary>Что изменилось</summary><ul>{draftChanges(entry.before,entry.after,ALL_CONTROLS).map(change=><li key={change}>{change}</li>)}</ul></details></li>)}</ol></section>}
     <p className="demo-admin-limit">Доступ проверяется сервером по учётной записи SP Worlds и списку разрешённых администраторов. Адрес страницы сам по себе не даёт права изменить настройки.</p>
   </dialog>;

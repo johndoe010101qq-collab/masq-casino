@@ -82,8 +82,13 @@ const parsed=postcss.parse(css);let cssRules=0;parsed.walkRules(()=>cssRules++);
 assert(cssRules>=20);checks++;
 let outcomeTiming=false,idleTiming=false,pausedTiming=false,reducedTiming=false;
 parsed.walkRules(rule=>{
+  if(rule.selector.includes('.lexof-mascot'))rule.walkDecls(decl=>{
+    if(/^(animation|transition)(-|$)/.test(decl.prop)){
+      assert(!decl.value.includes('--slot-speed'),'LeXof mascot reactions must keep their own pace at every reel speed');checks++;
+    }
+  });
   const animations=[];rule.walkDecls('animation',decl=>animations.push(decl.value));
-  if(rule.selector.includes("[data-transient='true']"))outcomeTiming ||= animations.some(value=>value.includes('1.4s / var(--slot-speed,1)')&&value.includes('steps(1,end)'));
+  if(rule.selector.includes("[data-transient='true']"))outcomeTiming ||= animations.some(value=>value.includes('lexof-mascot-outcome 1.4s')&&value.includes('steps(1,end)'));
   if(rule.selector.includes("[data-pose='idle']")&&rule.selector.includes('sprite'))idleTiming=animations.some(value=>value.includes('5.6s')&&!value.includes('--slot-speed'));
   if(rule.selector.includes("[data-playback-paused='true']"))rule.walkDecls('animation-play-state',decl=>{pausedTiming=decl.value==='paused'&&decl.important;});
   if(rule.selector.includes("[data-reduced-motion='true']"))rule.walkDecls('animation',decl=>{reducedTiming=decl.value==='none'&&decl.important;});

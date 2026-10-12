@@ -80,6 +80,11 @@ assert(!/\b(setTimeout|setInterval|Math\.random|randomInt|session\.)\b/.test(jsx
 const css=postcss.parse(fs.readFileSync(new URL('../src/BonanzaCommercial.css',import.meta.url),'utf8'));
 let paused=false,reduced=false,square=false;
 css.walkRules(rule=>{
+  if(rule.selector.includes('.bonanza-mascot'))rule.walkDecls(decl=>{
+    if(/^(animation|transition)(-|$)/.test(decl.prop)){
+      assert(!decl.value.includes('--slot-speed'),'Bonanza mascot reactions must keep their own pace at every reel speed');checks++;
+    }
+  });
   if(rule.selector.includes("[data-playback-paused='true']"))rule.walkDecls('animation-play-state',decl=>{paused=decl.value==='paused'&&decl.important;});
   if(rule.selector.includes("[data-reduced-motion='true']"))rule.walkDecls('animation',decl=>{reduced=decl.value==='none'&&decl.important;});
   if(rule.selector.endsWith('.slot-cell .slot-sprite')){

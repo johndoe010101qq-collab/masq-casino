@@ -96,8 +96,16 @@ await revokeFailure.authenticate(claim);await assert.rejects(revokeFailure.revok
 // financial limitations and the authenticated server presentation, not a
 // second implementation of its API or game mathematics.
 const componentURL=new URL('../src/ServerAdminPanel.jsx',import.meta.url);
+const rewardComponentURL=new URL('../src/ServerRewardPanel.jsx',import.meta.url);
+let rewardSource=await fs.readFile(rewardComponentURL,'utf8');
+rewardSource=rewardSource.replace(/import ['"]\.\/[^'"\n]+\.css['"];?\r?\n/g,'')
+  .replace(/from ['"]react['"]/g,'from '+JSON.stringify(new URL('../node_modules/react/index.js',import.meta.url).href))
+  .replace(/from ['"](\.\/[^'"]+\.js)['"]/g,(_,relative)=>'from '+JSON.stringify(new URL(relative,rewardComponentURL).href));
+const rewardTransformed=await transformWithOxc(rewardSource,'ServerRewardPanel.jsx',{jsx:{runtime:'classic'}});
+const rewardModule='data:text/javascript;base64,'+Buffer.from(rewardTransformed.code).toString('base64');
 let source=await fs.readFile(componentURL,'utf8');
 source=source.replace(/import ['"]\.\/[^'"\n]+\.css['"];?\r?\n/g,'')
+  .replace(/from ['"]\.\/ServerRewardPanel\.jsx['"]/g,'from '+JSON.stringify(rewardModule))
   .replace(/from ['"]react['"]/g,'from '+JSON.stringify(new URL('../node_modules/react/index.js',import.meta.url).href))
   .replace(/from ['"](\.\/[^'"]+\.js)['"]/g,(_,relative)=>'from '+JSON.stringify(new URL(relative,componentURL).href));
 const transformed=await transformWithOxc(source,'ServerAdminPanel.jsx',{jsx:{runtime:'classic'}});

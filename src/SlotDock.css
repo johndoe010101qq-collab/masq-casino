@@ -319,6 +319,9 @@
 .slot-dock input{appearance:textfield;}
 .slot-dock-feature,.slot-dock>.form-error{grid-column:1/-1;margin:0;display:flex;justify-content:center;gap:14px;}
 .slot-dock-feature button{color:#e1bc70;background:none;}
+.slot-bonus-mode{align-items:center;flex-wrap:wrap;text-align:center;}
+.slot-bonus-mode button{min-height:44px;padding:8px 12px;white-space:nowrap;}
+.bonanza-slot .slot-bonus-mode{grid-column:1/-1;font-size:13px;line-height:1.5;}
 .slot-shop-close{position:absolute;top:14px;right:17px;width:44px;height:44px;border:1px solid #536660!important;border-radius:50%;background:#152c26;color:#e9d9b5;font-size:29px;}
 .slot-shop-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:23px;padding-right:50px;}
 .slot-shop-heading h2{margin:0;font:600 36px/1 'Barlow Condensed',Arial,sans-serif;}
