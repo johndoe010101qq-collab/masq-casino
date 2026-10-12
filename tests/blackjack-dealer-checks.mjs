@@ -26,6 +26,10 @@ function inspectPose(display, options) {
   ok(Object.isFrozen(pose), 'Dealer poses are immutable public output.');
   ok(phases.has(pose.phase), `Unexpected dealer phase: ${pose.phase}`);
   check(typeof pose.reacting, 'boolean');
+  ok([null,'chuckle','approve','neutral'].includes(pose.gesture));
+  ok(pose.quip === null || typeof pose.quip === 'string');
+  ok(Number.isFinite(pose.reactionDurationMs) && pose.reactionDurationMs >= 0);
+  ok(Number.isFinite(pose.reactionProgress) && pose.reactionProgress >= 0 && pose.reactionProgress <= 1);
   ok(transformKeys.every(key => Number.isFinite(pose[key])), 'All pose transforms are finite.');
   ok(pose.progress >= 0 && pose.progress <= 1, 'Pose progress is normalized.');
   return pose;
@@ -181,6 +185,112 @@ for (const display of updates) {
   const reduced = inspectPose(display, { reducedMotion: true });
   ok(transformKeys.every(key => reduced[key] === 0));
   check(reduced.phase, getBlackjackDealerPose(display).phase, 'Reduced motion preserves the displayed state.');
+}
+
+// A genuine public outcome produces one bounded gesture/quip window. The same
+// completed result cannot make it reappear; the component latches completion
+// until a new deal resets its local presentation-only clock.
+const terminalDisplays = [];
+for (const [ranks,outcome,duration,gesture] of [
+  [[10,9,8,8],'win',2000,'approve'],
+  [[10,9,7,8],'push',1400,'neutral'],
+  [[10,10,6,8],'lose',2200,'chuckle'],
+  [[1,7,10,10],'blackjack',2000,'approve'],
+]) {
+  const round = runner(ranks); round.deal(); round.flushTransitions();
+  if (round.snapshot().canAct) round.stand();
+  round.flushTransitions();
+  const display = round.snapshot(); terminalDisplays.push(display);
+  check(display.view.result.outcome,outcome);
+  const start = inspectPose(display,{reactionElapsedMs:0});
+  check(start.gesture,gesture); check(start.reactionDurationMs,duration);
+  check(start.reactionProgress,0); ok(start.quip.length > 0);
+  for (const elapsed of [duration*.1,duration*.25,duration*.6,duration-1]) {
+    const pose = inspectPose(display,{reactionElapsedMs:elapsed});
+    check(pose.phase,start.phase); check(pose.gesture,gesture); check(pose.quip,start.quip);
+    check(pose.reacting,true); near(pose.reactionProgress,elapsed/duration);
+    ok(transformKeys.some(key => key !== 'progress' && Math.abs(pose[key]) > 1e-6),
+      'The finite gesture articulates independent body/head/arm parts.');
+    const reduced = inspectPose(display,{reactionElapsedMs:elapsed,reducedMotion:true});
+    check(reduced.quip,start.quip); check(reduced.reacting,false);
+    ok(transformKeys.every(key => reduced[key] === 0));
+  }
+  const ended = inspectPose(display,{reactionElapsedMs:duration});
+  check(ended.phase,'watch'); check(ended.reacting,false);
+  check(ended.gesture,null); check(ended.quip,null); check(ended.reactionProgress,1);
+  ok(transformKeys.every(key => ended[key] === 0));
+  for (const elapsed of [duration+1,100000,Number.MAX_SAFE_INTEGER]) {
+    check(inspectPose(display,{reactionElapsedMs:elapsed}),ended,
+      'An expired reaction stays complete on repeated settled renders.');
+  }
+  check(inspectPose(display,{reactionComplete:true,reactionElapsedMs:0}),ended);
+  check(inspectPose(display,{reactionComplete:true,reducedMotion:true}),ended);
+  // Pausing uses a frozen local elapsed value, so the pure pose cannot advance.
+  check(inspectPose(display,{reactionElapsedMs:duration*.25}),
+    inspectPose(display,{reactionElapsedMs:duration*.25}));
+  for (const elapsed of [-1,NaN,Infinity,-Infinity,undefined,'1000']) {
+    check(inspectPose(display,{reactionElapsedMs:elapsed}),start);
+  }
+  const next = runner([10,7,6,8,2]); next.deal();
+  const newDeal = inspectPose(next.snapshot(),{reactionComplete:true,reactionElapsedMs:100000});
+  check(newDeal.gesture,null); check(newDeal.quip,null); check(newDeal.reactionDurationMs,0);
+  check(newDeal.reacting,false);
+  check(inspectPose(display,{reactionElapsedMs:0}).quip,start.quip,
+    'A subsequent public result can start a fresh finite window after the room resets its clock.');
+}
+
+// Quips cannot read hidden cards or wallet data, consume RNG, or instruct a
+// player to chase losses. They are deterministic under the public final totals.
+const walletFields = ['balance','stake','hand','shoe','randomInt','payout'];
+for (const display of terminalDisplays) {
+  const safe = {status:'resolved',view:{revealed:true,result:display.view.result}};
+  for (const field of walletFields) Object.defineProperty(safe,field,{get:inaccessible(field)});
+  for (const field of ['player','dealer','playerTotal','dealerTotal']) {
+    Object.defineProperty(safe.view,field,{get:inaccessible(`view.${field}`)});
+  }
+  const oldRandom = Math.random;
+  const oldNow = Date.now;
+  let pose;
+  try {
+    Math.random = inaccessible('Math.random'); Date.now = inaccessible('Date.now');
+    pose = inspectPose(safe,{reactionElapsedMs:500});
+  } finally { Math.random = oldRandom; Date.now = oldNow; }
+  check(pose.quip,inspectPose(safe).quip);
+  ok(!/отыгр|подним.*ставк|ещ[её].*раздач|удво.*ставк/i.test(pose.quip));
+}
+const pausedDeal = runner([7,6,5,7,2,4,10]); pausedDeal.deal(); pausedDeal.advance(80);
+const pausedDisplay = pausedDeal.snapshot(), pausedPose = inspectPose(pausedDisplay);
+pausedDeal.advance(10000,{hidden:true});
+check(pausedDeal.snapshot(),pausedDisplay);
+check(inspectPose(pausedDeal.snapshot()),pausedPose,
+  'The genuine presentation and the dealer both freeze when the page is hidden.');
+for (const display of terminalDisplays) {
+  const result = {outcome:display.view.result.outcome};
+  Object.defineProperty(result,'playerTotal',{get:inaccessible('expired playerTotal')});
+  Object.defineProperty(result,'dealerTotal',{get:inaccessible('expired dealerTotal')});
+  const expired = inspectPose({status:'resolved',view:{revealed:true,result}},{reactionComplete:true});
+  check(expired.quip,null); check(expired.gesture,null); check(expired.reacting,false);
+}
+for (let playerTotal=0;playerTotal<=21;playerTotal++) {
+  for (const dealerTotal of [17,18,19,20,21]) {
+    const pose = inspectPose({status:'resolved',view:{revealed:true,
+      result:{outcome:'lose',playerTotal,dealerTotal}}});
+    ok(!pose.quip.includes('Перебор'),'A sarcastic line must not invent a player bust.');
+  }
+}
+const bust = runner([10,6,8,10,6]); bust.deal(); bust.flushTransitions();
+check(bust.hit(),true); bust.flushTransitions();
+check(bust.snapshot().view.result.playerTotal,24);
+check(inspectPose(bust.snapshot()).quip,'Перебор. Бывает.');
+for (const playerTotal of [NaN,Infinity,-Infinity,-1,100000,undefined,null]) {
+  const pose = inspectPose({status:'resolved',view:{revealed:true,
+    result:{outcome:'win',playerTotal,dealerTotal:Infinity}}});
+  ok(typeof pose.quip === 'string' && pose.quip.length > 0);
+}
+for (const display of updates.filter(value => value.status !== 'resolved')) {
+  const pose = inspectPose(display,{reactionElapsedMs:3000,reactionComplete:true});
+  check(pose.gesture,null); check(pose.quip,null);
+  check(pose.reactionDurationMs,0); check(pose.reactionProgress,0);
 }
 
 // A card starts at the measured dealer origin and lands exactly at its slot.

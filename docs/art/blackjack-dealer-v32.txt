@@ -1,0 +1,17 @@
+Blackjack Anonymous dealer v32
+Mode: built-in image_gen; raster generation with true alpha.
+Asset: public/blackjack-anonymous-hood-rig-v32.webp
+Encoding: WebP at native 1254 x 1254, alpha preserved. No resizing, compositing or programmatic retouch.
+Atlas: four isolated 627 x 627 cells, head/hood; torso; viewer-left arm; viewer-right arm.
+Rig: CSS positions independent raster cells, never moves atlas position to adjacent frames.
+
+Final generation prompt:
+Use case: stylized-concept
+Asset type: a production raster puppet sprite atlas for an animated Anonymous blackjack dealer in a casino web game.
+Primary request: a very polished, convincingly lifelike anonymous male dealer wearing a charcoal-black oversized streetwear hoodie with hood up, an unmistakable ivory Guy Fawkes / Anonymous mask. No tuxedo, no suit, no tailcoat, no top hat. Rich realistic cloth folds, woven cotton, subtle worn ivory ceramic, handsome cinematic character design; expressive mask with elegantly arched black brows, black almond eye openings, curled thin moustache, iconic small pointed black goatee and mischievous smile. Strong silhouette, not primitive vector art, not toy plastic, no excessive details.
+THIS IS ONE FOUR-PART RIGGING ATLAS, not a complete assembled character and not multiple poses. Square image divided into a precise 2 by 2 grid of equal square cells. Fully transparent background and at least 8 percent transparent padding inside every cell. All parts straight-on frontal camera, same lighting and scale style, no perspective mismatch.
+TOP LEFT CELL: only the masked head inside a large charcoal hoodie hood, including the collar base. Hood top near cell y=10%, collar base at y=90%, centered. Looking straight toward the player.
+TOP RIGHT CELL: only the front torso of the hoodie from shoulders to waist, headless and armless, shoulder joint stubs but no hanging sleeves. Soft warm dark lining at collar, hoodie drawstrings, subtle realistic seams. Front chest about twice the width of the mask face. Torso fills 80% cell width and 82% cell height, centered.
+BOTTOM LEFT CELL: only the character's right sleeve and forearm (on viewer's left) from shoulder to wrist and a realistic slender gloved hand at bottom, resting naturally with curved fingers, shoulder at upper center and fingers at lower center. Narrow silhouette angled outward a little, no cards or props. Black leather glove lit enough to read every finger, exactly five fingers.
+BOTTOM RIGHT CELL: only the character's left sleeve and forearm (on viewer's right), counterpart same scale, hand loosely open at bottom ready to slide cards, shoulder at upper center. Black leather glove, exactly five fingers.
+The four detached parts must be cleanly isolated with absolutely no extra full character, no duplicate head, no other model, no artifacts outside the intended four regions. Natural believable human proportions when assembled, not a bobblehead. Moderate commercial game illustration finish with near-realistic shaded materials, soft tungsten key light and muted petrol rim light, subtle oxblood hood lining. Crisp useful silhouettes and true alpha. No environment, no table, no shadows on background, no checkerboard, no words, no letters, no labels, no logo, no watermark.

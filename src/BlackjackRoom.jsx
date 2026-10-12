@@ -95,7 +95,7 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
     <div className="room-layout">
       <div className={'physical-stage blackjack-stage bj-has-croupier ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
         <div className="physical-canvas blackjack-physical-canvas"><RasterBlackjack view={view} motion={display.motion}
-          status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} /></div>
+          status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} audio={audio} /></div>
         <div className="blackjack-live-status" role="status" aria-live="polite">
           {view.result?.title ?? statuses[display.status]}
         </div>

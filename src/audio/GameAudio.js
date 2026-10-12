@@ -620,9 +620,28 @@ export class GameAudio {
     this.noise(.40, .016, 2400, 4400, { time, type:'bandpass', q:1.3, tag:'result' });
   }
 
+  dealerChuckle(time) {
+    // Three soft voiced breaths, authored in the existing SFX mixer. The
+    // falling pitch and uneven spacing suggest a restrained "heh-heh-heh".
+    for (const [index, offset] of [0, .195, .415].entries()) {
+      const pitch = 128 - index * 8;
+      const duration = .135 + index * .015;
+      const level = .04 - index * .006;
+      this.tone(pitch, duration, level, {
+        time: time + offset, to: pitch * .82, type: 'triangle', attack: .018, tag: 'result',
+      });
+      this.tone(pitch * 3, duration * .9, level * .25, {
+        time: time + offset, to: pitch * 2.5, type: 'sine', attack: .024, tag: 'result',
+      });
+      this.noise(duration * .8, level * .22, 950, 480, {
+        time: time + offset, q: 1.4, tag: 'result',
+      });
+    }
+  }
+
   play(cue, { tier = 1, positive = true } = {}) {
     if (!this.canPlay() && this.sfxEnabled && this.unlockPromise) {
-      const resultCue = ['payout','celebrate','resolve','receipt','loss'].includes(cue);
+      const resultCue = ['payout','celebrate','resolve','receipt','loss','dealerChuckle'].includes(cue);
       const generation = resultCue ? this.payoutGeneration : this.roundGeneration;
       this.unlockPromise.then(ok => { if (ok && !this.disposed && generation === (resultCue ? this.payoutGeneration : this.roundGeneration)) this.play(cue, { tier, positive }); });
       return;
@@ -697,6 +716,9 @@ export class GameAudio {
       case "loss":
         this.tone(155, 0.17, 0.045, { time: now, to: 115, tag: "result" });
         this.noise(0.09, 0.025, 600, 210, { time: now, tag: "result" });
+        break;
+      case "dealerChuckle":
+        this.dealerChuckle(now);
         break;
       default:
         break;

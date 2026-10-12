@@ -78,11 +78,11 @@ function Card({ card, index, side, motion, originRef, flightRef, reducedMotion }
   </div>;
 }
 
-export default function RasterBlackjack({ view, motion, status = 'idle', reducedMotion = false, paused = false }) {
+export default function RasterBlackjack({ view, motion, status = 'idle', reducedMotion = false, paused = false, audio }) {
   const originRef = useRef(null);
   const flightRef = useRef(null);
   return <div className="blackjack-raster-table">
-    <AnonymousDealer display={{view,motion,status}} reducedMotion={reducedMotion} paused={paused} originRef={originRef} />
+    <AnonymousDealer display={{view,motion,status}} reducedMotion={reducedMotion} paused={paused} originRef={originRef} audio={audio} />
     <div className="bj-felt-print"><img src="/anonymous-mask-minimal.png" alt=""/><strong>BLACKJACK PAYS 3:2</strong><span>Дилер останавливается на 17</span><small>Включая мягкие 17 · победа 1:1</small></div>
     {['dealer','player'].map(side => <div className={'bj-raster-hand bj-raster-'+side} key={side} style={{'--hand-count':Math.max(2,view[side].length)}}>
       <div className="bj-hand-title"><span>{side==='dealer'?'Дилер':'Вы'}</span><strong>{(side==='dealer'?view.dealerTotal:view.playerTotal) ?? '—'}{side==='dealer' && view.dealer.length>1 && !view.revealed ? ' + ?' : ''}</strong></div>

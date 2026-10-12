@@ -70,6 +70,89 @@ equal(fanfare.score.filter(note=>note.to===1568||note.to===2093).length,2,'Winni
 fanfare.score=[]; fanfare.play('payout',{positive:false});
 equal(fanfare.score.some(note=>note.to===1568||note.to===2093),false,'Returned stake never triggers a winning whistle');
 fanfare.dispose();
+// Exercise the real cue through its Web Audio graph, including scheduled
+// sources. Muting, hidden tabs and disposal must cancel all three breaths.
+class AudioParamProbe {
+  value=0; ramps=[];
+  setValueAtTime(value,time){this.ramps.push({value,time});}
+  linearRampToValueAtTime(value,time){this.ramps.push({value,time});}
+  exponentialRampToValueAtTime(value,time){this.ramps.push({value,time});}
+  setTargetAtTime(value,time){this.ramps.push({value,time});}
+  cancelScheduledValues(){}
+}
+class AudioNodeProbe {
+  gain=new AudioParamProbe(); frequency=new AudioParamProbe(); Q=new AudioParamProbe();
+  threshold=new AudioParamProbe(); knee=new AudioParamProbe(); ratio=new AudioParamProbe();
+  attack=new AudioParamProbe(); release=new AudioParamProbe();
+  disconnects=0; starts=[]; stops=[];
+  connect(){}
+  disconnect(){this.disconnects++;}
+  start(time){this.starts.push(time);}
+  stop(time){this.stops.push(time);}
+}
+class AudioContextProbe {
+  static builds=0;
+  state='suspended'; currentTime=20; sampleRate=4800; destination={}; closes=0;
+  constructor(){AudioContextProbe.builds++;}
+  createGain(){return new AudioNodeProbe();}
+  createDynamicsCompressor(){return new AudioNodeProbe();}
+  createBiquadFilter(){return new AudioNodeProbe();}
+  createOscillator(){return new AudioNodeProbe();}
+  createBufferSource(){return new AudioNodeProbe();}
+  createBuffer(channels,length){const samples=new Float32Array(length);return {getChannelData:()=>samples};}
+  async resume(){this.state='running';}
+  async suspend(){this.state='suspended';}
+  async close(){this.closes++;this.state='closed';}
+}
+const priorAudioContext=globalThis.AudioContext;
+globalThis.AudioContext=AudioContextProbe;
+const chuckle=new GameAudio();
+const endVoices=voices=>voices.forEach(voice=>voice.source.onended?.());
+try {
+  chuckle.attach();chuckle.setPreferences({music:false,sfx:true});chuckle.play('dealerChuckle');
+  equal(AudioContextProbe.builds,0,'Dealer cue never bypasses the browser gesture');
+  await chuckle.unlock();
+  chuckle.play('dealerChuckle');
+  const voices=[...chuckle.voices];
+  equal(voices.length,9,'Chuckle has three short voiced breaths');
+  equal(new Set(voices.map(voice=>voice.source.starts[0])).size,3,'Chuckle uses three discrete pulses');
+  equal(voices.every(voice=>voice.tag==='result'&&voice.channel==='sfx'),true,'Dealer voices obey the result and SFX controls');
+  equal(voices.every(voice=>voice.source.stops[0]-chuckle.context.currentTime<.7),true,'Chuckle ends in under one second');
+  equal(voices.every(voice=>voice.nodes.filter(node=>node.gain).every(node=>node.gain.ramps.every(ramp=>ramp.value<=.04))),true,'Dealer chuckle stays quiet');
+  equal(chuckle.loops.size+chuckle.ducks.size,0,'Short dealer cue owns no polling or duck timers');
+  chuckle.stopPayout();
+  equal(voices.every(voice=>voice.source.stops.at(-1)===20.012),true,'Starting another result cancels queued dealer breaths');
+  endVoices(voices);equal(chuckle.voices.size,0,'Ended chuckle voices leave the tracker');
+  equal(voices.every(voice=>voice.nodes.every(node=>node.disconnects>0)),true,'Ended chuckle nodes disconnect');
+  chuckle.play('dealerChuckle');const mutedVoices=[...chuckle.voices];
+  chuckle.setPreferences({music:false,sfx:false});
+  equal(mutedVoices.every(voice=>voice.source.stops.at(-1)===20.012),true,'Manual SFX mute cancels later chuckle pulses');
+  endVoices(mutedVoices);chuckle.play('dealerChuckle');equal(chuckle.voices.size,0,'Muted dealer emits no voices');
+  chuckle.setPreferences({music:false,sfx:true});document.hidden=true;
+  chuckle.play('dealerChuckle');equal(chuckle.voices.size,0,'Hidden dealer emits no voices');
+  document.hidden=false;chuckle.play('dealerChuckle');const hiddenVoices=[...chuckle.voices];
+  document.hidden=true;await chuckle.handleVisibility();
+  equal(hiddenVoices.every(voice=>voice.source.stops.at(-1)===20.012),true,'Hiding the tab cancels all chuckle voices');
+  endVoices(hiddenVoices);document.hidden=false;await chuckle.handleVisibility();
+  equal(chuckle.voices.size,0,'Returning to the tab does not replay an old reaction');
+  equal(AudioContextProbe.builds,1,'Dealer chuckle shares one existing audio context');
+  chuckle.play('dealerChuckle');const disposedVoices=[...chuckle.voices], chuckleContext=chuckle.context;
+  chuckle.dispose();chuckle.dispose();chuckle.play('dealerChuckle');
+  equal(chuckleContext.closes,1,'Dealer disposal closes the shared context once');
+  equal(disposedVoices.every(voice=>voice.nodes.every(node=>node.disconnects>0)),true,'Disposal disconnects every dealer voice');
+  equal(chuckle.voices.size,0,'Disposed dealer cannot emit another cue');
+} finally {
+  chuckle.dispose();document.hidden=false;
+  if(priorAudioContext===undefined)delete globalThis.AudioContext;else globalThis.AudioContext=priorAudioContext;
+}
+// A loss that is replaced while the gesture unlock is pending must not laugh
+// later over a new hand.
+const pendingChuckle=new ProbeAudio();let resumeChuckle;
+pendingChuckle.setPreferences({music:false,sfx:true});pendingChuckle.createContext();
+pendingChuckle.context.resume=()=>new Promise(resolve=>{resumeChuckle=()=>{pendingChuckle.context.state='running';resolve();};});
+const pendingUnlock=pendingChuckle.unlock();pendingChuckle.play('dealerChuckle');pendingChuckle.stopPayout();
+resumeChuckle();await pendingUnlock;await Promise.resolve();
+equal(pendingChuckle.notes,0,'A canceled result cannot replay its chuckle after unlock');pendingChuckle.dispose();
 let hidden=false, sequence=0, completes=0, lastProgress=-1;
 const frames=new Map();
 const request=fn=>{const id=++sequence;frames.set(id,fn);return id;};

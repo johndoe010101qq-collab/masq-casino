@@ -1,15 +1,17 @@
-/* Existing raster character articulated into a head, torso and two forearms. */
-.bj-dealer-stage{position:relative;grid-row:1;grid-column:1;isolation:isolate;min-width:0;pointer-events:none;user-select:none;-webkit-user-select:none;--dealer-width:222px;}
-.bj-dealer-window{position:absolute;left:50%;bottom:0;width:var(--dealer-width);height:calc(var(--dealer-width) * 1.065);transform:translateX(-50%);overflow:hidden;}
-.bj-dealer-rig{position:absolute;top:calc(var(--dealer-width) * -.453038674);left:0;width:100%;height:calc(var(--dealer-width) * 2);transform-origin:50% 73%;}
-.bj-dealer-art,.bj-dealer-head-joint{position:absolute;inset:0;display:block;}
-.bj-dealer-art{background-image:url('/maskhouse-host-sprites-packed-v13.webp');background-size:600% 100%;background-repeat:no-repeat;background-position:0% 0%;}
-.bj-dealer-torso{clip-path:polygon(31% 48%,69% 48%,70% 66%,65% 70%,64% 75%,36% 75%,35% 70%,30% 66%);}
-.bj-dealer-arm{background-position:80% 0%;}
-.bj-dealer-arm-left{clip-path:polygon(13% 49%,33% 48%,36% 66%,28% 72%,9% 68%,10% 58%);transform-origin:29% 49%;}
-.bj-dealer-arm-right{clip-path:polygon(67% 48%,84% 49%,91% 59%,92% 68%,75% 72%,63% 66%);transform-origin:71% 49%;}
-.bj-dealer-head-joint{transform-origin:48% 48%;}
-.bj-dealer-head{clip-path:polygon(20% 23%,73% 23%,76% 53%,23% 53%);}
+/* Native square raster cells remain isolated while their joints move. */
+.bj-dealer-stage{position:relative;grid-row:1;grid-column:1;isolation:isolate;min-width:0;pointer-events:none;user-select:none;-webkit-user-select:none;--dealer-width:250px;}
+.bj-dealer-window{position:absolute;left:50%;bottom:0;width:var(--dealer-width);height:calc(var(--dealer-width) * .94);transform:translateX(-50%);overflow:hidden;filter:drop-shadow(0 5px 5px #0004);}
+.bj-dealer-rig{position:absolute;top:0;left:0;width:100%;height:var(--dealer-width);transform-origin:50% 84%;}
+.bj-dealer-art{position:absolute;display:block;aspect-ratio:1;background-image:url('/blackjack-anonymous-hood-rig-v32.webp');background-size:200% 200%;background-repeat:no-repeat;clip-path:inset(2%);}
+.bj-dealer-torso{left:14%;top:29%;width:72%;background-position:100% 0%;z-index:2;}
+.bj-dealer-arm-joint{position:absolute;top:41%;width:57%;aspect-ratio:1;z-index:1;}
+.bj-dealer-arm-joint .bj-dealer-art{inset:0;width:100%;}
+.bj-dealer-arm-left{left:-10%;transform-origin:53% 8%;}
+.bj-dealer-arm-right{left:58%;transform-origin:39% 8%;}
+.bj-dealer-arm-art-left{background-position:0% 100%;}
+.bj-dealer-arm-art-right{background-position:100% 100%;}
+.bj-dealer-head-joint{position:absolute;left:24.5%;top:0;width:51%;aspect-ratio:1;transform-origin:50% 87%;z-index:3;}
+.bj-dealer-head{inset:0;width:100%;background-position:0% 0%;}
 .bj-dealer-nameplate{position:absolute;left:22px;top:22px;display:grid;gap:4px;color:#ecdcc4;text-align:left;letter-spacing:.11em;font:600 11px/1.2 Arial,sans-serif;}
 .bj-dealer-nameplate small{font:12px/1.3 Arial,sans-serif;letter-spacing:.015em;color:#ceb9a2;}
 .bj-dealer-table-edge{position:absolute;left:26%;right:26%;bottom:0;height:5px;border-top:1px solid #b38b5b75;background:#351b27;border-radius:4px;}
@@ -18,21 +20,22 @@
 .bj-dealer-shoe span:nth-child(1){transform:translateY(-3px);}
 .bj-dealer-shoe span:nth-child(2){transform:translateY(-1px);}
 .bj-dealer-stage[data-phase='idle'] .bj-dealer-torso,.bj-dealer-stage[data-phase='watch'] .bj-dealer-torso{animation:bj-croupier-breathe 5.6s ease-in-out infinite;}
-.bj-dealer-stage[data-phase='idle'] .bj-dealer-head,.bj-dealer-stage[data-phase='watch'] .bj-dealer-head{animation:bj-croupier-blink 6.4s steps(1,end) infinite;}
+.bj-dealer-stage[data-phase='idle'] .bj-dealer-head,.bj-dealer-stage[data-phase='watch'] .bj-dealer-head{animation:bj-croupier-look 6.4s ease-in-out infinite;}
 .bj-dealer-stage[data-phase='watch'] .bj-dealer-head-joint{animation:bj-croupier-watch 4.8s ease-in-out infinite;}
 .bj-dealer-stage[data-phase='win'][data-reacting='true'] .bj-dealer-head,.bj-dealer-stage[data-phase='push'][data-reacting='true'] .bj-dealer-head{animation:bj-croupier-nod 1.5s ease-in-out both;}
-.bj-dealer-stage[data-phase='lose'][data-reacting='true'] .bj-dealer-head{animation:bj-croupier-tilt 1.5s ease-in-out both;}
 .bj-dealer-stage[data-phase='win'][data-reacting='true'] .bj-dealer-torso{animation:bj-croupier-welcome 1.5s ease-in-out both;}
+.bj-dealer-quip{position:absolute;left:calc(50% + 101px);top:38px;max-width:155px;padding:10px 13px;color:#f5e8d4;background:#1f2427ee;border:1px solid #a38b69;border-radius:13px 13px 13px 2px;font:500 12px/1.45 Arial,sans-serif;box-shadow:0 4px 12px #0003;animation:bj-quip-enter .16s ease-out both;}
+.bj-dealer-quip[data-outcome='lose']{border-color:#aa785e;color:#f2d9bd;}
 .bj-dealer-stage[data-paused='true'] *{animation-play-state:paused!important;}
 .bj-dealer-stage[data-reduced-motion='true'] *{animation:none!important;}
 .bj-card-flight{position:absolute;inset:0;will-change:transform;}
 .bj-dealer-flight-layer{position:absolute;inset:0;z-index:5;pointer-events:none;}
 .bj-dealer-flying-card{position:absolute;container-type:inline-size;pointer-events:none;filter:drop-shadow(0 7px 7px #0008);}
 @keyframes bj-croupier-breathe{0%,100%{transform:none;}50%{transform:translateY(-.2%) scaleY(1.005);}}
-@keyframes bj-croupier-blink{0%,84%,87.01%,100%{background-position:0% 0%;}84.01%,87%{background-position:20% 0%;}}
+@keyframes bj-croupier-look{0%,65%,100%{transform:none;}75%,85%{transform:rotate(-1.2deg) translateY(.2%);}}
 @keyframes bj-croupier-watch{0%,100%{transform:rotate(-.4deg);}50%{transform:rotate(1.2deg);}}
 @keyframes bj-croupier-nod{0%,100%{transform:none;}35%{transform:translateY(.35%) rotate(-1.5deg);}70%{transform:translateY(-.15%);}}
-@keyframes bj-croupier-tilt{0%,100%{transform:none;}45%{transform:rotate(2deg);}}
+@keyframes bj-quip-enter{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
 @keyframes bj-croupier-welcome{0%,100%{transform:none;}45%{transform:translateY(-.3%);}}
 /* Character, both full card rows and turn buttons each get their own space. */
 .indictus-app.indictus-app .blackjack-stage.bj-has-croupier{min-height:810px;}
@@ -45,7 +48,8 @@
 .indictus-app.indictus-app .bj-has-croupier .bj-felt-print strong{font-size:16px;}
 .indictus-app.indictus-app .bj-has-croupier .bj-felt-print span{font-size:11px;}
 @media(max-width:760px){
-  .bj-dealer-stage{--dealer-width:190px;}
+  .bj-dealer-stage{--dealer-width:218px;}
+  .bj-dealer-quip{left:calc(50% + 81px);top:56px;max-width:116px;padding:8px 9px;font-size:11px;}
   .bj-dealer-nameplate{left:5px;top:18px;font-size:10px;letter-spacing:.06em;}
   .bj-dealer-nameplate small{font-size:10px;}
   .bj-dealer-shoe{left:calc(50% + 70px);width:48px;height:30px;bottom:8px;}
@@ -55,7 +59,8 @@
   .indictus-app.indictus-app .bj-has-croupier .blackjack-raster-table{grid-template-rows:206px minmax(152px,1fr) 34px minmax(152px,1fr);}
 }
 @media(max-width:420px){
-  .bj-dealer-stage{--dealer-width:138px;}
+  .bj-dealer-stage{--dealer-width:158px;}
+  .bj-dealer-quip{left:auto;right:0;top:48px;max-width:80px;font-size:10px;padding:6px 7px;}
   .bj-dealer-nameplate{left:0;top:14px;font-size:9px;letter-spacing:.035em;}
   .bj-dealer-shoe{left:calc(50% + 65px);width:44px;height:28px;}
   .indictus-app.indictus-app .blackjack-stage.bj-has-croupier{min-height:640px;}
