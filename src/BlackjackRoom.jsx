@@ -93,15 +93,17 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
   const locked = snapshot.busy || payoutOpen;
   return <section className="blackjack-room" aria-label="Blackjack">
     <div className="room-layout">
-      <div className={'physical-stage blackjack-stage bj-has-croupier ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
-        <div className="physical-canvas blackjack-physical-canvas"><RasterBlackjack view={view} motion={display.motion}
-          status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} audio={audio} /></div>
+      <div id="bj-live-stage" className={'physical-stage blackjack-stage bj-video-stage ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
+        <RasterBlackjack view={view} motion={display.motion}
+          status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} />
+        <div className="bj-live-table-footer">
         <div className="blackjack-live-status" role="status" aria-live="polite">
           {view.result?.title ?? statuses[display.status]}
         </div>
         <div className="blackjack-actions blackjack-table-actions" role="group" aria-label="Ваш ход">
           <button type="button" disabled={!display.canAct || payoutOpen} onClick={() => action('hit')}>Ещё карту</button>
           <button type="button" disabled={!display.canAct || payoutOpen} onClick={() => action('stand')}>Хватит</button>
+        </div>
         </div>
         <div className="blackjack-accessible-hands">
           <p>Ваши карты: {view.player.map(cardText).join(', ') || 'пока нет'}.</p>

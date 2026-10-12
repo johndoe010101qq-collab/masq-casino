@@ -1,0 +1,26 @@
+Blackjack perspective table v34
+
+Approved source: indictus-dealer-preview-v1.zip, idle.mp4.
+Original MP4 SHA256: 1bd09d00e11cce3afb917bbe3a4702aad16489947cc970af917856c0520c2db8.
+Native scene coordinates: 1920 x 1080; fixed camera field of view24 degrees.
+The source video, skin, camera, table and card shoe placement are preserved.
+The poster is a native-resolution WebP encoding of scene-preview.png.
+
+Only the approved silent10-second idle video is available and active.
+No dealing, revealing, laughing or win video is represented as delivered.
+Those clips can be integrated when their releases, frames and tracks are provided.
+Video motion stops on pause, hiddenpage and reduced-motion preferences.
+
+Cards use only the existing public BlackjackPresentation view. Hidden cards
+have no rank/suit/face content in the rendered DOM before public disclosure.
+Source rectangles200 x300 project onto the approved physical tabletop using
+the same fixed camera as the video, with homogeneous perspective division.
+Dealer and player hands remain at their original scene anchors. Normal hands
+have gaps; long hands fan within the same felt lanes and mobile crop.
+Card flight is driven only by accepted presentation progress and starts at
+the original cardshoe mouth1187,564. The entire scene scales/crops uniformly.
+The original video and all outcome engines, stakes, prices and ledgers remain
+independent of these presentation-only transformations.
+
+Checks: blackjack-table-projection-checks.mjs, blackjack-dealer-video-checks.mjs,
+blackjack-checks.mjs and production build; desktop/mobile visual verification.
