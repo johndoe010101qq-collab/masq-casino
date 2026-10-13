@@ -1,0 +1,42 @@
+Blackjack complete Minecraft dealer pack v35
+
+Source: user-supplied indictus-dealer-clips-v1.zip. Original nine H.264
+1920x1080, 30 fps videos are copied byte-for-byte, without audio tracks.
+The approved slim Minecraft skin, fixed camera, lighting, table and card
+shoe placement remain as provided. No generated character replacement.
+
+idle: 300 frames, seamless waiting loop.
+deal_player / deal_dealer: 40 frames each; card take at frame9,
+release at frame21 / frame22, using the supplied per-frame left-hand track.
+reveal: 45 frames; public hole-card disclosure at frame18 (600ms).
+lose_laugh / player_bust: 79 frames each, distinct loss/bust reactions.
+player_win: 73 frames; big_win: 109 frames (Blackjack 3:2).
+push: 55 frames; reaction only after public terminal settlement.
+The supplied JSON frame23 is authoritative for the optional app chuckle;
+the README's conflicting final frame22 note is not used.
+
+Existing perspective cards lie on the real scene's felt. They are invisible
+before the dealer takes them, follow the tracked hand until release, then
+land in their actual public hand. Card identities are never baked into video.
+Hidden-card faces contribute no rank or suit to the DOM before disclosure.
+
+Decoded video frame time drives the public deal and reveal steps. Repeated
+actions have separate round/step tokens, preventing an old event from moving
+the next card. All dealer clips run at playbackRate1. Dual buffers retain the
+previous decoded frame until the next scene is ready. Non-looping actions
+play once and hold their neutral last frame until the next action or idle.
+
+Financial settlement still occurs once at the same terminal game result.
+The result presentation waits for the reaction, with new-deal controls locked
+during that reaction. Audio uses existing app cues, after public settlement.
+Manual background pause, page visibility and reduced motion are respected.
+Video load/autoplay errors or an8-second stall enable the presentation-only
+fallback so an accepted hand cannot become permanently blocked by media.
+
+Tests: 253 clip/marker/public-outcome checks, 84 video lifecycle checks,
+stale-media/clock tests, 22946 existing projection checks and 2775 Blackjack
+math/wallet/presentation checks. Production build passes. Core math, stakes,
+wallet, bonus engines and RTP profiles are unchanged by this release.
+
+The source scripts contained in the asset archive were not executed.
+No Cloudflare or SPWorlds deployment is performed by this source update.

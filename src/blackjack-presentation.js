@@ -4,7 +4,8 @@ import { blackjackPublicView, hitBlackjack, standBlackjack, revealBlackjack,
 // A single explicit clock drives all cards. Browser RAF and money are injected
 // by the room; this class has no timers and is tested without a browser.
 export class BlackjackPresentation {
-  constructor(hand, { onUpdate = () => {}, onResolved = () => {}, onCard = () => {}, transition, publicView = blackjackPublicView } = {}) {
+  constructor(hand, { onUpdate = () => {}, onResolved = () => {}, onCard = () => {}, transition, publicView = blackjackPublicView,
+    timing = {} } = {}) {
     this.transition = transition || ((action, current) => ({ hit: hitBlackjack,
       stand: standBlackjack, reveal: revealBlackjack, dealer: dealerStepBlackjack,
       finish: finishBlackjack })[action](current));
@@ -12,7 +13,18 @@ export class BlackjackPresentation {
     this.hand = hand; this.onUpdate = onUpdate; this.onResolved = onResolved; this.onCard = onCard;
     this.playerShown = 0; this.dealerShown = 0; this.shownReveal = false;
     this.status = 'dealing'; this.motion = null; this.step = null; this.closed = false; this.settled = false;
-    this.queue = []; this.elapsed = 0;
+    // Optional scene timings change presentation only. Default timings retain
+    // the existing behavior for every caller without the video pack.
+    for (const key of ['dealPlayerMs', 'dealDealerMs', 'revealMs', 'revealAtMs']) {
+      if (timing[key] !== undefined && (!Number.isFinite(timing[key]) || timing[key] <= 0 || timing[key] > 30000)) {
+        throw new RangeError(`Invalid blackjack presentation timing: ${key}.`);
+      }
+    }
+    const revealMs = timing.revealMs ?? 760;
+    const revealAtMs = timing.revealAtMs ?? revealMs / 2;
+    if (revealAtMs > revealMs) throw new RangeError('Hole-card disclosure cannot follow its reveal step.');
+    this.timing = Object.freeze({ ...timing, revealMs, revealAtMs });
+    this.queue = []; this.elapsed = 0; this.stepSequence = 0;
   }
   snapshot() {
     return Object.freeze({ view: this.publicView(this.hand, { playerShown: this.playerShown,
@@ -26,11 +38,13 @@ export class BlackjackPresentation {
     const step = this.queue.shift();
     if (!step) { this.motion = null; this.publish(); return; }
     this.step = step; this.elapsed = 0; step.start?.();
-    this.motion = step.kind ? { kind: step.kind, side: step.side, index: step.index, progress: 0 } : null;
+    this.motion = step.kind ? Object.freeze({ kind: step.kind, side: step.side, index: step.index,
+      stepId: ++this.stepSequence, elapsedMs: 0, durationMs: step.duration, progress: 0 }) : null;
     this.publish();
   }
   addCard(side, index, complete) {
-    this.enqueue({ kind: 'deal', side, index, duration: side === 'dealer' ? (this.status === 'dealer' ? 650 : 480) : 400,
+    this.enqueue({ kind: 'deal', side, index, duration: side === 'dealer'
+      ? (this.timing.dealDealerMs ?? (this.status === 'dealer' ? 650 : 480)) : (this.timing.dealPlayerMs ?? 400),
       start: () => { this[side === 'player' ? 'playerShown' : 'dealerShown'] = index + 1; this.onCard(); }, complete });
   }
   deal() {
@@ -53,7 +67,7 @@ export class BlackjackPresentation {
   }
   beginReveal() {
     this.status = 'revealing';
-    this.enqueue({ kind: 'flip', duration: 760,
+    this.enqueue({ kind: 'flip', duration: this.timing.revealMs,
       complete: () => { this.shownReveal = true; this.hand = this.transition('reveal', this.hand); this.runDealer(); } });
   }
   runDealer() {
@@ -68,8 +82,8 @@ export class BlackjackPresentation {
     if (hidden || this.closed || !this.step || !Number.isFinite(delta) || delta < 0) return;
     this.elapsed += Math.min(100, delta);
     const progress = Math.min(1, this.elapsed / this.step.duration);
-    if (this.motion) this.motion = { ...this.motion, progress };
-    if (this.motion?.kind === 'flip' && progress >= .5) this.shownReveal = true;
+    if (this.motion) this.motion = Object.freeze({ ...this.motion, progress, elapsedMs: Math.min(this.elapsed, this.step.duration) });
+    if (this.motion?.kind === 'flip' && this.elapsed >= this.timing.revealAtMs) this.shownReveal = true;
     this.publish();
     if (progress < 1) return;
     const completed = this.step; this.step = null; this.motion = null;

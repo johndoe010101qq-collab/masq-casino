@@ -1,6 +1,7 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import BlackjackDealerVideo from './BlackjackDealerVideo.jsx';
 import { BLACKJACK_TABLE_SCENE, blackjackTableHand, blackjackTableCardFlight } from './blackjack-table-projection.js';
+import { selectBlackjackDealerClip, blackjackDealerDealPose, blackjackDealerRevealPose } from './blackjack-dealer-clips.js';
 import './BlackjackPerspectiveTable.css';
 
 const faces = { 1: 'A', 11: 'J', 12: 'Q', 13: 'K' };
@@ -9,16 +10,18 @@ const smooth = n => { const p = Math.max(0, Math.min(1, Number.isFinite(n) ? n :
 
 function FeltCard({ card, geometry, side, index, motion, reducedMotion }) {
   const dealing = motion?.kind === 'deal' && motion.side === side && motion.index === index;
-  const pose = dealing ? blackjackTableCardFlight(geometry, motion.progress, { reducedMotion }) : geometry;
+  const dealPose = dealing && !reducedMotion ? blackjackDealerDealPose(side, motion.elapsedMs) : null;
+  const pose = dealPose ? blackjackTableCardFlight(geometry, dealPose.flightProgress, { origin: dealPose.origin, lift: dealPose.stage === 'carried' ? 0 : 1.5 }) : geometry;
   const revealing = motion?.kind === 'flip' && side === 'dealer' && index === 1;
-  const faceProgress = revealing && !reducedMotion ? smooth(motion.progress) : card.hidden ? 0 : 1;
+  const faceProgress = revealing && !reducedMotion ? blackjackDealerRevealPose(motion.elapsedMs).faceProgress : card.hidden ? 0 : dealPose?.stage === 'carried' ? 0 : dealPose?.stage === 'flying' ? smooth(dealPose.flightProgress*2) : 1;
   // A hidden public card contributes no rank, suit or face content to the DOM.
   const value = card.hidden ? '' : (faces[card.rank] ?? String(card.rank ?? ''));
   const suit = card.hidden ? '' : (suits[card.suit] ?? '');
   const red = !card.hidden && ['diamonds','hearts'].includes(card.suit);
   return <div className="bj-felt-card" data-side={side} data-card-index={index}
     data-hidden={Boolean(card.hidden)} data-dealing={dealing}
-    style={{width:geometry.rect.width,height:geometry.rect.height,transform:pose.cssTransform,zIndex:dealing?60:index+1}}>
+    data-flight-stage={dealPose?.stage??'resting'}
+    style={{width:geometry.rect.width,height:geometry.rect.height,transform:pose.cssTransform,zIndex:dealing?60:index+1,visibility:dealPose&&!dealPose.visible?'hidden':'visible'}}>
     <div className="bj-felt-card-turn" style={{transform:`rotateY(${(1-faceProgress)*180}deg)`}}>
       <div className={'bj-felt-card-face'+(red?' bj-felt-card-red':'')}>
         {!card.hidden && <>
@@ -32,10 +35,14 @@ function FeltCard({ card, geometry, side, index, motion, reducedMotion }) {
   </div>;
 }
 
-export default function RasterBlackjack({ view, motion, status = 'idle', reducedMotion = false, paused = false }) {
+export default function RasterBlackjack({ view, motion, roundId = 'waiting', reacting = false, onVideoProgress, onVideoEnded, onVideoError, onAnimationModeChange, status = 'idle', reducedMotion = false, paused = false }) {
   const viewport = useRef(null);
   const [scale, setScale] = useState(1);
   const [backgroundPaused, setBackgroundPaused] = useState(false);
+  const modeCallback = useRef(onAnimationModeChange); modeCallback.current = onAnimationModeChange;
+  useEffect(()=>{modeCallback.current?.(backgroundPaused||reducedMotion);},[backgroundPaused,reducedMotion]);
+  const clip = status === 'resolved' && !reacting ? 'idle' : selectBlackjackDealerClip({view,motion,status});
+  const token = clip === 'idle' ? `${roundId}:idle` : status === 'resolved' ? `${roundId}:result` : `${roundId}:${motion?.stepId}`;
   useLayoutEffect(() => {
     const node = viewport.current;
     if (!node) return;
@@ -55,7 +62,8 @@ export default function RasterBlackjack({ view, motion, status = 'idle', reduced
     data-scene-scale={scale} data-phase={status} data-reduced-motion={reducedMotion}>
     <div className="bj-live-plane" aria-hidden="true"
       style={{width:1920,height:1080,transform:`translate(-50%,-50%) scale(${scale})`}}>
-      <BlackjackDealerVideo paused={paused||backgroundPaused} reducedMotion={reducedMotion} />
+      <BlackjackDealerVideo action={{clip,token}} paused={paused||backgroundPaused} reducedMotion={reducedMotion}
+        onProgress={onVideoProgress} onEnded={onVideoEnded} onError={onVideoError} />
       {['dealer','player'].flatMap(side => {
         const geometry=blackjackTableHand(side,view[side].length);
         return view[side].map((card,index)=><FeltCard key={side+'-'+index} card={card} geometry={geometry[index]}

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { uiStakeLimits, uiBoundedStake, uiPlaybackSpeed } from './demo-ui-settings.js';
+import { uiStakeLimits, uiBoundedStake } from './demo-ui-settings.js';
 import RasterBlackjack from './RasterBlackjack.jsx';
 import { BlackjackPresentation } from './blackjack-presentation.js';
+import { BLACKJACK_DEALER_PRESENTATION_TIMING, BLACKJACK_DEALER_CLIPS } from './blackjack-dealer-clips.js';
+import { advanceBlackjackDealerMedia } from './blackjack-dealer-media-clock.js';
 import { useReducedMotion, usePageVisible } from './SceneMotion.jsx';
 import './BlackjackRoom.css';
 
@@ -18,7 +20,9 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
   const limits=uiStakeLimits(snapshot,'blackjack');
   const [stake, setStake] = useState(50), [display, setDisplay] = useState(empty);
   const [error, setError] = useState('');
+  const [roundId, setRoundId] = useState('waiting'), [reacting, setReacting] = useState(false);
   const active = useRef(null), mounted = useRef(false), frame = useRef(null), previous = useRef(null);
+  const pendingResult = useRef(null), animationDisabled = useRef(false);
   const refs = useRef({ audio, onSettled, payoutOpen }); refs.current = { audio, onSettled, payoutOpen };
   const reduced = useReducedMotion(), pageVisible = usePageVisible();
   const reduceRef = useRef(reduced); reduceRef.current = reduced;
@@ -29,7 +33,14 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
     if (!mounted.current || !active.current || document.hidden) { previous.current = null; return; }
     const delta = previous.current === null ? 0 : Math.max(0, now - previous.current); previous.current = now;
     if (reduceRef.current) active.current.presentation.flushTransitions();
-    else active.current.presentation.advance(delta*active.current.speed);
+    else {
+      const current = active.current;
+      const motion = current.presentation.motion;
+      // Deal/flip timing follows the decoded dealer frame. Only result delay,
+      // disabled animation or failed video uses the fallback presentation clock.
+      if (['deal','flip'].includes(motion?.kind) && !animationDisabled.current && current.failedStep !== motion.stepId) return;
+      current.presentation.advance(delta);
+    }
     if (active.current?.presentation.step) frame.current = requestAnimationFrame(tick);
   }
   function startClock() {
@@ -46,14 +57,55 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
       mounted.current = false; stopClock(); document.removeEventListener('visibilitychange', visibility);
       // Once-only terminal settlement also applies if the room is removed during
       // a deal/hit/flip. No stale opening balance is restored.
-      active.current?.presentation.finish(); active.current = null;
+      active.current?.presentation.finish(); active.current = null; pendingResult.current = null;
     };
   }, [session]);
-  useEffect(() => { if (reduced) { stopClock(); startClock(); } }, [reduced]);
+  useEffect(() => { if (reduced) { stopClock(); startClock(); if(pendingResult.current) finishReaction(pendingResult.current.token); } }, [reduced]);
   useEffect(()=>{setStake(value=>uiBoundedStake(value,limits));setError('');},[limits.min,limits.max,limits.step]);
 
+  function finishReaction(token) {
+    const pending = pendingResult.current;
+    if (!pending || pending.token !== token) return;
+    pendingResult.current = null;
+    if (mounted.current) { setReacting(false); refs.current.onSettled?.(pending.result); }
+  }
+  function mediaProgress(timeSeconds, token, clip, ended = false) {
+    const current = active.current, motion = current?.presentation.motion;
+    if (current && motion && token === `${current.record.id}:${motion.stepId}` && current.failedStep !== motion.stepId && !animationDisabled.current) {
+      const release = BLACKJACK_DEALER_CLIPS[clip]?.marks.release?.timeMs;
+      if (release !== undefined && timeSeconds * 1000 >= release && current.cardSoundStep !== motion.stepId && !document.hidden) {
+        current.cardSoundStep = motion.stepId; safeAudio('fall');
+      }
+      advanceBlackjackDealerMedia(current.presentation, motion.stepId, timeSeconds * 1000, ended);
+      startClock();
+    }
+    const pending = pendingResult.current;
+    const peak = BLACKJACK_DEALER_CLIPS.lose_laugh.marks.chuckle_peak.timeMs;
+    if (pending?.token === token && clip === 'lose_laugh' && !pending.chuckled && timeSeconds * 1000 >= peak && !document.hidden) {
+      pending.chuckled = true; safeAudio('dealerChuckle');
+    }
+  }
+  function mediaEnded(token, clip) {
+    mediaProgress(BLACKJACK_DEALER_CLIPS[clip]?.durationMs / 1000, token, clip, true);
+    finishReaction(token);
+  }
+  function mediaError(token) {
+    const current = active.current, motion = current?.presentation.motion;
+    if (current && motion && token === `${current.record.id}:${motion.stepId}`) {
+      current.failedStep = motion.stepId; startClock();
+    }
+    finishReaction(token);
+  }
+  function animationMode(disabled) {
+    animationDisabled.current = disabled;
+    const current = active.current;
+    if (disabled && current?.presentation.motion) current.failedStep = current.presentation.motion.stepId;
+    if (disabled && pendingResult.current) finishReaction(pendingResult.current.token);
+    startClock();
+  }
+
   function play() {
-    if (active.current || session.getSnapshot().busy || refs.current.payoutOpen) return;
+    if (active.current || pendingResult.current || session.getSnapshot().busy || refs.current.payoutOpen) return;
     setError('');
     let hand, record;
     try {
@@ -63,11 +115,13 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
       hand = record?.hand;
     } catch (failure) { setError(failure.message); return; }
     if (!record) return;
+    setRoundId(record.id);
     const presentation = new BlackjackPresentation(hand, {
+      timing: BLACKJACK_DEALER_PRESENTATION_TIMING,
       transition: (action, current) => session.advanceBlackjack(record.id, action, current),
       publicView: (current, options) => session.blackjackView(record.id, current, options),
       onUpdate: next => { if (mounted.current) setDisplay(next); },
-      onCard: () => { if (mounted.current && !document.hidden) safeAudio('fall'); },
+      onCard: () => {},
       onResolved: finished => {
         const accepted = session.completeBlackjack(record.id, finished);
         active.current = null; stopClock();
@@ -75,11 +129,15 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
           const result = session.getSnapshot().result;
           // The result dialog owns the winning fanfare; card settlement is short.
           safeAudio(result?.payoutCents > 0 ? 'receipt' : 'loss');
-          refs.current.onSettled?.(result);
+          if (reduceRef.current || animationDisabled.current) refs.current.onSettled?.(result);
+          else {
+            pendingResult.current = { token: `${record.id}:result`, result, chuckled: false };
+            setReacting(true);
+          }
         }
       }
     });
-    active.current = { record, presentation, speed:uiPlaybackSpeed(record.presentation) }; presentation.deal(); startClock();
+    active.current = { record, presentation, failedStep: null }; presentation.deal(); startClock();
   }
   function action(name) {
     if (refs.current.payoutOpen || !active.current) return;
@@ -90,12 +148,13 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
   }
 
   const { view } = display;
-  const locked = snapshot.busy || payoutOpen;
+  const locked = snapshot.busy || payoutOpen || reacting;
   return <section className="blackjack-room" aria-label="Blackjack">
     <div className="room-layout">
       <div id="bj-live-stage" className={'physical-stage blackjack-stage bj-video-stage ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
         <RasterBlackjack view={view} motion={display.motion}
-          status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} />
+          roundId={roundId} reacting={reacting} onVideoProgress={mediaProgress} onVideoEnded={mediaEnded} onVideoError={mediaError}
+          onAnimationModeChange={animationMode} status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} />
         <div className="bj-live-table-footer">
         <div className="blackjack-live-status" role="status" aria-live="polite">
           {view.result?.title ?? statuses[display.status]}
