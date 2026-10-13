@@ -1,38 +1,41 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import BlackjackDealerVideo from './BlackjackDealerVideo.jsx';
-import { BLACKJACK_TABLE_SCENE, blackjackTableHand, blackjackTableCardFlight } from './blackjack-table-projection.js';
-import { selectBlackjackDealerClip, blackjackDealerDealPose, blackjackDealerRevealPose } from './blackjack-dealer-clips.js';
+import { BLACKJACK_TABLE_SCENE, blackjackTableHand, blackjackTableCardShadow } from './blackjack-table-projection.js';
+import { selectBlackjackDealerClip } from './blackjack-dealer-clips.js';
+import { blackjackTableCardPresentation } from './blackjack-card-motion.js';
 import './BlackjackPerspectiveTable.css';
 
 const faces = { 1: 'A', 11: 'J', 12: 'Q', 13: 'K' };
 const suits = { clubs: '♣', diamonds: '♦', hearts: '♥', spades: '♠' };
-const smooth = n => { const p = Math.max(0, Math.min(1, Number.isFinite(n) ? n : 0)); return p*p*(3-2*p); };
-
-function FeltCard({ card, geometry, side, index, motion, reducedMotion }) {
+export function FeltCard({ card, geometry, side, index, motion, reducedMotion }) {
   const dealing = motion?.kind === 'deal' && motion.side === side && motion.index === index;
-  const dealPose = dealing && !reducedMotion ? blackjackDealerDealPose(side, motion.elapsedMs) : null;
-  const pose = dealPose ? blackjackTableCardFlight(geometry, dealPose.flightProgress, { origin: dealPose.origin, lift: dealPose.stage === 'carried' ? 0 : 1.5 }) : geometry;
-  const revealing = motion?.kind === 'flip' && side === 'dealer' && index === 1;
-  const faceProgress = revealing && !reducedMotion ? blackjackDealerRevealPose(motion.elapsedMs).faceProgress : card.hidden ? 0 : dealPose?.stage === 'carried' ? 0 : dealPose?.stage === 'flying' ? smooth(dealPose.flightProgress*2) : 1;
+  const pose = blackjackTableCardPresentation(geometry, { side, index, hidden: Boolean(card.hidden), motion, reducedMotion });
+  const shadow = blackjackTableCardShadow(pose.geometry);
+  const moving = dealing || pose.stage === 'turning';
   // A hidden public card contributes no rank, suit or face content to the DOM.
   const value = card.hidden ? '' : (faces[card.rank] ?? String(card.rank ?? ''));
   const suit = card.hidden ? '' : (suits[card.suit] ?? '');
   const red = !card.hidden && ['diamonds','hearts'].includes(card.suit);
-  return <div className="bj-felt-card" data-side={side} data-card-index={index}
+  return <><div className="bj-felt-card-shadow" data-shadow-side={side}
+    style={{width:geometry.rect.width,height:geometry.rect.height,transform:shadow.cssTransform,
+      opacity:pose.visible&&['flying','landed','turning','resting'].includes(pose.stage)?(.26-pose.lift*.06):0}} />
+    <div className="bj-felt-card" data-side={side} data-card-index={index}
     data-hidden={Boolean(card.hidden)} data-dealing={dealing}
-    data-flight-stage={dealPose?.stage??'resting'}
-    style={{width:geometry.rect.width,height:geometry.rect.height,transform:pose.cssTransform,zIndex:dealing?60:index+1,visibility:dealPose&&!dealPose.visible?'hidden':'visible'}}>
-    <div className="bj-felt-card-turn" style={{transform:`rotateY(${(1-faceProgress)*180}deg)`}}>
-      <div className={'bj-felt-card-face'+(red?' bj-felt-card-red':'')}>
+    data-flight-stage={pose.stage} data-moving={moving} data-face-visible={pose.frontVisible}
+    style={{width:geometry.rect.width,height:geometry.rect.height,transform:pose.geometry.cssTransform,
+      clipPath:pose.extracted<1?`inset(0 0 ${100*(1-pose.extracted)}% 0)`:'none',
+      zIndex:moving?60:index+1,visibility:pose.visible?'visible':'hidden'}}>
+    <div className="bj-felt-card-turn">
+      <div className={'bj-felt-card-face'+(red?' bj-felt-card-red':'')} style={{visibility:pose.frontVisible?'visible':'hidden'}}>
         {!card.hidden && <>
           <span className="bj-felt-card-corner"><b>{value}</b><i>{suit}</i></span>
           <span className="bj-felt-card-suit">{suit}</span>
           <span className="bj-felt-card-corner bj-felt-card-corner-bottom"><b>{value}</b><i>{suit}</i></span>
         </>}
       </div>
-      <div className="bj-felt-card-back" />
+      <div className="bj-felt-card-back" style={{visibility:pose.frontVisible?'hidden':'visible'}} />
     </div>
-  </div>;
+  </div></>;
 }
 
 export default function RasterBlackjack({ view, motion, roundId = 'waiting', reacting = false, onVideoProgress, onVideoEnded, onVideoError, onAnimationModeChange, status = 'idle', reducedMotion = false, paused = false }) {

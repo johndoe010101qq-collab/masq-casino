@@ -49,11 +49,17 @@ assert.equal(uiPlaybackSpeed(session.getSnapshot().presentation),1.5);
 applyDemoAudio(audio,{sfxVolume:100,musicVolume:100});
 assert.deepEqual(audioCalls.slice(-3),[['master',.62],['sfx',1],['music',.27]],'Default percentages preserve original levels');
 
+const reactModuleUrl=new URL('../node_modules/react/index.js',import.meta.url).href;
+const identitySource=(await fs.readFile(new URL('../src/MasqIdentity.jsx',import.meta.url),'utf8'))
+  .replace(/from ['"]react['"]/g,'from '+JSON.stringify(reactModuleUrl));
+const identityResult=await transformWithOxc(identitySource,'MasqIdentity.jsx',{jsx:{runtime:'classic'}});
+const identityModuleUrl='data:text/javascript;base64,'+Buffer.from(identityResult.code).toString('base64');
 async function loadControl(name){
   const url=new URL('../src/'+name,import.meta.url);
   let source=await fs.readFile(url,'utf8');
   source=source.replace(/import ['"]\.\/[^'"\n]+\.css['"];?\r?\n/g,'')
-    .replace(/from ['"]react['"]/g,'from '+JSON.stringify(new URL('../node_modules/react/index.js',import.meta.url).href))
+    .replace(/from ['"]react['"]/g,'from '+JSON.stringify(reactModuleUrl))
+    .replace(/from ['"]\.\/MasqIdentity\.jsx['"]/g,'from '+JSON.stringify(identityModuleUrl))
     .replace(/from ['"](\.\/[^'"]+\.js)['"]/g,(_,relative)=>'from '+JSON.stringify(new URL(relative,url).href));
   const result=await transformWithOxc(source,name,{jsx:{runtime:'classic'}});
   return (await import('data:text/javascript;base64,'+Buffer.from(result.code).toString('base64'))).default;
@@ -80,6 +86,8 @@ elements.find(node=>node.props?.['aria-label']==='Увеличить ставк�
 elements.find(node=>node.type==='button'&&node.props.children==='Макс.').props.onClick();assert.equal(changedStake,'90','Max obeys both balance and configured limit');
 const rendered=renderToStaticMarkup(React.createElement(SlotDock,dockProps));
 assert.match(rendered,/30–120 АР/);assert.match(rendered,/min="30" max="120"/);
+assert.match(rendered,/class="masq-mark masq-mark-flat"/,'The real identity component renders in the bonus control');
+for(const face of ['front','side','top'])assert.match(rendered,new RegExp('class="masq-mark-'+face+'"'),'The bonus identity retains its '+face+' face');
 assert.equal(nodes(SlotDock({...dockProps,stake:120})).find(node=>node.props?.['aria-label']==='Увеличить ставку на 5 АР').props.disabled,true);
 for(const name of ['App.jsx','BonanzaSlot.jsx','MaskSlotRoom.jsx','PlinkoRoom.jsx','BlackjackRoom.jsx']){
   await transformWithOxc(await fs.readFile(new URL('../src/'+name,import.meta.url),'utf8'),name,{jsx:{runtime:'classic'}});

@@ -1,0 +1,26 @@
+MASQ offline interface font: Golos Text
+
+Font binary: Masq-GolosText-Variable.ttf
+Family in original font: Golos Text
+Style: upright variable font
+Weight axis: 400-900; default 400
+Size: 184292 bytes
+SHA-256: 17bb58fb69aec2dfb047a2ebf52534023e9b688c97a6b7ac795b0a72912c2063
+
+Official source repository: https://github.com/google/fonts/tree/main/ofl/golostext
+Pinned source revision: 66928797f271fed5ee428544e7229685e2d90127
+Original font URL: https://raw.githubusercontent.com/google/fonts/66928797f271fed5ee428544e7229685e2d90127/ofl/golostext/GolosText%5Bwght%5D.ttf
+Downloaded on: 2026-10-13
+Original binary is unmodified; only the distribution filename is changed.
+
+Copyright 2019 The Golos Text Project Authors
+Upstream project: https://github.com/googlefonts/golos-text
+License: SIL Open Font License 1.1, preserved in Masq-GolosText-OFL.txt
+License SHA-256: ff532f9e8789f09a9fdffc3c0954eedfb0a48be77b2e2eb90f5f82e4f347f50c
+Original license URL: https://raw.githubusercontent.com/google/fonts/66928797f271fed5ee428544e7229685e2d90127/ofl/golostext/OFL.txt
+
+Validation: valid TrueType sfnt header, 22 bounded sfnt tables,
+glyf/cmap/name/head/fvar present, upright wght axis 400-900.
+Unicode cmap coverage: 566 mapped nonzero glyphs.
+All 66 Russian letters including Yo/yo, Latin A-Z/a-z and digits 0-9 verified.
+Font is served locally; no runtime Google Fonts request is necessary.

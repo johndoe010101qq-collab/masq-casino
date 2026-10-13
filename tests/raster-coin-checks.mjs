@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {transformWithOxc} from 'vite';
+import {createServer} from 'vite';
 import {rules,settle} from '../src/game-math.js';
 import {rasterCoinPose} from '../src/raster-coin-motion.js';
 let checks=0;
-const source=readFileSync(new URL('../src/RasterCoinflip.jsx',import.meta.url),'utf8').replace(/import ['"]\.\/[^'"\n]+\.css['"];?\n/g,'').replace(/from ['"]react['"]/g,'from '+JSON.stringify(new URL('../node_modules/react/index.js',import.meta.url).href)).replace(/from ['"]\.\/raster-coin-motion\.js['"]/g,'from '+JSON.stringify(new URL('../src/raster-coin-motion.js',import.meta.url).href)).replaceAll('import.meta.env.BASE_URL',JSON.stringify('/'));
-const {default:Coin}=await import('data:text/javascript;base64,'+Buffer.from((await transformWithOxc(source,'Coin.jsx',{jsx:{runtime:'classic'}})).code).toString('base64'));
+const loader=await createServer({root:fileURLToPath(new URL('../',import.meta.url)),configFile:false,server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'});
+const {default:Coin}=await loader.ssrLoadModule('/src/RasterCoinflip.jsx');
 const html=props=>renderToStaticMarkup(React.createElement(Coin,props));
 for(let step=0;step<90;step++) {
  const props={progress:step/100,playing:true};
@@ -19,6 +19,8 @@ for(const choice of ['heads','tails']) for(let ticket=0;ticket<rules('coinflip',
  assert.equal(pose.turnDegrees%360,round.face==='heads'?0:180);checks++;
  assert.equal(pose.reveal,true);checks++;
  assert.ok(Math.abs(pose.flight)<1e-8);checks++;
- assert.ok(html({round,progress:1,playing:false}).includes(`rotateY(${pose.turnDegrees}deg)`));checks++;
+ assert.ok(html({round,progress:1,playing:false}).includes(`data-turn-degrees="${pose.turnDegrees}"`));checks++;
 }
-console.log(`Raster Coinflip: ${checks} checks, both actual ticket maps and identical unrevealed motion.`);
+assert.ok(html({round:null,progress:0,playing:false}).includes('data-minecraft-game="coinflip"'));checks++;
+await loader.close();
+console.log(`Minecraft Coinflip: ${checks} checks, both actual ticket maps and identical unrevealed motion; GPU appearance checked in browser.`);

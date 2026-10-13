@@ -1,17 +1,12 @@
 import React, { useEffect, useId, useState } from 'react';
 import { GAME_META } from './game-meta.js';
-import SlotHallArt from './SlotHallArt.jsx';
-import FeaturedGamesV16 from './FeaturedGamesV16.jsx';
-import './LobbyV15.css';
+import { MasqIcon } from './MasqIdentity.jsx';
 
 const SLOT_IDS = Object.freeze(['slots', 'maskhouse', 'lecipher']);
 const CLASSIC_COVERS = Object.freeze({
-  coinflip: '/coinflip-crest.png',
-  dice: '/dice-crest.png',
-  plinko: '/plinko-crest.png',
-  roulette: '/roulette-minimal.png',
-  upgrader: '/upgrader-ink.png',
-  blackjack: '/blackjack-minimal.png',
+  coinflip: '/masq-v36-coinflip.png', dice: '/masq-v36-dice.png',
+  plinko: '/masq-v36-plinko.png', roulette: '/masq-v36-roulette.png',
+  upgrader: '/masq-v36-upgrader.png', blackjack: '/blackjack-dealer-poster-v34.webp',
 });
 const SEARCH_NAMES = Object.freeze({
   slots: 'бонанза bonanza каскады',
@@ -69,8 +64,8 @@ function GameCard({ game, slot, onOpen, locked }) {
   return <button type="button" className={`lobby15-card lobby15-card-${slot ? 'slot' : 'classic'} lobby15-game-${game.id}`}
     disabled={locked} aria-label={`Играть в ${game.name}`} onClick={() => onOpen(game.id)}>
     <span className="lobby15-art">
-      {slot ? <SlotHallArt game={game.id} /> : <img src={CLASSIC_COVERS[game.id]} alt=""
-        loading="lazy" decoding="async" draggable="false" />}
+      <img src={slot?`/masq-v36-${game.id}.png`:CLASSIC_COVERS[game.id]} alt=""
+        loading="lazy" decoding="async" draggable="false" />
       <span className="lobby15-play" aria-hidden="true"><PlayIcon /></span>
     </span>
     {caption}
@@ -108,6 +103,13 @@ export default function LobbyV15({ onOpen, locked = false, category = 'all', onC
     changeCategory('all');
   }
   return <section className="lobby15" id="lobby15-catalog" aria-labelledby="lobby15-title">
+    {showSlotCollection&&<section className="masq-spotlight" aria-label="Blackjack">
+      <img className="masq-spotlight-scene" src="/blackjack-dealer-poster-v34.webp" alt="" decoding="async"/>
+      <div className="masq-spotlight-copy"><span className="masq-section-code">01 / BLACKJACK</span>
+        <h2>За столом<br/><span>MASQ.</span></h2>
+        <div className="masq-spotlight-foot"><button type="button" disabled={locked} onClick={()=>onOpen('blackjack')}>Играть в Blackjack <MasqIcon name="arrow"/></button><span>BLACKJACK PAYS 3:2</span></div>
+      </div>
+    </section>}
     <div className="lobby15-heading">
       <h1 id="lobby15-title">{activeCategory === 'all' ? 'Игры' : CATEGORIES.find(option => option.id === activeCategory).label}</h1>
       <span className="lobby15-count" aria-hidden="true">{games.length} {gameWord}</span>
@@ -129,7 +131,7 @@ export default function LobbyV15({ onOpen, locked = false, category = 'all', onC
     </div>
     <span className="lobby15-sr-only" role="status" aria-live="polite" aria-atomic="true">Найдено игр: {games.length}</span>
     {games.length ? <>
-      {showSlotCollection ? <FeaturedGamesV16 onOpen={onOpen} locked={locked} /> : <Collection games={slots} title="Слоты" slot heading={activeCategory === 'all'} onOpen={onOpen} locked={locked} />}
+      <Collection games={slots} title="Слоты" slot heading={activeCategory === 'all'} onOpen={onOpen} locked={locked} />
       <Collection games={classics} title="Классика" heading={activeCategory === 'all'} onOpen={onOpen} locked={locked} />
     </> : <div className="lobby15-empty">
       <SearchIcon /><h2>Ничего не найдено</h2>

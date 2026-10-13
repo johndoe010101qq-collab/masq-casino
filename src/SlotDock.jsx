@@ -1,6 +1,7 @@
 import React from 'react';
 import { STANDARD_STAKE_LIMITS, adjustedStake } from './stake-limits.js';
 import './SlotDock.css';
+import { MasqMark } from './MasqIdentity.jsx';
 
 const money = n => new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(n);
 export default function SlotDock({ game, stake, onStakeChange, balance, payout, locked,
@@ -9,7 +10,7 @@ export default function SlotDock({ game, stake, onStakeChange, balance, payout, 
   return <form className={'slot-dock theme-'+theme} data-busy={busy} aria-label="Управление слотом"
     onSubmit={event=>{event.preventDefault();onSpin();}}>
     <button className="slot-dock-buy" type="button" disabled={locked||!ready||!validStake}
-      onClick={onShop}><img src={game==='maskhouse'?'/maskhouse-cover.png':'/lecipher-cover.png'} alt=""/><span className="slot-dock-buy-copy"><strong>{game==='maskhouse'?'Купить бонус':'Бонусы'}</strong><small>{game==='maskhouse'?'Маскарад':'Выбрать режим'}</small></span></button>
+      onClick={onShop}><MasqMark flat/><span className="slot-dock-buy-copy"><strong>{game==='maskhouse'?'Купить бонус':'Бонусы'}</strong><small>{game==='maskhouse'?'Маскарад':'Выбрать режим'}</small></span></button>
     <div className="slot-dock-totals">
     <div className="slot-dock-balance"><span>Баланс</span><strong>{money(balance)} <small>АР</small></strong></div>
     <div className="slot-dock-payout" aria-live="polite"><span>Выплата</span><strong>{money(payout)} <small>АР</small></strong></div></div>

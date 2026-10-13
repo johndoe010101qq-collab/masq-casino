@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { BLACKJACK_TABLE_SCENE as scene, projectBlackjackTablePoint as project,
-  blackjackTableHand as hand, blackjackTableCardFlight as flight } from '../src/blackjack-table-projection.js';
+  blackjackTableHand as hand, blackjackTableCardFlight as flight,
+  blackjackTableCardExtraction as extraction, blackjackTableCardTurn as turn,
+  blackjackTableCardShadow as shadow } from '../src/blackjack-table-projection.js';
 
 let checks = 0;
 const ok = (condition, message) => { assert.ok(condition, message); checks++; };
@@ -156,4 +158,39 @@ for (const point of [{x:NaN,y:0,z:0},{x:0,y:Infinity,z:0},{x:0,y:0,z:1000},
 rejects(()=>flight(null,0));
 rejects(()=>flight(hand('player',1)[0],0,{origin:{x:Infinity,y:564}}));
 equal(Object.isFrozen(scene) && Object.isFrozen(scene.camera.target) && Object.isFrozen(scene.areas.dealer[0]),true);
+
+const area = corners => Math.abs(corners.reduce((sum, point, index) => {
+  const next = corners[(index + 1) % corners.length];
+  return sum + point.x * next.y - next.x * point.y;
+}, 0)) / 2;
+for (const side of ['dealer','player']) for (const count of [1,2,7,21]) for (const card of hand(side,count)) {
+  const saved = JSON.stringify(card), origin = {x:1113,y:544};
+  const inside = extraction(card,0,origin);
+  const leading = transform(inside.matrix3d,100,0);
+  near(leading.x,scene.shoe.x); near(leading.y,scene.shoe.y);
+  const carried = extraction(card,1,origin), held = flight(card,0,{origin,lift:0});
+  carried.corners.forEach((point,index)=>{
+    near(point.x,held.corners[index].x); near(point.y,held.corners[index].y);
+  });
+  equal(turn(card,0),card); equal(turn(card,1),card);
+  equal(turn(card,.5,{reducedMotion:true}),card);
+  for (let step=0;step<=100;step++) {
+    const p=step/100, pulled=extraction(card,p,origin), turned=turn(card,p);
+    for (const geometry of [pulled,turned]) {
+      ok(geometry.matrix3d.every(Number.isFinite),'Shoe pull/edge-on flip never creates a singular CSS matrix.');
+      [[0,0],[200,0],[200,300],[0,300]].forEach(([x,y],index)=>{
+        const point=transform(geometry.matrix3d,x,y);
+        near(point.x,geometry.corners[index].x,1e-5);
+        near(point.y,geometry.corners[index].y,1e-5);
+      });
+    }
+    ok(turned.worldCorners.every(point=>point.y>=card.worldCenter.y-1e-9),'Lifted edges cannot cut through the felt.');
+    const grounded=shadow(turned);
+    grounded.worldCorners.forEach(point=>near(point.y,scene.table.top+.003));
+  }
+  ok(area(turn(card,.5).corners)<area(card.corners)*.002,'At disclosure the card visibly crosses its physical edge.');
+  ok(turn(card,.5).worldCenter.y>card.worldCenter.y+2,'Flip visibly lifts above the felt.');
+  equal(JSON.stringify(card),saved,'Extraction/turn never mutates resting hand geometry.');
+}
+rejects(()=>extraction(null,.5)); rejects(()=>turn(null,.5)); rejects(()=>shadow(null));
 console.log(`Blackjack table projection: ${checks} checks passed.`);

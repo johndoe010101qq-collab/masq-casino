@@ -1,41 +1,6 @@
-.indictus-app.indictus-app .physical-stage.stage-upgrader { min-height:0; background:#101b1d; border:1px solid #294448; border-radius:8px; display:flex; flex-direction:column; justify-content:center; }
-.indictus-app.indictus-app .stage-upgrader .stage-label { display:none; }
-.hacker-workstation { position:relative; width:100%; aspect-ratio:3/2; overflow:hidden; container-type:inline-size; }
-.hacker-cabinet { display:block; width:100%; height:100%; object-fit:contain; }
-.hacker-screen { position:absolute; left:19.3%; right:19.3%; top:11.2%; height:50%; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:2.4cqw 3cqw 2.2cqw; color:#8bd8b8; overflow:hidden; border-radius:3cqw; font-family:Consolas,'Courier New',monospace; isolation:isolate; }
-.hacker-screen::after { content:''; position:absolute; inset:0; z-index:3; pointer-events:none; opacity:.17; background:repeating-linear-gradient(0deg,transparent 0 3px,#020d0b 3px 4px); }
-.hacker-screen-heading { display:flex; align-items:center; gap:1.2cqw; width:100%; font-size:1.6cqw; letter-spacing:.08em; line-height:1.1; }
-.hacker-screen-heading strong { display:none; }
-.hacker-status-light { width:1cqw; height:1cqw; border-radius:2px; background:currentColor; }
-.hacker-identity { position:relative; display:flex; align-items:center; justify-content:center; gap:3cqw; height:16cqw; width:85%; border-left:1px solid #497b68; border-right:1px solid #497b68; overflow:hidden; }
-.hacker-target { color:#eef4cd; font:700 9cqw/1 Arial,sans-serif; letter-spacing:-.05em; }
-.hacker-identity img { display:block; height:14cqw; width:auto; max-width:17cqw; object-fit:contain; opacity:.9; }
-.hacker-scan { position:absolute; top:0; left:0; right:0; height:1cqw; border-top:2px solid #a9f9cf; background:#6ce4b824; z-index:2; transition:opacity .15s; }
-.hacker-code { white-space:nowrap; font-size:2.1cqw; line-height:1.15; color:#72a991; letter-spacing:.07em; }
-.hacker-screen-title { color:#dcf4dc; font-size:3.7cqw; line-height:1.12; letter-spacing:-.025em; text-align:center; font-family:Arial,sans-serif; }
-.hacker-packets { display:grid; grid-template-columns:repeat(12,1fr); gap:.55cqw; width:100%; margin-top:1cqw; }
-.hacker-packets i { height:1.5cqw; background:#163b30; border:1px solid #35604b; }
-.hacker-packets i.decoded { background:#8bd8b8; border-color:#b8efd1; }
-.outcome-success .hacker-screen { color:#e7cf82; }
-.outcome-success .hacker-code { color:#e7cf82; }
-.outcome-success .hacker-screen-title { color:#fff0b5; }
-.outcome-success .hacker-packets i.decoded { background:#e7cf82; border-color:#ffeab8; }
-.outcome-denied .hacker-screen { color:#ef959b; }
-.outcome-denied .hacker-code { color:#ef959b; }
-.outcome-denied .hacker-screen-title { color:#edc3c1; }
-.outcome-denied .hacker-packets i.decoded { background:#702d3b; border-color:#a15561; }
-.hacking .hacker-status-light { animation:terminal-pulse .48s steps(2,end) infinite; }
-.hacking .hacker-code { color:#a6e2c1; }
-.hacking.terminal-phase-decrypt .hacker-identity { animation:terminal-decode .28s steps(2,end) infinite; }
-.terminal-phase-reveal.outcome-success .hacker-target { color:#ffe8a1; animation:terminal-unlock .7s ease-out both; }
-.terminal-phase-reveal.outcome-success .hacker-screen { animation:terminal-reveal .5s ease-out both; }
-.indictus-app.indictus-app .stage-upgrader .physical-result { position:static; margin:0 16px 14px; padding:12px 0 0; border:0; border-top:1px solid #294448; background:transparent; min-height:54px; }
-.indictus-app.indictus-app .stage-upgrader .physical-result button { background:#203c35; border-color:#4c7865; color:#d3e7da; }
-.indictus-app.indictus-app .room-layout:has(.stage-upgrader) .room-bet .primary { background:#287257; border-color:#579078; color:#f1f3de; }
-.indictus-app.indictus-app .room-layout:has(.stage-upgrader) .room-choices-upgrader label.selected { background:#203d32; border-color:#6b9c80; }
-@keyframes terminal-pulse { 50% { opacity:.35; } }
-@keyframes terminal-decode { 50% { border-color:#a8f7d1; background:#77d6ac10; } }
-@keyframes terminal-unlock { 35% { transform:scale(1.18); text-shadow:0 0 16px #d9b76199; } }
-@keyframes terminal-reveal { from { background:#fae7ac40; } to { background:transparent; } }
-@media(prefers-reduced-motion:reduce) { .hacking .hacker-status-light,.hacking.terminal-phase-decrypt .hacker-identity,.terminal-phase-reveal .hacker-target,.terminal-phase-reveal .hacker-screen { animation:none; } .hacker-scan { display:none; } }
-@media(max-width:650px) { .hacker-workstation { aspect-ratio:1.12; } .hacker-cabinet { object-fit:cover; } .hacker-screen { left:8.7%; right:8.7%; padding:2cqw 4cqw; border-radius:5cqw; } .hacker-screen-heading { font-size:10px; } .hacker-code { font-size:10px; } .hacker-screen-title { font-size:16px; } .hacker-target { font-size:36px; } .indictus-app.indictus-app .stage-upgrader .physical-result { margin:0 12px 12px; min-height:46px; font-size:12px; } .indictus-app.indictus-app .stage-upgrader .physical-result strong { font-size:20px; } }
+.hacker-workstation.minecraft-terminal { position:relative; width:100%; aspect-ratio:1.45; min-height:330px; overflow:hidden; }
+.minecraft-terminal-readout { position:absolute; left:18px; right:18px; bottom:14px; display:flex; align-items:center; justify-content:space-between; gap:12px; color:#9dd9b9; font:500 11px/1.35 monospace; pointer-events:none; }
+.minecraft-terminal-readout strong { font-size:11px; font-weight:500; letter-spacing:.02em; }
+.minecraft-terminal.outcome-denied .minecraft-terminal-readout { color:#d79397; }
+.minecraft-terminal.outcome-success .minecraft-terminal-readout { color:#e4ebdc; }
+@media(max-width:650px) { .hacker-workstation.minecraft-terminal { min-height:290px; aspect-ratio:1.08; } .minecraft-terminal-readout { left:12px; right:12px; font-size:10px; gap:8px; } .minecraft-terminal-readout strong { font-size:10px; } }

@@ -2,8 +2,7 @@ import React, {
   Component, Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState,
 } from "react";
 import "./PayoutScene.css";
-import "./RasterPayout.css";
-import "./WinCelebration.css";
+import { MasqMark } from './MasqIdentity.jsx';
 
 const PayoutFx = lazy(() => import("./PayoutFx.jsx"));
 const wholeMoney = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
@@ -230,7 +229,7 @@ export default function PayoutScene({
       onCancel={(event) => { event.preventDefault(); close(); }}
       onClick={(event) => { if (!event.target.closest("button")) reveal(); }}
     >
-      {!reduced && facts.fxTier > 0 && <div className="win-spectacle" aria-hidden="true"><i className="win-flash"/><div className="win-rays"/>{Array.from({length:18},(_,i)=><img key={i} className="win-flying-coin" src="/coinflip-heads-painted.png" alt="" style={{'--coin-x':(i*37%100)+'%','--coin-delay':(i%6)*.075+'s','--coin-rotation':(i*47)+'deg','--coin-duration':(1.4+i%4*.22)+'s'}}/>)}</div>}
+      {!reduced && facts.fxTier > 0 && <div className="win-spectacle" aria-hidden="true">{Array.from({length:18},(_,i)=><i key={i} className="masq-win-pixel" style={{'--coin-x':(i*37%100)+'%','--coin-delay':(i%6)*.075+'s','--coin-rotation':(i*47)+'deg','--coin-duration':(1.4+i%4*.22)+'s'}}/>)}</div>}
       {!reduced && facts.fxTier > 0 && (
         <div className="payout-fx" aria-hidden="true">
           <FxBoundary>
@@ -244,7 +243,7 @@ export default function PayoutScene({
         ×
       </button>
       <div className="payout-sheet">
-        <img className="payout-mask-art payout-emblem" alt="" src={import.meta.env.BASE_URL + ({slots:"bonanza-anonymous-emblem.png",maskhouse:"maskhouse-cover.png",lecipher:"lecipher-cover.png",coinflip:"coinflip-crest.png",dice:"dice-crest.png",plinko:"plinko-crest.png",roulette:"roulette-minimal.png",blackjack:"blackjack-minimal.png",upgrader:"upgrader-ink.png"}[round.game] || "bonanza-anonymous-emblem.png")} />
+        <MasqMark/>
         <p className="payout-game">
           {names[round.game] || round.game}{round.preview ? " · просмотр" : ""}
         </p>

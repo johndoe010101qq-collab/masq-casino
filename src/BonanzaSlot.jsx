@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { BONANZA_DEMO_RULES } from './bonanza.js';
 import { BONANZA_PACE, createBonanzaPlayback, createBonusPurchaseController } from './BonanzaPresentation.js';
 import { slotCellPresentation } from './slotCellPresentation.js';
-import { getSlotAtlas } from './art/renderSlotAtlas.js';
+import { getMinecraftSlotAtlas as getSlotAtlas } from './art/renderRasterSlotAtlas.js';
 import {useSlotPlaybackControls} from './useSlotPlaybackControls.js';
 import { permittedStake } from './stake-limits.js';
 import { validateBonusPurchase } from './hall-session.js';
@@ -13,16 +13,17 @@ import { useReducedMotion } from './SceneMotion.jsx';
 import './BonanzaSlot.css';
 import './BonanzaPace.css';
 import './SlotExperience.css';
-import BonanzaMascot from './BonanzaMascot.jsx';
+import MinecraftSlotScene from './MinecraftSlotScene.jsx';
 import {bonanzaShownPayoutCents} from './bonanza-mascot-presentation.js';
-import './BonanzaCommercial.css';
+import './MinecraftSlotScene.css';
+import {slotRasterStyle} from './slot-raster-art.js';
 
 
 const rules = BONANZA_DEMO_RULES;
 const money = value => new Intl.NumberFormat('ru-RU', {maximumFractionDigits:2}).format(value);
 const symbolNames = {
-  hood:'Капюшон', suit:'Костюм', glove:'Перчатка', laptop:'Ноутбук',
-  usb:'USB', lock:'Чип', key:'Шляпа', radio:'Рация', flag:'Флаг',
+  hood:'Синяя конфета', suit:'Зелёная конфета', glove:'Фиолетовая конфета', laptop:'Красное сердце',
+  usb:'Бананы', lock:'Слива', key:'Яблоко', radio:'Арбуз', flag:'Виноград',
   scatter:'Маска', bomb:'Множитель'
 };
 const kinds = Object.keys(rules.pays);
@@ -46,7 +47,7 @@ const labelForPhase = {
 function Sprite({kind, atlas, className = '', label = ''}) {
   const index = atlas.indices[kind];
   return <span className={'slot-sprite ' + className}
-    role={label ? 'img' : undefined} aria-label={label || undefined}
+    role={label ? 'img' : undefined} aria-label={label ? atlas.names?.[kind]||label : undefined}
     aria-hidden={label ? undefined : 'true'}
     style={{backgroundImage:'url("' + atlas.url + '")',
       backgroundPosition:(index % 4 / 3 * 100) + '% ' + (Math.floor(index / 4) / 2 * 100) + '%'}} />;
@@ -159,7 +160,7 @@ function RulesDialog({opened, close, atlas, fallbackFocus, limits}) {
       <thead><tr><th>Символ</th><th>8–9</th><th>10–11</th><th>12+</th></tr></thead>
       <tbody>{Object.entries(pays).map(([kind, tiers]) => <tr key={kind}>
         <th scope="row"><span className="slot-rule-symbol">{atlas && <Sprite kind={kind} atlas={atlas} />}
-          <span>{symbolNames[kind]}</span></span></th>
+          <span>{atlas?.names?.[kind]||symbolNames[kind]}</span></span></th>
         {tiers.map((value, i) => <td key={i}>×{money(value / 100)}</td>)}
       </tr>)}</tbody>
     </table>)}
@@ -182,7 +183,7 @@ function RulesDialog({opened, close, atlas, fallbackFocus, limits}) {
 
 export default function BonanzaSlot({
   session, snapshot, audio, musicEnabled = false, sfxEnabled = false,
-  onMusic, onSound, onSettled, payoutOpen = false, showAudioControls = false
+  onMusic, onSound, onSettled, payoutOpen = false, showAudioControls = false, artPreview = false
 }) {
   const [stake, setStake] = useState(10);
   const [atlas, setAtlas] = useState(null);
@@ -195,8 +196,8 @@ export default function BonanzaSlot({
   const [paused, setPaused] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [showRules, setShowRules] = useState(false);
-  const [entranceOpen, setEntranceOpen] = useState(true);
-  const entrance = useRef(true);
+  const [entranceOpen, setEntranceOpen] = useState(!artPreview);
+  const entrance = useRef(!artPreview);
   const [purchase, setPurchase] = useState(null);
   const [bonusMode, setBonusMode] = useState(false);
   const [purchaseController] = useState(() => createBonusPurchaseController(session));
@@ -370,13 +371,12 @@ export default function BonanzaSlot({
   const announcement = visual.bonusAnnouncement;
   const lastPayout = snapshot.result?.game === 'slots' ? snapshot.result.payout : 0;
 
-  return <section className="bonanza-slot raster-slot" aria-label="MASQ Bonanza"
-    style={{'--slot-speed':roundSpeed}} data-bonus={visual.isFreeSpin ? 'true' : 'false'}
+  return <section className="bonanza-slot raster-slot minecraft-slot-v36" data-art-style="minecraft" aria-label="MASQ Bonanza"
+    style={{'--slot-speed':roundSpeed,...slotRasterStyle('slots')}} data-bonus={visual.isFreeSpin ? 'true' : 'false'}
     data-playback-paused={paused ? 'true' : 'false'} data-reduced={reduced ? 'true' : 'false'}>
     <div className="bonanza-play-layout">
     <div className="bonanza-cabinet" ref={stageFocus} tabIndex={-1}>
-    <div className="slot-scene-light" aria-hidden="true"/>
-    <BonanzaMascot visual={visual} reducedMotion={reduced}/>
+    <MinecraftSlotScene game="slots" visual={visual} reducedMotion={reduced}/>
     <header className="bonanza-heading">
       <h2>Bonanza</h2>
     </header>

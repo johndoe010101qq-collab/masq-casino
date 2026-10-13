@@ -1,5 +1,5 @@
 import React,{useEffect,useRef,useState} from 'react';
-import {getSlotAtlas} from './art/renderSlotAtlas.js';
+import {getMinecraftSlotAtlas as getSlotAtlas} from './art/renderRasterSlotAtlas.js';
 import {MASK_SLOT_RULES,MASK_REGULAR_KINDS,LEXOF_FEATURE_RULES} from './mask-slots.js';
 import {permittedStake} from './stake-limits.js';
 import {uiStakeLimits,uiBoundedStake,uiPlaybackSpeed} from './demo-ui-settings.js';
@@ -15,15 +15,16 @@ import {useSlotPlaybackControls} from './useSlotPlaybackControls.js';
 import SlotPlaybackOptions from './SlotPlaybackOptions.jsx';
 import SlotDock from './SlotDock.jsx';
 import SlotBonusShop from './SlotBonusShop.jsx';
-import LexofMascot,{LexofPortrait} from './LexofMascot.jsx';
-import HouseMascot from './HouseMascot.jsx';
+import MinecraftSlotScene,{MinecraftSlotEmblem} from './MinecraftSlotScene.jsx';
 import SlotWinReadout from './SlotWinReadout.jsx';
+import './MinecraftSlotScene.css';
+import {slotRasterStyle} from './slot-raster-art.js';
 const fmt=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(n);
 const title={maskhouse:'Mask Hou$e',lecipher:'LeXof'};
 const tierTitle={sticky:'Маскарад',luck:'Тайник',gold:'Золотой архив',treasure:'Главный код'};
 function Symbol({cell,atlas,payoutCents}) {
  const index=atlas.indices[cell.coin&&cell.collectionType==='coin'?'flag':cell.kind];
- const glyph=cell.collectionType==='booster'?'/lexof-amplifier.png':cell.collectionType==='collector'?'/lexof-archive.png':null;
+ const glyph=atlas.collectionGlyphs?.[cell.collectionType]||null;
  return <>{glyph?<img className="mask-collection-glyph" src={glyph} alt=""/>:<span className="mask-slot-symbol" style={{backgroundImage:`url('${atlas.url}')`,backgroundPosition:`${index%4/3*100}% ${Math.floor(index/4)/2*100}%`}}/>}{cell.kind==='wild'&&<b className="mask-wild-mark">WILD ×{cell.value}</b>}{cell.collectionType==='booster'?<b className="mask-token-mark">×{fmt(cell.value)}</b>:payoutCents!==undefined?<b className="mask-token-mark">{fmt(payoutCents/100)} АР</b>:null}</>;
 }
 function Board({visual,atlas,config,idle,names}) {
@@ -48,7 +49,7 @@ function Board({visual,atlas,config,idle,names}) {
   {visual.phase==='collect'&&(visual.collectionCells||[]).filter(p=>p.type==='coin').map((p,index)=><span key={'flight:'+p.column+':'+p.row} className="mask-coin-flight" aria-hidden="true" style={{left:`${(p.column+.5)/config.columns*100}%`,top:`${(p.row+.5)/config.rows*100}%`,'--flight-delay':index*18+'ms','--flight-x':(config.columns/2-p.column-.5)*12+'px'}}><span className="mask-slot-symbol" style={{backgroundImage:`url('${atlas.url}')`,backgroundPosition:'0% 100%'}}/></span>)}
  </div>;
 }
-function Purchase({game,request,onCancel,onConfirm,returnFocus}) {
+function Purchase({game,request,onCancel,onConfirm,returnFocus,atlas}) {
  const dialog=useRef(null),cancel=useRef(null);
  const titleId='purchase-title-'+game,descriptionId='purchase-details-'+game;
  useEffect(()=>{
@@ -62,7 +63,7 @@ function Purchase({game,request,onCancel,onConfirm,returnFocus}) {
  },[]);
  return <dialog ref={dialog} className={'mask-purchase '+game} aria-labelledby={titleId} aria-describedby={descriptionId} onCancel={event=>{event.preventDefault();onCancel();}} onClick={event=>{if(event.target===dialog.current)onCancel();}}>
   <button type="button" className="mask-purchase-close" aria-label="Закрыть покупку бонуса" onClick={onCancel}>×</button>
-  {game==='lecipher'?<LexofPortrait className="mask-purchase-emblem"/>:<img className="mask-purchase-emblem" src="/maskhouse-cover.png" alt=""/>}
+  <MinecraftSlotEmblem atlas={atlas} className="mask-purchase-emblem"/>
   <h2 id={titleId}>{tierTitle[request.bonus.id]}</h2>
   <p id={descriptionId} className="mask-purchase-feature"><strong>{game==='maskhouse'?'9–27':request.bonus.initialFreeSpins}</strong> бесплатных вращений{request.bonus.id==='gold'?' · постоянное золотое поле':''}</p>
   <dl className="mask-purchase-terms"><div><dt>Базовая ставка</dt><dd>{fmt(request.stake)} АР</dd></div><div><dt>Стоимость бонуса</dt><dd>{fmt(request.cost)} АР</dd></div></dl>
@@ -136,14 +137,14 @@ export default function MaskSlotRoom({game,session,snapshot,audio,onSettled,payo
   }catch{queueMicrotask(()=>controls.stopAutoplay());settle(false);if(mounted.current)setError('Раунд рассчитан. Не удалось показать анимацию.');}
   return true;
  }
- return <section className={'mask-slot-room '+game} aria-label={title[game]}><div className="room-heading"><h1>{title[game]}</h1><button type="button" className="rules-button" aria-expanded={rulesOpen} aria-controls={'mask-rules-'+game} onClick={()=>setRulesOpen(v=>!v)}>Правила</button></div>
+ return <section className={'mask-slot-room minecraft-slot-v36 '+game} data-art-style="minecraft" aria-label={title[game]}><div className="room-heading"><h1>{title[game]}</h1><button type="button" className="rules-button" aria-expanded={rulesOpen} aria-controls={'mask-rules-'+game} onClick={()=>setRulesOpen(v=>!v)}>Правила</button></div>
   {rulesOpen&&<div className="mask-slot-rules" id={'mask-rules-'+game}><p>{game==='maskhouse'?'20 линий слева направо. Три и больше одинаковых символа дают выплату. Wild на барабанах 2–4 заменяет обычные символы, имеет ×2 или ×3 и закрепляется в бонусе. Три особняка на барабанах 1, 3 и 5 запускают выбор 9–27 вращений. В бонусе особняков и повторного запуска нет.':'Группы от пяти соседних символов дают выплату и каскад. Выигравшие клетки становятся золотыми. Декодер раскрывает на них монеты, усилители и архивы-сборщики. Три досье открывают «Тайник» на 8 вращений, четыре — «Золотой архив» на 12, пять — «Главный код» на 12. В двух старших бонусах золото сохраняется; в «Главном коде» декодер приходит каждый спин.'}</p><p>Полные таблицы выплат и реальные вероятности доступны во вкладке «Правила шансов».</p></div>}
-  <div className="room-layout"><div ref={stage} className="mask-slot-stage" style={{'--slot-speed':roundSpeed}} aria-busy={snapshot.busy} data-phase={visual.phase} data-bonus={visual.bonusTier||'base'}><div className="mask-slot-cabinet" aria-hidden="true"/><div className="slot-scene-light" aria-hidden="true"/><LexofMascot game={game} visual={visual} reducedMotion={reduced}/><HouseMascot game={game} visual={visual} reducedMotion={reduced}/>{!visual.freeRemaining&&<span className="mask-cabinet-title" aria-hidden="true">{title[game]}</span>}{atlas&&<Board visual={visual} atlas={atlas} config={config} idle={idle} names={names}/>}
+  <div className="room-layout"><div ref={stage} className="mask-slot-stage" style={{'--slot-speed':roundSpeed,...slotRasterStyle(game)}} aria-busy={snapshot.busy} data-phase={visual.phase} data-bonus={visual.bonusTier||'base'}><MinecraftSlotScene game={game} visual={visual} reducedMotion={reduced}/><span className="mask-cabinet-title" aria-hidden="true">{title[game]}</span>{atlas&&<Board visual={visual} atlas={atlas} config={config} idle={idle} names={names}/>}
    {visual.freeRemaining>0&&!['bonus','bonus-selection','profile-gift'].includes(visual.phase)&&<div className="mask-free-count" role="status" aria-label={'Осталось бесплатных вращений: '+visual.freeRemaining}><span>{tierTitle[visual.bonusTier]||'Бонус'}<small>Осталось вращений</small></span><strong key={visual.freeRemaining}>{visual.freeRemaining}</strong></div>}
-   {visual.phase==='bonus'&&<div className="mask-bonus-card" role="status">{game==='lecipher'?<LexofPortrait className="mask-bonus-emblem"/>:<img className="mask-bonus-emblem" src="/maskhouse-cover.png" alt=""/>}<span>{tierTitle[visual.bonusTier]||'Бесплатные вращения'}</span><strong>+{visual.added}</strong><small>бесплатных вращений</small></div>}
+   {visual.phase==='bonus'&&<div className="mask-bonus-card" role="status"><MinecraftSlotEmblem atlas={atlas} className="mask-bonus-emblem"/><span>{tierTitle[visual.bonusTier]||'Бесплатные вращения'}</span><strong>+{visual.added}</strong><small>бесплатных вращений</small></div>}
    {visual.phase==='profile-gift'&&<div className="mask-bonus-card" role="status"><span>Дополнительные вращения</span><strong>+{visual.added}</strong><small>бесплатных вращений</small></div>}
    {visual.phase==='bonus-selection'&&<div className="mask-bonus-card mask-bonus-selection" role="status"><span>Маскарад</span><div className="mask-award-tiles">{visual.bonusSelection.map((value,index)=><b key={index} data-revealed={index<(visual.revealed||9)} style={{'--tile':index}}>{index<(visual.revealed||9)?value:'?'}</b>)}</div><strong>{visual.selectionTotal??visual.freeRemaining}</strong><small>бесплатных вращений</small></div>}
-   {game==='lecipher'&&visual.phase==='decode'&&atlas&&<div className="lexof-rainbow-feature" key={visual.serial} aria-hidden="true"><span className="mask-slot-symbol" style={{backgroundImage:`url('${atlas.url}')`,backgroundPosition:'66.6667% 100%'}}/><strong>Радуга</strong></div>}
+   {game==='lecipher'&&visual.phase==='decode'&&atlas&&<div className="lexof-rainbow-feature" key={visual.serial} aria-hidden="true"><span className="mask-slot-symbol" style={{backgroundImage:`url('${atlas.url}')`,backgroundPosition:`${atlas.indices.bomb%4/3*100}% ${Math.floor(atlas.indices.bomb/4)/2*100}%`}}/><strong>Радуга</strong></div>}
    <SlotWinReadout visual={visual} game={game} atlas={atlas}/>
-  </div><SlotDock game={game} stakeLimits={limits} stake={stake} onStakeChange={value=>{setStake(value);setError('');}} balance={snapshot.balance} payout={(visual.shownPayoutCents??visual.totalPayoutCents)/100} locked={locked} busy={snapshot.busy} ready={!!atlas} validStake={validStake} feature={feature} onSpin={()=>play(bonusMode?'buy':'paid',amount,bonusMode??undefined)} onSkip={()=>runner.current?.finish()} onShop={openBonusShop} error={error}/><SlotPlaybackOptions game={game} controls={controls} disabled={locked||!atlas||payoutOpen} autoAllowed={!featureMode&&validStake} bonusMode={bonusMode?tierTitle[bonusMode]:null}/></div>{shopOpen&&<SlotBonusShop game={game} offers={offers} atlas={atlas} stake={amount} balance={snapshot.balance} returnFocus={purchaseTrigger.current} onCancel={()=>setShopOpen(false)} onChoose={bonus=>{setShopOpen(false);if(bonus.feature){setBonusMode(null);setFeatureMode(bonus.id);setError('');}else{setFeatureMode(null);buy(bonus,purchaseTrigger.current);}}}/>}{purchase&&<Purchase game={game} request={purchase} returnFocus={purchaseTrigger.current} onCancel={cancelPurchase} onConfirm={confirmPurchase}/>}</section>;
+  </div><SlotDock game={game} stakeLimits={limits} stake={stake} onStakeChange={value=>{setStake(value);setError('');}} balance={snapshot.balance} payout={(visual.shownPayoutCents??visual.totalPayoutCents)/100} locked={locked} busy={snapshot.busy} ready={!!atlas} validStake={validStake} feature={feature} onSpin={()=>play(bonusMode?'buy':'paid',amount,bonusMode??undefined)} onSkip={()=>runner.current?.finish()} onShop={openBonusShop} error={error}/><SlotPlaybackOptions game={game} controls={controls} disabled={locked||!atlas||payoutOpen} autoAllowed={!featureMode&&validStake} bonusMode={bonusMode?tierTitle[bonusMode]:null}/></div>{shopOpen&&<SlotBonusShop game={game} offers={offers} atlas={atlas} stake={amount} balance={snapshot.balance} returnFocus={purchaseTrigger.current} onCancel={()=>setShopOpen(false)} onChoose={bonus=>{setShopOpen(false);if(bonus.feature){setBonusMode(null);setFeatureMode(bonus.id);setError('');}else{setFeatureMode(null);buy(bonus,purchaseTrigger.current);}}}/>}{purchase&&<Purchase game={game} atlas={atlas} request={purchase} returnFocus={purchaseTrigger.current} onCancel={cancelPurchase} onConfirm={confirmPurchase}/>}</section>;
 }

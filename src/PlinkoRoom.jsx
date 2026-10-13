@@ -43,8 +43,8 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
           {PLINKO_MULTIPLIERS.map((rate, i) => <span key={i} role="listitem" className={'plinko-bin-label'+(i===0||i===8?' plinko-bin-edge':'')}
             aria-label={`Лунка ${i+1}: множитель ${rate}`}
             style={{left:boardLayout.width/2+(i-4)*.56*boardLayout.zoom,
-              top:boardLayout.height/2+2.145*boardLayout.zoom,
-              '--bin-width':`${.52*boardLayout.zoom}px`,height:`${.24*boardLayout.zoom}px`}}>{rate}</span>)}
+              top:boardLayout.height/2+2.08*boardLayout.zoom,
+              '--bin-width':`${.48*boardLayout.zoom}px`,height:`${.26*boardLayout.zoom}px`}}>{rate}</span>)}
         </div>}
       </div>
     </div>

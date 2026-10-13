@@ -1,28 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Canvas, extend, useFrame, useThree, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-import { PLINKO_MULTIPLIERS } from './game-math.js';
-import StudioEnvironment from './StudioEnvironment.jsx';
 import { plinkoBallPose } from './plinko-motion.js';
+import { MINECRAFT_PLINKO_GEOMETRY } from './minecraft-classic-motion.js';
+import { MinecraftPlinkoCabinet } from './MinecraftClassicArt.jsx';
+import { MinecraftStudioMaterials, StudioBackdrop, StudioLights, StudioMaterial, MINECRAFT_STUDIO_PALETTE as C } from './MinecraftStudio.jsx';
 
-extend({ RoundedBoxGeometry });
-const C = { ink: '#14241f', graphite: '#243730', edge: '#a08b65',
-  cream: '#f8ebd4', silver: '#cdd3ca', red: '#b65c43', cyan: '#6fbb9b', gold: '#bc9b66' };
 const CAMERA = { position: [0, .18, 10], zoom: 60, near: .1, far: 40 };
-function Box({ size, at = [0, 0, 0], color = C.graphite, roughness = .4, metalness = .65, bevel = false }) {
-  return <mesh position={at} castShadow receiveShadow>{bevel
-    ? <roundedBoxGeometry args={[...size, 3, Math.min(...size) * .22]} /> : <boxGeometry args={size} />}
-    <meshPhysicalMaterial color={color} roughness={roughness} metalness={metalness} clearcoat={.2} clearcoatRoughness={.35} /></mesh>;
-}
-function GlowBar({ size, at, color = C.cyan }) {
-  return <mesh position={at}><boxGeometry args={size} />
-    <meshStandardMaterial color={color} emissive={color} emissiveIntensity={.12} roughness={.38} metalness={.6} /></mesh>;
-}
 function Board({ controller, reduced }) {
   const balls = useRef(), particles = useRef();
-  const cabinet = useLoader(THREE.TextureLoader,'/plinko-cabinet.png');
-  cabinet.colorSpace = THREE.SRGBColorSpace;
   const bins = useRef([]);
   const dummy = useMemo(() => new THREE.Object3D(), []);
   useFrame(() => {
@@ -51,8 +37,8 @@ function Board({ controller, reduced }) {
     bins.current.forEach((material, index) => {
       if (!material) return;
       const landed = effects.find(effect => effect.bin === index);
-      material.color.set(landed ? C.red : C.ink);
-      material.emissive.set(landed?.won ? '#743127' : '#000000');
+      material.color.set(landed ? landed.won ? C.feltLight : C.red : C.black);
+      material.emissive.set(landed?.won ? '#296342' : '#000000');
       material.emissiveIntensity = landed ? (1 - landed.progress) * 1.2 : 0;
     });
     if (particles.current) {
@@ -71,32 +57,16 @@ function Board({ controller, reduced }) {
       particles.current.instanceMatrix.needsUpdate = true;
     }
   });
-  return <>
-    <mesh position={[0,.18,-.09]}><planeGeometry args={[7,5.86]}/><meshBasicMaterial map={cabinet} toneMapped={false}/></mesh>
-    {Array.from({ length: 8 }, (_, r) => Array.from({ length: r + 1 }, (_, c) =>
-      <group key={r + '-' + c} position={[(c - r / 2) * .56, 1.75 - r * .45, .1]}>
-        <mesh rotation={[Math.PI / 2, 0, 0]} castShadow><cylinderGeometry args={[.05, .05, .20, 20]} />
-          <meshBasicMaterial color={C.cream} toneMapped={false} /></mesh>
-        <mesh position={[0, 0, -.045]}><torusGeometry args={[.063, .012, 6, 20]} />
-          <meshBasicMaterial color="#08161b" /></mesh>
-      </group>))}
-    {PLINKO_MULTIPLIERS.map((_, i) => <group key={i} position={[(i - 4) * .56, -1.96, 0]}>
-      <mesh><boxGeometry args={[.52, .12, .45]} />
-        <meshPhysicalMaterial ref={material => { bins.current[i] = material; }} color={C.ink} roughness={.35} metalness={.45} clearcoat={.22} /></mesh>
-      <Box size={[.04, .48, .45]} at={[-.265, .18, 0]} color={C.edge} />
-      <Box size={[.46, .24, .035]} at={[0, -.005, .221]} color="#202327" roughness={.4} metalness={.36} bevel />
-      <GlowBar size={[.43, .016, .012]} at={[0, -.125, .247]} color={i === 0 || i === 8 ? C.gold : C.cyan} />
-    </group>)}
-    <Box size={[.04, .48, .45]} at={[2.51, -1.78, 0]} color={C.edge} />
+  return <MinecraftPlinkoCabinet binMaterials={bins} showLabels={false}>
     <instancedMesh ref={balls} args={[null, null, 120]} frustumCulled={false} castShadow>
-      <sphereGeometry args={[.11, 24, 16]} />
-      <meshToonMaterial color={C.cream} />
+      <boxGeometry args={MINECRAFT_PLINKO_GEOMETRY.ball} />
+      <StudioMaterial color={C.ivory} kind="ivory" />
     </instancedMesh>
     <instancedMesh ref={particles} args={[null, null, 60]} frustumCulled={false}>
-      <cylinderGeometry args={[1, 1, .28, 8]} />
-      <meshPhysicalMaterial color={C.gold} roughness={.28} metalness={.82} clearcoat={.2} />
+      <boxGeometry args={[1, 1, 1]} />
+      <StudioMaterial color={C.brass} kind="steel" metalness={.15} />
     </instancedMesh>
-  </>;
+  </MinecraftPlinkoCabinet>;
 }
 function CameraAndClock({ controller, onLost, onLayout }) {
   const { camera, size, advance, gl } = useThree();
@@ -131,17 +101,12 @@ export default function PlinkoScene({ controller, reduced = false, onLayout }) {
   return <Boundary>{lost ? <div className="render-fallback">3D-контекст прерван. Расчёт шаров продолжается.</div> :
     <Canvas orthographic frameloop="never" shadows="percentage" dpr={[1, 1.6]}
       camera={CAMERA}
-      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+      gl={{ antialias: false, alpha: false, powerPreference: 'high-performance' }}
       fallback={<div className="render-fallback">Браузер не поддерживает WebGL.</div>}
-      onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}>
-      <StudioEnvironment intensity={.42} />
-      <ambientLight intensity={.2} />
-      <hemisphereLight args={['#e4e5e5', '#252930', .5]} />
-      <directionalLight position={[4, 8, 6]} intensity={2.5} color="#f5f7fa" castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024}
-        shadow-camera-left={-4} shadow-camera-right={4} shadow-camera-top={4} shadow-camera-bottom={-4} shadow-normalBias={.025} />
-      <directionalLight position={[-4, 3, -2]} intensity={.9} color="#c7d3df" />
-      <directionalLight position={[4, 1, -2]} intensity={.45} color="#d6dce4" />
-      <Board controller={controller} reduced={reduced} />
-      <CameraAndClock controller={controller} onLost={setLost} onLayout={onLayout} />
+      onCreated={({ gl }) => gl.setClearColor(C.black, 1)}>
+      <MinecraftStudioMaterials><StudioLights /><StudioBackdrop table={false} floor={-2.68} />
+        <Board controller={controller} reduced={reduced} />
+        <CameraAndClock controller={controller} onLost={setLost} onLayout={onLayout} />
+      </MinecraftStudioMaterials>
     </Canvas>}</Boundary>;
 }

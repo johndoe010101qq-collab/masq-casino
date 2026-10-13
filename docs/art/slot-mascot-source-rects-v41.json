@@ -1,0 +1,1054 @@
+{
+  "sourceRectFormat": "[x,y,width,height], actual native pixels",
+  "alphaThreshold": 16,
+  "foreignProofAlphaThreshold": 32,
+  "grid": {
+    "columns": 4,
+    "rows": 2,
+    "cellWidth": 313.5,
+    "cellHeight": 627
+  },
+  "analysisOnly": true,
+  "assets": {
+    "bonanza": {
+      "file": "slot-mascot-bonanza-v41.png",
+      "sha256": "6a34395cf2c6b7bb1abef35bc39db0efbdfeaa76782082b38eb90c01ff983f8e",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "componentCountAlpha16": 9,
+      "rowFootBaselineGlobalY": [
+        582,
+        1162
+      ],
+      "rowFootBaselineLocalY": [
+        582,
+        535.0
+      ],
+      "poses": [
+        {
+          "index": 0,
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            43,
+            113,
+            239,
+            469
+          ],
+          "expandedRect8": [
+            35,
+            105,
+            255,
+            485
+          ],
+          "actualGridOrigin": [
+            0.0,
+            0.0
+          ],
+          "columnCenterGlobalX": 156.75,
+          "groundAnchorGlobal": [
+            156.75,
+            582
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            113.75,
+            469
+          ],
+          "poseFootBottomExclusiveGlobalY": 582,
+          "mainComponentId": 2,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 1,
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            359,
+            111,
+            232,
+            469
+          ],
+          "expandedRect8": [
+            351,
+            103,
+            248,
+            485
+          ],
+          "actualGridOrigin": [
+            313.5,
+            0.0
+          ],
+          "columnCenterGlobalX": 470.25,
+          "groundAnchorGlobal": [
+            470.25,
+            582
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            111.25,
+            471
+          ],
+          "poseFootBottomExclusiveGlobalY": 580,
+          "mainComponentId": 1,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 2,
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            655,
+            123,
+            325,
+            456
+          ],
+          "expandedRect8": [
+            647,
+            115,
+            341,
+            472
+          ],
+          "actualGridOrigin": [
+            627.0,
+            0.0
+          ],
+          "columnCenterGlobalX": 783.75,
+          "groundAnchorGlobal": [
+            783.75,
+            582
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            128.75,
+            459
+          ],
+          "poseFootBottomExclusiveGlobalY": 579,
+          "mainComponentId": 4,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 3,
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            993,
+            113,
+            251,
+            467
+          ],
+          "expandedRect8": [
+            985,
+            105,
+            267,
+            483
+          ],
+          "actualGridOrigin": [
+            940.5,
+            0.0
+          ],
+          "columnCenterGlobalX": 1097.25,
+          "groundAnchorGlobal": [
+            1097.25,
+            582
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            104.25,
+            469
+          ],
+          "poseFootBottomExclusiveGlobalY": 580,
+          "mainComponentId": 3,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 4,
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            43,
+            669,
+            270,
+            493
+          ],
+          "expandedRect8": [
+            35,
+            661,
+            286,
+            509
+          ],
+          "actualGridOrigin": [
+            0.0,
+            627.0
+          ],
+          "columnCenterGlobalX": 156.75,
+          "groundAnchorGlobal": [
+            156.75,
+            1162
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            113.75,
+            493
+          ],
+          "poseFootBottomExclusiveGlobalY": 1162,
+          "mainComponentId": 5,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 5,
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            336,
+            671,
+            263,
+            490
+          ],
+          "expandedRect8": [
+            328,
+            663,
+            279,
+            506
+          ],
+          "actualGridOrigin": [
+            313.5,
+            627.0
+          ],
+          "columnCenterGlobalX": 470.25,
+          "groundAnchorGlobal": [
+            470.25,
+            1162
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            134.25,
+            491
+          ],
+          "poseFootBottomExclusiveGlobalY": 1161,
+          "mainComponentId": 6,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 2,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 6,
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            610,
+            709,
+            359,
+            452
+          ],
+          "expandedRect8": [
+            602,
+            701,
+            375,
+            468
+          ],
+          "actualGridOrigin": [
+            627.0,
+            627.0
+          ],
+          "columnCenterGlobalX": 783.75,
+          "groundAnchorGlobal": [
+            783.75,
+            1162
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            173.75,
+            453
+          ],
+          "poseFootBottomExclusiveGlobalY": 1161,
+          "mainComponentId": 7,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 7,
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            1014,
+            716,
+            193,
+            446
+          ],
+          "expandedRect8": [
+            1006,
+            708,
+            209,
+            462
+          ],
+          "actualGridOrigin": [
+            940.5,
+            627.0
+          ],
+          "columnCenterGlobalX": 1097.25,
+          "groundAnchorGlobal": [
+            1097.25,
+            1162
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            83.25,
+            446
+          ],
+          "poseFootBottomExclusiveGlobalY": 1162,
+          "mainComponentId": 8,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        }
+      ],
+      "allSourceRectsSafe": true,
+      "allExpanded8Safe": true
+    },
+    "maskhouse": {
+      "file": "slot-mascot-maskhouse-v41.png",
+      "sha256": "ab97a41810e2cf92cf983fddaadce4b818951ffcf6677a3023456fa65cf53c49",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "componentCountAlpha16": 8,
+      "rowFootBaselineGlobalY": [
+        544,
+        1152
+      ],
+      "rowFootBaselineLocalY": [
+        544,
+        525.0
+      ],
+      "poses": [
+        {
+          "index": 0,
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            48,
+            89,
+            227,
+            454
+          ],
+          "expandedRect8": [
+            40,
+            81,
+            243,
+            470
+          ],
+          "actualGridOrigin": [
+            0.0,
+            0.0
+          ],
+          "columnCenterGlobalX": 156.75,
+          "groundAnchorGlobal": [
+            156.75,
+            544
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            108.75,
+            455
+          ],
+          "poseFootBottomExclusiveGlobalY": 543,
+          "mainComponentId": 1,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 1,
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            359,
+            91,
+            222,
+            452
+          ],
+          "expandedRect8": [
+            351,
+            83,
+            238,
+            468
+          ],
+          "actualGridOrigin": [
+            313.5,
+            0.0
+          ],
+          "columnCenterGlobalX": 470.25,
+          "groundAnchorGlobal": [
+            470.25,
+            544
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            111.25,
+            453
+          ],
+          "poseFootBottomExclusiveGlobalY": 543,
+          "mainComponentId": 2,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 2,
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            658,
+            106,
+            296,
+            438
+          ],
+          "expandedRect8": [
+            650,
+            98,
+            312,
+            454
+          ],
+          "actualGridOrigin": [
+            627.0,
+            0.0
+          ],
+          "columnCenterGlobalX": 783.75,
+          "groundAnchorGlobal": [
+            783.75,
+            544
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            125.75,
+            438
+          ],
+          "poseFootBottomExclusiveGlobalY": 544,
+          "mainComponentId": 4,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 3,
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            969,
+            100,
+            273,
+            444
+          ],
+          "expandedRect8": [
+            961,
+            92,
+            289,
+            460
+          ],
+          "actualGridOrigin": [
+            940.5,
+            0.0
+          ],
+          "columnCenterGlobalX": 1097.25,
+          "groundAnchorGlobal": [
+            1097.25,
+            544
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            128.25,
+            444
+          ],
+          "poseFootBottomExclusiveGlobalY": 544,
+          "mainComponentId": 3,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 4,
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            36,
+            656,
+            267,
+            495
+          ],
+          "expandedRect8": [
+            28,
+            648,
+            283,
+            511
+          ],
+          "actualGridOrigin": [
+            0.0,
+            627.0
+          ],
+          "columnCenterGlobalX": 156.75,
+          "groundAnchorGlobal": [
+            156.75,
+            1152
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            120.75,
+            496
+          ],
+          "poseFootBottomExclusiveGlobalY": 1151,
+          "mainComponentId": 6,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 5,
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            352,
+            654,
+            260,
+            497
+          ],
+          "expandedRect8": [
+            344,
+            646,
+            276,
+            513
+          ],
+          "actualGridOrigin": [
+            313.5,
+            627.0
+          ],
+          "columnCenterGlobalX": 470.25,
+          "groundAnchorGlobal": [
+            470.25,
+            1152
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            118.25,
+            498
+          ],
+          "poseFootBottomExclusiveGlobalY": 1151,
+          "mainComponentId": 5,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 6,
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            631,
+            714,
+            315,
+            438
+          ],
+          "expandedRect8": [
+            623,
+            706,
+            331,
+            454
+          ],
+          "actualGridOrigin": [
+            627.0,
+            627.0
+          ],
+          "columnCenterGlobalX": 783.75,
+          "groundAnchorGlobal": [
+            783.75,
+            1152
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            152.75,
+            438
+          ],
+          "poseFootBottomExclusiveGlobalY": 1152,
+          "mainComponentId": 7,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 7,
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            980,
+            718,
+            222,
+            434
+          ],
+          "expandedRect8": [
+            972,
+            710,
+            238,
+            450
+          ],
+          "actualGridOrigin": [
+            940.5,
+            627.0
+          ],
+          "columnCenterGlobalX": 1097.25,
+          "groundAnchorGlobal": [
+            1097.25,
+            1152
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            117.25,
+            434
+          ],
+          "poseFootBottomExclusiveGlobalY": 1152,
+          "mainComponentId": 8,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        }
+      ],
+      "allSourceRectsSafe": true,
+      "allExpanded8Safe": true
+    },
+    "lexof": {
+      "file": "slot-mascot-lexof-v41.png",
+      "sha256": "b1b640133006895d55351d374d9dfdf3f96cb2f94dcc9035f3d05f9758891dd2",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "componentCountAlpha16": 15,
+      "rowFootBaselineGlobalY": [
+        505,
+        1085
+      ],
+      "rowFootBaselineLocalY": [
+        505,
+        458.0
+      ],
+      "grid": {
+        "columns": 4,
+        "rows": 2,
+        "cellWidth": 313.5,
+        "cellHeight": 627.0
+      },
+      "poses": [
+        {
+          "index": 0,
+          "row": 0,
+          "column": 0,
+          "sourceRect": [
+            109,
+            186,
+            162,
+            318
+          ],
+          "expandedRect8": [
+            101,
+            178,
+            178,
+            334
+          ],
+          "actualGridOrigin": [
+            0.0,
+            0.0
+          ],
+          "columnCenterGlobalX": 156.75,
+          "groundAnchorGlobal": [
+            156.75,
+            505
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            47.75,
+            319
+          ],
+          "poseFootBottomExclusiveGlobalY": 504,
+          "mainComponentId": 2,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 2,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 1,
+          "row": 0,
+          "column": 1,
+          "sourceRect": [
+            399,
+            185,
+            149,
+            319
+          ],
+          "expandedRect8": [
+            391,
+            177,
+            165,
+            335
+          ],
+          "actualGridOrigin": [
+            313.5,
+            0.0
+          ],
+          "columnCenterGlobalX": 470.25,
+          "groundAnchorGlobal": [
+            470.25,
+            505
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            71.25,
+            320
+          ],
+          "poseFootBottomExclusiveGlobalY": 504,
+          "mainComponentId": 1,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 2,
+          "row": 0,
+          "column": 2,
+          "sourceRect": [
+            692,
+            198,
+            210,
+            306
+          ],
+          "expandedRect8": [
+            684,
+            190,
+            226,
+            322
+          ],
+          "actualGridOrigin": [
+            627.0,
+            0.0
+          ],
+          "columnCenterGlobalX": 783.75,
+          "groundAnchorGlobal": [
+            783.75,
+            505
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            91.75,
+            307
+          ],
+          "poseFootBottomExclusiveGlobalY": 504,
+          "mainComponentId": 4,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 2,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 3,
+          "row": 0,
+          "column": 3,
+          "sourceRect": [
+            997,
+            190,
+            176,
+            315
+          ],
+          "expandedRect8": [
+            989,
+            182,
+            192,
+            331
+          ],
+          "actualGridOrigin": [
+            940.5,
+            0.0
+          ],
+          "columnCenterGlobalX": 1097.25,
+          "groundAnchorGlobal": [
+            1097.25,
+            505
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            100.25,
+            315
+          ],
+          "poseFootBottomExclusiveGlobalY": 505,
+          "mainComponentId": 3,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 4,
+          "row": 1,
+          "column": 0,
+          "sourceRect": [
+            96,
+            763,
+            166,
+            322
+          ],
+          "expandedRect8": [
+            88,
+            755,
+            182,
+            338
+          ],
+          "actualGridOrigin": [
+            0.0,
+            627.0
+          ],
+          "columnCenterGlobalX": 156.75,
+          "groundAnchorGlobal": [
+            156.75,
+            1085
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            60.75,
+            322
+          ],
+          "poseFootBottomExclusiveGlobalY": 1085,
+          "mainComponentId": 7,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 3,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 5,
+          "row": 1,
+          "column": 1,
+          "sourceRect": [
+            414,
+            763,
+            157,
+            321
+          ],
+          "expandedRect8": [
+            406,
+            755,
+            173,
+            337
+          ],
+          "actualGridOrigin": [
+            313.5,
+            627.0
+          ],
+          "columnCenterGlobalX": 470.25,
+          "groundAnchorGlobal": [
+            470.25,
+            1085
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            56.25,
+            322
+          ],
+          "poseFootBottomExclusiveGlobalY": 1084,
+          "mainComponentId": 8,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 2,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 6,
+          "row": 1,
+          "column": 2,
+          "sourceRect": [
+            683,
+            774,
+            208,
+            311
+          ],
+          "expandedRect8": [
+            675,
+            766,
+            224,
+            327
+          ],
+          "actualGridOrigin": [
+            627.0,
+            627.0
+          ],
+          "columnCenterGlobalX": 783.75,
+          "groundAnchorGlobal": [
+            783.75,
+            1085
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            100.75,
+            311
+          ],
+          "poseFootBottomExclusiveGlobalY": 1085,
+          "mainComponentId": 9,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 1,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        },
+        {
+          "index": 7,
+          "row": 1,
+          "column": 3,
+          "sourceRect": [
+            1008,
+            777,
+            158,
+            307
+          ],
+          "expandedRect8": [
+            1000,
+            769,
+            174,
+            323
+          ],
+          "actualGridOrigin": [
+            940.5,
+            627.0
+          ],
+          "columnCenterGlobalX": 1097.25,
+          "groundAnchorGlobal": [
+            1097.25,
+            1085
+          ],
+          "groundAnchorRelativeToSourceRect": [
+            89.25,
+            308
+          ],
+          "poseFootBottomExclusiveGlobalY": 1084,
+          "mainComponentId": 10,
+          "wholeBodyVisualCheck": true,
+          "groupComponentCount": 3,
+          "foreignAlpha32PixelsInSourceRect": 0,
+          "foreignAlpha32ComponentsInSourceRect": [],
+          "foreignAlpha32PixelsInExpandedRect8": 0,
+          "foreignAlpha32ComponentsInExpandedRect8": [],
+          "sourceRectSafe": true,
+          "expanded8Safe": true
+        }
+      ],
+      "allSourceRectsSafe": true,
+      "allExpanded8Safe": true
+    }
+  },
+  "rendering": "ONE common scale per character. Place rect at [originX+(rect.x-columnCenterX)*scale,groundY+(rect.y-rowFootBaselineGlobalY)*scale], size [rect.w*scale,rect.h*scale]. No individual fit, stretch or bbox recenter. Preserve source cell center X and shared row ground baseline.",
+  "allSourceRectsSafe": true,
+  "allExpanded8Safe": true,
+  "finalSpriteFiles": {
+    "bonanza": "slot-mascot-bonanza-v41.png",
+    "maskhouse": "slot-mascot-maskhouse-v41.png",
+    "lexof": "slot-mascot-lexof-v41.png"
+  }
+}

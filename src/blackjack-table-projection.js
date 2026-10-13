@@ -106,6 +106,16 @@ function cardMatrix(corners) {
   ]);
 }
 
+function projectedCard(index, side, worldCenter, angle, worldCorners) {
+  const corners = worldCorners.map(projectBlackjackTablePoint);
+  const matrix3d = cardMatrix(corners);
+  return freeze({
+    index, side, rect, corners, worldCorners, matrix3d,
+    cssTransform: `matrix3d(${matrix3d.join(',')})`,
+    center: projectBlackjackTablePoint(worldCenter), worldCenter: { ...worldCenter }, angle,
+  });
+}
+
 function cardGeometry(index, side, worldCenter, angle) {
   const cos = Math.cos(angle), sin = Math.sin(angle);
   const halfWidth = cardSize.worldWidth / 2, halfHeight = cardSize.worldHeight / 2;
@@ -115,13 +125,7 @@ function cardGeometry(index, side, worldCenter, angle) {
       y: worldCenter.y,
       z: worldCenter.z - sin * x + cos * z,
     }));
-  const corners = worldCorners.map(projectBlackjackTablePoint);
-  const matrix3d = cardMatrix(corners);
-  return freeze({
-    index, side, rect, corners, worldCorners, matrix3d,
-    cssTransform: `matrix3d(${matrix3d.join(',')})`,
-    center: projectBlackjackTablePoint(worldCenter), worldCenter: { ...worldCenter }, angle,
-  });
+  return projectedCard(index, side, worldCenter, angle, worldCorners);
 }
 
 /** All actual cards remain on the felt, including compressed 21-card hands. */
@@ -162,4 +166,61 @@ export function blackjackTableCardFlight(card, progress, {
   };
   const sourceAngle = table.shoe.yaw + Math.PI / 2;
   return cardGeometry(card.index, card.side, center, sourceAngle + (card.angle - sourceAngle) * amount);
+}
+
+/** The leading short edge begins at the actual shoe mouth, with its body
+ * inside the shoe. The renderer exposes only the extracted fraction. */
+export function blackjackTableCardExtraction(card, progress, handOrigin = BLACKJACK_TABLE_SCENE.shoe) {
+  if (!card?.worldCenter) throw new TypeError('A projected table card is required.');
+  const t = Number.isFinite(progress) ? Math.max(0, Math.min(1, progress)) : 0;
+  const amount = t * t * (3 - 2 * t);
+  const angle = table.shoe.yaw + Math.PI / 2;
+  const mouth = screenPointAtHeight(BLACKJACK_TABLE_SCENE.shoe, table.shoe.mouth[1]);
+  const target = screenPointAtHeight(handOrigin, table.shoe.mouth[1]);
+  const start = { x: mouth.x + Math.sin(angle) * cardSize.worldHeight / 2,
+    y: mouth.y, z: mouth.z + Math.cos(angle) * cardSize.worldHeight / 2 };
+  const center = { x: start.x + (target.x - start.x) * amount,
+    y: start.y + (target.y - start.y) * amount,
+    z: start.z + (target.z - start.z) * amount };
+  return cardGeometry(card.index, card.side, center, angle);
+}
+
+/** Lift and turn a card around its longitudinal axis in the source world.
+ * The two sides meet at the camera's exact edge angle, avoiding a CSS-only
+ * squeeze that ignores the felt's perspective. Identity endpoints keep the
+ * existing hand layout unchanged. No card identity enters this calculation. */
+export function blackjackTableCardTurn(card, faceProgress, { reducedMotion = false, lift = .35 } = {}) {
+  if (!card?.worldCenter || !Number.isFinite(card.angle)) throw new TypeError('A projected table card is required.');
+  if (reducedMotion) return card;
+  const t = Number.isFinite(faceProgress) ? Math.max(0, Math.min(1, faceProgress)) : 0;
+  if (t === 0 || t === 1) return card;
+  const phase = Math.sin(Math.PI * t);
+  const cos = Math.cos(card.angle), sin = Math.sin(card.angle);
+  const extraLift = Math.max(0, Math.min(2, Number.isFinite(lift) ? lift : .35));
+  const center = { ...card.worldCenter };
+  const dx = cameraPosition.x - center.x, dz = cameraPosition.z - center.z;
+  // A truly edge-on quadrilateral is singular. This sub-pixel thickness keeps
+  // the CSS homography finite at the disclosure frame while looking edge-on.
+  let turn = 0;
+  for (let iteration = 0; iteration < 4; iteration++) {
+    const edge = Math.atan2(cameraPosition.y - center.y, cos * dx - sin * dz);
+    turn = Math.max(0, edge * phase - .00008 * phase ** 16);
+    center.y = card.worldCenter.y + cardSize.worldWidth / 2 * Math.abs(Math.sin(turn)) + extraLift * phase;
+  }
+  const widthX = cos * Math.cos(turn), widthY = Math.sin(turn), widthZ = -sin * Math.cos(turn);
+  const worldCorners = [[-cardSize.worldWidth / 2, -cardSize.worldHeight / 2],
+    [cardSize.worldWidth / 2, -cardSize.worldHeight / 2],
+    [cardSize.worldWidth / 2, cardSize.worldHeight / 2],
+    [-cardSize.worldWidth / 2, cardSize.worldHeight / 2]].map(([x, z]) => ({
+      x: center.x + widthX * x + sin * z,
+      y: center.y + widthY * x,
+      z: center.z + widthZ * x + cos * z,
+    }));
+  return projectedCard(card.index, card.side, center, card.angle, worldCorners);
+}
+
+/** A lifted card's shadow remains on the felt rather than following its face. */
+export function blackjackTableCardShadow(card) {
+  if (!card?.worldCenter || !Number.isFinite(card.angle)) throw new TypeError('A projected table card is required.');
+  return cardGeometry(card.index, card.side, { ...card.worldCenter, y: table.top + .003 }, card.angle);
 }

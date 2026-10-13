@@ -1,6 +1,7 @@
 // Copy to indictus-site/tests unchanged. Reads live source and writes no Site files.
 import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
 const local=new URL('../src/UpgraderHacker.jsx',import.meta.url);
 const site=existsSync(local)?new URL('../',import.meta.url):new URL('../../indictus-site/',import.meta.url);
 const {upgradeTerminalPose,terminalCode}=await import(new URL('src/upgrader-presentation.js',site));
@@ -9,16 +10,10 @@ const {default:GameMath}=await import(new URL('src/game-math.js',site));
 const {createRoundPlayback}=await import(new URL('src/RoundPlayback.js',site));
 const {default:React}=await import(new URL('node_modules/react/index.js',site));
 const {renderToStaticMarkup}=await import(new URL('node_modules/react-dom/server.node.js',site));
-const {transformWithOxc}=await import(new URL('node_modules/vite/dist/node/index.js',site));
-const {default:postcss}=await import(new URL('node_modules/postcss/lib/postcss.mjs',site));
+const {createServer}=await import(new URL('node_modules/vite/dist/node/index.js',site));
 let checks=0;const eq=(a,b,message)=>{checks++;assert.deepEqual(a,b,message);},ok=(value,message)=>{checks++;assert(value,message);};
-const source=readFileSync(new URL('src/UpgraderHacker.jsx',site),'utf8')
- .replace(/import ['"]\.\/[^'"\n]+\.css['"];?\n/g,'')
- .replace(/from ['"]react['"]/g,'from '+JSON.stringify(new URL('node_modules/react/index.js',site).href))
- .replace(/from ['"]\.\/upgrader-presentation\.js['"]/g,'from '+JSON.stringify(new URL('src/upgrader-presentation.js',site).href))
- .replaceAll('import.meta.env.BASE_URL',JSON.stringify('/'));
-const transformed=await transformWithOxc(source,'UpgraderHacker.jsx',{jsx:{runtime:'classic'}});
-const {default:UpgraderHacker}=await import('data:text/javascript;base64,'+Buffer.from(transformed.code).toString('base64'));
+const loader=await createServer({root:fileURLToPath(site),configFile:false,server:{middlewareMode:true,hmr:false,ws:false},appType:'custom'});
+const {default:UpgraderHacker}=await loader.ssrLoadModule('/src/UpgraderHacker.jsx');
 const html=props=>renderToStaticMarkup(React.createElement(UpgraderHacker,props));
 
 // The actual rendered DOM, including status/class/styles, is identical for
@@ -50,21 +45,11 @@ for(const [won,phrase] of [[true,'ACCESS GRANTED'],[false,'ACCESS DENIED']]){
 }
 ok(html({round:null,progress:1,playing:true,reduced:true}).includes('Готов к взлому'),'No round stays idle');
 
-// Raster placement: the transparent mask uses a complete PNG, not an atlas
-// crop, and the overlay fits the blank monitor area of the 3:2 scene.
-const png=readFileSync(new URL('public/upgrader-hacker-terminal.png',site));
-eq(png.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
-eq(png.readUInt32BE(16)/png.readUInt32BE(20),1.5,'Scene matches workstation aspect ratio');
-ok(existsSync(new URL('public/anonymous-mask-minimal.png',site)),'Complete identity PNG exists');
+// The live Minecraft monitor replaces the obsolete raster cabinet. SSR proves
+// its public outcome text; material/3D layout is verified in a real browser.
 const idle=html({round:null,progress:0,playing:false});
-ok(idle.includes('/upgrader-hacker-terminal.png')&&idle.includes('/anonymous-mask-minimal.png'),'Correct raster assets rendered');
-ok(!idle.includes('<svg')&&!idle.includes('atlas'),'No vector or sprite crop');
-const css=postcss.parse(readFileSync(new URL('src/UpgraderHacker.css',site),'utf8'));
-const screen=css.nodes.find(node=>node.type==='rule'&&node.selector==='.hacker-screen');
-const declarations=Object.fromEntries(screen.nodes.filter(n=>n.type==='decl').map(n=>[n.prop,n.value]));
-const percent=property=>parseFloat(declarations[property])/100;
-ok(percent('left')>=.18&&1-percent('right')<=.82,'Overlay stays within monitor horizontally');
-ok(percent('top')>=.10&&percent('top')+percent('height')<=.62,'Overlay stays within monitor vertically');
+ok(idle.includes('data-minecraft-game="upgrader"'),'Live shared studio mounted');
+ok(!idle.includes('<svg')&&!idle.includes('atlas')&&!idle.includes('<img'),'No vector, painted cabinet, or sprite crop');
 
 // Clock paths use the actual Hall ledger. Skip, reduced motion, hidden tabs,
 // unmount and late frames must not draw a new ticket or duplicate the credit.
@@ -94,4 +79,5 @@ for(const target of [1.5,2,4,8])for(const stake of [5,250])for(const winning of 
  eq(session.getReserveSnapshot().bankCents,bankBefore+round.chargeCents-round.payoutCents,'Exact one-time bank debit');
  eq(session.getSnapshot().activeCount,0);clockPaths++;
 }
-console.log(JSON.stringify({passed:true,checks,clockPaths,scope:'Live terminal SSR pre-reveal equivalence, bounded display data/PNG placement, and paid Hall clock lifecycle with skip/reduced/hidden/unmount/idempotent credit'}));
+await loader.close();
+console.log(JSON.stringify({passed:true,checks,clockPaths,scope:'Live Minecraft terminal SSR pre-reveal equivalence, bounded display data, and paid Hall clock lifecycle with skip/reduced/hidden/unmount/idempotent credit; 3D appearance checked separately'}));

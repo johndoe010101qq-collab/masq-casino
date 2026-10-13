@@ -1,0 +1,104 @@
+.mc-slot-scene{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#09120f}
+.mc-slot-backdrop{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;display:block;object-fit:contain}
+.mc-slot-header-crop,.mc-slot-footer-crop{display:none}
+.mc-slot-mascot{position:absolute;left:1.2%;bottom:17%;width:25%;z-index:1;pointer-events:none}
+.mc-slot-mascot-sprite{display:block;width:100%;aspect-ratio:var(--mc-mascot-ratio,.5);background-size:400% 200%;background-repeat:no-repeat;filter:drop-shadow(0 12px 10px #0007)}
+.mc-slot-mascot[data-pose='idle']:not([data-reduced='true']) .mc-slot-mascot-sprite{animation:mc-raster-idle 8s steps(1,end) infinite}
+.mc-slot-mascot[data-pose='win']:not([data-reduced='true']) .mc-slot-mascot-sprite{animation:mc-raster-win 2.8s steps(1,end) both}
+.mc-slot-mascot[data-pose='bonus']:not([data-reduced='true']) .mc-slot-mascot-sprite{animation:mc-raster-bonus 2.7s steps(1,end) infinite}
+.mc-slot-mascot[data-pose='loss']:not([data-reduced='true']) .mc-slot-mascot-sprite{animation:mc-raster-loss 2.8s steps(1,end) both}
+.mask-slot-stage[data-playback-paused='true'] .mc-slot-mascot-sprite,.bonanza-slot[data-playback-paused='true'] .mc-slot-mascot-sprite{animation-play-state:paused!important}
+@keyframes mc-raster-idle{0%,87%,92%,100%{background-position:0 0}88%,91%{background-position:33.333333% 0}}
+@keyframes mc-raster-win{0%,24%,50%,76%,100%{background-position:0 100%}12%,38%,64%,88%{background-position:33.333333% 100%}}
+@keyframes mc-raster-bonus{0%,100%{background-position:100% 0}25%,75%{background-position:0 100%}50%{background-position:33.333333% 100%}}
+@keyframes mc-raster-loss{0%,30%,60%,100%{background-position:66.666667% 100%}15%,45%,75%{background-position:100% 100%}}
+@media(prefers-reduced-motion:reduce){.mc-slot-mascot-sprite{animation:none!important;filter:none}}
+.mc-slot-emblem{object-fit:contain!important;border-radius:0!important;image-rendering:auto}
+.minecraft-slot-v36.maskhouse{--mc-stage-fill:#351421;--mc-stage-glow:#e1b875;--mc-stage-edge:#bd955c;--mc-stage-paper:#fff0d4}
+.minecraft-slot-v36.lecipher{--mc-stage-fill:#112438;--mc-stage-glow:#d8bb77;--mc-stage-edge:#aa995f;--mc-stage-paper:#edf2e5}
+.minecraft-slot-v36.bonanza-slot{--mc-stage-fill:#123944;--mc-stage-glow:#a3e5dd;--mc-stage-edge:#c5b179;--mc-stage-paper:#f1fff3}
+.indictus-app .minecraft-slot-v36 .mask-reel-window{background:transparent;border-color:#e9d6ae15}
+.indictus-app .minecraft-slot-v36 :is(.mask-token-mark,.mask-wild-mark,.slot-bomb-value){background:var(--mc-stage-fill);border-color:var(--mc-stage-edge);color:var(--mc-stage-paper)}
+.indictus-app .minecraft-slot-v36 :is(.mask-bonus-card,.bonanza-announcement){background:color-mix(in srgb,var(--mc-stage-fill) 96%,transparent);border-color:var(--mc-stage-edge)}
+.indictus-app .minecraft-slot-v36 :is(.mask-bonus-card>strong,.bonanza-announcement>strong){color:var(--mc-stage-glow)}
+.indictus-app .mc-slot-bonus-dialog{background:#0e2018;border:1px solid #789278;border-radius:5px;color:#e4ebdc;box-shadow:0 24px 80px #0009}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-card{border:1px solid #38533c;border-radius:3px;background:#162b20;box-shadow:0 4px 0 #09180f}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-art{background:linear-gradient(180deg,#22382a,#162b20);border:0;border-bottom:1px solid #38533c;border-radius:0;overflow:hidden}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-art .mc-slot-emblem{width:100%;height:100%;max-height:145px;object-fit:contain;padding:10px;filter:drop-shadow(0 5px 1px #07140a66)}
+.indictus-app .mc-slot-bonus-dialog :is(.slot-bonus-copy h3,.slot-shop-heading h2){color:#e4ebdc;font-family:var(--ds-font-display,'Barlow Condensed'),sans-serif;text-shadow:none}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-copy p{color:#abc2ac}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-price{color:#c7e7c7;font-family:var(--ds-font-display,'Barlow Condensed'),sans-serif}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-cta{border:1px solid #b6d5b9;border-radius:3px;background:#9dd9b9;color:#0a1c11;box-shadow:0 3px 0 #34553d}
+.indictus-app .mc-slot-bonus-dialog .slot-bonus-cta:disabled{color:#8da28e;background:#283d2f;border-color:#38533c;box-shadow:none}
+
+/* The cabinet and public DOM cells use one measured scene rectangle. Their
+   mathematics, independent reels, sticky layer and accepted credit labels stay
+   in the original presentation; this file replaces the older artwork only. */
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-slot-stage,.bonanza-cabinet){aspect-ratio:var(--mc-stage-aspect,8/5);min-height:0;max-height:none;width:100%;padding:0;margin:0;position:relative;display:block;overflow:hidden;isolation:isolate;container-type:inline-size;border:1px solid #425647;border-radius:5px 5px 0 0;background:#09120f;background-image:none;box-shadow:0 12px 38px #0005}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-slot-grid,.bonanza-field-shell){position:absolute;inset:var(--mc-board-top) var(--mc-board-right) var(--mc-board-bottom) var(--mc-board-left);width:auto;height:auto;max-width:none;margin:0;padding:2px;border:0;border-radius:0;box-shadow:none;background:transparent;z-index:2;overflow:hidden;container-type:inline-size}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-slot-grid{display:grid;gap:1px}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-reel-window{border:0;border-left:1px solid #a2b69a15;border-radius:0;background:transparent}
+.indictus-app.indictus-app .minecraft-slot-v36 .slot-grid{height:100%;width:100%;aspect-ratio:auto;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(16.66667% - 1px),#a2b69a15 calc(16.66667% - 1px),#a2b69a15 16.66667%)}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-slot-cell,.slot-cell){padding:0;border-radius:0;container-type:size;display:flex;align-items:center;justify-content:center}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-slot-cell .mask-slot-symbol,.mask-slot-cell .mask-collection-glyph,.slot-cell .slot-sprite){flex:0 0 auto;width:min(100cqw,100cqh);height:min(100cqw,100cqh);aspect-ratio:1;max-width:none;max-height:none;object-fit:contain;filter:drop-shadow(0 4px 1px #0006);image-rendering:auto}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-cabinet-title,.bonanza-heading){top:var(--mc-title-top);left:var(--mc-title-left);right:var(--mc-title-right);padding:0;margin:0;color:#e4ebdc;z-index:3;pointer-events:none;text-align:center;display:block;text-transform:none;font:800 clamp(16px,2.8cqw,38px)/1.1 var(--ds-font-display,'Barlow Condensed'),sans-serif;letter-spacing:.02em;text-shadow:0 2px 0 #06120b;filter:none}
+.indictus-app.indictus-app .minecraft-slot-v36 .bonanza-heading h2{margin:0;color:inherit;-webkit-text-fill-color:inherit;-webkit-text-stroke:0;background:none;text-transform:none;letter-spacing:inherit;line-height:inherit;font:inherit;text-shadow:inherit}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-readout,.bonanza-readout){position:absolute;left:26%;right:6.5%;bottom:2.2%;width:auto;height:14.5%;margin:0;padding:0;z-index:4;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;border:0;background:none;text-shadow:0 2px 0 #05140c;color:#e4ebdc;pointer-events:none}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-total,.bonanza-win-total){display:flex;gap:12px;align-items:baseline}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-total>span,.bonanza-win-total>span){font:700 clamp(11px,1.7cqw,20px)/1 var(--ds-font-body,Arial),sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#a1b5a4;text-shadow:none}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-total>strong,.bonanza-win-total>strong){margin:0;font:800 clamp(24px,4.3cqw,52px)/1 var(--ds-font-display,'Barlow Condensed'),sans-serif;letter-spacing:-.025em;color:#e4ebdc;text-shadow:0 2px 0 #041209;font-variant-numeric:tabular-nums}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-total small,.bonanza-win-total small){font-size:.48em;color:#9dd9b9}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-detail,.bonanza-win-detail){font:500 clamp(10px,1.4cqw,16px)/1.2 var(--ds-font-body,Arial),sans-serif;color:#adbeae;min-height:22px}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-detail b,.bonanza-win-detail b){color:#d4e6d6}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-token-mark,.mask-wild-mark,.slot-bomb-value){padding:3px 4px;border:1px solid #8aa487;border-radius:1px;background:#0b1e16ed;color:#d9e8d5;box-shadow:0 2px 0 #04110b;font:800 clamp(10px,1.7cqw,21px)/1 var(--ds-font-display,'Barlow Condensed'),sans-serif;text-shadow:none;font-variant-numeric:tabular-nums}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-cell-win,.slot-cell.winning::before){border:1px solid #b2dcac;background:#87b49416;box-shadow:inset 0 0 14px #c0e8ae20;border-radius:0}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-sticky-fixed{border:2px solid #bca777;background:#a6b58912;box-shadow:inset 0 0 0 1px #142b1c;border-radius:0}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-golden-grid{inset:2px}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-golden-cell{border-radius:0;background:#b69d486b;border-color:#cfba83;box-shadow:inset 0 0 0 2px #8f7c3d}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-free-count,.bonanza-status){position:absolute;left:3%;right:auto;top:4%;width:20%;padding:0;margin:0;border:0;background:none;box-shadow:none;z-index:5}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-free-count{display:flex;gap:9px;align-items:center;min-height:44px;padding:8px;border:1px solid #668268;border-radius:2px;background:#091c15ed;font-size:clamp(10px,1.4cqw,16px)}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-free-count strong{font:800 clamp(24px,4cqw,44px)/1 var(--ds-font-display,'Barlow Condensed'),sans-serif;color:#bce2b9}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-free-count small{font-size:clamp(8px,1cqw,11px);color:#b3c7b4}
+.indictus-app.indictus-app .minecraft-slot-v36 .bonus-spin-counter{min-width:0;width:100%;background:#091c15ed;border:1px solid #668268;border-radius:2px;box-shadow:none;color:#bce2b9}
+.indictus-app.indictus-app .minecraft-slot-v36 .bonus-spin-counter strong{color:#bce2b9}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-bonus-card,.bonanza-announcement){background:#0b2117f5;border:1px solid #a2be8b;border-radius:2px;box-shadow:0 7px 0 #030e0980;color:#e4ebdc}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-bonus-card{left:30%;right:10%;top:27%;padding:18px;font-family:var(--ds-font-display,'Barlow Condensed'),sans-serif}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-bonus-card>strong,.bonanza-announcement>strong){color:#bce2b9;text-shadow:0 2px 0 #07110a;font-family:var(--ds-font-display,'Barlow Condensed'),sans-serif}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-award-tiles b{background:#233c2c;border:1px solid #a7be95;border-radius:1px;color:#e4ebdc;box-shadow:0 3px 0 #09170d}
+.indictus-app.indictus-app .minecraft-slot-v36 .bonanza-announcement::before,.indictus-app.indictus-app .minecraft-slot-v36 .bonanza-announcement::after{display:none}
+.indictus-app.indictus-app .minecraft-slot-v36 .bonus-eyebrow{color:#bfd9bd!important;letter-spacing:.1em!important}
+.indictus-app.indictus-app .minecraft-slot-v36 .lexof-rainbow-feature{left:26%;right:6.5%;top:29%}
+.indictus-app.indictus-app .minecraft-slot-v36 .lexof-rainbow-feature strong{border-radius:1px;border-color:#9cb790;background:#132e1e;color:#d8eacb}
+.indictus-app.indictus-app .minecraft-slot-v36 .mask-buy-button:hover:enabled::after{animation:none}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-purchase,.slot-purchase-dialog,.slot-rules-dialog,.bonanza-entrance-dialog){background:#0e2018;border:1px solid #7b987c;border-radius:5px;color:#e4ebdc;box-shadow:0 26px 100px #000a}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.entrance-rule-panel,.mask-purchase-terms){background:#162b1f;border-color:#36523d;border-radius:2px}
+.indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-purchase-actions .primary,.entrance-continue,.purchase-confirm){background:#9dd9b9;color:#0c2115;border:1px solid #c4e4cc;border-radius:3px;box-shadow:0 3px 0 #345940}
+@media(max-width:760px){
+ .mc-slot-backdrop{width:var(--mc-mobile-image-width);left:var(--mc-mobile-image-left);top:var(--mc-mobile-image-top);height:auto;clip-path:inset(var(--mc-board-top) 0 0)}
+ .mc-slot-scene{background:linear-gradient(180deg,#13261c,#09140f)}
+ /* The top-only crop stops above the empty felt in every native cabinet.
+    Enlarged actors share the real grid's upper edge as their ground line. */
+ .mc-slot-header-crop{display:block;position:absolute;top:0;left:0;right:0;height:31.5%;background-size:360% auto;background-position:56% top;z-index:0}
+ .mc-slot-footer-crop{display:block;position:absolute;bottom:0;left:0;right:0;height:17%;background-size:var(--mc-mobile-image-width) auto;background-position:center bottom;z-index:0}
+ .mc-slot-mascot{bottom:auto;top:-18.55%;left:0;width:auto;height:52%;aspect-ratio:var(--mc-mascot-ratio,.5)}
+ .mc-slot-scene[data-world='maskhouse'] .mc-slot-mascot{top:-10.85%;height:44%}
+ .mc-slot-scene[data-world='lecipher'] .mc-slot-mascot{top:-14.7%;height:48%}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-slot-stage,.bonanza-cabinet){aspect-ratio:var(--mc-mobile-aspect,1/1.13);min-height:0;max-height:none}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-slot-grid,.bonanza-field-shell){inset:31.5% 6.5% 19%;padding:1px}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-cabinet-title,.bonanza-heading){top:10%;left:34%;right:6.5%;font-size:clamp(19px,5.6cqw,30px)}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-readout,.bonanza-readout){left:6.5%;right:6.5%;bottom:2%;height:14.5%;gap:3px}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-total>strong,.bonanza-win-total>strong){font-size:clamp(26px,8cqw,40px)}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-total>span,.bonanza-win-total>span){font-size:12px;letter-spacing:.06em}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.slot-win-detail,.bonanza-win-detail){font-size:10px;min-height:20px;gap:5px}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-free-count,.bonanza-status){left:37%;top:20.5%;width:55%;min-height:30px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .mask-free-count{gap:8px;padding:5px 8px;font-size:11px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .mask-free-count strong{font-size:24px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .mask-free-count small{font-size:9px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .bonus-spin-counter{display:flex;flex-direction:row;justify-content:space-between;gap:8px;padding:4px 8px;min-height:30px;font-size:11px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .bonus-spin-counter strong{font-size:24px}.indictus-app.indictus-app .minecraft-slot-v36 .bonus-spin-counter span{font-size:10px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .mask-bonus-card{inset:32% 10% auto;font-size:23px;padding:13px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .mask-bonus-card>strong{font-size:48px}.indictus-app.indictus-app .minecraft-slot-v36 .mask-bonus-emblem{width:50px;height:50px;margin-bottom:5px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .mask-award-tiles{max-width:148px;margin-top:9px;gap:4px}.indictus-app.indictus-app .minecraft-slot-v36 .mask-award-tiles b{font-size:25px}
+ .indictus-app.indictus-app .minecraft-slot-v36 :is(.mask-token-mark,.mask-wild-mark,.slot-bomb-value){font-size:10px;padding:2px 1px}
+ .indictus-app.indictus-app .minecraft-slot-v36 .lexof-rainbow-feature{left:6.5%;right:6.5%;top:35%}
+}

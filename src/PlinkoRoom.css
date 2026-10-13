@@ -1,1 +1,16 @@
-.plinko-room{align-items:start}.plinko-stage{min-height:480px}.plinko-canvas{inset:47px 14px 46px}.plinko-static-rates{position:absolute;left:22px;right:22px;bottom:15px;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:3px;text-align:center;color:#aeb5bf;font-size:12px;font-variant-numeric:tabular-nums}.plinko-static-rates>span{padding:5px 1px;border-top:1px solid #414853}.plinko-bet{min-height:300px}.plinko-stake-tools{display:flex;gap:8px;align-items:center}.plinko-stake-tools button{width:44px;height:42px;border:1px solid #414b5c!important;border-radius:3px;background:#1c232d;font-size:22px}.plinko-stake-tools output{flex:1;text-align:center;font-size:20px;font-variant-numeric:tabular-nums;color:#eee5d8}.plinko-limit,.plinko-flight-status{margin:0;color:#97a3b2;font-size:13px;line-height:1.6}.plinko-play{width:100%;min-height:46px;background:#96343f;border-radius:3px;font-weight:700;cursor:pointer}.plinko-play:hover:enabled{background:#aa3b47}.plinko-flight-status{color:#c6bba9}.plinko-receipts{grid-column:1/-1;padding:17px 20px;border:1px solid #343b47;border-radius:4px;background:#11141a}.plinko-latest{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px 20px;color:#dfd4c6;font-size:14px}.plinko-latest strong{font-weight:400}.plinko-latest small{flex-basis:100%;color:#969faa;font-size:13px}.plinko-receipt{display:flex;justify-content:space-between;gap:15px;padding-top:10px;margin-top:10px;border-top:1px solid #29303b;color:#96a1af;font-size:13px;font-variant-numeric:tabular-nums}.plinko-room .error-banner{margin:0;color:#dfa2aa;font-size:13px}@media(max-width:650px){.plinko-stage{min-height:405px}.plinko-canvas{inset:43px 5px 47px}.plinko-static-rates{left:13px;right:13px;font-size:11px}.plinko-bet{min-height:0}.plinko-receipts{padding:15px}.plinko-latest{font-size:13px}.plinko-latest small{font-size:12px}}@media(max-width:360px){.plinko-stage{min-height:370px}}
+.plinko-room { align-items:start; }
+.plinko-stage { min-height:480px; }
+.app-shell36 .plinko-stage .plinko-canvas { position:relative; inset:auto; width:100%; height:auto; min-height:0; aspect-ratio:1.18; }
+.plinko-render { position:absolute; inset:0; }
+.plinko-bin-labels { position:absolute; inset:0; pointer-events:none; }
+.plinko-bin-label { position:absolute; display:grid; place-items:center; width:var(--bin-width); transform:translateX(-50%); color:#e4ebdc; font-size:clamp(9px,1.2vw,13px); font-weight:650; font-variant-numeric:tabular-nums; line-height:1; white-space:nowrap; text-shadow:0 1px 1px #000; }
+.plinko-bin-edge { color:#ddd5ad; }
+.plinko-bet { min-height:300px; }
+.plinko-stake-tools { display:flex; gap:8px; align-items:center; }
+.plinko-stake-tools button { width:44px; height:42px; border:1px solid #63846d66; border-radius:3px; background:#263d31; color:#d9e7ce; font-size:22px; }
+.plinko-stake-tools output { flex:1; text-align:center; font-size:20px; font-variant-numeric:tabular-nums; color:#e4ebdc; }
+.plinko-limit,.plinko-flight-status { margin:0; color:#93aa9a; font-size:12px; line-height:1.6; }
+.plinko-play { width:100%; min-height:46px; border-radius:3px; font-weight:700; cursor:pointer; }
+.plinko-flight-status { color:#c2d7c5; }
+.plinko-room .error-banner { margin:0; color:#dfa2aa; font-size:13px; }
+@media(max-width:650px) { .plinko-stage { min-height:0; } .app-shell36 .plinko-stage .plinko-canvas { aspect-ratio:1.04; } .plinko-bet { min-height:0; } .plinko-bin-label { font-size:10px; } }

@@ -1,0 +1,200 @@
+@font-face{font-family:MasqGolos;src:url('/fonts/Masq-GolosText-Variable.ttf') format('truetype');font-style:normal;font-weight:400 900;font-display:swap}
+@font-face{font-family:MasqFallback;src:url('/fonts/Manrope-Variable.ttf') format('truetype');font-style:normal;font-weight:200 800;font-display:swap}
+.app-shell36{
+ --ds-bg:#0e1415;--ds-surface:#151f21;--ds-panel:#263738;--ds-paper:#f1ead8;
+ --ds-muted:#a4b3ad;--ds-positive:#90cbbb;--ds-gold:#d6b46e;--ds-ink:#050a0b;
+ --ds-accent:#376e62;--ds-accent-hover:#467e70;--ds-border:#415451;
+ --ds-line:#a4b3ad29;--ds-radius:4px;--ds-font-body:MasqGolos,MasqFallback,Arial,sans-serif;
+ --ds-font-display:var(--ds-font-body);--ui-font:var(--ds-font-body);--display:var(--ds-font-body);
+ --game-accent:var(--ds-accent);--game-accent-light:var(--ds-positive);--game-panel:var(--ds-surface);
+ --red:#376e62;--red-hover:#467e70;--text:#f1ead8;--muted:#a4b3ad;--side:208px;
+ min-height:100svh;background:#0e1415;color:var(--ds-paper);font:14px/1.5 var(--ds-font-body);color-scheme:dark;
+ background-image:linear-gradient(90deg,#90cbbb02 1px,transparent 1px),linear-gradient(#90cbbb02 1px,transparent 1px);background-size:64px 64px;
+}
+.app-shell36 *{box-sizing:border-box}
+.app-shell36 button,.app-shell36 input,.app-shell36 select{font-family:var(--ds-font-body)}
+.app-shell36 button:enabled{cursor:pointer}.app-shell36 button:disabled{opacity:.42;cursor:default}
+.app-shell36 :focus-visible{outline:2px solid var(--ds-positive);outline-offset:4px}
+.app-shell36 h1,.app-shell36 h2,.app-shell36 h3{font-family:var(--ds-font-body);font-weight:750;letter-spacing:-.04em;color:var(--ds-paper)}
+.app-shell36 .indictus-header{position:sticky;top:0;z-index:50;min-height:72px;height:72px;padding:12px 28px;gap:24px;background:#101c1ddd;border-bottom:1px solid #90cbbb24;backdrop-filter:blur(18px)}
+.app-shell36 .hall-brand{display:flex;align-items:center;gap:13px;background:none;min-width:152px;text-decoration:none}
+.app-shell36 .wordmark{font:900 27px/1 var(--ds-font-body);letter-spacing:-.07em;color:var(--ds-paper)}
+.app-shell36 .wordmark>span{color:var(--ds-positive)}
+.masq-mark{position:relative;display:block;width:36px;height:38px;flex:none;filter:drop-shadow(0 3px 0 #030908);isolation:isolate}
+.masq-mark i{position:absolute;display:block;image-rendering:pixelated;background-image:url('/masq-dealer-skin-v36.png');background-size:800% 800%;background-repeat:no-repeat}
+.masq-mark-front{width:27px;height:29px;left:0;top:8px;background-position:14.2857% 14.2857%;clip-path:polygon(0 0,100% 0,100% 100%,0 87%)}
+.masq-mark-side{width:9px;height:29px;right:0;top:4px;background-position:28.5714% 14.2857%;clip-path:polygon(0 15%,100% 0,100% 89%,0 100%);filter:brightness(.55)}
+.masq-mark-top{width:36px;height:9px;top:0;left:0;background-position:14.2857% 0;clip-path:polygon(27% 0,100% 0,75% 100%,0 100%);filter:brightness(.85)}
+.masq-mark-flat{width:28px;height:28px;filter:none}.masq-mark-flat .masq-mark-front{inset:0;width:100%;height:100%;clip-path:none}.masq-mark-flat .masq-mark-side,.masq-mark-flat .masq-mark-top{display:none}
+.masq-pixel-icon{width:21px;height:21px;flex:none;shape-rendering:crispEdges}
+.app-shell36 .header-nav{display:none}
+.app-shell36 .shell14-account-tools{display:flex;align-items:center;gap:20px;margin-left:auto}
+.app-shell36 .hall-wallet{display:flex;align-items:center;gap:13px;margin:0;padding:7px 14px;border:1px solid var(--ds-line);border-radius:4px;background:#1c2d2a;box-shadow:inset 0 1px 0 #c1eed318,0 3px 0 #070e0e}
+.app-shell36 .hall-wallet>span{font-size:10px;line-height:1.2;max-width:46px;color:var(--ds-muted)}
+.app-shell36 .hall-wallet strong{font:750 21px/1.2 var(--ds-font-body);letter-spacing:-.05em;color:var(--ds-paper);font-variant-numeric:tabular-nums;white-space:nowrap}
+.app-shell36 .hall-wallet small{font:600 11px/1 var(--ds-font-body);letter-spacing:0;color:var(--ds-gold);margin-left:6px}
+.app-shell36 .shell14-sound-controls{display:flex;gap:6px}
+.app-shell36 .audio-button{display:grid;place-items:center;width:34px;height:34px;min-height:34px;padding:8px;border:1px solid transparent;background:none;border-radius:3px;color:#78928b}
+.app-shell36 .audio-button .masq-pixel-icon{width:18px;height:18px}
+.app-shell36 .audio-button.active{color:var(--ds-positive);border-color:#90cbbb22;background:#90cbbb09}
+.app-shell36 .audio-button:enabled:hover{background:#90cbbb18;color:var(--ds-paper)}
+.app-shell36 .shell14-profile{display:flex;align-items:center;gap:9px;border-left:1px solid var(--ds-line);padding-left:20px}
+.app-shell36 .shell14-avatar{display:grid;place-items:center;width:34px;height:34px;border:1px solid #90cbbb2b;border-radius:3px;background:#172623}
+.app-shell36 .shell14-profile-copy{display:grid;gap:1px}.app-shell36 .profile-name{color:var(--ds-paper);font-size:11px}.app-shell36 .shell14-profile-copy small{font-size:9px;color:var(--ds-muted)}
+.app-shell36 .demo-admin-entry{padding:8px 10px;border:1px solid var(--ds-line);background:#23372e;font-size:10px;border-radius:3px}
+.app-shell36 .shell14-connection{margin-left:var(--side);padding:10px 28px;background:#263738;font-size:11px;color:var(--ds-muted)}
+.app-shell36 .shell15-desktop-nav{position:fixed;z-index:40;left:0;top:72px;bottom:0;width:var(--side);padding:32px 16px 22px;background:#111c1c;border-right:1px solid #90cbbb18;display:flex;flex-direction:column;gap:24px}
+.app-shell36 .shell15-nav-categories{display:grid;gap:7px}
+.app-shell36 .shell15-desktop-nav button{display:flex;align-items:center;gap:12px;min-height:47px;width:100%;padding:10px 12px;border:1px solid transparent;border-radius:3px;background:none;color:var(--ds-muted);font-size:12px;font-weight:600;text-align:left;transition:background .15s,color .15s}
+.app-shell36 .shell15-nav-art{display:grid;place-items:center;flex:none;width:24px;height:26px;background:none;border:none;box-shadow:none;color:#688d7e}
+.app-shell36 .shell15-nav-arrow{margin-left:auto;color:#6e9181;font-size:20px;line-height:1}
+.app-shell36 .shell15-desktop-nav button.active{background:#264138;border-color:#90cbbb24;color:var(--ds-paper);box-shadow:inset 3px 0 0 var(--ds-positive)}
+.app-shell36 .shell15-desktop-nav button.active .shell15-nav-art{color:var(--ds-positive)}
+.app-shell36 .shell15-desktop-nav button:enabled:hover{background:#20322e;color:var(--ds-paper)}
+.app-shell36 .shell15-nav-rules{margin-top:auto;border-top:1px solid var(--ds-line)!important;border-radius:0!important;color:#91a39a!important}
+.app-shell36 .shell15-nav-rules svg{color:#6f9a85;width:22px;height:22px}
+.app-shell36 .indictus-main{max-width:1440px;width:calc(100% - var(--side) - 56px);margin-left:calc(var(--side) + max(28px,(100vw - var(--side) - 1440px)/2));margin-right:28px;padding:32px 0 48px;min-width:0;outline:none}
+.app-shell36 .indictus-main>.back-button,.app-shell36 .odds-page>.back-button{display:inline-flex;align-items:center;gap:8px;min-height:34px;margin:0 0 18px;padding:7px 11px;background:#1b2c29;border:1px solid #526b593b;border-radius:3px;font:500 11px/1.2 var(--ds-font-body);color:#b7c9bc;box-shadow:0 3px 0 #070e0d}
+.app-shell36 .indictus-main>.back-button::before{content:'←';font-size:17px;line-height:1}
+.app-shell36 .room-heading{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px;gap:14px;min-height:38px;border:0;padding:0}
+.app-shell36 .room-heading h1{margin:0;font-size:31px;font-weight:750;line-height:1.1;letter-spacing:-.04em}.app-shell36 .room-heading h1::before{display:none}
+.app-shell36 .room-heading button{padding:8px 12px;border:1px solid var(--ds-line);background:#1b2b2a;border-radius:3px;color:var(--ds-muted);font-size:11px}
+.app-shell36 .shell14-footer{max-width:1440px;width:calc(100% - var(--side) - 56px);margin:0 28px 0 calc(var(--side) + max(28px,(100vw - var(--side) - 1440px)/2));padding:18px 0 28px;border-top:1px solid var(--ds-line);display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#8b9f94;background:none}
+.app-shell36 .shell14-footer>div{display:flex;gap:18px;align-items:center}.app-shell36 .shell14-footer button{background:none;font-size:10px;color:#a7bbab;padding:0;min-height:28px}
+.app-shell36 .shell14-mobile-nav{display:none}
+
+/* The library: physical scene imagery, one quiet title plate and one action. */
+.app-shell36 .lobby15{min-width:0}
+.masq-spotlight{position:relative;min-height:312px;overflow:hidden;border:1px solid #789e8b36;border-radius:5px;background:#122421;isolation:isolate;box-shadow:inset 0 2px 0 #caeed015,0 5px 0 #060c0d;margin-bottom:32px}
+.masq-spotlight::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#122421 0%,#122421ec 28%,#12242118 56%,#10232000 75%)}
+.masq-spotlight-scene{position:absolute;right:-7%;top:0;width:78%;height:100%;object-fit:cover;object-position:50% 36%;opacity:.98}
+.masq-spotlight-copy{position:relative;z-index:2;padding:34px 40px 32px;max-width:56%}
+.masq-section-code{display:block;font:650 9px/1.3 var(--ds-font-body);letter-spacing:.15em;color:#95bda6}
+.masq-spotlight-copy h2{margin:18px 0 27px;font:850 clamp(34px,4.4vw,63px)/.96 var(--ds-font-body);letter-spacing:-.06em;color:#e6eddc}.masq-spotlight-copy h2 span{color:#9dc7ac}
+.masq-spotlight-foot{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.masq-spotlight-foot button{display:flex;align-items:center;gap:14px;min-height:42px;padding:11px 15px;background:var(--ds-positive);border:1px solid #d3ffdb;color:#0b1914;border-radius:3px;box-shadow:0 4px 0 #234137;font-size:11px;font-weight:750}
+.masq-spotlight-foot button:enabled:hover{background:#c2e6c7}.masq-spotlight-foot button svg{width:18px;height:18px}
+.masq-spotlight-foot>span{font:600 8px/1.4 var(--ds-font-body);letter-spacing:.12em;color:#8fa795}
+.lobby15-heading{display:flex;align-items:center;gap:13px;margin-bottom:16px}.app-shell36 .lobby15-heading h1{font-size:24px;line-height:1.2;letter-spacing:-.025em;margin:0}.lobby15-count{font-size:11px;color:#809a8e;border-left:1px solid var(--ds-line);padding-left:12px}
+.lobby15-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+.lobby15-search{display:flex;align-items:center;gap:10px;max-width:300px;min-width:180px;width:100%;height:40px;padding:0 12px;background:#182724;border:1px solid #92baa328;border-radius:3px;box-shadow:inset 0 2px 0 #060e0d}
+.lobby15-search>svg{width:17px;height:17px;color:#7f9f8d;flex:none}.lobby15-search input{width:100%;padding:0;border:0;outline:none;background:none;color:var(--ds-paper);font-size:12px;height:100%;min-width:0}.lobby15-search input::placeholder{color:#829589}
+.lobby15-search:focus-within{border-color:var(--ds-positive)}.lobby15-search-clear{display:grid;place-items:center;background:none;padding:3px;color:var(--ds-muted)}.lobby15-search-clear svg{width:15px;height:15px}
+.lobby15-filters{display:flex;align-items:center;gap:5px;border-bottom:1px solid var(--ds-line)}.lobby15-filters button{padding:9px 13px;min-height:40px;background:none;border-bottom:2px solid transparent;color:#80988b;font-size:11px;font-weight:600}
+.lobby15-filters button.lobby15-filter-active{border-color:var(--ds-positive);color:#d2e0d2}
+.lobby15-collection{margin-bottom:29px}.lobby15-collection-heading{display:flex;align-items:center;justify-content:space-between;margin:0 0 13px}.app-shell36 .lobby15-collection-heading h2{margin:0;font-size:17px;font-weight:650;letter-spacing:-.02em}
+.lobby15-grid{display:grid;gap:15px}.lobby15-grid-slots{grid-template-columns:repeat(3,minmax(0,1fr))}.lobby15-grid-classics{grid-template-columns:repeat(6,minmax(0,1fr))}
+.app-shell36 .lobby15-card{display:block;width:100%;padding:0;text-align:left;border:1px solid #52715e3d;border-radius:4px;background:#1b2a27;overflow:hidden;box-shadow:0 4px 0 #060c0d;transition:border-color .18s,transform .18s}
+.app-shell36 .lobby15-card:enabled:hover{border-color:#9dc7ac85;transform:translateY(-3px)}
+.lobby15-art{position:relative;display:block;width:100%;aspect-ratio:1.55;overflow:hidden;background:#0d1b19}.lobby15-card-classic .lobby15-art{aspect-ratio:1.15}
+.lobby15-art>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s;image-rendering:auto}.lobby15-card:enabled:hover .lobby15-art>img{transform:scale(1.035)}
+.lobby15-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 15px;border-top:1px solid #caeed015;background:#1b2a27}
+.lobby15-caption strong{min-width:0;font-size:17px;font-weight:700;letter-spacing:-.03em;color:#e8eddc;line-height:1.1}
+.lobby15-card-classic .lobby15-caption{padding:12px 10px}.lobby15-card-classic .lobby15-caption strong{font-size:12px}
+.lobby15-enter{display:flex;align-items:center;gap:9px;font-size:9px;color:#94b69e}.lobby15-enter svg{width:18px;height:18px}.lobby15-card-classic .lobby15-enter>span{display:none}
+.lobby15-play{position:absolute;inset:0;display:grid;place-items:center;background:#07151133;opacity:0;transition:opacity .2s}.lobby15-play svg{width:34px;height:34px;padding:6px;background:#bde4c5;color:#12251b;border-radius:2px;box-shadow:0 4px 0 #1b432d}
+.lobby15-card:enabled:hover .lobby15-play,.lobby15-card:focus-visible .lobby15-play{opacity:1}
+.lobby15-sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.lobby15-empty{padding:50px 24px;text-align:center;border:1px solid var(--ds-line);background:#172724}.lobby15-empty>svg{width:30px;height:30px;color:#708f7e}.lobby15-empty h2{font-size:20px}.lobby15-empty button{display:inline-flex;align-items:center;gap:12px;padding:10px 15px;background:#2d5644;font-size:12px}.lobby15-empty button svg{width:19px;height:19px}
+
+/* One control desk for every game, separate from the physical stage. */
+.app-shell36 .room-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:start;gap:18px}
+.app-shell36 .room-bet{padding:20px;border:1px solid #63847038;border-radius:4px;background:#1c2d28;box-shadow:inset 0 2px 0 #d7f2d316,0 4px 0 #070e0d;color:var(--ds-paper)}
+.app-shell36 .room-bet>label{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#c6d6c4;font-size:12px;font-weight:600;margin:0 0 10px}.app-shell36 .room-bet>label>span{font-size:9px;color:#88a490}
+.app-shell36 .room-bet input,.app-shell36 .room-bet select{min-height:46px;width:100%;padding:9px 12px;border:1px solid #79988266;background:#0d1a17;border-radius:3px;color:#e3edda;box-shadow:inset 0 3px 0 #030b09;font-size:25px;font-weight:650;font-variant-numeric:tabular-nums}
+.app-shell36 .room-bet :is(.bet-shortcuts,.stake-tools){display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:8px 0}.app-shell36 .room-bet :is(.bet-shortcuts,.stake-tools) button{padding:8px;min-height:32px;font-size:11px;background:var(--ds-panel);border:1px solid var(--ds-line);border-radius:3px;box-shadow:0 3px 0 var(--ds-ink);color:var(--ds-paper)}
+.app-shell36 .room-bet .bet-help{font-size:10px;color:#819e8a;margin:10px 0 18px}.app-shell36 .room-bet .bet-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0 18px}
+.app-shell36 .room-bet .bet-choices button{padding:10px;min-height:42px;font-size:11px;background:#243c2f;border:1px solid #708a6744;border-radius:3px;color:#bac9b7;box-shadow:0 3px 0 #09120d}
+.app-shell36 .room-bet .bet-choices button.selected{background:#395c42;border-color:#9cbe86;color:#f1ead8}
+.app-shell36 .room-bet fieldset{margin:0;padding:0;border:0}
+.app-shell36 .room-bet fieldset>legend{margin:0 0 9px;color:var(--ds-paper);font-size:11px;font-weight:650}
+.app-shell36 .room-bet .room-choices label{min-height:44px;padding:10px 9px;border:1px solid var(--ds-line);border-radius:3px;background:var(--ds-surface);color:var(--ds-muted);font-size:12px;font-weight:550;box-shadow:0 3px 0 var(--ds-ink);transition:background .15s,border-color .15s,color .15s}
+.app-shell36 .room-bet .room-choices label.selected{border-color:var(--ds-positive);background:var(--ds-accent);color:var(--ds-paper);box-shadow:inset 0 1px 0 #d7f2d31a,0 3px 0 var(--ds-ink)}
+.app-shell36 .room-bet fieldset:not(:disabled) .room-choices label:hover{background:var(--ds-panel);border-color:var(--ds-border);color:var(--ds-paper)}
+.app-shell36 .room-bet fieldset:not(:disabled) .room-choices label.selected:hover{background:var(--ds-accent-hover);border-color:var(--ds-positive)}
+.app-shell36 .room-bet .room-choices input{min-height:0;padding:0;margin:0;border:0;border-radius:0;background:none;box-shadow:none}
+.app-shell36 .room-bet .room-choices label:focus-within{outline:2px solid var(--ds-positive);outline-offset:3px}
+.app-shell36 .room-bet fieldset:disabled .room-choices label{cursor:default;opacity:.62}
+.app-shell36 .room-bet>small{font-size:10px;color:var(--ds-muted)}
+.app-shell36 .room-bet .primary{display:block;width:100%;min-height:46px;padding:12px 15px;background:#90cbbb;color:#0c2118;border:1px solid #cde6be;border-radius:3px;box-shadow:0 4px 0 #274736;font-size:13px;font-weight:750;letter-spacing:-.01em}
+.app-shell36 .room-bet .primary:enabled:hover{background:#bfe3c4}.app-shell36 .demo-explanation{font-size:10px;color:#839889;margin:18px 0 0;padding:0;border:0}
+.app-shell36 .mode-cabinet-backdrop{display:none}.app-shell36 .physical-stage{padding:0;border:1px solid #52735e44;border-radius:4px;background:#0e1c18;box-shadow:0 4px 0 #060d0a;overflow:hidden}
+.app-shell36 .physical-stage::before,.app-shell36 .physical-stage::after{display:none}.app-shell36 .physical-canvas{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:1.4;margin:0;border:0;padding:0;background:#0b1914}
+.app-shell36 .round-status{margin:0;padding:15px 18px;background:#16281f;border-top:1px solid #4c6c4c50;color:#bacdb8;font-size:12px;min-height:49px;border-radius:0;box-shadow:none}
+.app-shell36 .physical-result{position:relative;inset:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:64px;margin:0;padding:15px 18px;border:0;border-top:1px solid var(--ds-line);border-radius:0;background:var(--ds-surface);color:var(--ds-paper);font-size:12px;box-shadow:none}
+.app-shell36 .physical-result>span{min-width:0;display:grid;gap:4px;line-height:1.4}
+.app-shell36 .physical-result small{color:var(--ds-muted);font-size:10px}
+.app-shell36 .physical-result strong{font:650 clamp(18px,2.2vw,25px)/1.2 var(--ds-font-body);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ds-paper);white-space:normal}
+.app-shell36 .physical-result button{min-height:35px;padding:8px 12px;border:1px solid var(--ds-line);border-radius:3px;background:var(--ds-panel);color:var(--ds-paper);font-size:11px!important;box-shadow:0 2px 0 var(--ds-ink)}
+.app-shell36 .physical-result button:enabled:hover{background:var(--ds-accent);border-color:var(--ds-positive)}
+.app-shell36 .stage-label{top:15px;left:18px;right:18px;gap:12px;color:var(--ds-muted);font-size:10px;font-weight:600;letter-spacing:.06em}
+.app-shell36 .stage-label>span{padding:5px 8px;border:1px solid var(--ds-line);border-radius:2px;background:#151f21dc;box-shadow:0 2px 0 #050a0b66}
+.app-shell36 .stage-label small{color:var(--ds-muted);font-size:10px;font-weight:500;letter-spacing:0}
+@media(max-width:650px){.app-shell36 .physical-result{padding:13px 14px;min-height:60px;gap:10px}.app-shell36 .physical-result strong{font-size:19px}.app-shell36 .stage-label{top:12px;left:14px;right:14px}.app-shell36 .room-bet .room-choices label{min-height:46px}}
+.app-shell36 .room-stage-title{padding:14px 16px;margin:0;border:0;font-size:10px;color:#8ba686;letter-spacing:.07em}
+.app-shell36 .blackjack-bet>label{background:none;padding:0;margin:0 0 12px;font-size:12px}
+.app-shell36 .blackjack-stake-tools{display:grid;grid-template-columns:33px 1fr 33px;gap:7px;padding:0;background:none;border:0;margin-bottom:20px}
+.app-shell36 .blackjack-stake-tools>button{height:44px;min-height:44px;background:#2a422f;border:1px solid #6d8b6455;border-radius:3px;font-size:18px;color:#cfdbc4;box-shadow:0 3px 0 #0d1a0f}
+.app-shell36 .blackjack-stake-tools>output{display:grid;place-items:center;border:1px solid #81997677;border-radius:3px;background:#0b1912;box-shadow:inset 0 2px 0 #030b05;color:#e2ecd5;font-size:22px;font-weight:650;letter-spacing:-.04em}
+.app-shell36 .blackjack-returns{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:22px 0 10px;padding:15px 0;border:0;border-top:1px solid #819f5e36;border-bottom:1px solid #819f5e36;font-size:10px}
+.app-shell36 .blackjack-returns>div{display:grid;gap:4px;justify-items:start}.app-shell36 .blackjack-returns dt{color:#8ea984;font-size:9px}.app-shell36 .blackjack-returns dd{margin:0;color:#cadba9;font-size:15px;font-weight:600}
+.app-shell36 .blackjack-bet>small{color:#8ba281;font-size:9px}.app-shell36 .blackjack-rules{padding:13px 0;margin-top:14px;border-top:1px solid #7b976244;font-size:10px}.app-shell36 .blackjack-rules summary{color:#b8c8ad}.app-shell36 .blackjack-rule-copy{font-size:10px;color:#93ab8a;line-height:1.6;margin:10px 0}
+.app-shell36 #bj-live-stage{border-color:#72916d55;border-radius:4px;box-shadow:0 4px 0 #060e08}
+.app-shell36 #bj-live-stage .blackjack-live-table{background:#0e1614}.app-shell36 #bj-live-stage .bj-live-table-footer{background:#15291c;border-color:#536e3c55;padding:13px 15px 15px}
+.app-shell36 #bj-live-stage .blackjack-table-actions button{border:1px solid #77976455!important;background:#2b482b;color:#dce8c4;border-radius:3px;box-shadow:0 3px 0 #081405;font-family:var(--ds-font-body);font-size:12px;min-height:40px}
+.app-shell36 #bj-live-stage .blackjack-table-actions button:enabled:hover{background:#3c6238}.app-shell36 #bj-live-stage .blackjack-live-status{font-size:11px;color:#bdd0a2}
+
+/* Bonus shops, settings, rules and result sheets use the same slate system. */
+.app-shell36 :is(.hall-rules,.demo-admin-panel,.slot-purchase-dialog,.bonanza-rules-dialog,.slot-rules-dialog,.slot-bonus-shop,.purchase-dialog){background:#1b2a27;color:#e4ecd8;border:1px solid #90cbbb55;border-radius:4px;box-shadow:0 8px 0 #030b08,0 30px 100px #0009;font-family:var(--ds-font-body)}
+.app-shell36 dialog::backdrop{background:#030c0acc;backdrop-filter:blur(8px)}
+.app-shell36 :is(.hall-rules,.demo-admin-panel,.slot-purchase-dialog) button{border-radius:3px;font-family:var(--ds-font-body)}
+.app-shell36 .odds-page{color:#bfcebb;background:none;font-family:var(--ds-font-body)}.app-shell36 .odds-page h1{font-size:32px;color:#e8eedc}.app-shell36 .odds-page summary{background:#1c3125;border:1px solid #92ae732b;padding:15px;color:#d0dec0;border-radius:3px}.app-shell36 .odds-page details{background:#13251c;border:1px solid #5b825d38;margin:12px 0;border-radius:3px;padding:12px}.app-shell36 .odds-table-scroll{overflow-x:auto}.app-shell36 .odds-page table{color:#c1d2b7;background:#172b1e;font-size:12px}.app-shell36 .odds-page th,.app-shell36 .odds-page td{border-color:#78966433}.app-shell36 .odds-lead,.app-shell36 .odds-footnote{color:#9bb28c}
+.app-shell36 .error-banner,.app-shell36 .form-error,.app-shell36 .bonanza-error{background:#3d2026;border:1px solid #a7636955;border-radius:3px;color:#e1a6ad;font-size:12px}
+.app-shell36 .app-loading,.app-shell36 .render-fallback{display:grid;place-items:center;min-height:160px;background:#10211b;border:1px solid #67977833;color:#9bb593;font-size:12px;border-radius:4px}
+.app-shell36 .payout-overlay .payout-sheet{background:#182b22;border:1px solid #a3c38766;border-radius:4px;box-shadow:0 8px 0 #051109,0 40px 100px #0009;padding:38px clamp(20px,5vw,60px);max-width:600px;color:#e6edda}
+.app-shell36 .payout-mask-art,.app-shell36 .payout-fx,.app-shell36 .win-rays,.app-shell36 .win-flash{display:none}
+.app-shell36 .payout-sheet>.masq-mark{margin:0 auto 20px;transform:scale(1.5);transform-origin:center}
+.app-shell36 .payout-game{font-size:10px;color:#97b784;letter-spacing:.08em}.app-shell36 .payout-title{font:750 clamp(23px,4vw,40px)/1.15 var(--ds-font-body);color:#e4edca;letter-spacing:-.045em;text-shadow:none;background:none;filter:none;transform:none;animation:none}
+.app-shell36 .payout-amount{font:750 clamp(48px,8vw,80px)/1.15 var(--ds-font-body);color:#cde4aa;letter-spacing:-.07em;text-shadow:0 4px 0 #102512;filter:none;background:none;-webkit-text-fill-color:currentColor;animation:none}.app-shell36 .payout-currency{font-size:.27em;letter-spacing:0;color:#96b872}
+.app-shell36 .win-award-caption,.app-shell36 .payout-description{font-size:11px;letter-spacing:0;color:#8daa7d}.app-shell36 .payout-continue{background:#9bc38d;color:#102110;font-size:12px;font-weight:700;border:1px solid #c9e4ba;border-radius:3px;box-shadow:0 4px 0 #31532c;transform:none;min-height:43px}.app-shell36 .payout-hint{color:#7f9f6b;font-size:9px}
+.app-shell36 .payout-dismiss{background:#1e3526;border:1px solid #7d9c6266;border-radius:3px;color:#d4e2c5;box-shadow:0 3px 0 #081506}
+.app-shell36 .win-spectacle{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.4}.masq-win-pixel{position:absolute;display:block;left:var(--coin-x);bottom:-15%;width:14px;height:14px;background:var(--ds-positive);border:2px solid var(--ds-paper);box-shadow:4px 4px 0 var(--ds-accent);animation:masq-block-burst var(--coin-duration) cubic-bezier(.14,.65,.7,1) var(--coin-delay) infinite;transform:rotate(var(--coin-rotation))}
+@keyframes masq-block-burst{0%{translate:0 0;opacity:0}20%{opacity:.8}100%{translate:0 -110vh;rotate:150deg;opacity:0}}
+
+/* Shared physical console below all three reel cabinets. */
+.app-shell36 .minecraft-slot-v36 :is(.slot-dock,.slot-controls){--slot-panel:var(--ds-surface);--slot-line:#536f5d55;--slot-muted:#94ac98;--slot-text:var(--ds-paper);--slot-red:#3b7253;--slot-cream:#c6dcb6;background:var(--ds-surface);background-image:none;border:1px solid #718b6355;border-top:1px solid #9ac08e55;border-radius:0 0 4px 4px;box-shadow:0 4px 0 #08110b;min-height:100px;padding:16px;font-family:var(--ds-font-body);color:var(--ds-paper);gap:13px}
+.app-shell36 .minecraft-slot-v36 .slot-dock{grid-template-columns:minmax(136px,1fr) minmax(138px,1fr) minmax(160px,1.1fr) 88px 90px}
+.app-shell36 .minecraft-slot-v36 .slot-controls{grid-template-columns:minmax(154px,1fr) minmax(130px,.8fr) minmax(168px,1fr) 88px 90px}
+.app-shell36 .minecraft-slot-v36 :is(.slot-dock-buy,.slot-buy-button){min-height:62px;padding:9px 12px;border:1px solid #91ab7455;border-radius:3px;background:var(--ds-panel);box-shadow:inset 0 1px 0 #d0e8b523,0 3px 0 #0c1a0d;gap:11px;color:var(--ds-paper);filter:none;transform:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-buy-label,.slot-dock-buy-copy strong){font-family:var(--ds-font-body);font-size:12px;font-weight:650;letter-spacing:-.02em;color:var(--ds-paper);text-shadow:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-buy-detail,.slot-dock-buy-copy small){font-size:11px;color:var(--ds-muted);text-shadow:none;line-height:1.4}
+.app-shell36 .minecraft-slot-v36 .slot-buy-price{font-size:16px;line-height:1.3;color:#c6ddaa;font-weight:600}
+.app-shell36 .minecraft-slot-v36 .slot-buy-art{max-width:40px;width:40px;height:40px;filter:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-total-label,.slot-dock-balance>span,.slot-dock-payout>span,.slot-stake-caption,.slot-dock-stake>label){font:500 12px/1.4 var(--ds-font-body);color:var(--ds-muted);letter-spacing:0;text-shadow:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-total-value,.slot-dock-balance>strong,.slot-dock-payout>strong){font:650 22px/1.3 var(--ds-font-body);letter-spacing:-.045em;color:var(--ds-paper);text-shadow:none;filter:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-stake-row){background:var(--ds-bg);border:1px solid #7a995c55;border-radius:3px;gap:4px;padding:4px;box-shadow:inset 0 3px 0 #041005}
+.app-shell36 .minecraft-slot-v36 :is(.slot-stake-step){width:31px;min-width:31px;height:35px;min-height:35px;border-radius:2px;border:1px solid #7a9c5544;background:var(--ds-panel);box-shadow:0 2px 0 #0b200c;font-size:19px;color:var(--ds-paper)}
+.app-shell36 .minecraft-slot-v36 :is(.stake-input,.slot-stake-value){background:none;border:0;border-radius:0;font:650 23px/1 var(--ds-font-body);letter-spacing:-.06em;text-align:center;color:var(--ds-paper);padding:0;min-height:35px;box-shadow:none;min-width:0;width:100%}
+.app-shell36 .minecraft-slot-v36 :is(.slot-dock-spin,.slot-spin-button){width:88px;height:70px;min-height:70px;border:1px solid #b5d696;border-radius:3px;padding:0;background:var(--ds-positive);box-shadow:inset 0 2px 0 #d5ebba55,0 5px 0 #304f26;color:var(--ds-ink);filter:none;transform:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-spin-face){display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:100%;height:100%;border:0;border-radius:0;background:none;box-shadow:none;transform:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-spin-arrow){font:700 36px/.9 Arial,sans-serif;letter-spacing:0;color:var(--ds-ink);text-shadow:none;filter:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-spin-word){font:650 9px/1.8 var(--ds-font-body);letter-spacing:0;color:var(--ds-ink);text-shadow:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-dock-tools button,.slot-tool-button,.slot-skip-button){min-height:29px;padding:6px 9px;border:1px solid #73925744;border-radius:3px;background:var(--ds-panel);color:var(--ds-muted);font:500 12px/1.4 var(--ds-font-body);box-shadow:0 2px 0 #0b1b0d;text-shadow:none}
+.app-shell36 .minecraft-slot-v36 :is(.slot-dock-tools>small,.slot-stake-help,.slot-stake-note){color:var(--ds-muted);font:450 11px/1.4 var(--ds-font-body)}
+.app-shell36 .minecraft-slot-v36 .slot-playback-options{padding:15px 2px 12px;background:none;border:0;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;color:var(--ds-muted);font:450 12px/1.4 var(--ds-font-body)}
+.app-shell36 .minecraft-slot-v36 .slot-playback-options button,.app-shell36 .minecraft-slot-v36 .slot-playback-options select{min-height:32px;border:1px solid #68864b55;border-radius:3px;background:var(--ds-surface);color:var(--ds-paper);box-shadow:0 2px 0 #091807;font-family:var(--ds-font-body);font-size:12px;padding:8px 12px}
+.app-shell36 .minecraft-slot-v36 .slot-playback-options button[aria-pressed='true']{background:var(--ds-accent);border-color:#a7c488;color:var(--ds-paper)}
+.app-shell36 .minecraft-slot-v36 .slot-playback-options .slot-auto-stop{background:#59322f;border-color:#a57765;color:#e8b9a5}
+.app-shell36 .minecraft-slot-v36 .slot-dock-feature{border:1px solid #a6bf7444;border-radius:3px;background:var(--ds-panel);color:var(--ds-paper);font:500 10px/1.5 var(--ds-font-body);padding:8px 12px}
+.app-shell36 .minecraft-slot-v36 .slot-dock-feature button{background:var(--ds-accent);border:1px solid #a7bd6655;color:var(--ds-paper);border-radius:3px;font-size:10px}
+.app-shell36 .slot-bonus-dialog{background:var(--ds-surface);color:var(--ds-paper);border:1px solid #72995866;border-radius:4px;box-shadow:0 8px 0 #030b04,0 40px 120px #0009;padding:25px}
+.app-shell36 .slot-bonus-card{background:var(--ds-panel);border:1px solid #8fab6666;border-radius:3px;box-shadow:0 4px 0 #081707}.app-shell36 .slot-bonus-art{background:var(--ds-bg);border-radius:2px}
+.app-shell36 .slot-bonus-copy h3{font-size:20px;color:var(--ds-paper)}.app-shell36 .slot-bonus-copy p{color:var(--ds-muted);font-size:11px}.app-shell36 .slot-bonus-price{font:650 25px/1.2 var(--ds-font-body);color:var(--ds-paper);letter-spacing:-.05em}.app-shell36 .slot-bonus-cta{background:var(--ds-positive);color:var(--ds-ink);border:1px solid #bfd89c;border-radius:3px;font:650 11px/1.4 var(--ds-font-body);box-shadow:0 3px 0 #304d21}
+@media(max-width:800px){.app-shell36 .minecraft-slot-v36 :is(.slot-dock,.slot-controls){grid-template-columns:1.2fr 1fr 76px;gap:12px;padding:13px}.app-shell36 .minecraft-slot-v36 .slot-dock{grid-template-areas:'totals stake spin' 'buy tools tools' 'feature feature feature'}.app-shell36 .minecraft-slot-v36 .slot-controls{grid-template-areas:'totals stake spin' 'buy buy tools' 'note note note' 'feature feature feature'}.app-shell36 .minecraft-slot-v36 .slot-dock-buy{grid-area:buy}.app-shell36 .minecraft-slot-v36 .slot-dock-totals{grid-area:totals}.app-shell36 .minecraft-slot-v36 .slot-dock-stake{grid-area:stake}.app-shell36 .minecraft-slot-v36 .slot-dock-spin{grid-area:spin}.app-shell36 .minecraft-slot-v36 .slot-dock-tools{grid-area:tools;display:flex;justify-content:flex-end;gap:6px;align-items:center}.app-shell36 .minecraft-slot-v36 :is(.slot-dock-spin,.slot-spin-button){width:76px;height:67px;min-height:67px}.app-shell36 .minecraft-slot-v36 :is(.slot-total-value,.slot-dock-balance>strong,.slot-dock-payout>strong){font-size:18px}.app-shell36 .minecraft-slot-v36 .slot-dock-feature{grid-area:feature}}
+@media(max-width:450px){.app-shell36 .minecraft-slot-v36 :is(.slot-dock,.slot-controls){grid-template-columns:1fr 1.15fr 63px;gap:8px;padding:11px}.app-shell36 .minecraft-slot-v36 :is(.slot-dock-spin,.slot-spin-button){width:63px;height:60px;min-height:60px}.app-shell36 .minecraft-slot-v36 .slot-stake-step{width:25px;min-width:25px;height:31px;min-height:31px;font-size:16px}.app-shell36 .minecraft-slot-v36 :is(.slot-stake-value,.stake-input){font-size:19px;min-height:31px}.app-shell36 .minecraft-slot-v36 :is(.slot-total-value,.slot-dock-balance>strong,.slot-dock-payout>strong){font-size:16px}.app-shell36 .minecraft-slot-v36 .slot-dock-buy{padding:8px;min-height:51px;gap:8px}.app-shell36 .minecraft-slot-v36 .slot-playback-options{align-items:stretch;gap:12px}.app-shell36 .minecraft-slot-v36 .slot-playback-auto{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.app-shell36 .minecraft-slot-v36 .slot-playback-auto label{font-size:9px}.app-shell36 .slot-bonus-dialog{padding:18px;width:calc(100vw - 28px);max-width:none}}
+
+@media(min-width:1650px){.lobby15-art{aspect-ratio:1.7}.masq-spotlight{min-height:348px}.masq-spotlight-copy{padding:42px 48px}.masq-spotlight-copy h2{font-size:67px}}
+@media(max-width:1250px){.app-shell36{--side:184px}.app-shell36 .shell15-desktop-nav{padding:28px 10px}.app-shell36 .indictus-main{width:calc(100% - var(--side) - 40px);margin-left:calc(var(--side) + 20px);margin-right:20px}.app-shell36 .shell14-footer{width:calc(100% - var(--side) - 40px);margin-left:calc(var(--side) + 20px);margin-right:20px}.lobby15-grid-classics{grid-template-columns:repeat(3,minmax(0,1fr))}.lobby15-card-classic .lobby15-art{aspect-ratio:1.65}.lobby15-card-classic .lobby15-caption strong{font-size:14px}.app-shell36 .room-layout{grid-template-columns:minmax(0,1fr) 230px;gap:14px}.app-shell36 .room-bet{padding:16px}.masq-spotlight{min-height:286px}.masq-spotlight-copy{padding:28px}.masq-spotlight-copy h2{font-size:46px}.masq-spotlight-foot>span{display:none}}
+@media(max-width:950px){.app-shell36{--side:0px}.app-shell36 .shell15-desktop-nav{display:none}.app-shell36 .indictus-header{padding:12px 20px}.app-shell36 .shell14-profile{display:none}.app-shell36 .shell14-account-tools{gap:12px}.app-shell36 .indictus-main{width:calc(100% - 40px);margin:0 20px;padding:24px 0 36px}.app-shell36 .shell14-footer{width:calc(100% - 40px);margin:0 20px;padding-bottom:94px}.app-shell36 .shell14-mobile-nav{position:fixed;z-index:80;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#12221fef;border-top:1px solid #77a88a44;backdrop-filter:blur(16px)}.app-shell36 .shell14-mobile-nav button{display:grid;justify-items:center;gap:4px;background:none;padding:5px;min-height:45px;border-radius:3px;color:#74967d;font-size:9px}.app-shell36 .shell14-mobile-nav button.active{background:#2c4431;color:#d5e1c7}.app-shell36 .shell14-mobile-nav .shell15-nav-art{height:20px;width:20px;color:inherit}.app-shell36 .shell14-mobile-nav .masq-pixel-icon{width:19px;height:19px}.app-shell36 .shell14-connection{margin:0;padding:8px 20px}.masq-spotlight-copy{max-width:56%}}
+@media(max-width:650px){.app-shell36 .indictus-header{height:64px;min-height:64px;padding:10px 15px;gap:12px}.app-shell36 .hall-brand{gap:9px;min-width:0}.app-shell36 .wordmark{font-size:23px}.app-shell36 .hall-brand>.masq-mark{width:27px;height:29px;transform:scale(.78);transform-origin:left center;margin-right:-5px}.app-shell36 .shell14-account-tools{gap:9px}.app-shell36 .hall-wallet{padding:6px 9px;display:grid;gap:1px}.app-shell36 .hall-wallet>span{max-width:none;font-size:8px}.app-shell36 .hall-wallet strong{font-size:17px}.app-shell36 .hall-wallet small{font-size:9px;margin-left:4px}.app-shell36 .shell14-sound-controls{gap:2px}.app-shell36 .audio-button{width:26px;height:31px;min-height:31px;padding:5px}.app-shell36 .audio-button svg{width:15px;height:15px}.app-shell36 .demo-admin-entry{position:fixed;bottom:76px;right:12px;z-index:55;font-size:8px;opacity:.85}.app-shell36 .indictus-main{width:calc(100% - 30px);margin:0 15px;padding:20px 0 30px}.app-shell36 .shell14-footer{width:calc(100% - 30px);margin:0 15px;display:grid;gap:7px;font-size:9px}.app-shell36 .room-layout{grid-template-columns:1fr;gap:18px}.app-shell36 .room-bet{padding:18px}.app-shell36 .room-heading h1{font-size:26px}.app-shell36 .physical-canvas{aspect-ratio:1.1}.masq-spotlight{min-height:256px;margin-bottom:28px}.masq-spotlight-copy{padding:24px 22px;max-width:70%}.masq-spotlight-copy h2{font-size:39px;margin:20px 0 25px}.masq-section-code{font-size:8px}.masq-spotlight-scene{width:130%;right:-52%;object-position:50% 36%}.masq-spotlight::after{background:linear-gradient(90deg,#122421 0%,#122421e6 30%,#12242114 70%)}.masq-spotlight-foot button{min-height:38px;padding:9px 11px;font-size:10px;gap:9px}.masq-spotlight-foot button svg{width:15px;height:15px}.app-shell36 .lobby15-heading h1{font-size:21px}.lobby15-toolbar{display:grid;gap:12px;margin-bottom:23px}.lobby15-search{max-width:none;height:39px}.lobby15-filters{justify-content:space-between}.lobby15-filters button{flex:1;padding:7px 8px;font-size:11px;min-height:35px}.lobby15-grid{gap:10px}.lobby15-grid-slots{grid-template-columns:1fr}.lobby15-card-slot{display:grid!important;grid-template-columns:1.3fr 1fr;align-items:stretch}.lobby15-card-slot .lobby15-art{aspect-ratio:1.6}.lobby15-card-slot .lobby15-caption{display:flex;flex-direction:column;align-items:start;justify-content:center;gap:12px;border:0;border-left:1px solid #caeed015;padding:15px}.lobby15-card-slot .lobby15-caption strong{font-size:20px}.lobby15-card-slot .lobby15-enter{font-size:10px}.lobby15-grid-classics{grid-template-columns:repeat(2,minmax(0,1fr))}.lobby15-card-classic .lobby15-art{aspect-ratio:1.35}.lobby15-card-classic .lobby15-caption{padding:12px 10px}.lobby15-card-classic .lobby15-caption strong{font-size:13px}.app-shell36 .lobby15-collection-heading h2{font-size:16px}.app-shell36 .payout-overlay .payout-sheet{width:calc(100vw - 32px);padding:33px 22px}.app-shell36 .payout-amount{font-size:59px}.app-shell36 .slot-dock,.app-shell36 .slot-controls{font-family:var(--ds-font-body)}}
+@media(prefers-reduced-motion:reduce){.app-shell36 *{scroll-behavior:auto!important}.lobby15-card,.lobby15-art>img{transition:none!important}.masq-win-pixel{display:none}}

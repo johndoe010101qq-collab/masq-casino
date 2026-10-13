@@ -181,11 +181,26 @@ try {
     useState: initial => [typeof initial === 'function' ? initial() : initial, () => {}],
     useEffect: callback => effectQueue.push(callback), };
   const { transformWithOxc } = await import(new URL('node_modules/vite/dist/node/index.js', site));
+  // data: modules cannot resolve a relative JSX import. Compile the actual
+  // identity component with the same fixture React, rather than mocking or
+  // removing the production dependency.
+  const identitySource = readFileSync(new URL('src/MasqIdentity.jsx', site), 'utf8')
+    .replace(/import React from ['"]react['"];?/,
+      'const { React } = globalThis.__v10AuditHooks;')
+    .replaceAll('import.meta.env.BASE_URL', '"/"');
+  const identityCode = (await transformWithOxc(identitySource, 'MasqIdentity.jsx', { jsx: { runtime: 'classic' } })).code;
+  const identityModule = 'data:text/javascript;base64,' + Buffer.from(identityCode).toString('base64');
+  const { MasqMark } = await import(identityModule);
+  const actualMark = MasqMark({ flat: true });
+  eq(actualMark.type, 'span', 'Real identity JSX runs through the fixture React');
+  eq(actualMark.props.className, 'masq-mark masq-mark-flat');
+  eq(actualMark.props.children.length, 3, 'Real identity retains all three cube faces');
   const payoutSource = readFileSync(new URL('src/PayoutScene.jsx', site), 'utf8');
   const payoutModule = payoutSource
     .replace(/import React,[\s\S]*?from "react";/,
       'const { React, Component, Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } = globalThis.__v10AuditHooks;')
     .replace(/^import "[^"\n]+\.css";\s*/gm, '')
+    .replace(/from ['"]\.\/MasqIdentity\.jsx['"]/g, 'from ' + JSON.stringify(identityModule))
     .replaceAll('import.meta.env.BASE_URL', '"/"');
   const transformed = (await transformWithOxc(payoutModule, 'PayoutScene.jsx', { jsx: { runtime: 'classic' } })).code;
   const { default: PayoutScene, describeRound } = await import('data:text/javascript;base64,' + Buffer.from(transformed).toString('base64'));
@@ -227,7 +242,7 @@ try {
     if (descriptor) Object.defineProperty(globalThis, key, descriptor); else delete globalThis[key];
   }
 }
-const hashes = Object.fromEntries(['src/RoundPlayback.js', 'src/audio/GameAudio.js', 'src/hall-session.js', 'src/PayoutScene.jsx']
+const hashes = Object.fromEntries(['src/RoundPlayback.js', 'src/audio/GameAudio.js', 'src/hall-session.js', 'src/PayoutScene.jsx', 'src/MasqIdentity.jsx']
   .map(name => [name, createHash('sha256').update(readFileSync(new URL(name, site))).digest('hex')]));
 console.log(JSON.stringify({ passed: true, checks, fundedRoundLifecycleScenarios: scenarios,
   scope: 'Delayed unlock cancellation; real Hall once-only settlement after presentation errors/skip/reduced; actual tiny payout mount cue and mute', sourceSHA256: hashes }, null, 2));
