@@ -33,6 +33,42 @@ for(const game of ['maskhouse','lecipher']) {
  const book=createDemoReserve();for(const roundId of [1,2])ok(book.reserve({roundId,game,stake:250,mode:'buy',bonusTier:game==='maskhouse'?'sticky':'luck'}));
  eq(book.snapshot().availableCents,200);for(const roundId of [2,1])book.settle(roundId,999900);eq(book.snapshot().bankCents,200);eq(book.snapshot().reservedCents,0);
 }
+// Default reserve admission still guarantees funded games. Only the trusted
+// Plinko option records unsupported exposure, without modifying its quote.
+{
+ const selection={game:'plinko',choice:'standard',stake:250},terms=liabilityTerms(selection),book=createDemoReserve({capitalCents:0}),before=book.snapshot();
+ eq(book.reserve({...selection,roundId:'default'}),null);eq(book.snapshot(),before);
+ raises(()=>book.reserve({game:'coinflip',choice:'heads',stake:5,roundId:'not-plinko'},{allowUnfundedPlinko:true}));eq(book.snapshot(),before);
+ raises(()=>book.reserve({...selection,roundId:'invalid-policy'},{allowUnfundedPlinko:1}));eq(book.snapshot(),before);
+ const request={...selection,roundId:'trusted'};ok(book.reserve(request,{allowUnfundedPlinko:true}));
+ eq(book.snapshot(),{bankCents:0,reservedCents:terms.maxHouseLossCents,availableCents:-terms.maxHouseLossCents,activeCount:1});
+ eq(book.reserve(request,{allowUnfundedPlinko:true}).admittedNow,false);raises(()=>book.reserve(request));
+ const held=book.snapshot();raises(()=>book.settle('trusted',terms.maxPayoutCents+1));eq(book.snapshot(),held);
+ eq(book.settle('trusted',terms.maxPayoutCents),true);eq(book.settle('trusted',terms.maxPayoutCents),false);
+ eq(book.snapshot(),{bankCents:-terms.maxHouseLossCents,reservedCents:0,availableCents:-terms.maxHouseLossCents,activeCount:0});
+ eq(book.maximumSafeStake({game:'coinflip',choice:'heads'}),0);eq(book.reserve({game:'coinflip',choice:'heads',stake:5,roundId:'funded-guard'}),null);
+ ok(book.reserve({...selection,roundId:'cancelled'},{allowUnfundedPlinko:true}));eq(book.cancel('cancelled'),true);eq(book.cancel('cancelled'),false);eq(book.snapshot().reservedCents,0);eq(book.snapshot().bankCents,-terms.maxHouseLossCents);
+ eq(book.reset(),true);eq(book.snapshot(),before);
+}
+// Prior Plinko credit exposure may consume backing of a funded obligation.
+// Valid accepted payouts must settle in either order, not repeat admission.
+for(const order of [['plinko','coin'],['coin','plinko']])for(const plinkoPayout of [0,2000,14500]){
+ const book=createDemoReserve({capitalCents:1800});
+ ok(book.reserve({game:'coinflip',choice:'heads',stake:5,roundId:'coin'}));
+ ok(book.reserve({game:'plinko',choice:'standard',stake:5,roundId:'plinko'},{allowUnfundedPlinko:true}));
+ for(const id of order){eq(book.settle(id,id==='coin'?1000:plinkoPayout),true);eq(book.settle(id,id==='coin'?1000:plinkoPayout),false);}
+ eq(book.snapshot(),{bankCents:1800-plinkoPayout,reservedCents:0,availableCents:1800-plinkoPayout,activeCount:0});
+ if(plinkoPayout>1800)eq(book.reserve({game:'coinflip',choice:'heads',stake:5,roundId:'new-funded'}),null);
+}
+// The integer storage envelope is checked using prices and caps before a hold
+// is issued. Intermediate additions cannot round a cent around MAX_SAFE.
+{
+ const book=createDemoReserve({capitalCents:Number.MAX_SAFE_INTEGER-1000}),request={game:'plinko',choice:'standard',stake:5};
+ ok(book.reserve({...request,roundId:'edge1'},{allowUnfundedPlinko:true}));ok(book.reserve({...request,roundId:'edge2'},{allowUnfundedPlinko:true}));
+ const held=book.snapshot();raises(()=>book.reserve({...request,roundId:'edge3'},{allowUnfundedPlinko:true}));eq(book.snapshot(),held);
+ eq(book.settle('edge1',0),true);eq(book.settle('edge2',0),true);eq(book.snapshot().bankCents,Number.MAX_SAFE_INTEGER);eq(book.snapshot().reservedCents,0);
+ const maxed=createDemoReserve({capitalCents:Number.MAX_SAFE_INTEGER}),before=maxed.snapshot();raises(()=>maxed.reserve({...request,roundId:'cannot-store'},{allowUnfundedPlinko:true}));eq(maxed.snapshot(),before);
+}
 // Results are capped by the same formula and never rounded to an undisclosed40x.
 let seed=781;const randomInt=maximum=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed%maximum;};
 for(const selection of profiles)for(const stake of [5,100,250])for(let sample=0;sample<20;sample++) {

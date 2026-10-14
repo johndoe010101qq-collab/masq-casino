@@ -16,6 +16,7 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
   const reduced = useReducedMotion();
   const [controller] = useState(() => new PlinkoFlightController(session, {
     onSound: (cue, options) => { try { refs.current.audio?.play(cue, options); } catch {} },
+    onError: failure => setError(failure.message),
   }));
   useEffect(() => {
     controller.attach();
@@ -63,7 +64,7 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
           onClick={() => setStake(value => Math.min(limits.max, value + limits.step))}>+</button>
       </div>
       <p className="plinko-limit">Можно запускать несколько шаров подряд.</p>
-      <button type="button" className="primary plinko-play" disabled={locked || activeCount >= 100 || snapshot.balance < stake}
+      <button type="button" className="primary plinko-play" disabled={locked || snapshot.balance < stake}
         onClick={play}>Запустить шар</button>
       {activeCount > 0 && <p className="plinko-flight-status">В полёте: {activeCount}. Можно запускать следующий шар.</p>}
       {error && <p className="error-banner" role="alert">{error}</p>}

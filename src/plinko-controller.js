@@ -1,20 +1,49 @@
-import { MAX_PLINKO_ACTIVE } from './hall-session.js';
+import {InstancedBufferAttribute,DynamicDrawUsage} from 'three';
 
 export const PLINKO_DURATION_MS = 3800;
 export const PLINKO_LANDING_MS = 950;
+
+// This is storage growth, not an admission limit. Every paid flight gets a
+// matrix slot; smaller boards keep their allocated buffer for later launches.
+export function plinkoInstanceCapacity(required, current = 16) {
+  if (!Number.isSafeInteger(required) || required < 0 || !Number.isSafeInteger(current) || current < 0)
+    throw new RangeError('Invalid Plinko instance count.');
+  let capacity = Math.max(16, current);
+  while (capacity < required) {
+    capacity *= 2;
+    if (!Number.isSafeInteger(capacity)) throw new RangeError('Plinko instance count is outside integer storage.');
+  }
+  return capacity;
+}
+
+export function ensurePlinkoInstanceCapacity(mesh, required) {
+  if (!mesh?.isInstancedMesh) throw new TypeError('Plinko requires an instanced mesh.');
+  const capacity = plinkoInstanceCapacity(required, mesh.instanceMatrix.count);
+  if (capacity <= mesh.instanceMatrix.count) return false;
+  const matrix = new InstancedBufferAttribute(new Float32Array(capacity * 16), 16).setUsage(DynamicDrawUsage);
+  matrix.array.set(mesh.instanceMatrix.array);
+  const color = mesh.instanceColor ? new InstancedBufferAttribute(new Float32Array(capacity * 3), 3).setUsage(DynamicDrawUsage) : null;
+  if (color) color.array.set(mesh.instanceColor.array);
+  // Three's InstancedMesh dispose event releases its previous GPU attributes
+  // and binding state, while retaining the shared geometry and material.
+  mesh.dispose();mesh.instanceMatrix = matrix;mesh.instanceColor = color;
+  mesh.boundingBox = mesh.boundingSphere = null;
+  return true;
+}
 
 // One presentation clock for the entire board. Outcomes stay private until the
 // corresponding flight has actually reached the bin in this clock.
 export class PlinkoFlightController {
   constructor(session, { requestFrame = callback => requestAnimationFrame(callback),
     cancelFrame = id => cancelAnimationFrame(id), onLand = () => {},
-    onSound = () => {}, onChange = () => {}, durationMs = PLINKO_DURATION_MS } = {}) {
+    onSound = () => {}, onChange = () => {}, onError = () => {}, durationMs = PLINKO_DURATION_MS } = {}) {
     this.session = session;
     this.requestFrame = requestFrame;
     this.cancelFrame = cancelFrame;
     this.onLand = onLand;
     this.onSound = onSound;
     this.onChange = onChange;
+    this.onError = onError;
     this.durationMs = durationMs;
     this.flights = new Map();
     this.effects = [];
@@ -57,8 +86,19 @@ export class PlinkoFlightController {
   }
   setRenderer(renderer) {
     this.renderer = renderer;
-    if (renderer) renderer(this.clockMs);
+    this.render();
     this.schedule();
+  }
+  render() {
+    const renderer = this.renderer;
+    if (!renderer) return;
+    try { renderer(this.clockMs); }
+    catch (error) {
+      // Rendering is optional presentation. A lost/failed growing GPU buffer
+      // cannot stop the clock or discard the settlements of accepted balls.
+      if (this.renderer === renderer) this.renderer = null;
+      console.error('Plinko presentation', error);
+    }
   }
   sound(cue, options) {
     // A chord/bounce per frame group avoids 100 simultaneous audio schedules.
@@ -86,8 +126,21 @@ export class PlinkoFlightController {
   }
   land(flight, show = true) {
     const { round } = flight;
-    if (!this.flights.delete(round.id)) return false;
-    if (!this.session.complete(round.id)) return false;
+    if (!this.flights.has(round.id)) return false;
+    let settled;
+    try { settled = this.session.complete(round.id); }
+    catch (error) {
+      // Keep an accepted ball available for retry instead of orphaning its
+      // obligation. Report once; a later successful completion can still land it.
+      if (!flight.settlementReported) {
+        flight.settlementReported = true;
+        try { this.onError(error); } catch {}
+        console.error('Plinko settlement', error);
+      }
+      return false;
+    }
+    this.flights.delete(round.id);
+    if (!settled) return false;
     if (show) {
       this.effects.push({ id: round.id, bin: round.bin, won: round.netCents > 0, at: this.clockMs });
       this.effects = this.effects.slice(-20);
@@ -112,16 +165,15 @@ export class PlinkoFlightController {
     this.effects = this.effects.filter(effect => this.clockMs - effect.at < PLINKO_LANDING_MS);
     changed = changed || oldLength !== this.effects.length;
     if (bounce && !changed) this.sound('pin');
-    this.renderer?.(this.clockMs);
+    this.render();
     if (changed) this.onChange();
   }
   finishAll(show = true) {
     let count = 0;
     for (const flight of [...this.flights.values()]) if (this.land(flight, show)) count++;
-    if (count && show) { this.renderer?.(this.clockMs); this.onChange(); }
+    if (count && show) { this.render(); this.onChange(); }
     this.schedule();
     return count;
   }
   get activeCount() { return this.flights.size; }
-  get full() { return this.flights.size >= MAX_PLINKO_ACTIVE; }
 }

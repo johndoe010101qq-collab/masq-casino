@@ -14,8 +14,9 @@ for(const [game,choice] of games)for(const stake of [-5,0,1,4,6,(game==='slots'?
  let draws=0;const s=new HallSession(GameMath,()=>{draws++;return 0;}),before=s.getSnapshot(),reserve=s.getReserveSnapshot();
  rejects(()=>s.begin(game,choice,stake));eq(draws,0);eq(s.getSnapshot(),before);eq(s.getReserveSnapshot(),reserve);eq(s.active.size,0);eq(s.id,0);
 }
-// Every financial profile rejects an unfunded liability before consuming RNG.
-for(const selection of LIABILITY_PROFILES) {
+// Funded games reject insufficient reserve before RNG; trusted Plinko accepts
+// its own debt exposure, covered by the parallel-launch regression below.
+for(const selection of LIABILITY_PROFILES.filter(selection=>selection.game!=='plinko')) {
  let draws=0;const s=new HallSession(GameMath,()=>{draws++;return 0;},{initialBalanceCents:1000000,houseCapitalCents:0}),before=s.getSnapshot(),reserve=s.getReserveSnapshot();
  const choice=selection.game==='slots'?'bonanza':selection.choice;
  rejects(()=>selection.game==='blackjack'?s.beginBlackjack(5):s.begin(selection.game,choice,5,{mode:selection.mode,bonusTier:selection.bonusTier}),/Ставка временно недоступна\./);
@@ -65,19 +66,20 @@ for(const selection of LIABILITY_PROFILES) {
  const next=s.beginBlackjack(50);rejects(()=>s.completeBlackjack(next.id,resolved));
  const nextResolved=s.advanceBlackjack(next.id,'finish',next.hand);eq(s.completeBlackjack(next.id,nextResolved),true);
 }
-// One maximum Plinko250 liability fits a 10,000 AR bank. A second is
-// denied before RNG and debit. The next safe base stake is105AR; real maximum
-// landing pays7250AR and leaves3000AR, never a negative book.
+// A second Plinko launch can exceed the bank's funded capacity. Every accepted
+// payout still settles once, and the negative bank exposes the real debt.
 {
  let draws=0;const s=new HallSession(GameMath,()=>{draws++;return 0;},{initialBalanceCents:10000000}),opening=s.balanceCents;
  const terms=liabilityTerms({game:'plinko',choice:'standard',stake:250});eq(terms.maxPayoutCents,725000);eq(terms.maxHouseLossCents,700000);
  const round=s.begin('plinko','standard',250);eq(draws,1);eq(s.balanceCents,opening-25000);
  eq(s.getReserveSnapshot().reservedCents,700000);eq(s.getReserveSnapshot().availableCents,300000);
- const before=s.getSnapshot(),reserve=s.getReserveSnapshot();rejects(()=>s.begin('plinko','standard',250),/Ставка временно недоступна\./);eq(draws,1);eq(s.getSnapshot(),before);eq(s.getReserveSnapshot(),reserve);eq(s.id,1);
+ const second=s.begin('plinko','standard',250);eq(draws,2);eq(s.balanceCents,opening-50000);eq(s.id,2);eq(s.getReserveSnapshot().reservedCents,1400000);eq(s.getReserveSnapshot().availableCents,-400000);
  eq(s.begin('coinflip','heads',5),null);eq(s.beginBlackjack(5),null);eq(s.reset(),false);
  eq(s.complete(round.id),true);eq(s.complete(round.id),false);
- eq(s.getReserveSnapshot(),{bankCents:300000,reservedCents:0,availableCents:300000,activeCount:0});
- eq(s.balanceCents,opening+700000);eq(s.reset(),true);eq(s.getReserveSnapshot().bankCents,1000000);
+ eq(s.getReserveSnapshot(),{bankCents:300000,reservedCents:700000,availableCents:-400000,activeCount:1});
+ eq(s.complete(second.id),true);eq(s.complete(second.id),false);eq(draws,2);
+ eq(s.getReserveSnapshot(),{bankCents:-400000,reservedCents:0,availableCents:-400000,activeCount:0});
+ eq(s.balanceCents,opening+1400000);eq(s.reset(),true);eq(s.getReserveSnapshot().bankCents,1000000);
 }
 // Synchronous RNG/engine errors issue no playable round, debit or lingering hold.
 for(const kind of ['rng','settle','cap']) {

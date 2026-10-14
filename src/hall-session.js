@@ -11,8 +11,6 @@ import { DEFAULT_SLOT_PROFILES, SLOT_PROFILE_GAMES, validateSlotProfiles, slotPr
 import { CLASSIC_PROFILE_GAMES, DEFAULT_CLASSIC_PROFILES, classicProfileSnapshot, classicRules, settleClassic, blackjackProfileOptions } from './classic-rtp-profiles.js';
 import { DEFAULT_DEMO_STAKE_LIMITS, DEFAULT_DEMO_PRESENTATION, validateDemoSettings } from './demo-settings.js';
 
-export const MAX_PLINKO_ACTIVE = 100;
-
 export function validateAmount(value, balance, game, configuredLimits) {
   if (!Number.isFinite(value) || !Number.isInteger(value)) return 'Введите целую ставку.';
   const limits = configuredLimits ?? stakeLimits(game);
@@ -68,7 +66,7 @@ export class HallSession {
   #math; #randomInt; #id = 0; #reservationId = 0; #computing = false;
   #active = new Map(); #holds = new WeakMap(); #hands = new WeakMap(); #listeners = new Set();
   #balanceCents; #snapshot; #reserve; #initialBalanceCents; #rtpProfiles; #profileRevision = 1;
-  #classicRtpProfiles; #stakeLimits; #presentation;
+  #classicRtpProfiles; #stakeLimits; #presentation; #pendingPayoutCaps = 0n;
   constructor(math = globalThis.IndictusDemoMath, randomInt,
     { initialBalanceCents = 100000, houseCapitalCents = 1000000, rtpProfiles = DEFAULT_SLOT_PROFILES,
       classicRtpProfiles = DEFAULT_CLASSIC_PROFILES, stakeLimits: configuredLimits = DEFAULT_DEMO_STAKE_LIMITS,
@@ -152,7 +150,7 @@ export class HallSession {
     if (!Number.isSafeInteger(reserveId) || !Number.isSafeInteger(this.#id + 1)) {
       throw new RangeError('Начните новый демо-сеанс.');
     }
-    const admitted = this.#reserve.reserve({ ...selection, roundId: reserveId });
+    const admitted = this.#reserve.reserve({ ...selection, roundId: reserveId }, {allowUnfundedPlinko:selection.game === 'plinko'});
     if (!admitted) {
       throw new RangeError('Ставка временно недоступна.');
     }
@@ -160,9 +158,6 @@ export class HallSession {
   }
   begin(game, choice, stake, { preview = false, mode, bonusTier, featureMode } = {}) {
     if (!this.canBegin(game)) return null;
-    if (game === 'plinko' && this.#active.size >= MAX_PLINKO_ACTIVE) {
-      throw new RangeError('На доске уже 100 шаров. Дождитесь приземления.');
-    }
     const roundMode = mode ?? (preview ? 'preview' : 'paid');
     if (!['paid', 'buy', 'preview'].includes(roundMode)) throw new RangeError('Неизвестный режим раунда.');
     if (preview && roundMode !== 'preview') throw new RangeError('Просмотр нельзя совместить с платным раундом.');
@@ -186,11 +181,16 @@ export class HallSession {
     const profileValue = isSlot ? this.#rtpProfiles[game] : isClassic ? this.#classicRtpProfiles[game] : null;
     const acceptedProfile = profileValue === null ? null : isSlot ? slotProfileSnapshot(game,profileValue,selection) : classicProfileSnapshot(game,profileValue,selection);
     const acceptedRevision=this.#profileRevision,acceptedLimits=this.#stakeLimits[game],acceptedPresentation=this.#presentation;
-    // All liability admission happens before RNG. Refusal cannot reroll an outcome.
+    // Every liability is recorded before RNG. Plinko accepts unfunded exposure
+    // without reducing, retrying or filtering its outcome; other games stay funded.
     const hold = displayOnly ? null : this.#admit({ ...selection, stake, stakeLimits:acceptedLimits, ...(acceptedProfile ? {rtpProfile:profileValue} : {}) });
     let data, payoutCents, round;
     this.#computing = true;
     try {
+      // Numeric headroom is an outcome-independent admission condition: every
+      // accepted pending round could reach its public maximum, not its drawn payout.
+      if (hold && BigInt(openingCents) - BigInt(chargeCents) + this.#pendingPayoutCaps + BigInt(hold.terms.maxPayoutCents) > BigInt(Number.MAX_SAFE_INTEGER))
+        throw new RangeError('Недоступен демо-счёт: недостаточно точного числового диапазона.');
       if (game === 'slots') {
         data = playUniversalSlotRound({game,stakeCents,randomInt:this.#randomInt,mode:roundMode,rtpProfile:profileValue});
         payoutCents = data.payoutCents;
@@ -227,7 +227,7 @@ export class HallSession {
     } finally { this.#computing = false; }
     this.#id = round.id;
     this.#active.set(round.id, round);
-    if (hold) this.#holds.set(round, hold);
+    if (hold) { this.#holds.set(round, hold); this.#pendingPayoutCaps += BigInt(hold.terms.maxPayoutCents); }
     this.#balanceCents -= chargeCents;
     this.#publish({ ...this.#activityPatch(), result: null });
     return round;
@@ -253,6 +253,7 @@ export class HallSession {
     if (hold) this.#reserve.settle(hold.terms.roundId, payoutCents);
     this.#balanceCents = closingCents;
     this.#active.delete(stored.id);
+    if (hold) this.#pendingPayoutCaps -= BigInt(hold.terms.maxPayoutCents);
     this.#holds.delete(stored); this.#hands.delete(stored);
     this.#publish({ ...this.#activityPatch(), result: completed,
       history: stored.preview ? this.#snapshot.history
@@ -276,12 +277,12 @@ export class HallSession {
     let hand, handle, round;
     this.#computing = true;
     try {
-      hand = createBlackjackHand({ randomInt: this.#randomInt,...options });
-      handle = this.#handHandle(hand);
       // Even the largest legitimate credit must fit the wallet before debit.
-      if (!Number.isSafeInteger(this.#balanceCents - stakeCents + hold.terms.maxPayoutCents)) {
+      if (BigInt(this.#balanceCents) - BigInt(stakeCents) + this.#pendingPayoutCaps + BigInt(hold.terms.maxPayoutCents) > BigInt(Number.MAX_SAFE_INTEGER)) {
         throw new RangeError('Недоступен демо-счёт.');
       }
+      hand = createBlackjackHand({ randomInt: this.#randomInt,...options });
+      handle = this.#handHandle(hand);
       round = Object.freeze({ id: this.#id + 1, game: 'blackjack', hand: handle,
         mode: 'paid', preview: false, stake, stakeCents, chargeCents: stakeCents,
         cost: stake, openingCents: this.#balanceCents,rtpProfile:acceptedProfile,profileRevision:acceptedRevision,
@@ -289,7 +290,7 @@ export class HallSession {
     } catch (error) { this.#reserve.cancel(hold.terms.roundId); throw error; }
     finally { this.#computing = false; }
     this.#id = round.id;
-    this.#active.set(round.id, round); this.#holds.set(round, hold); this.#hands.set(round, Object.freeze({ initial: hand, current: hand, handle }));
+    this.#active.set(round.id, round); this.#holds.set(round, hold); this.#pendingPayoutCaps += BigInt(hold.terms.maxPayoutCents); this.#hands.set(round, Object.freeze({ initial: hand, current: hand, handle }));
     this.#balanceCents -= stakeCents;
     this.#publish({ ...this.#activityPatch(), result: null });
     return round;

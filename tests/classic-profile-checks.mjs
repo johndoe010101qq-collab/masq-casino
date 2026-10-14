@@ -90,7 +90,11 @@ section('profiles keep all stake-grid costs and maximum liability; identity pins
  }
  const book=createDemoReserve({capitalCents:1000000}),input={game:'roulette',choice:'red',stake:5,rtpProfile:90,roundId:'round-pinned'};
  const first=book.reserve(input);eq(first.record.terms.rtpProfile,'rtp90');eq(book.reserve(input).admittedNow,false);raises(()=>book.reserve({...input,rtpProfile:95}));eq(book.settle('round-pinned',1000),true);eq(book.settle('round-pinned',1000),false);
- for(const game of CLASSIC_PROFILE_GAMES){let draws=0;const session=new HallSession(GameMath,()=>{draws++;return 0;},{houseCapitalCents:0});raises(()=>game==='blackjack'?session.beginBlackjack(5):session.begin(game,choices[game][0],5));eq(draws,0);eq(session.balanceCents,100000);}
+ for(const game of CLASSIC_PROFILE_GAMES.filter(game=>game!=='plinko')){let draws=0;const session=new HallSession(GameMath,()=>{draws++;return 0;},{houseCapitalCents:0});raises(()=>game==='blackjack'?session.beginBlackjack(5):session.begin(game,choices[game][0],5));eq(draws,0);eq(session.balanceCents,100000);}
+ // Plinko alone records its liability without requiring funded capacity. Its
+ // profile still pins before the single draw, and the published cap is retained.
+ let session,draws=0;session=new HallSession(GameMath,()=>{draws++;eq(session.getReserveSnapshot().reservedCents,14000);return 0;},{houseCapitalCents:0,classicRtpProfiles:{...DEFAULT_CLASSIC_PROFILES,plinko:95}});
+ const plinko=session.begin('plinko','standard',5);eq(draws,1);eq(plinko.rtpProfile.id,'rtp95');eq(plinko.payoutCents,14500);eq(session.balanceCents,99500);eq(session.complete(plinko.id),true);eq(session.getReserveSnapshot().bankCents,-14000);
 });
 section('atomic settings validate all parts, reject stale and active updates, increment once',()=>{
  const session=new HallSession(GameMath,rng(223)),before=session.getSnapshot(),config=clone(DEFAULT_DEMO_SETTINGS);let events=0;session.subscribe(()=>events++);

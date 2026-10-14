@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { plinkoBallPose } from './plinko-motion.js';
+import {ensurePlinkoInstanceCapacity} from './plinko-controller.js';
 import { MINECRAFT_PLINKO_GEOMETRY } from './minecraft-classic-motion.js';
 import { MinecraftPlinkoCabinet,PLINKO_CATCH_LABEL } from './MinecraftClassicArt.jsx';
 import { MinecraftStudioMaterials, StudioBackdrop, StudioLights, StudioMaterial, MINECRAFT_STUDIO_PALETTE as C } from './MinecraftStudio.jsx';
@@ -50,6 +51,7 @@ function Board({ controller, reduced }) {
     if (entranceMaterial.current) entranceMaterial.current.emissiveIntensity = contacts.entrance ? .75 : .12;
     if(shutter.current)shutter.current.position.x=.33*contacts.shutter;
     if (balls.current) {
+      ensurePlinkoInstanceCapacity(balls.current, flights.length + effects.length);
       balls.current.count = flights.length + effects.length;
       flights.forEach((ball, index) => {
         dummy.position.set(...plinkoBallPose(ball.path, ball.progress));
@@ -93,7 +95,7 @@ function Board({ controller, reduced }) {
     }
   });
   return <MinecraftPlinkoCabinet binMaterials={bins} pegMaterials={pegMaterials} entranceMaterial={entranceMaterial} shutter={shutter} showLabels={false}>
-    <instancedMesh ref={balls} args={[null, null, 120]} frustumCulled={false} castShadow>
+    <instancedMesh ref={balls} args={[null, null, 16]} frustumCulled={false} castShadow>
       <boxGeometry args={MINECRAFT_PLINKO_GEOMETRY.ball} />
       <StudioMaterial color="#e1e8dc" kind="ivory" emissive="#a4bea7" intensity={.14} />
     </instancedMesh>

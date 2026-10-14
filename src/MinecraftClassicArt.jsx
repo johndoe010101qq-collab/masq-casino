@@ -3,15 +3,18 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import './MinecraftClassicLook.css';
+import CoinDealer from './CoinDealer.jsx';
+import {coinDealerPresentation} from './coin-dealer-presentation.js';
+import {diceTossPresentation} from './dice-toss-presentation.js';
 import { ROULETTE_NUMBERS, PLINKO_MULTIPLIERS } from './game-math.js';
 import { FramePump, usePageVisible, useReducedMotion } from './SceneMotion.jsx';
 import { MinecraftStudioMaterials, StudioBackdrop, StudioBlock as Block, StudioMaterial, StudioLights, PixelMask, MINECRAFT_STUDIO_PALETTE as C } from './MinecraftStudio.jsx';
-import { CLASSIC_DIE_FACES, CLASSIC_DIE_PIPS, MINECRAFT_PLINKO_GEOMETRY, classicProgress, minecraftCoinPose, minecraftRoulettePose, minecraftTerminalState } from './minecraft-classic-motion.js';
+import { CLASSIC_DIE_FACES, CLASSIC_DIE_PIPS, MINECRAFT_PLINKO_GEOMETRY, minecraftRoulettePose, minecraftTerminalState } from './minecraft-classic-motion.js';
 
 const TAU = Math.PI * 2;
 const RED = new Set([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]);
 export const MINECRAFT_CLASSIC_CAMERAS = Object.freeze({
-  coinflip: { at: [1.8, 2.1, 10], target: [0, .16, 0], width: 4.2, height: 3.75 },
+  coinflip: { at: [.45, 2.1, 8.5], target: [0, -.38, -.9], width: 4.5, height: 3.1 },
   dice: { at: [6.3, 4.8, 8], target: [0, -.08, 0], width: 4.4, height: 3.4 },
   roulette: { at: [1.6, 6.5, 8], target: [0, -.20, 0], width: 6.7, height: 5.2 },
   upgrader: { at: [1.3, 2.35, 10], target: [0, -.1, .1], width: 5.1, height: 4.3 },
@@ -113,17 +116,10 @@ function CoinPixelSeal() {
 }
 
 function Coin({ round, progress, playing, reduced }) {
-  const ref = useRef();
-  const pose = minecraftCoinPose(round, progress, playing, reduced);
-  useFrame(() => {
-    if (!ref.current) return;
-    ref.current.rotation.set(0, round || playing ? pose.radians : -.15, pose.tilt * Math.PI / 180);
-    ref.current.position.y = .38 - pose.flight / 25;
-  });
+  const pose = coinDealerPresentation(round, progress, playing, reduced);
   return <>
-    <RoundedSolid size={[2.75,.20,1.42]} at={[0,-1.10,0]} color="#172126" radius={.14} metalness={.17}/>
-    <RoundedSolid size={[1.55,.35,.64]} at={[0,-.825,0]} color="#263337" radius={.07} metalness={.15}/>
-    <group ref={ref} position={[0, .38, 0]} name="physical-coin">
+    <CoinDealer presentation={pose}/>
+    <group position={pose.coin.position} quaternion={pose.coin.quaternion} scale={pose.coin.scale} name="physical-coin">
       <Disc radius={1.03} depth={.30} color="#525d5c" segments={48} kind="none" metalness={.40} roughness={.50}/>
       <Disc radius={1.0} depth={.35} color="#919986" segments={48} kind="none" metalness={.35} roughness={.55}/>
       <Disc radius={.94} depth={.38} color="#27383a" segments={48} kind="none" metalness={.28} roughness={.65}/>
@@ -211,22 +207,15 @@ export function classicDieSupportHeight(quaternion) {
 
 function Die({ round, progress, playing, reduced }) {
   const body = useRef();
-  const p = classicProgress(round, progress, playing, reduced);
-  const rest=useMemo(()=>classicDieRestQuaternion(round,p),[round,p]);
-  const scratch = useMemo(() => ({ spin: new THREE.Quaternion(), euler: new THREE.Euler(), matrix: new THREE.Matrix4() }), []);
+  const pose=diceTossPresentation(round,progress,playing,reduced);
   const geometry=useMemo(makeClassicDieShell,[]);
   const shadowGeometry=useMemo(()=>new RoundedBoxGeometry(1.1,1.1,1.1,5,.055),[]);
   useEffect(()=>()=>{geometry.dispose();shadowGeometry.dispose();},[geometry,shadowGeometry]);
   useFrame(() => {
     if (!body.current) return;
-    const spin = playing ? (1 - p) ** 3 : 0;
-    scratch.euler.set(spin * TAU * 3, spin * TAU * 2, spin * TAU);
-    scratch.spin.setFromEuler(scratch.euler);
-    body.current.quaternion.copy(rest).multiply(scratch.spin);
-    scratch.matrix.makeRotationFromQuaternion(body.current.quaternion);
+    body.current.quaternion.fromArray(pose.quaternion);
     const contact=classicDieSupportHeight(body.current.quaternion);
-    const lift = playing ? Math.abs(Math.sin(p * Math.PI * 3)) * (1 - p) * .85 : 0;
-    body.current.position.set(playing ? -.58 * (1 - p) + Math.sin(p * TAU) * .2 * (1 - p) : 0, -.8535+contact+lift, -.12 * (1 - p));
+    body.current.position.set(pose.x,-.8535+contact+pose.lift,pose.z);
   });
   return <><Tray />
     <group ref={body} position={[0,-.3025,0]} name="six-physical-pip-faces">
