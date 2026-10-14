@@ -13,4 +13,12 @@
 .plinko-play { width:100%; min-height:46px; border-radius:3px; font-weight:700; cursor:pointer; }
 .plinko-flight-status { color:#c2d7c5; }
 .plinko-room .error-banner { margin:0; color:#dfa2aa; font-size:13px; }
+@media(min-width:701px) {
+ .app-shell36 .indictus-main:has(>.plinko-room){padding-top:18px;padding-bottom:18px;}
+ .app-shell36 .indictus-main:has(>.plinko-room)>.back-button{min-height:30px;margin-bottom:10px;}
+ .app-shell36 .indictus-main:has(>.plinko-room)>.room-heading{min-height:32px;margin-bottom:10px;}
+ .app-shell36 .indictus-main:has(>.plinko-room)>.room-heading h1{font-size:25px;}
+ .app-shell36 .plinko-stage{min-height:0;}
+ .app-shell36 .plinko-stage .plinko-canvas{max-height:calc(100svh - 195px);}
+}
 @media(max-width:650px) { .plinko-stage { min-height:0; } .app-shell36 .plinko-stage .plinko-canvas { aspect-ratio:1.04; } .plinko-bet { min-height:0; } .plinko-bin-label { font-size:10px; } }

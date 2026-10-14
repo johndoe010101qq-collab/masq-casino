@@ -15,24 +15,16 @@
 #bj-live-stage .bj-felt-card-corner i{font:700 42px/.8 Arial,sans-serif;font-style:normal;letter-spacing:0;}
 #bj-live-stage .bj-felt-card-corner-bottom{top:auto;left:auto;right:12px;bottom:8px;transform:rotate(180deg);}
 #bj-live-stage .bj-felt-card-suit{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:700 146px/1 Arial,sans-serif;}
-#bj-live-stage .bj-live-scores{position:absolute;left:16px;right:16px;top:14px;display:flex;justify-content:space-between;gap:12px;pointer-events:none;}
-#bj-live-stage .bj-live-scores>div{display:flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid #57716699;border-radius:6px;background:#0c1817d9;box-shadow:0 3px 9px #0004;color:#f2ecd9;}
-#bj-live-stage .bj-live-scores span{font-size:12px;opacity:.8;}
-#bj-live-stage .bj-live-scores strong{font:700 18px/1.1 var(--ds-font-body,Arial);font-variant-numeric:tabular-nums;}
+#bj-live-stage .bj-felt-score{position:absolute;left:960px;display:flex;align-items:center;justify-content:center;gap:14px;width:200px;transform:translate(-50%,-50%);color:#f0ead5;background:#10231bde;border:2px solid #81947a88;border-radius:3px;box-shadow:0 4px 0 #06110e55;pointer-events:none;}
+#bj-live-stage .bj-felt-score-dealer{top:695px;height:36px;}
+#bj-live-stage .bj-felt-score-player{top:854px;height:52px;border-color:#b4bd98aa;background:#182e22ee;}
+#bj-live-stage .bj-felt-score span{font:500 23px/1 var(--ds-font-body,Arial);color:#bdcbbc;}
+#bj-live-stage .bj-felt-score strong{font:700 33px/1 var(--ds-font-body,Arial);font-variant-numeric:tabular-nums;}
+#bj-live-stage .bj-felt-score-dealer span{font-size:21px;}
+#bj-live-stage .bj-felt-score-dealer strong{font-size:27px;}
 #bj-live-stage .bj-live-motion-toggle{position:absolute;right:14px;bottom:12px;min-height:30px;padding:5px 10px;border:1px solid #64827666;border-radius:5px;background:#0b1716c9;color:#d0ded2;font-size:11px;}
-#bj-live-stage .bj-live-table-footer{position:relative;display:grid;gap:10px;padding:12px 16px 16px;background:#101c19;border-top:1px solid #3b5047;}
-#bj-live-stage .blackjack-live-status{position:static;inset:auto;display:flex;justify-content:center;min-height:22px;padding:0;background:none;border:0;font-size:13px;color:#e5dfc9;box-shadow:none;}
-#bj-live-stage .blackjack-table-actions{position:static;inset:auto;display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%;max-width:none;transform:none;}
-#bj-live-stage .blackjack-table-actions button{min-height:42px;margin:0;border-radius:5px;background:#203b31;border:1px solid #60765a!important;font-size:14px;}
-#bj-live-stage .blackjack-table-actions button:enabled:hover{background:#2d5141;}
-#bj-live-stage .blackjack-table-actions button:disabled{opacity:.45;}
 @media(max-width:600px){
  #bj-live-stage .blackjack-live-table{aspect-ratio:9/16;}
- #bj-live-stage .bj-live-scores{left:10px;right:10px;top:10px;}
- #bj-live-stage .bj-live-scores>div{padding:6px 9px;gap:7px;}
- #bj-live-stage .bj-live-scores strong{font-size:16px;}
- #bj-live-stage .bj-live-scores span{font-size:11px;}
- #bj-live-stage .bj-live-table-footer{padding:10px 12px 14px;}
 }
 @media(prefers-reduced-motion:reduce){#bj-live-stage .bj-felt-card{transition:none;will-change:auto;}}
 #bj-live-stage [data-reduced-motion='true'] .bj-felt-card{transition:none;will-change:auto;}

@@ -40,11 +40,16 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
       <div className="physical-canvas plinko-canvas">
         <div className="plinko-render" aria-hidden="true"><PlinkoScene controller={controller} reduced={reduced} onLayout={setBoardLayout} /></div>
         {boardLayout && <div className="plinko-bin-labels" role="list" aria-label="Множители лунок слева направо">
-          {PLINKO_MULTIPLIERS.map((rate, i) => <span key={i} role="listitem" className={'plinko-bin-label'+(i===0||i===8?' plinko-bin-edge':'')}
-            aria-label={`Лунка ${i+1}: множитель ${rate}`}
-            style={{left:boardLayout.width/2+(i-4)*.56*boardLayout.zoom,
-              top:boardLayout.height/2+2.08*boardLayout.zoom,
-              '--bin-width':`${.48*boardLayout.zoom}px`,height:`${.26*boardLayout.zoom}px`}}>{rate}</span>)}
+          {PLINKO_MULTIPLIERS.map((rate, i) => {
+            const anchor=boardLayout.binAnchors?.[i];
+            return <span key={i} role="listitem" className={'plinko-bin-label'+(i===0||i===8?' plinko-bin-edge':'')}
+              aria-label={`Лунка ${i+1}: множитель ${rate}`}
+              style={{left:anchor?.x??boardLayout.width/2+(i-4)*.56*boardLayout.zoom,
+                top:anchor?.y??boardLayout.height/2+2.08*boardLayout.zoom,
+                '--bin-width':`${anchor?.width??.48*boardLayout.zoom}px`,
+                height:`${anchor?.height??.26*boardLayout.zoom}px`,
+                transform:anchor?'translate(-50%,-50%)':undefined}}>{rate}</span>;
+          })}
         </div>}
       </div>
     </div>

@@ -72,10 +72,16 @@ export default function RasterBlackjack({ view, motion, roundId = 'waiting', rea
         return view[side].map((card,index)=><FeltCard key={side+'-'+index} card={card} geometry={geometry[index]}
           side={side} index={index} motion={motion} reducedMotion={reducedMotion} />);
       })}
+      {view.dealer.length > 0 && <div className="bj-felt-score bj-felt-score-dealer" data-score-side="dealer">
+        <span>Дилер</span><strong>{view.dealerTotal??'—'}{view.dealer.length>1&&!view.revealed?' + ?':''}</strong>
+      </div>}
+      {view.player.length > 0 && <div className="bj-felt-score bj-felt-score-player" data-score-side="player">
+        <span>Ваш счёт</span><strong>{view.playerTotal??'—'}</strong>
+      </div>}
     </div>
-    <div className="bj-live-scores">
-      <div><span>Дилер</span><strong>{view.dealerTotal??'—'}{view.dealer.length>1&&!view.revealed?' + ?':''}</strong></div>
-      <div><span>Вы</span><strong>{view.playerTotal??'—'}</strong></div>
+    <div className="blackjack-accessible-hands">
+      <p>Счёт дилера: {view.dealerTotal??'пока нет'}{view.dealer.length>1&&!view.revealed?', одна карта скрыта':''}.</p>
+      <p aria-live="polite" aria-atomic="true">Ваш счёт: {view.playerTotal??'пока нет'}.</p>
     </div>
     {!reducedMotion && <button type="button" className="bj-live-motion-toggle"
       aria-pressed={backgroundPaused} onClick={()=>setBackgroundPaused(value=>!value)}>

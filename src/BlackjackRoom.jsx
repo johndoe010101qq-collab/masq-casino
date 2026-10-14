@@ -156,32 +156,38 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
           roundId={roundId} reacting={reacting} onVideoProgress={mediaProgress} onVideoEnded={mediaEnded} onVideoError={mediaError}
           onAnimationModeChange={animationMode} status={display.status} reducedMotion={reduced} paused={!pageVisible || payoutOpen} />
         <div className="bj-live-table-footer">
-        <div className="blackjack-live-status" role="status" aria-live="polite">
-          {view.result?.title ?? statuses[display.status]}
-        </div>
-        <div className="blackjack-actions blackjack-table-actions" role="group" aria-label="Ваш ход">
-          <button type="button" disabled={!display.canAct || payoutOpen} onClick={() => action('hit')}>Ещё карту</button>
-          <button type="button" disabled={!display.canAct || payoutOpen} onClick={() => action('stand')}>Хватит</button>
-        </div>
+          <div className="bj-console-heading">
+            <div className="blackjack-live-status" data-phase={display.status} role="status" aria-live="polite">
+              <span className="bj-status-light" aria-hidden="true" />{view.result?.title ?? statuses[display.status]}
+            </div>
+            <span className="bj-table-limit">{limits.min}–{limits.max} АР</span>
+          </div>
+          <div className="bj-console-controls">
+            <div className="bj-console-stake">
+              <span className="bj-console-label">Ставка</span>
+              <div className="blackjack-stake-tools" role="group" aria-label="Ставка Blackjack">
+                <button type="button" aria-label="Уменьшить ставку" disabled={locked || stake <= limits.min} onClick={() => setStake(n => Math.max(limits.min, n - limits.step))}>−</button>
+                <output aria-label="Текущая ставка">{stake}<span>АР</span></output>
+                <button type="button" aria-label="Увеличить ставку" disabled={locked || stake >= limits.max} onClick={() => setStake(n => Math.min(limits.max, n + limits.step))}>+</button>
+              </div>
+            </div>
+            <div className="blackjack-actions blackjack-table-actions" role="group" aria-label="Управление раздачей">
+              <button type="button" className="blackjack-play" disabled={locked || snapshot.balance < stake} onClick={play}>Новая раздача</button>
+              <button type="button" disabled={!display.canAct || payoutOpen} onClick={() => action('hit')}><span className="bj-action-symbol" aria-hidden="true">+</span>Ещё карту</button>
+              <button type="button" disabled={!display.canAct || payoutOpen} onClick={() => action('stand')}><span className="bj-action-symbol" aria-hidden="true">−</span>Хватит</button>
+            </div>
+          </div>
+          <div className="bj-console-information">
+            <dl className="blackjack-returns"><div><dt>Blackjack</dt><dd>×2,5</dd></div><div><dt>Победа</dt><dd>×2</dd></div><div><dt>Ничья</dt><dd>×1</dd></div></dl>
+            <details className="blackjack-rules"><summary>Правила раздачи</summary><p className="blackjack-rule-copy">Blackjack — ×2,5. Победа — ×2, ничья — ×1. Выплата включает ставку. Туз — 11 или 1. Дилер останавливается на 17, включая мягкие 17. {snapshot.classicRtpProfiles?.blackjack===98?'Активен вариант с равномерной колодой и добором без возвращения.':'В активном варианте добор игрока и дилера имеет фиксированные неравные вероятности.'} Механизм описан во вкладке «Правила шансов».</p></details>
+            <span className="bj-demo-note">Демо-баланс</span>
+          </div>
         </div>
         <div className="blackjack-accessible-hands">
           <p>Ваши карты: {view.player.map(cardText).join(', ') || 'пока нет'}.</p>
           <p>Карты дилера: {view.dealer.map(cardText).join(', ') || 'пока нет'}.</p>
         </div>
       </div>
-      <aside className="room-bet blackjack-bet">
-        <label>Ставка <span>{limits.min}–{limits.max} АР</span></label>
-        <div className="blackjack-stake-tools" role="group" aria-label="Ставка Blackjack">
-          <button type="button" aria-label="Уменьшить ставку" disabled={locked || stake <= limits.min} onClick={() => setStake(n => Math.max(limits.min, n - limits.step))}>−</button>
-          <output aria-label="Текущая ставка">{stake} АР</output>
-          <button type="button" aria-label="Увеличить ставку" disabled={locked || stake >= limits.max} onClick={() => setStake(n => Math.min(limits.max, n + limits.step))}>+</button>
-        </div>
-        <button type="button" className="primary blackjack-play" disabled={locked || snapshot.balance < stake} onClick={play}>Новая раздача</button>
-        <dl className="blackjack-returns"><div><dt>Blackjack</dt><dd>×2,5</dd></div><div><dt>Победа</dt><dd>×2</dd></div><div><dt>Ничья</dt><dd>×1</dd></div></dl>
-        <small>Выплата включает ставку.</small>
-        <details className="blackjack-rules"><summary>Правила раздачи</summary><p className="blackjack-rule-copy">Туз — 11 или 1. Дилер останавливается на 17, включая мягкие 17. {snapshot.classicRtpProfiles?.blackjack===98?'Активен вариант с равномерной колодой и добором без возвращения.':'В активном варианте добор игрока и дилера имеет фиксированные неравные вероятности.'} Механизм описан во вкладке «Правила шансов».</p></details>
-        <p className="demo-explanation">Демонстрационный баланс.</p>
-      </aside>
     </div>
     {error && <p className="error-banner" role="alert">{error}</p>}
   </section>;

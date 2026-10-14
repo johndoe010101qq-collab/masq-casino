@@ -83,14 +83,14 @@
 .lobby15-filters{display:flex;align-items:center;gap:5px;border-bottom:1px solid var(--ds-line)}.lobby15-filters button{padding:9px 13px;min-height:40px;background:none;border-bottom:2px solid transparent;color:#80988b;font-size:11px;font-weight:600}
 .lobby15-filters button.lobby15-filter-active{border-color:var(--ds-positive);color:#d2e0d2}
 .lobby15-collection{margin-bottom:29px}.lobby15-collection-heading{display:flex;align-items:center;justify-content:space-between;margin:0 0 13px}.app-shell36 .lobby15-collection-heading h2{margin:0;font-size:17px;font-weight:650;letter-spacing:-.02em}
-.lobby15-grid{display:grid;gap:15px}.lobby15-grid-slots{grid-template-columns:repeat(3,minmax(0,1fr))}.lobby15-grid-classics{grid-template-columns:repeat(6,minmax(0,1fr))}
+.lobby15-grid{display:grid;gap:15px}.lobby15-grid-slots{grid-template-columns:repeat(3,minmax(0,1fr))}.lobby15-grid-classics{grid-template-columns:repeat(3,minmax(0,1fr))}
 .app-shell36 .lobby15-card{display:block;width:100%;padding:0;text-align:left;border:1px solid #52715e3d;border-radius:4px;background:#1b2a27;overflow:hidden;box-shadow:0 4px 0 #060c0d;transition:border-color .18s,transform .18s}
 .app-shell36 .lobby15-card:enabled:hover{border-color:#9dc7ac85;transform:translateY(-3px)}
-.lobby15-art{position:relative;display:block;width:100%;aspect-ratio:1.55;overflow:hidden;background:#0d1b19}.lobby15-card-classic .lobby15-art{aspect-ratio:1.15}
+.lobby15-art{position:relative;display:block;width:100%;aspect-ratio:1.55;overflow:hidden;background:#0d1b19}.lobby15-card-classic .lobby15-art{aspect-ratio:1.6}
 .lobby15-art>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s;image-rendering:auto}.lobby15-card:enabled:hover .lobby15-art>img{transform:scale(1.035)}
 .lobby15-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 15px;border-top:1px solid #caeed015;background:#1b2a27}
 .lobby15-caption strong{min-width:0;font-size:17px;font-weight:700;letter-spacing:-.03em;color:#e8eddc;line-height:1.1}
-.lobby15-card-classic .lobby15-caption{padding:12px 10px}.lobby15-card-classic .lobby15-caption strong{font-size:12px}
+.lobby15-card-classic .lobby15-caption{padding:12px 10px}.lobby15-card-classic .lobby15-caption strong{font-size:14px}
 .lobby15-enter{display:flex;align-items:center;gap:9px;font-size:9px;color:#94b69e}.lobby15-enter svg{width:18px;height:18px}.lobby15-card-classic .lobby15-enter>span{display:none}
 .lobby15-play{position:absolute;inset:0;display:grid;place-items:center;background:#07151133;opacity:0;transition:opacity .2s}.lobby15-play svg{width:34px;height:34px;padding:6px;background:#bde4c5;color:#12251b;border-radius:2px;box-shadow:0 4px 0 #1b432d}
 .lobby15-card:enabled:hover .lobby15-play,.lobby15-card:focus-visible .lobby15-play{opacity:1}
@@ -132,17 +132,6 @@
 .app-shell36 .stage-label small{color:var(--ds-muted);font-size:10px;font-weight:500;letter-spacing:0}
 @media(max-width:650px){.app-shell36 .physical-result{padding:13px 14px;min-height:60px;gap:10px}.app-shell36 .physical-result strong{font-size:19px}.app-shell36 .stage-label{top:12px;left:14px;right:14px}.app-shell36 .room-bet .room-choices label{min-height:46px}}
 .app-shell36 .room-stage-title{padding:14px 16px;margin:0;border:0;font-size:10px;color:#8ba686;letter-spacing:.07em}
-.app-shell36 .blackjack-bet>label{background:none;padding:0;margin:0 0 12px;font-size:12px}
-.app-shell36 .blackjack-stake-tools{display:grid;grid-template-columns:33px 1fr 33px;gap:7px;padding:0;background:none;border:0;margin-bottom:20px}
-.app-shell36 .blackjack-stake-tools>button{height:44px;min-height:44px;background:#2a422f;border:1px solid #6d8b6455;border-radius:3px;font-size:18px;color:#cfdbc4;box-shadow:0 3px 0 #0d1a0f}
-.app-shell36 .blackjack-stake-tools>output{display:grid;place-items:center;border:1px solid #81997677;border-radius:3px;background:#0b1912;box-shadow:inset 0 2px 0 #030b05;color:#e2ecd5;font-size:22px;font-weight:650;letter-spacing:-.04em}
-.app-shell36 .blackjack-returns{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:22px 0 10px;padding:15px 0;border:0;border-top:1px solid #819f5e36;border-bottom:1px solid #819f5e36;font-size:10px}
-.app-shell36 .blackjack-returns>div{display:grid;gap:4px;justify-items:start}.app-shell36 .blackjack-returns dt{color:#8ea984;font-size:9px}.app-shell36 .blackjack-returns dd{margin:0;color:#cadba9;font-size:15px;font-weight:600}
-.app-shell36 .blackjack-bet>small{color:#8ba281;font-size:9px}.app-shell36 .blackjack-rules{padding:13px 0;margin-top:14px;border-top:1px solid #7b976244;font-size:10px}.app-shell36 .blackjack-rules summary{color:#b8c8ad}.app-shell36 .blackjack-rule-copy{font-size:10px;color:#93ab8a;line-height:1.6;margin:10px 0}
-.app-shell36 #bj-live-stage{border-color:#72916d55;border-radius:4px;box-shadow:0 4px 0 #060e08}
-.app-shell36 #bj-live-stage .blackjack-live-table{background:#0e1614}.app-shell36 #bj-live-stage .bj-live-table-footer{background:#15291c;border-color:#536e3c55;padding:13px 15px 15px}
-.app-shell36 #bj-live-stage .blackjack-table-actions button{border:1px solid #77976455!important;background:#2b482b;color:#dce8c4;border-radius:3px;box-shadow:0 3px 0 #081405;font-family:var(--ds-font-body);font-size:12px;min-height:40px}
-.app-shell36 #bj-live-stage .blackjack-table-actions button:enabled:hover{background:#3c6238}.app-shell36 #bj-live-stage .blackjack-live-status{font-size:11px;color:#bdd0a2}
 
 /* Bonus shops, settings, rules and result sheets use the same slate system. */
 .app-shell36 :is(.hall-rules,.demo-admin-panel,.slot-purchase-dialog,.bonanza-rules-dialog,.slot-rules-dialog,.slot-bonus-shop,.purchase-dialog){background:#1b2a27;color:#e4ecd8;border:1px solid #90cbbb55;border-radius:4px;box-shadow:0 8px 0 #030b08,0 30px 100px #0009;font-family:var(--ds-font-body)}
