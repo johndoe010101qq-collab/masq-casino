@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {createServer} from 'vite';
 import * as THREE from 'three';
-import {coinDealerPresentation,coinDealerCoinSupport,COIN_DEALER_STAGE as stage} from '../src/coin-dealer-presentation.js';
+import {coinDealerPresentation,coinDealerCoinSupport,coinDealerFlightTime,COIN_DEALER_STAGE as stage} from '../src/coin-dealer-presentation.js';
 
 let checks=0,minSleeveClearance=Infinity,minCoinClearance=Infinity;
 const close=(a,b,message,tolerance=1e-9)=>{assert.ok(Math.abs(a-b)<tolerance,message+`: ${a} / ${b}`);checks++;};
@@ -22,6 +22,7 @@ for(let tick=0;tick<900;tick++) {
 for(const face of ['heads','tails']) {
   const result=coinDealerPresentation({face},1,false),reduced=coinDealerPresentation({face},.1,true,true);
   close(v([0,0,1]).applyQuaternion(q(result.coin.quaternion)).y,face==='heads'?1:-1,'Accepted side lies face up on the real felt');
+  close(v([0,1,0]).applyQuaternion(q(result.coin.quaternion)).z,-1,'Both accepted faces read upright from the front of the table');
   assert.deepEqual(reduced.coin,result.coin,'Reduced/skip uses the same accepted physical endpoint');checks++;
   assert.equal(result.attached,false);checks++;
   close(result.coin.position[1]-coinDealerCoinSupport(q(result.coin.quaternion)),-1.1975,'Settled coin rests on the exact drawn table height');
@@ -44,6 +45,35 @@ for(const face of ['heads','tails'])for(const boundary of [stage.reveal,stage.la
   const a=coinDealerPresentation({face},boundary-1e-7,true),b=coinDealerPresentation({face},boundary+1e-7,true);
   assert.ok(v(a.coin.position).distanceTo(v(b.coin.position))<2e-6,'Reveal and landing do not jump the coin center');checks++;
   assert.ok(q(a.coin.quaternion).angleTo(q(b.coin.quaternion))<.0001,'Reveal and landing have continuous orientation');checks++;
+}
+// The flight stays monotone and uses one progress source. Slow motion changes
+// spatial speed, while the private coin keeps visibly flipping up to disclosure.
+let previousFlight=0;
+for(let tick=0;tick<=1000;tick++) {
+  const progress=stage.release+(stage.landing-stage.release)*tick/1000,time=coinDealerFlightTime(progress);
+  assert.ok(Number.isFinite(time.progress)&&Number.isFinite(time.velocity)&&time.progress>=previousFlight-1e-12&&time.progress<=1,'Retimed flight cannot rewind, jump or leave the original arc');checks++;
+  if(tick<1000){assert.ok(time.velocity>0,'A cinematic apex never freezes into a fake settled face');checks++;}
+  previousFlight=time.progress;
+  const actual=coinDealerPresentation({face:'heads'},progress,true);
+  close(actual.flightProgress,time.progress,'Camera tracking receives the same physical time used by the actual coin');
+}
+for(const progress of [NaN,Infinity,-1])assert.deepEqual(coinDealerFlightTime(progress),{progress:0,velocity:0});checks+=3;
+const speedBetween=(start,end)=>(coinDealerFlightTime(end).progress-coinDealerFlightTime(start).progress)/(end-start);
+const burstSpeed=speedBetween(.29,.33),apexSpeed=speedBetween(.46,.54),finalDescentSpeed=speedBetween(.90,.96);
+assert.ok(burstSpeed>apexSpeed*2,'The release rises quickly before lingering around the apex');checks++;
+assert.ok(finalDescentSpeed<burstSpeed*.15,'The final descent uses controlled slow motion');checks++;
+const angularSpeed=progress=>q(coinDealerPresentation({face:'heads'},progress-.0001,true).coin.quaternion).angleTo(q(coinDealerPresentation({face:'heads'},progress+.0001,true).coin.quaternion))/.0002;
+for(const progress of [.86,.88,.895]){assert.ok(angularSpeed(progress)>4,'The unrevealed coin keeps visibly flipping close to the public boundary');checks++;}
+const edgeNormal=v([0,0,1]).applyQuaternion(q(coinDealerPresentation({face:'heads'},stage.reveal,true).coin.quaternion));
+assert.ok(Math.abs(edgeNormal.y)<.01,'Common motion arrives edge-on instead of nearly landing on a provisional heads result');checks++;
+for(const face of ['heads','tails']) {
+  const boundary=stage.reveal,step=1e-7;
+  const a=coinDealerPresentation({face},boundary-step,true).coin.quaternion,b=coinDealerPresentation({face},boundary,true).coin.quaternion,c=coinDealerPresentation({face},boundary+step,true).coin.quaternion;
+  const derivativeGap=Math.hypot(...a.map((value,index)=>(b[index]-value)/step-(c[index]-b[index])/step));
+  assert.ok(derivativeGap<.001,'The public face turn continues the actual angular velocity without a reveal pop');checks++;
+  const landed=coinDealerPresentation({face},stage.landing,true),finished=coinDealerPresentation({face},1,true);
+  assert.deepEqual(landed.coin,finished.coin,'Accepted face remains still and readable after the final contact');checks++;
+  close(landed.coin.position[1]-coinDealerCoinSupport(q(landed.coin.quaternion)),stage.feltTop,'Final cinematic contact preserves exact felt support');
 }
 const idle=coinDealerPresentation(null,0,false),returned=coinDealerPresentation({face:'heads'},1,false);
 assert.deepEqual(idle.dealer,returned.dealer,'Whole seated actor returns to the same neutral pose');checks++;
@@ -116,4 +146,4 @@ const renderer=await readFile(new URL('../src/CoinDealer.jsx',import.meta.url),'
 for(const source of [renderer,motion]) {
   assert.ok(!/Math\.random|Date\.now|performance\.now|requestAnimationFrame|setTimeout|setInterval|session\.complete/.test(source),'Dealer uses the existing paid progress only and never settles money');checks++;
 }
-console.log(JSON.stringify({passed:true,checks,minSleeveClearance,minCoinClearance,scope:'Exact skin UV rows, whole slim articulated dealer, private outcome gate, hand socket/FK, continuous ballistic handoff, and actual sleeve/coin felt envelopes'}));
+console.log(JSON.stringify({passed:true,checks,minSleeveClearance,minCoinClearance,scope:'Exact skin UV rows and FK, private outcome gate, continuous retimed handoff, ongoing private flips, slow descent, upright accepted faces, and actual sleeve/coin felt envelopes'}));

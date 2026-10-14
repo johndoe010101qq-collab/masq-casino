@@ -13,8 +13,32 @@ export const COIN_DEALER_STAGE=Object.freeze({
   pixel:1/16,floor:-1.78,feltTop:-1.1975,actorZ:-2.7125,hipHeight:7/16,
   shoulderX:5.5/16,shoulderY:10/16,upperArm:4/16,forearm:4/16,hand:2/16,
   coinScale:.16,coinRadius:1.038,coinHalfThickness:.241,
-  release:.26,reveal:.90,landing:.96,returnNeutral:.70,
+  release:.26,reveal:.90,landing:.98,returnNeutral:.70,
 });
+
+function scalarHermite(from,to,fromVelocity,toVelocity,phase,duration) {
+  const t=clamp(phase),t2=t*t,t3=t2*t;
+  return (2*t3-3*t2+1)*from+(-2*t3+3*t2)*to
+    +(t3-2*t2+t)*duration*fromVelocity+(t3-t2)*duration*toVelocity;
+}
+
+// Retime the same physical arc, without introducing a second clock. The
+// continuous positive speed rises quickly, lingers around the apex and slows
+// into a final edge contact. Knots share derivatives, so camera tracking has
+// neither a hold-frame jump nor a sudden restart.
+export function coinDealerFlightTime(progress,stage=COIN_DEALER_STAGE) {
+  progress=Number.isFinite(progress)?progress:0;
+  if(progress<stage.release)return Object.freeze({progress:0,velocity:0});
+  if(progress>=stage.landing)return Object.freeze({progress:1,velocity:0});
+  const duration=stage.landing-stage.release,s=clamp((progress-stage.release)/duration);
+  const reveal=(stage.reveal-stage.release)/duration;
+  const knots=[[0,0,1],[.21,.38,.48],[.58,.70,.75],[reveal,.978,.34],[1,1,0]];
+  let index=0;while(index<knots.length-2&&s>knots[index+1][0])index++;
+  const [x0,y0,m0]=knots[index],[x1,y1,m1]=knots[index+1],span=x1-x0,t=(s-x0)/span;
+  const value=scalarHermite(y0,y1,m0,m1,t,span),t2=t*t;
+  const slope=((6*t2-6*t)*y0+(-6*t2+6*t)*y1+(3*t2-4*t+1)*span*m0+(3*t2-2*t)*span*m1)/span;
+  return Object.freeze({progress:clamp(value),velocity:Math.max(0,slope/duration)});
+}
 
 function hermite(from,to,fromVelocity,toVelocity,phase,duration) {
   const t=clamp(phase),t2=t*t,t3=t2*t;
@@ -82,9 +106,10 @@ export function coinDealerPresentation(round,progress=0,playing=false,reduced=fa
   const releaseTarget=new THREE.Vector3(-.40,stage.feltTop+.72,-2.40);
   const follow=new THREE.Vector3(-.37,stage.feltTop+.80,-2.24);
   const landing=new THREE.Vector3(.18,stage.feltTop+stage.coinScale*stage.coinHalfThickness,.60);
-  const duration=stage.landing-stage.release,arcHeight=1.25;
-  const releaseVelocity=landing.clone().sub(releaseTarget).divideScalar(duration);
-  releaseVelocity.y+=4*arcHeight/duration;
+  const arcHeight=1.25;
+  const releaseVelocity=landing.clone().sub(releaseTarget);
+  releaseVelocity.y+=4*arcHeight;
+  releaseVelocity.multiplyScalar(coinDealerFlightTime(stage.release,stage).velocity);
   const zero=new THREE.Vector3();
   let rightTarget=neutral.clone(),phase='idle';
   if(active&&!reduced&&p<stage.landing) {
@@ -102,12 +127,23 @@ export function coinDealerPresentation(round,progress=0,playing=false,reduced=fa
   const releaseSocket=vector(releaseArm.socketWorld);
   let position=handSocket.clone(),quaternion=palmQuaternion.clone();
   const reveal=active&&p>=stage.reveal;
+  const flightTime=coinDealerFlightTime(reduced&&active?stage.landing:p,stage);
   // Reading the private face is confined to the existing public reveal gate.
   const tails=reveal&&round?.face==='tails';
   if(active&&(reduced||p>=stage.release)) {
-    const t=reduced?1:clamp((p-stage.release)/duration);
-    const spin=TAU*3*(1-(1-t)**3),accepted=tails?Math.PI*smooth((p-stage.reveal)/(stage.landing-stage.reveal)):0;
-    quaternion=new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI/2+spin+accepted,.24*Math.sin(Math.PI*t),0));
+    const t=flightTime.progress,gateTime=coinDealerFlightTime(stage.reveal,stage);
+    const spinScale=TAU*2.25/gateTime.progress,settleDuration=stage.landing-stage.reveal;
+    const settling=clamp((p-stage.reveal)/settleDuration);
+    let spin=spinScale*t,tilt=.24*Math.sin(Math.PI*t);
+    if(reveal) {
+      // The common coin reaches disclosure edge-on. Only now may it tip onto
+      // the accepted face; it never almost rests on a provisional heads face.
+      spin=scalarHermite(TAU*2.25,TAU*(tails?2.5:2),spinScale*gateTime.velocity,0,settling,settleDuration);
+      const gateTilt=.24*Math.sin(Math.PI*gateTime.progress),gateTiltVelocity=.24*Math.PI*Math.cos(Math.PI*gateTime.progress)*gateTime.velocity;
+      tilt=scalarHermite(gateTilt,0,gateTiltVelocity,0,settling,settleDuration);
+    }
+    quaternion=new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI/2+spin,tilt,0));
+    if(tails)quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),Math.PI*smooth(settling)));
     // Evaluate the exact hand socket at release: no approximate screen anchor,
     // attachment jump or enlarged hand is used for the transfer.
     position=releaseSocket.clone().lerp(landing,t);position.y+=4*arcHeight*t*(1-t);
@@ -115,10 +151,10 @@ export function coinDealerPresentation(round,progress=0,playing=false,reduced=fa
     // limits late contact while preserving the common airborne ballistic arc.
     position.y=Math.max(position.y,stage.feltTop+coinDealerCoinSupport(quaternion,stage));
   }
-  const watch=active&&!reduced&&p>stage.release&&p<stage.landing?Math.sin(Math.PI*clamp((p-stage.release)/(stage.landing-stage.release))):0;
+  const watch=active&&!reduced&&p>stage.release&&p<stage.landing?Math.sin(Math.PI*flightTime.progress):0;
   const head=new THREE.Quaternion().setFromEuler(new THREE.Euler(-.19*watch+.025,-.075*watch,.015*watch));
   const legAngle=Math.acos(1/6);
-  return Object.freeze({progress:p,phase,reveal,attached:!active||(!reduced&&p<stage.release),
+  return Object.freeze({progress:p,flightProgress:active?flightTime.progress:0,flightVelocity:active?flightTime.velocity:0,phase,reveal,attached:!active||(!reduced&&p<stage.release),
     coin:Object.freeze({position:frozen(position.toArray()),quaternion:frozen(quaternion.toArray()),scale:stage.coinScale}),
     dealer:Object.freeze({position:frozen(rootPosition.toArray()),quaternion:frozen(rootQuaternion.toArray()),head:frozen(head.toArray()),
       right,left,legAngle,pixel:stage.pixel}),

@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import './MinecraftClassicLook.css';
 import CoinDealer from './CoinDealer.jsx';
 import {coinDealerPresentation} from './coin-dealer-presentation.js';
+import {COIN_WIDE_CAMERA,coinCameraPresentation,coinCameraZoom} from './coin-camera-presentation.js';
 import {diceTossPresentation} from './dice-toss-presentation.js';
 import { ROULETTE_NUMBERS, PLINKO_MULTIPLIERS } from './game-math.js';
 import { FramePump, usePageVisible, useReducedMotion } from './SceneMotion.jsx';
@@ -14,7 +15,7 @@ import { CLASSIC_DIE_FACES, CLASSIC_DIE_PIPS, MINECRAFT_PLINKO_GEOMETRY, minecra
 const TAU = Math.PI * 2;
 const RED = new Set([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]);
 export const MINECRAFT_CLASSIC_CAMERAS = Object.freeze({
-  coinflip: { at: [.45, 2.1, 8.5], target: [0, -.38, -.9], width: 4.5, height: 3.1 },
+  coinflip: COIN_WIDE_CAMERA,
   dice: { at: [6.3, 4.8, 8], target: [0, -.08, 0], width: 4.4, height: 3.4 },
   roulette: { at: [1.6, 6.5, 8], target: [0, -.20, 0], width: 6.7, height: 5.2 },
   upgrader: { at: [1.3, 2.35, 10], target: [0, -.1, .1], width: 5.1, height: 4.3 },
@@ -91,7 +92,7 @@ export function coinPixelSealCells(size=.80) {
     const recessed=!raised&&source[0]<=20&&y>=2&&!(y===7&&(x===0||x===7));
     if(!raised&&!recessed)return;
     const shade=.82+(source[0]-166)/70*.20;
-    const color=raised?'#'+[124,147,139].map(value=>Math.max(0,Math.min(255,Math.round(value*shade))).toString(16).padStart(2,'0')).join(''):'#102027';
+    const color=raised?'#'+[181,190,169].map(value=>Math.max(0,Math.min(255,Math.round(value*shade))).toString(16).padStart(2,'0')).join(''):'#102027';
     cells.push(Object.freeze({column:x,row:y,x:(x-3.5)*unit,y:(3.5-y)*unit,width:unit*.94,depth:raised?(source[0]>=222?.022:.014):.008,
       raised,source:Object.freeze([...source]),color}));
   }));
@@ -392,14 +393,20 @@ export function MinecraftPlinkoCabinet({children,binMaterials,pegMaterials,entra
   </group>;
 }
 
-function FitCamera({ game }) {
+function FitCamera({ game, round, progress, playing, reduced }) {
   const { camera, size, invalidate } = useThree();
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fit = MINECRAFT_CLASSIC_CAMERAS[game] || MINECRAFT_CLASSIC_CAMERAS.coinflip;
-    camera.position.set(...fit.at); camera.lookAt(...fit.target);
-    camera.zoom = Math.max(1, Math.min(size.width / fit.width, size.height / fit.height) * .94);
+    if(game==='coinflip'||game==='coin') {
+      const pose=coinCameraPresentation(coinDealerPresentation(round,progress,playing,reduced));
+      camera.position.set(...pose.position);camera.lookAt(...pose.target);
+      camera.zoom=coinCameraZoom(pose,size.width,size.height);
+    } else {
+      camera.position.set(...fit.at); camera.lookAt(...fit.target);
+      camera.zoom = Math.max(1, Math.min(size.width / fit.width, size.height / fit.height) * .94);
+    }
     camera.updateProjectionMatrix(); invalidate();
-  }, [game, camera, size.width, size.height, invalidate]);
+  }, [game, round, progress, playing, reduced, camera, size.width, size.height, invalidate]);
   return null;
 }
 
@@ -407,7 +414,7 @@ export function MinecraftClassicWorld({ game, round, progress = 0, playing = fal
   const systemReduced = useReducedMotion(reduced), pageVisible = usePageVisible();
   const props = { round, progress, playing, targetChoice, reduced: systemReduced };
   return <MinecraftStudioMaterials>
-    <FitCamera game={game} /><FramePump active={visible && pageVisible && !systemReduced && playing} fps={60} />
+    <FitCamera game={game} {...props}/><FramePump active={visible && pageVisible && !systemReduced && playing} fps={60} />
     <StudioLights floor={game==='plinko'?-2.68:-1.78}/><StudioBackdrop table={game!=='plinko'} floor={game==='plinko'?-2.68:-1.78}/>
     {game === 'coinflip' || game === 'coin' ? <Coin {...props} /> : game === 'dice' ? <Die {...props} />
       : game === 'roulette' ? <Roulette {...props} /> : game === 'upgrader' ? <Terminal {...props} />

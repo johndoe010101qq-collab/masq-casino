@@ -1,5 +1,5 @@
 export const GAME_META = Object.freeze([
-  { id:'coinflip', name:'Coinflip', description:'Маска или число', caption:'Выберите сторону монеты перед броском.', tag:'×2', duration:2.8, choice:'heads' },
+  { id:'coinflip', name:'Coinflip', description:'Маска или число', caption:'Выберите сторону монеты перед броском.', tag:'×2', duration:4.2, choice:'heads' },
   { id:'dice', name:'Dice', description:'Угадайте грань кубика', caption:'Выберите число от 1 до 6.', tag:'×6', duration:3, choice:1 },
   { id:'plinko', name:'Plinko', description:'Параллельные запуски шаров', caption:'Запускайте шары и смотрите, куда они попадут.', tag:'до ×29', duration:3.8, choice:'standard' },
   { id:'roulette', name:'Roulette', description:'Красное, чёрное, зеро', caption:'37 секторов. Собственное распределение выбранной ставки.', tag:'до ×36', duration:6, choice:'red' },

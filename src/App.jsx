@@ -50,15 +50,16 @@ function Rules({game,onClose}) {
 }
 function GameRoom({game,session,snapshot,reduced,audio,onSettled,payoutOpen}) {
   const meta=GAME_META.find(row=>row.id===game), [stake,setStake]=useState('50'), [choice,setChoice]=useState(meta.choice), [error,setError]=useState(''), [rules,setRules]=useState(false), [round,setRound]=useState(null), [progress,setProgress]=useState(0);
-  const task=useRef(null), mounted=useRef(false), latest=useRef({audio,onSettled}); latest.current={audio,onSettled};
-  const pageVisible=usePageVisible(); const locked=snapshot.busy||payoutOpen;
+  const task=useRef(null), resultHoldTimer=useRef(null), mounted=useRef(false), latest=useRef({audio,onSettled}); latest.current={audio,onSettled};
+  const [resultHold,setResultHold]=useState(false);
+  const pageVisible=usePageVisible(); const locked=snapshot.busy||payoutOpen||resultHold;
   const limits=uiStakeLimits(snapshot,game);
   const currentRules=classicRules(game,choice,snapshot.classicRtpProfiles?.[game]??70);
   useEffect(()=>{setStake(value=>String(uiBoundedStake(value,limits)));setError('');},[limits.min,limits.max,limits.step]);
-  useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;task.current?.finish(false);};},[session]);
+  useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;clearTimeout(resultHoldTimer.current);task.current?.finish(false);};},[session]);
   useEffect(()=>{if(reduced)task.current?.finish();},[reduced]);
   function run(event) {
-    event.preventDefault(); if(task.current||session.getSnapshot().busy||payoutOpen)return;
+    event.preventDefault(); if(task.current||resultHoldTimer.current||session.getSnapshot().busy||payoutOpen)return;
     const current=session.getSnapshot();
     const issue=validateAmount(Number(stake),current.balance,game,uiStakeLimits(current,game)); if(issue){setError(issue);return;}
     let next;try{next=session.begin(game,choice,Number(stake));}catch(failure){setError(failure.message);return;}if(!next)return;
@@ -67,7 +68,21 @@ function GameRoom({game,session,snapshot,reduced,audio,onSettled,payoutOpen}) {
     const runner=createRoundPlayback({duration:durationMs,requestFrame:requestAnimationFrame,cancelFrame:cancelAnimationFrame,isHidden:()=>document.hidden,onProgress:value=>{if(mounted.current)setProgress(value);},onComplete:show=>{
       document.removeEventListener('visibilitychange',runner.visibilityChanged);task.current=null;
       const completed=session.complete(next.id);try { latest.current.audio?.endRound(); } catch {};
-      if(show&&mounted.current){setProgress(1);if(completed)latest.current.onSettled?.(session.getSnapshot().result);}
+      if(show&&mounted.current){
+        setProgress(1);
+        if(completed){
+          const result=session.getSnapshot().result;
+          if(game==='coinflip'&&!reduced){
+            // Settlement is already complete. This pause only lets the minted
+            // face be read before a win overlay or another manual toss.
+            setResultHold(true);
+            resultHoldTimer.current=setTimeout(()=>{
+              resultHoldTimer.current=null;
+              if(mounted.current){setResultHold(false);latest.current.onSettled?.(result);}
+            },850);
+          } else latest.current.onSettled?.(result);
+        }
+      }
     }});
     task.current=runner;document.addEventListener('visibilitychange',runner.visibilityChanged);try { audio?.beginRound(game,{durationMs}); } catch {};
     if(reduced)runner.finish();else runner.start();
@@ -76,7 +91,7 @@ function GameRoom({game,session,snapshot,reduced,audio,onSettled,payoutOpen}) {
   return <><div className="room-heading"><div><h1>{meta.name}</h1></div><button className="rules-button" onClick={()=>setRules(true)}>Правила</button></div>
     <div className="room-layout"><div className={'physical-stage stage-'+game+(snapshot.busy?' is-running':'')} aria-busy={snapshot.busy}><div className="stage-label"><span>{meta.name.toUpperCase()}</span></div>
       {game==='upgrader'?<Suspense fallback={null}><UpgraderHacker targetChoice={choice} round={round} progress={progress} playing={snapshot.busy} reduced={reduced} visible={pageVisible&&!payoutOpen}/></Suspense>:<><div className="mode-cabinet-backdrop" aria-hidden="true"/><div className="physical-canvas"><Suspense fallback={null}>{game==='roulette'?<RasterRoulette round={round} progress={progress} playing={snapshot.busy} reduced={reduced} visible={pageVisible&&!payoutOpen}/>:game==='coinflip'?<RasterCoinflip round={round} progress={progress} playing={snapshot.busy} reduced={reduced} visible={pageVisible&&!payoutOpen}/>:<RoundArt game={game} targetChoice={choice} round={round} progress={progress} playing={snapshot.busy} reduced={reduced} visible={pageVisible&&!payoutOpen}/>}</Suspense></div></>}
-      <div className="physical-result" role="status" aria-live="polite" aria-atomic="true">{snapshot.busy?<><span className="stage-running">Раунд идёт</span><button onClick={()=>task.current?.finish()}>Пропустить</button></>:complete?<><span>{round.label}<small>Ставка {fmt(round.cost)} АР</small></span><strong>Выплата {fmt(round.payout)} АР</strong></>:<span>Выбери ставку и начни раунд</span>}</div>
+      <div className="physical-result" role="status" aria-live="polite" aria-atomic="true">{snapshot.busy?<><span className="stage-running">Раунд идёт</span><button onClick={()=>task.current?.finish()}>Пропустить</button></>:complete?<><span>{game==='coinflip'?(round.face==='heads'?'Выпала маска':'Выпало число 1'):round.label}<small>Ставка {fmt(round.cost)} АР</small></span><strong>Выплата {fmt(round.payout)} АР</strong></>:<span>Выбери ставку и начни раунд</span>}</div>
     </div><form className="room-bet" onSubmit={run} noValidate><label htmlFor={'stake-'+game}>Ставка <span>АР</span></label><input id={'stake-'+game} className="stake-input" type="number" inputMode="numeric" min={limits.min} max={limits.max} step={limits.step} disabled={locked} value={stake} aria-invalid={!!error} aria-describedby={'stake-help-'+game} onChange={event=>{setStake(event.target.value);setError('');}}/>
       <div className="stake-tools">{[['½',.5],['×2',2]].map(([label,factor])=><button key={label} type="button" disabled={locked} onClick={()=>setStake(String(adjustedStake(stake,factor,snapshot.balance,limits)))}>{label}</button>)}<button type="button" disabled={locked} onClick={()=>setStake(String(adjustedStake(limits.max,1,snapshot.balance,limits)))}>Макс.</button></div><small id={'stake-help-'+game}>{limits.min}–{limits.max} АР · шаг {limits.step}</small>
       <fieldset disabled={locked}><legend>{game==='upgrader'?'Множитель':game==='dice'?'Грань':game==='roulette'?'Сектор':'Сторона'}</legend><div className={'room-choices room-choices-'+game}>{OPTIONS[game].map(([value,label])=><label key={value} className={(choice===value?'selected ':'')+'option-'+value}><input type="radio" name={'choice-'+game} checked={choice===value} onChange={()=>{setChoice(value);setRound(null);setProgress(0);}}/><span>{label}</span></label>)}</div></fieldset>
