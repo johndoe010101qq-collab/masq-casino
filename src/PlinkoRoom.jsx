@@ -3,7 +3,7 @@ import { PLINKO_MULTIPLIERS } from './game-math.js';
 import { uiStakeLimits, uiBoundedStake, uiPlaybackSpeed } from './demo-ui-settings.js';
 import { PlinkoFlightController } from './plinko-controller.js';
 import { useReducedMotion } from './SceneMotion.jsx';
-import PlinkoScene from './PlinkoScene.jsx';
+import PlinkoVideoScene from './PlinkoVideoScene.jsx';
 import './PlinkoRoom.css';
 
 export default function PlinkoRoom({ session, snapshot, audio }) {
@@ -15,7 +15,7 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
   refs.current.audio = audio;
   const reduced = useReducedMotion();
   const [controller] = useState(() => new PlinkoFlightController(session, {
-    onSound: (cue, options) => { try { refs.current.audio?.play(cue, options); } catch {} },
+    onSound: (cue, options) => { if(cue==='pin')return; try { refs.current.audio?.play(cue, options); } catch {} },
     onError: failure => setError(failure.message),
   }));
   useEffect(() => {
@@ -39,7 +39,8 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
     <div className="physical-stage plinko-stage">
       <div className="stage-label"><span>PLINKO</span><small>{activeCount > 0 ? `В полёте: ${activeCount}` : 'Готов к запуску'}</small></div>
       <div className="physical-canvas plinko-canvas">
-        <div className="plinko-render" aria-hidden="true"><PlinkoScene controller={controller} reduced={reduced} onLayout={setBoardLayout} /></div>
+        <div className="plinko-render"><PlinkoVideoScene controller={controller} reduced={reduced} onLayout={setBoardLayout}
+          onPin={()=>{try{refs.current.audio?.play('pin');}catch{}}} /></div>
         {boardLayout && <div className="plinko-bin-labels" role="list" aria-label="Множители лунок слева направо">
           {PLINKO_MULTIPLIERS.map((rate, i) => {
             const anchor=boardLayout.binAnchors?.[i];
@@ -49,6 +50,7 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
                 top:anchor?.y??boardLayout.height/2+2.08*boardLayout.zoom,
                 '--bin-width':`${anchor?.width??.48*boardLayout.zoom}px`,
                 height:`${anchor?.height??.26*boardLayout.zoom}px`,
+                fontSize:anchor?`${Math.min(13,Math.max(8,anchor.height*.78))}px`:undefined,
                 transform:anchor?'translate(-50%,-50%)':undefined}}>{rate}</span>;
           })}
         </div>}

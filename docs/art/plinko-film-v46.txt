@@ -1,0 +1,48 @@
+PLINKO FILM INTEGRATION — 2026-10-15
+
+User-supplied sources: idle.mp4 (1920×1080, 270 frames), idle_1.mp4
+(720×960, 270 frames), drop_left.mp4 and drop_right.mp4 (34 frames each).
+All are H.264 at 30 fps. Source films have not been redrawn or regenerated.
+The rapid-release demonstration and annotated guides are reference material,
+not production stage footage. They are not copied to the public app.
+
+public/plinko-dealer-v46 contains the original idle films, first-frame WebP
+fallbacks and two WebP atlases decoded from the supplied drop films. Atlas tiles
+are 560×400, five columns, seven rows; only the first 34 tiles are used.
+Each tile retains the complete operator and both arms together. Source crop is
+(680,0)-(1240,400), with an eight-pixel outer feather on the empty wall/table.
+No separate floating arms or independently composited heads are used.
+
+CALIBRATION
+No machine-readable camera or hand tracks accompanied the files. Source-space
+anchors were calibrated from the two layout guides and checked in the browser:
+desktop centre960; pin half-step30.9; first ball contactY459; row step48.2;
+tray landingY864; multiplier labelY937. The ninth, final segment ends at its
+explicit tray anchor rather than applying a single Y scale to the old 3D board.
+Mobile source mapping is x'=5/6*x-440, y'=5/6*y+42. Native footage always fits
+the stage height. Narrow stages crop spare side walls; short desktop stages
+letterbox horizontally instead of cutting off the head or bottom multipliers.
+Hand/ball overlay positions are calibrated approximations, not supplied mocap.
+
+CLOCK AND CONCURRENCY
+The existing PlinkoFlightController alone accepts and settles rounds. Its
+3800ms duration, current path, balance checks and unlimited concurrent launches
+are unchanged. Renderer or media failure cannot delay or repeat settlement.
+The decorative actor scheduler receives only ids and public progress values.
+Rapid inputs share a whole-character gesture; there are at most current/next
+gesture groups, never one queued animation per paid round or an admission cap.
+All accepted ids retain independent overlay paths. Release is frame17; the
+physical inlet hides the ball until the nozzle. Reduced motion/shortened
+deadlines use the nozzle fallback. No ball waits in the hand after its round.
+The idle restarts from neutral after a gesture to avoid a mid-loop pose cut.
+Native idle pauses when hidden, manually paused or reduced motion is enabled.
+The render clock is controller-owned; no additional requestAnimationFrame,
+timers, result selection, stake writes, RNG or financial calls live here.
+
+VALIDATION
+tests/plinko-film-checks.mjs: batching, 251 immediate/2737 continuous accepts,
+short rounds and live speed changes, all256 paths and2048 contacts, prefix
+privacy, mobile and short-desktop projections, failure-safe exact-once credits.
+Existing Plinko parallel/path and dealer-video lifecycle suites remain required.
+Browser review covers native demo launches, hand release, eight peg rows, nine
+labels, desktop/mobile scene alignment and the short-desktop full-machine fit.
