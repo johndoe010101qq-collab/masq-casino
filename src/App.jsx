@@ -72,9 +72,9 @@ function GameRoom({game,session,snapshot,reduced,audio,onSettled,payoutOpen}) {
         setProgress(1);
         if(completed){
           const result=session.getSnapshot().result;
-          if(game==='coinflip'&&!reduced){
-            // Settlement is already complete. This pause only lets the minted
-            // face be read before a win overlay or another manual toss.
+          if((game==='coinflip'||game==='dice')&&!reduced){
+            // Settlement is already complete. This pause lets the physical
+            // result be read before a win overlay or another manual toss.
             setResultHold(true);
             resultHoldTimer.current=setTimeout(()=>{
               resultHoldTimer.current=null;

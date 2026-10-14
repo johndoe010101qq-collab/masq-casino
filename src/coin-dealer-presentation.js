@@ -68,7 +68,7 @@ export function coinDealerArmPose(side,rootPosition,rootQuaternion,coinSocket,wr
   const delta=requestedWrist.clone().sub(shoulder),distance=delta.length();
   const reach=Math.min((stage.upperArm+stage.forearm)*.9995,Math.max(.0001,distance));
   const direction=delta.normalize();
-  const pole=new THREE.Vector3(side==='right'?-.65:.65,-.40,-.42).applyQuaternion(rootQuaternion);
+  const pole=new THREE.Vector3(...(stage.armPoles?.[side]||[side==='right'?-.65:.65,-.40,-.42])).applyQuaternion(rootQuaternion);
   const bend=pole.clone().addScaledVector(direction,-pole.dot(direction)).normalize();
   const along=(stage.upperArm**2+reach**2-stage.forearm**2)/(2*reach);
   const outward=Math.sqrt(Math.max(0,stage.upperArm**2-along**2));

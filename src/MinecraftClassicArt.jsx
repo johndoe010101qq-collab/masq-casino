@@ -1,12 +1,15 @@
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import './MinecraftClassicLook.css';
 import CoinDealer from './CoinDealer.jsx';
+import ClassicHost from './ClassicHost.jsx';
+import {CLASSIC_HOST_CAMERAS,CLASSIC_HOST_STAGES} from './classic-host-presentation.js';
 import {coinDealerPresentation} from './coin-dealer-presentation.js';
 import {COIN_WIDE_CAMERA,coinCameraPresentation,coinCameraZoom} from './coin-camera-presentation.js';
-import {diceTossPresentation} from './dice-toss-presentation.js';
+import {diceDealerMotion,diceCameraPresentation,DICE_THROW_LAYOUT} from './dice-dealer-motion.js';
+import {rouletteDealerMotion} from './roulette-dealer-motion.js';
 import { ROULETTE_NUMBERS, PLINKO_MULTIPLIERS } from './game-math.js';
 import { FramePump, usePageVisible, useReducedMotion } from './SceneMotion.jsx';
 import { MinecraftStudioMaterials, StudioBackdrop, StudioBlock as Block, StudioMaterial, StudioLights, PixelMask, MINECRAFT_STUDIO_PALETTE as C } from './MinecraftStudio.jsx';
@@ -16,9 +19,9 @@ const TAU = Math.PI * 2;
 const RED = new Set([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]);
 export const MINECRAFT_CLASSIC_CAMERAS = Object.freeze({
   coinflip: COIN_WIDE_CAMERA,
-  dice: { at: [6.3, 4.8, 8], target: [0, -.08, 0], width: 4.4, height: 3.4 },
-  roulette: { at: [1.6, 6.5, 8], target: [0, -.20, 0], width: 6.7, height: 5.2 },
-  upgrader: { at: [1.3, 2.35, 10], target: [0, -.1, .1], width: 5.1, height: 4.3 },
+  dice: DICE_THROW_LAYOUT.wide,
+  roulette: {...CLASSIC_HOST_CAMERAS.roulette,at:[.6,4.0,8],target:[0,.12,-.20],height:5.8},
+  upgrader: {...CLASSIC_HOST_CAMERAS.upgrader,at:[-.8,2.6,10],target:[-.35,-.10,.10],width:6.2},
   plinko: { at: [1.3, 1.75, 10], target: [0, .18, 0], width: 7.25, height: 6.1 },
 });
 
@@ -71,14 +74,16 @@ function RoundedSolid({size,at=[0,0,0],rotation,color,kind='none',radius=.05,rou
   return <mesh geometry={geometry} position={at} rotation={rotation} castShadow receiveShadow><StudioMaterial color={color} kind={kind} roughness={roughness} metalness={metalness}/></mesh>;
 }
 
-function Tray({width=3.45,depth=2.55,top=-.85}) {
-  return <group name="felt-lined-dice-tray">
-    <RoundedSolid size={[width,.31,depth]} at={[0,top-.19,0]} color="#10191e" radius={.12}/>
-    <RoundedSolid size={[width-.18,.025,depth-.18]} at={[0,top-.016,0]} color="#153438" kind="felt" radius={.11}/>
-    {[-1,1].map(side=><RoundedSolid key={side} size={[.11,.15,depth]} at={[side*(width/2-.06),top+.06,0]} color="#273337" radius={.035}/>)}
-    <RoundedSolid size={[width,.15,.11]} at={[0,top+.06,-depth/2+.055]} color="#273337" radius={.035}/>
-    <RoundedSolid size={[width,.075,.10]} at={[0,top+.02,depth/2-.05]} color="#273337" radius={.025}/>
-  </group>;
+function DiceTableSetup(){
+ return <group name="anonymous-dice-table">
+  <mesh name="stitched-felt-ring" position={[.15,-1.191,.42]} rotation={[-Math.PI/2,0,0]}><ringGeometry args={[1.18,1.189,96]}/><meshStandardMaterial color="#577e75" transparent opacity={.30} roughness={1}/></mesh>
+  {[[1.52,-1.43,4],[1.95,-1.58,6],[1.85,-1.07,2]].map(([x,z,count],stack)=><group key={stack} name="dealer-chip-stack">
+   {Array.from({length:count},(_,i)=><group key={i} position={[x,-1.177+i*.045,z]}>
+    <Disc radius={.17} depth={.040} rotation={[0,0,0]} color={stack===1?'#76414e':'#64796b'} segments={24} kind="none" metalness={.08}/>
+    {Array.from({length:8},(_,j)=><Block key={j} size={[.025,.042,.04]} at={[Math.sin(j*TAU/8)*.165,0,Math.cos(j*TAU/8)*.165]} rotation={[0,j*TAU/8,0]} color="#bcc4ae" kind="none"/>)}
+   </group>)}
+  </group>)}
+ </group>;
 }
 
 // Exact composited 8 by 8 head-front pixels from the approved dealer skin.
@@ -208,18 +213,17 @@ export function classicDieSupportHeight(quaternion) {
 
 function Die({ round, progress, playing, reduced }) {
   const body = useRef();
-  const pose=diceTossPresentation(round,progress,playing,reduced);
+  const pose=diceDealerMotion(round,progress,playing,reduced,q=>classicDieSupportHeight(new THREE.Quaternion(...q))*.6);
   const geometry=useMemo(makeClassicDieShell,[]);
   const shadowGeometry=useMemo(()=>new RoundedBoxGeometry(1.1,1.1,1.1,5,.055),[]);
   useEffect(()=>()=>{geometry.dispose();shadowGeometry.dispose();},[geometry,shadowGeometry]);
   useFrame(() => {
     if (!body.current) return;
     body.current.quaternion.fromArray(pose.quaternion);
-    const contact=classicDieSupportHeight(body.current.quaternion);
-    body.current.position.set(pose.x,-.8535+contact+pose.lift,pose.z);
+    body.current.position.fromArray(pose.position);
   });
-  return <><Tray />
-    <group ref={body} position={[0,-.3025,0]} name="six-physical-pip-faces">
+  return <><DiceTableSetup/>
+    <group ref={body} position={[0,-.5235,0]} scale={.6} name="six-physical-pip-faces">
     <mesh geometry={geometry} receiveShadow name="bevelled-solid-die"><meshStandardMaterial color="#dee0d4" roughness={.60}/></mesh>
     <mesh geometry={shadowGeometry} name="closed-die-shadow-proxy" castShadow><meshBasicMaterial colorWrite={false} depthWrite={false}/></mesh>
     {CLASSIC_DIE_FACES.map(face=><EngravedDieFace key={face.value} face={face}/>)}
@@ -228,15 +232,19 @@ function Die({ round, progress, playing, reduced }) {
 
 function Roulette({ round, progress, playing, reduced }) {
   const wheel = useRef(), ball = useRef();
-  const pose = minecraftRoulettePose(round, progress, playing, reduced);
+  const pose = rouletteDealerMotion(round,progress,playing,reduced);
   useFrame(() => {
     if (wheel.current) wheel.current.rotation.y = -pose.wheelDegrees * Math.PI / 180;
-    if (ball.current) ball.current.position.set(Math.sin(pose.angle) * pose.radius, .080 + Math.sin(Math.PI * Math.min(1, Math.max(0, (pose.progress - .6) / .4))) * .10, -Math.cos(pose.angle) * pose.radius);
+    if (ball.current) {
+      ball.current.position.set(pose.position[0],pose.position[1]+.15,pose.position[2]);
+    }
   });
   return <group position={[0, -.15, 0]} name="37-pocket-physical-wheel">
     <Disc radius={2.55} depth={.36} at={[0, -.37, 0]} rotation={[0, 0, 0]} color={C.black} segments={37} kind="stone" />
     <Disc radius={2.56} depth={.10} at={[0, -.14, 0]} rotation={[0, 0, 0]} color={C.steel} segments={37} />
     <Disc radius={2.42} depth={.10} at={[0, -.09, 0]} rotation={[0, 0, 0]} color={C.felt} segments={37} kind="felt" />
+    <mesh name="outer-ball-track" position={[0,-.009,0]} rotation={[-Math.PI/2,0,0]} receiveShadow><ringGeometry args={[2.30,2.59,96]}/><meshStandardMaterial color="#283c40" roughness={.64} metalness={.20}/></mesh>
+    <mesh name="raised-wheel-cushion" position={[0,.085,0]} rotation={[-Math.PI/2,0,0]} castShadow receiveShadow><torusGeometry args={[2.62,.065,10,96]}/><meshStandardMaterial color="#53665f" roughness={.66} metalness={.24}/></mesh>
     <group ref={wheel}>
       {ROULETTE_NUMBERS.map((number, index) => {
         const angle = index * TAU / 37;
@@ -310,6 +318,15 @@ function Terminal({ round, progress, playing, targetChoice, reduced }) {
     {[0, 1, 2].map(index => <Block key={index} size={[.44, .038, .035]} at={[2.11, -.60 - index * .09, .601]} color={C.stoneLight} />)}
     <Block size={[.07, .07, .035]} at={[2.30, -.94, .61]} color={C.mint} kind="none" emissive="#459e6b" intensity={.42} />
   </group>;
+}
+
+function TerminalRemote(){
+ return <group name="dealer-terminal-remote">
+  <RoundedSolid size={[.56,.62,.37]} at={[-1.65,-.8875,-2.125]} color="#223138" radius={.035}/>
+  <RoundedSolid size={[.43,.14,.09]} at={[-1.65,-.60,-1.977]} color="#879f92" radius={.023}/>
+  <Block size={[.043,.043,1.70]} at={[-1.56,-1.169,-1.13]} color="#101a1e" kind="none"/>
+  <Block size={[.59,.043,.043]} at={[-1.26,-1.169,-.30]} color="#101a1e" kind="none"/>
+ </group>;
 }
 
 // These wide bearings are mounted behind the flight plane. The protruding peg
@@ -401,6 +418,10 @@ function FitCamera({ game, round, progress, playing, reduced }) {
       const pose=coinCameraPresentation(coinDealerPresentation(round,progress,playing,reduced));
       camera.position.set(...pose.position);camera.lookAt(...pose.target);
       camera.zoom=coinCameraZoom(pose,size.width,size.height);
+    } else if(game==='dice'){
+      const draw=diceDealerMotion(round,progress,playing,reduced,q=>classicDieSupportHeight(new THREE.Quaternion(...q))*.6),pose=diceCameraPresentation(draw);
+      camera.position.fromArray(pose.position);camera.lookAt(...pose.target);
+      camera.zoom=Math.max(1,Math.min(size.width/pose.width,size.height/pose.height)*.94);
     } else {
       camera.position.set(...fit.at); camera.lookAt(...fit.target);
       camera.zoom = Math.max(1, Math.min(size.width / fit.width, size.height / fit.height) * .94);
@@ -410,14 +431,20 @@ function FitCamera({ game, round, progress, playing, reduced }) {
   return null;
 }
 
+function HostKey({game}){
+ const target=useMemo(()=>{const point=new THREE.Object3D();const config=CLASSIC_HOST_STAGES[game];point.position.set(config.position[0],.65,config.position[2]);return point;},[game]);
+ return <><primitive object={target}/><spotLight name="anonymous-table-key" position={[-3.1,4.5,5.5]} target={target} color="#e0ddcd" intensity={26} distance={13} decay={1} angle={.38} penumbra={.85} castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} shadow-normalBias={.008}/></>;
+}
+
 export function MinecraftClassicWorld({ game, round, progress = 0, playing = false, targetChoice = 2, thumbnail = false, visible = true, reduced = false }) {
   const systemReduced = useReducedMotion(reduced), pageVisible = usePageVisible();
   const props = { round, progress, playing, targetChoice, reduced: systemReduced };
   return <MinecraftStudioMaterials>
     <FitCamera game={game} {...props}/><FramePump active={visible && pageVisible && !systemReduced && playing} fps={60} />
     <StudioLights floor={game==='plinko'?-2.68:-1.78}/><StudioBackdrop table={game!=='plinko'} floor={game==='plinko'?-2.68:-1.78}/>
+    {['dice','roulette','upgrader'].includes(game)&&<><HostKey game={game}/><Suspense fallback={null}><ClassicHost game={game} progress={progress} playing={playing} reduced={systemReduced}/></Suspense></>}
     {game === 'coinflip' || game === 'coin' ? <Coin {...props} /> : game === 'dice' ? <Die {...props} />
-      : game === 'roulette' ? <Roulette {...props} /> : game === 'upgrader' ? <Terminal {...props} />
+      : game === 'roulette' ? <Roulette {...props} /> : game === 'upgrader' ? <><Terminal {...props}/><TerminalRemote/></>
         : game === 'plinko' ? <MinecraftPlinkoCabinet><Block size={MINECRAFT_PLINKO_GEOMETRY.ball} at={[0, 2.04, .25]} color="#e1e8dc" kind="ivory" emissive="#a4bea7" intensity={.14} /></MinecraftPlinkoCabinet> : null}
   </MinecraftStudioMaterials>;
 }

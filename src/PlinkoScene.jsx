@@ -1,9 +1,12 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { plinkoBallPose } from './plinko-motion.js';
+import PlinkoDealer from './PlinkoDealer.jsx';
+import PlinkoDealerStation from './PlinkoDealerStation.jsx';
+import {plinkoDealerBallPose} from './plinko-dealer-presentation.js';
+import {PLINKO_VISUAL_LAYOUT,plinkoVisualPoint} from './plinko-visual-layout.js';
 import {ensurePlinkoInstanceCapacity} from './plinko-controller.js';
-import { MINECRAFT_PLINKO_GEOMETRY } from './minecraft-classic-motion.js';
 import { MinecraftPlinkoCabinet,PLINKO_CATCH_LABEL } from './MinecraftClassicArt.jsx';
 import { MinecraftStudioMaterials, StudioBackdrop, StudioLights, StudioMaterial, MINECRAFT_STUDIO_PALETTE as C } from './MinecraftStudio.jsx';
 
@@ -54,11 +57,13 @@ function Board({ controller, reduced }) {
       ensurePlinkoInstanceCapacity(balls.current, flights.length + effects.length);
       balls.current.count = flights.length + effects.length;
       flights.forEach((ball, index) => {
-        dummy.position.set(...plinkoBallPose(ball.path, ball.progress));
+        const entry=plinkoDealerBallPose(ball);
+        dummy.position.set(...(entry?.position||plinkoBallPose(ball.path, ball.progress)));
         // Small depth offsets make simultaneous balls visible without changing
         // a single left/right choice, target bin, or mathematical result.
-        dummy.position.z += (ball.id % 5) * .004;
-        dummy.rotation.set(ball.progress * 8, ball.id, 0);
+        if(!entry)dummy.position.z += (ball.id % 5) * .004;
+        if(entry)dummy.quaternion.fromArray(entry.quaternion);
+        else dummy.rotation.set(ball.progress * 8, ball.id, 0);
         dummy.scale.setScalar(1); dummy.updateMatrix();
         balls.current.setMatrixAt(index, dummy.matrix);
       });
@@ -94,20 +99,22 @@ function Board({ controller, reduced }) {
       particles.current.instanceMatrix.needsUpdate = true;
     }
   });
-  return <MinecraftPlinkoCabinet binMaterials={bins} pegMaterials={pegMaterials} entranceMaterial={entranceMaterial} shutter={shutter} showLabels={false}>
+  return <><PlinkoDealerStation/><Suspense fallback={null}><PlinkoDealer controller={controller} reduced={reduced}/></Suspense>
+    <group scale={PLINKO_VISUAL_LAYOUT.scale} position={PLINKO_VISUAL_LAYOUT.position}>
+    <MinecraftPlinkoCabinet binMaterials={bins} pegMaterials={pegMaterials} entranceMaterial={entranceMaterial} shutter={shutter} showLabels={false}>
     <instancedMesh ref={balls} args={[null, null, 16]} frustumCulled={false} castShadow>
-      <boxGeometry args={MINECRAFT_PLINKO_GEOMETRY.ball} />
+      <icosahedronGeometry args={[.074,1]} />
       <StudioMaterial color="#e1e8dc" kind="ivory" emissive="#a4bea7" intensity={.14} />
     </instancedMesh>
     <instancedMesh ref={particles} args={[null, null, 60]} frustumCulled={false}>
       <boxGeometry args={[1, 1, 1]} />
       <StudioMaterial color={C.brass} kind="steel" metalness={.15} />
     </instancedMesh>
-  </MinecraftPlinkoCabinet>;
+  </MinecraftPlinkoCabinet></group></>;
 }
 export function plinkoBinLabelAnchors(camera,width,height) {
   const project=(x,y,z)=>{
-    const point=new THREE.Vector3(x,y,z).project(camera);return {x:(point.x+1)/2*width,y:(1-point.y)/2*height};
+    const point=new THREE.Vector3(...plinkoVisualPoint([x,y,z])).project(camera);return {x:(point.x+1)/2*width,y:(1-point.y)/2*height};
   };
   return Array.from({length:9},(_,index)=>{
     const x=(index-4)*.56,y=PLINKO_CATCH_LABEL.y,z=PLINKO_CATCH_LABEL.z;
@@ -119,10 +126,10 @@ export function plinkoBinLabelAnchors(camera,width,height) {
 function CameraAndClock({ controller, onLost, onLayout }) {
   const { camera, size, advance, gl } = useThree();
   useEffect(() => {
-    const zoom = Math.max(1, Math.min(size.width / 7.4, size.height / 6.2));
-    camera.position.set(...CAMERA.position);camera.lookAt(0,.18,0);camera.zoom=zoom;camera.updateProjectionMatrix();camera.updateMatrixWorld();
+    const zoom = Math.max(1, Math.min(size.width / PLINKO_VISUAL_LAYOUT.width, size.height / PLINKO_VISUAL_LAYOUT.height));
+    camera.position.set(...CAMERA.position);camera.lookAt(...PLINKO_VISUAL_LAYOUT.target);camera.zoom=zoom;camera.updateProjectionMatrix();camera.updateMatrixWorld();
     const render = time => {
-      camera.position.set(...CAMERA.position); camera.lookAt(0,.18,0);
+      camera.position.set(...CAMERA.position); camera.lookAt(...PLINKO_VISUAL_LAYOUT.target);
       camera.zoom = zoom; camera.updateProjectionMatrix();camera.updateMatrixWorld();
       advance(time, true);
     };
