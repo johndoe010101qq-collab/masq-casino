@@ -7,8 +7,15 @@ export function classicFilmProjection(width,height,mobile=false){
   return{width,height,mobile,factor,x:(width-sourceWidth*factor)/2,y:0,sourceWidth,sourceHeight};
 }
 
+export function classicFilmChildLayout(layout,sourceSpace=false){
+  if(!sourceSpace)return layout;
+  return{mobile:layout.mobile,sourceWidth:layout.sourceWidth,sourceHeight:layout.sourceHeight,
+    width:layout.sourceWidth,height:layout.sourceHeight,x:0,y:0,factor:1,
+    viewportFactor:layout.factor,viewportWidth:layout.width,viewportHeight:layout.height};
+}
+
 export default function ClassicFilmStage({basePath,clip='idle',token='idle',mediaProgress,progress=0,
-  reduced=false,visible=true,camera,onLayout,onMediaFrame,children,className=''}){
+  reduced=false,visible=true,camera,onLayout,onMediaFrame,children,className='',sourceSpace=false}){
   const container=useRef(null),buffers=useRef([null,null]),driver=useRef(null);
   const [layout,setLayout]=useState(null),[state,setState]=useState({status:'poster',visibleIndex:null});
   const props=useRef(null);
@@ -21,28 +28,38 @@ export default function ClassicFilmStage({basePath,clip='idle',token='idle',medi
     const update=()=>{
       const r=container.current.getBoundingClientRect();if(!r.width||!r.height)return;
       const next=classicFilmProjection(r.width,r.height,matchMedia('(max-width:650px)').matches);
-      setLayout(next);onLayout?.(next);
+      setLayout(next);onLayout?.(classicFilmChildLayout(next,sourceSpace));
     };
     const observer=new ResizeObserver(update);observer.observe(container.current);update();
     window.addEventListener('resize',update);return()=>{observer.disconnect();window.removeEventListener('resize',update);};
-  },[onLayout]);
+  },[onLayout,sourceSpace]);
   useEffect(()=>{
     const player=createClassicFilmPlayback({videos:buffers.current,onState:setState,onFrame:frame=>props.current.onMediaFrame?.(frame)});driver.current=player;
     const refresh=()=>player.update({...props.current,visible:visible&&!document.hidden});
     refresh();document.addEventListener('visibilitychange',refresh);
     return()=>{document.removeEventListener('visibilitychange',refresh);if(driver.current===player)driver.current=null;player.dispose();};
-  },[visible]);
+  },[visible,sourceSpace]);
   useEffect(()=>{driver.current?.update(props.current);},[source,token,mediaProgress,progress,reduced,visible]);
   const scale=Math.max(1,Number(sourceCamera?.scale)||1);
   const ox=layout?layout.x+(sourceCamera?.originX??layout.sourceWidth/2)*layout.factor:0;
   const oy=layout?(sourceCamera?.originY??layout.sourceHeight/2)*layout.factor:0;
-  return <div className={'classic-film-stage '+className} ref={container}>
-    <div className="classic-film-world" style={{transform:scale===1?undefined:`scale(${scale})`,transformOrigin:`${ox}px ${oy}px`}}>
+  const nativeWidth=layout?.sourceWidth??1920,nativeHeight=layout?.sourceHeight??1080;
+  const worldStyle=sourceSpace?{width:nativeWidth,height:nativeHeight,
+    transform:layout?`translate(${layout.x}px,${layout.y}px) scale(${layout.factor})`:undefined,
+    transformOrigin:'0 0',visibility:layout?undefined:'hidden'}
+    :{transform:scale===1?undefined:`scale(${scale})`,transformOrigin:`${ox}px ${oy}px`};
+  const cameraStyle={transform:scale===1?undefined:`scale(${scale})`,
+    transformOrigin:`${sourceCamera?.originX??nativeWidth/2}px ${sourceCamera?.originY??nativeHeight/2}px`};
+  const contents=<>
       <img className="classic-film-native" src={`${basePath}/${mobile?'mobile':'desktop'}/poster.webp`} alt="" />
       {[0,1].map(index=><video key={index} ref={node=>{buffers.current[index]=node;}}
         className={'classic-film-native'+(state.visibleIndex===index?' is-visible':'')}
         muted playsInline preload="auto" aria-hidden="true" />)}
       {children}
+    </>;
+  return <div className={'classic-film-stage'+(sourceSpace?' classic-film-stage--source-space':'')+' '+className} ref={container}>
+    <div className="classic-film-world" style={worldStyle}>
+      {sourceSpace?<div className="classic-film-source-camera" style={cameraStyle}>{contents}</div>:contents}
     </div>
   </div>;
 }

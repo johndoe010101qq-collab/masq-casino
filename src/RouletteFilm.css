@@ -1,7 +1,4 @@
-.roulette-raster-rotor,.roulette-film-projection { position:absolute; pointer-events:none; }
-.roulette-film-projection { overflow:visible; }
-.roulette-rotor-numbers { fill:#faf3df; stroke:#19231d; stroke-width:.035; paint-order:stroke; font-family:"Golos Text",Arial,sans-serif; font-size:.72px; font-weight:850; }
-.roulette-accepted-pocket { fill:#d6edca; fill-opacity:.20; stroke:#e1f1d8; stroke-width:1.3; stroke-opacity:.8; }
+.roulette-wheel-scene { position:absolute; inset:0; display:block; width:100%; height:100%; pointer-events:none; }
 .roulette-film-result { position:absolute; z-index:3; bottom:14px; right:14px; display:flex; align-items:center; gap:12px; padding:8px 18px 8px 8px; min-width:150px; color:#eef0df; background:linear-gradient(115deg,#17271ff2,#0b1512f5); border:1px solid #6c817273; border-radius:8px; box-shadow:0 4px 24px #0009,inset 0 1px #d8e9d719; pointer-events:none; animation:roulette-result-enter .18s ease-out; }
 .roulette-film-result__number { width:48px; height:48px; display:grid; place-items:center; font:850 30px/1 "Golos Text",Arial,sans-serif; border:1px solid #bdbca856; border-radius:5px; background:linear-gradient(145deg,#354039,#151e19); box-shadow:inset 0 1px #fff2,0 2px 5px #0006; text-shadow:0 2px 1px #0008; }
 .roulette-film-result--red .roulette-film-result__number { background:linear-gradient(145deg,#ae3545,#6f1e2a); }

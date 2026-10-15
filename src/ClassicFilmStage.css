@@ -4,3 +4,8 @@
 video.classic-film-native { opacity:0; }
 video.classic-film-native.is-visible { opacity:1; }
 .classic-film-overlay { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+/* Opt-in calibrated scenes use one fixed source-space surface. Native media
+   and overlays inherit its dimensions; only the common parent fits the stage. */
+.classic-film-stage--source-space .classic-film-world { inset:0 auto auto 0; overflow:visible; }
+.classic-film-source-camera { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.classic-film-stage--source-space .classic-film-native { left:0; top:0; width:100%; height:100%; max-width:none; transform:none; }

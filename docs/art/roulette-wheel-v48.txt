@@ -1,0 +1,32 @@
+MASQ ROULETTE WHEEL — 2026-10-15
+
+Scope: replace the entire rejected wheel, including the old block-built bowl,
+grey separators and floating raster number ring. Keep the uploaded studio and
+operator footage, existing release mark, accepted result and financial clock.
+Dice, Coinflip, Plinko, Upgrader, Blackjack and slots are outside this redesign.
+
+The replacement is an original procedural Three.js hard-surface model. Its
+turned wooden bowl, metal track, deep37 pocket floors, thin separators, printed
+number band, rotor cone and weighted spindle are real geometry. Shape/material
+design is inferred; it does not claim to copy a supplied wheel design.
+The original footprint and the lower base/cross envelopes are preserved to
+cover the old baked wheel without reconstructing the filmed dealer's hands.
+
+Authoring master: src/roulette-wheel-model-v48.js, reproducible without an
+external asset application. Browser uses CanvasTexture for37 canonical labels,
+fixed material grain and instance colors. Headless validation supplies its own
+canvas. No model RNG, frame clock or payout code is introduced.
+
+Film-world Y remains up. Center[0,14.5,4.6]; trackr9/floor15.77, pocketr5.25/
+floor14.50; ballradius.42. The off-axis projection uses exact supplied eye and
+frustum offsets instead of an approximate lookAt. Ball draws at or above the
+model surface to prevent penetrating the number band; accepted final position,
+source release, round progress and settlement remain unchanged.
+
+ClassicFilmStage sourceSpace mode places footage, poster and complete WebGL
+layer in one fixed native1920x1080/720x960 surface. Fit and camera transforms
+apply to their shared parent. Existing other film scenes keep the old default.
+
+Validation: test:roulette-wheel, shared media lifecycle checks and existing
+roulette accepted-outcome/release checks, then native desktop/mobile QA.
+No new media or third-party executable from the uploaded archive was run.
