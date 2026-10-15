@@ -1,60 +1,88 @@
-// Calibration in the supplied 1920×1080 footage. These are presentation
-// coordinates, never RNG, prize weights, admission rules or settlement times.
+import {PLINKO_FILM_VIEWS} from './plinko-film-metadata-v47.js';
+
+// The supplied camera and whole-character gestures are visual calibration.
+// Flight admission, stakes and deadlines remain controller-owned.
 export const PLINKO_FILM = Object.freeze({
   width:1920,height:1080,fps:30,frames:34,gestureMs:34000/30,
-  releaseMs:17000/30,tubeMs:360,
-  actor:{x:680,y:0,width:560,height:400,columns:5},
+  releaseMs:17000/30,handoffMs:19000/30,tubeMs:360,
+  actor:PLINKO_FILM_VIEWS.desktop.actor,
   mobile:{width:720,height:960,scale:5/6,x:-440,y:42},
-  centerX:960,halfStep:30.9,firstContactY:459,rowStep:48.2,
-  landingY:864,labelY:937,ballRadius:7,
+  centerX:960,ballRadius:PLINKO_FILM_VIEWS.desktop.ballRadius,
 });
 const clamp=value=>Math.max(0,Math.min(1,value));
 const mix=(a,b,t)=>a+(b-a)*t;
+export const plinkoFilmView=mobile=>PLINKO_FILM_VIEWS[mobile===true||mobile==='mobile'?'mobile':'desktop'];
 
 export function plinkoFilmProjection(width,height,mobile=false) {
-  const source=mobile?PLINKO_FILM.mobile:PLINKO_FILM;
-  // Fit the complete vertical machine, even in a wide, short desktop window.
-  // Narrow layouts crop only the spare walls, never the host or catch trays.
-  const scale=height/source.height;
-  const ox=(width-source.width*scale)/2,oy=(height-source.height*scale)/2;
-  const nativeScale=mobile?source.scale:1;
-  const factor=scale*nativeScale;
-  const x=ox+(mobile?source.x*scale:0),y=oy+(mobile?source.y*scale:0);
-  return {width,height,factor,x,y,mobile,
+  const view=plinkoFilmView(mobile),source=view.frame,scale=height/source.height;
+  const nativeX=(width-source.width*scale)/2,nativeY=0;
+  // point() preserves the desktop-master API. Native camera footage, atlas
+  // crops, hand tracks and label rectangles use nativePoint().
+  const factor=scale*(mobile?5/6:1),x=nativeX+(mobile?-440*scale:0),y=mobile?42*scale:0;
+  return {width,height,factor,x,y,mobile,view,nativeFactor:scale,nativeX,nativeY,
     point:(px,py)=>({x:x+px*factor,y:y+py*factor}),
-    binAnchors:Array.from({length:9},(_,i)=>({
-      x:x+(960+(i-4)*61.8)*factor,y:y+937*factor,width:44*factor,height:30*factor,
+    nativePoint:(px,py)=>({x:nativeX+px*scale,y:nativeY+py*scale}),
+    binAnchors:view.labels.map(label=>({
+      x:nativeX+(label.x+label.w/2)*scale,y:(label.y+label.h/2)*scale,
+      width:label.w*scale,height:label.h*scale,
     })),
   };
 }
 
-// Eight branch segments, then the separate final catch-tray anchor. Reading
-// only the current path prefix prevents the future prize from cueing the host.
-export function plinkoFilmBoardPose(path,progress) {
-  const s=clamp(progress)*9;
-  if(s<1)return {x:960,y:449+10*s*s,row:-1,phase:s};
+const pegAt=(view,row,branch)=>view.pegs[row*(row+1)/2+(branch+row)/2];
+const contact=(view,peg)=>({x:peg.x,y:peg.y-view.pegRadius-view.ballRadius});
+
+// The filmed pins have square caps. Clear the current cap sideways before
+// falling, instead of drawing a straight chord through its corner. Only this
+// segment's accepted prefix is inspected; no prize or bin is requested.
+export function plinkoFilmBoardPose(path,progress,mobile=false) {
+  const view=plinkoFilmView(mobile),s=clamp(progress)*9;
+  const first=contact(view,view.pegs[0]);
+  if(s<1){
+    // The feed tube is behind the pin plane. Reveal the ball at its visible
+    // front edge so its full radius does not appear inside the first cap.
+    return {x:first.x,y:first.y-(1-s*s)*view.ballRadius*.8,row:-1,rowPhase:s};
+  }
   const row=Math.min(7,Math.floor(s)-1),u=s>=9?1:s-row-1;
-  const x0=960+path[row]*30.9,x1=960+path[row+1]*30.9;
-  const y0=459+row*48.2,y1=row===7?864:459+(row+1)*48.2;
-  return {x:mix(x0,x1,u),y:mix(y0,y1,u)-56*u*(1-u),row,phase:u};
+  const peg=pegAt(view,row,path[row]),a=contact(view,peg),next=path[row+1];
+  const b=row===7?view.landing[(next+8)/2]:contact(view,pegAt(view,row+1,next));
+  const across=1-(1-u)**3,fall=clamp((u-.42)/.58);
+  return {x:mix(a.x,b.x,across),y:mix(a.y,b.y,fall*fall)-view.ballRadius*.12*Math.sin(Math.PI*u),
+    row,rowPhase:u,contact:peg};
 }
 
-/** Whole-character gesture batches, not a queue of paid rounds. A fast group
- * shares one hand motion. begin/complete and every flight deadline belong only
- * to PlinkoFlightController; media readiness cannot postpone them. */
+function trackedBall(view,group,frame){
+  const track=view.clips[group.clip].track,hand=group.side==='left'?'R':'L';
+  const index=Math.max(0,Math.min(track.length-1,Math.floor(frame))),next=Math.min(track.length-1,index+1);
+  const a=track[index][hand],b=track[next][hand],u=clamp(frame-index);
+  return {x:mix(a[0],b[0],u),y:mix(a[1],b[1],u)};
+}
+
+/** A gesture can represent an arbitrary burst, without a queue of paid rounds.
+ * At frame 19 an after-clip can take over while the first hand returns. Raw
+ * render/hand tracks match; separately encoded H.264 frames have small
+ * quantisation differences. Lossless atlas derivatives add no further loss;
+ * they do not turn the decoded H.264 handoffs into pixel-identical frames. */
 export class PlinkoFilmBatches {
   constructor(){this.bindings=new Map();this.groups=[];this.sequence=0;}
   update(flights,clock,duration=3800,reduced=false) {
     const alive=new Set(flights.map(f=>f.id));
     for(const id of this.bindings.keys())if(!alive.has(id))this.bindings.delete(id);
-    this.groups=this.groups.filter(group=>group.start+PLINKO_FILM.gestureMs>=clock);
+    this.groups=this.groups.filter(group=>group.end>=clock);
     for(const flight of flights){
       if(this.bindings.has(flight.id))continue;
       const start=clock-flight.progress*duration,end=start+duration;
       let group=this.groups.at(-1);
+      // A media-loading or reduced-motion batch never wakes up halfway through
+      // an old paid flight when decoding finishes or the preference changes.
+      if(group?.disabled&&!reduced){this.groups=[];group=null;}
       if(!group||group.release<clock){
-        const at=Math.max(clock,group?group.start+PLINKO_FILM.gestureMs:clock);
-        group={start:at,release:at+PLINKO_FILM.releaseMs,side:this.sequence++%2?'right':'left'};
+        const previous=group,side=this.sequence++%2?'right':'left';
+        const handoff=previous&&clock<=previous.start+PLINKO_FILM.handoffMs;
+        const at=previous?Math.max(clock,handoff?previous.start+PLINKO_FILM.handoffMs:previous.end):clock;
+        const clip=handoff?`drop_${side}_after_${previous.side}`:`drop_${side}`;
+        if(handoff)previous.end=at;
+        group={start:at,end:at+PLINKO_FILM.gestureMs,release:at+PLINKO_FILM.releaseMs,side,clip,disabled:reduced};
         this.groups.push(group);
       }
       const fallback=reduced||group.release+PLINKO_FILM.tubeMs>end-duration*.48;
@@ -65,35 +93,31 @@ export class PlinkoFilmBatches {
   }
   action(clock,reduced=false){
     if(reduced)return null;
-    const group=this.groups.find(g=>clock>=g.start&&clock<g.start+PLINKO_FILM.gestureMs);
-    if(!group)return null;
+    const group=this.groups.find(g=>clock>=g.start&&clock<g.end);
+    if(!group||group.disabled)return null;
     const time=clock-group.start;
     return {...group,frame:Math.min(33,Math.floor(time*30/1000)),
-      opacity:Math.min(1,time/65,(PLINKO_FILM.gestureMs-time)/65)};
+      opacity:group.clip.includes('_after_')?1:Math.min(1,time/40)};
   }
-  pose(flight,clock,duration=3800,reduced=false){
-    const binding=this.bindings.get(flight.id);
+  pose(flight,clock,duration=3800,reduced=false,mobile=false){
+    const view=plinkoFilmView(mobile),binding=this.bindings.get(flight.id);
     const start=clock-flight.progress*duration,end=start+duration;
-    // A live speed/motion change may shorten an existing deadline. Fall back
-    // to the nozzle instead of leaving a settled round waiting in a hand.
+    // A speed preference may shorten an accepted flight's deadline. Fall
+    // back to the nozzle; media readiness cannot hold a pending settlement.
     const fallback=reduced||!binding||binding.fallback||binding.inlet>end-duration*.35;
     const inlet=fallback?start:binding.inlet;
     if(clock<inlet){
-      const time=clock-binding.group.start;
-      if(time<8/30*1000)return {visible:false};
-      const side=binding.group.side==='left'?1:-1;
-      const held=[[8,770,335],[12,795,316],[15,915,300],[17,950,294]];
-      if(clock<binding.release){
-        const frame=Math.min(17,time*30/1000);
-        let index=0;while(index<held.length-2&&frame>held[index+1][0])index++;
-        const a=held[index],b=held[index+1],u=clamp((frame-a[0])/(b[0]-a[0]));
-        return {visible:true,x:960+side*(mix(a[1],b[1],u)-960),y:mix(a[2],b[2],u),phase:'held'};
-      }
-      const u=(clock-binding.release)/160;
-      if(u>1)return {visible:false}; // behind the physical inlet and throat
-      return {visible:true,x:960-side*10*(1-u),y:294+31*u-9*4*u*(1-u),phase:'mouth'};
+      const frame=(clock-binding.group.start)*30/1000;
+      if(frame<12)return {visible:false};
+      if(clock<=binding.release)return {visible:true,...trackedBall(view,binding.group,frame),radius:view.mouthRadius,phase:'held'};
+      const released=trackedBall(view,binding.group,17),dt=(clock-binding.release)*30/1000;
+      const y=released.y+1.1*dt*dt;
+      if(y>=view.mouth.throat_centre[1])return {visible:false};
+      return {visible:true,x:mix(released.x,view.mouth.throat_centre[0],clamp(dt/7)),y,
+        radius:view.mouthRadius,phase:'mouth',behindInlet:true};
     }
     const progress=clamp((clock-inlet)/Math.max(1,end-inlet));
-    return {...plinkoFilmBoardPose(flight.path,progress),visible:true,phase:'board',boardProgress:progress};
+    return {...plinkoFilmBoardPose(flight.path,progress,mobile),visible:true,radius:view.ballRadius,
+      phase:'board',boardProgress:progress};
   }
 }

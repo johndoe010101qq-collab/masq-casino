@@ -1,0 +1,50 @@
+MASQ CLASSIC FILMS — 2026-10-15
+
+Approved scope: integrate Coinflip, Roulette, Upgrader and the updated Plinko
+from user-supplied masq-anonymous-classic-games-preview-v1.zip. Keep Dice as it
+was: only roll_6 is filmed; the other five results have no matching footage.
+No bundled studio scripts or third-party source executables were run.
+
+Coinflip uses the accepted face to choose matching recorded physics. It cuts
+from the wide shot to the close shot at frame10, keeping the same absolute film
+time. The cameras are deliberately different; this is an editorial cut.
+Mobile close-ups are crops of the original desktop close-up (810×1080 to
+720×960), not redrawn coins. Both138-frame variants hold the correct final
+face on the felt. Their physical spins differ from release onward: the old
+procedural shared-prefix reveal rule is no longer a visual claim for these
+recorded coin throws. Accepted RNG, money, duration and payout are unchanged.
+The source close-up briefly clips the bright mask at the apex; no new lighting
+or character reconstruction was introduced to hide this source limitation.
+
+Roulette keeps the filmed operator and outer bowl. A raster rotor extracted
+from the supplied top-down plate rotates its pockets, frets and all37 actual
+numbers together, opposite the post-release ball. Source frame36 already omits its
+ball, so handoff starts from physics.release.pos/velocity, not placeholder
+frame36 object coordinates. The renderer checks the decoded release frame to
+avoid two balls while a seek decodes. All37 outcomes use their accepted pocket;
+no arbitrary pocket from the supplied preview movie is used. The common orbit
+does not read the pocket before the late accepted-result reveal.
+The camera moves with the complete film and projection together. The final
+actual pocket and number are accented; no invented near-miss is introduced.
+
+Upgrader projects text and progress onto the supplied CRT homography. The
+terminal stays READY until the filmed activation mark, then runs the common
+check. Success/failure is revealed only at the existing .92 boundary. Essential
+stake, target and payout remain in the normal interface outside the tiny screen.
+
+Plinko v47 uses exact source tracks, native mobile calibration, label rectangles
+and whole-character after-clips that continue from handoff19. Accepted balls
+remain independent and unlimited. The full-size balls clear the actual square
+pin caps before descending; there is no per-ball animation/admission queue.
+See public/plinko-dealer-v47/source-metadata/README.txt for calibration details.
+
+ClassicFilmStage uses two native media buffers. The existing financial runner
+owns public progress; paused action films seek that progress, and idle films
+play natively. Media errors, rejected play promises, skip, reduced motion,
+hidden tabs and decoded-frame callbacks never debit or settle any round.
+A previous decoded frame stays visible until its replacement is decoded.
+Actions map inclusive progress0..1 to frame0..last, not the empty video endpoint.
+
+Validation entry points: test:classic-films and test:plinko-film.
+Game math, HallSession, RoundPlayback, PlinkoFlightController and game durations
+were kept byte-identical. Dice and Blackjack and the slot artwork are unchanged.

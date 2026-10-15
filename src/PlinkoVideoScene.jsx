@@ -1,8 +1,9 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {createBlackjackDealerVideoPlayback} from './blackjack-dealer-video-playback.js';
-import {PLINKO_FILM,PlinkoFilmBatches,plinkoFilmProjection} from './plinko-film-presentation.js';
+import {PlinkoFilmBatches,plinkoFilmProjection} from './plinko-film-presentation.js';
 
-const directory='/plinko-dealer-v46/';
+const directory='/plinko-dealer-v47/';
+const clips=['drop_left','drop_right','drop_right_after_left','drop_left_after_right'];
 export default function PlinkoVideoScene({controller,reduced=false,onLayout,onPin}){
   const holder=useRef(null),video=useRef(null),canvas=useRef(null),playback=useRef(null);
   const [mobile,setMobile]=useState(false),[paused,setPaused]=useState(false),[mediaState,setMediaState]=useState('poster');
@@ -12,14 +13,15 @@ export default function PlinkoVideoScene({controller,reduced=false,onLayout,onPi
   const renderer=useRef(()=>{});
 
   useEffect(()=>{
-    let disposed=false;
-    for(const side of ['left','right']){
+    let disposed=false;const view=mobile?'mobile':'desktop',images={view};
+    current.current.images=images;
+    for(const clip of [...clips,'poster']){
       const image=new Image();
-      image.onload=()=>{if(!disposed){current.current.images[side]=image;renderer.current();}};
-      image.src=directory+`drop-${side}-atlas.webp`;
+      image.onload=()=>{if(!disposed){images[clip]=image;renderer.current();}};
+      image.src=directory+(clip==='poster'?`idle-${view}.webp`:`${clip.replaceAll('_','-')}-${view}-atlas.webp`);
     }
-    return ()=>{disposed=true;current.current.images={};};
-  },[]);
+    return ()=>{disposed=true;if(current.current.images===images)current.current.images={};};
+  },[mobile]);
   useEffect(()=>{
     const node=holder.current;
     const resize=()=>{
@@ -53,51 +55,60 @@ export default function PlinkoVideoScene({controller,reduced=false,onLayout,onPi
       const ctx=canvas.current?.getContext('2d');
       if(!ctx||!p)return;
       const flights=controller.getPresentation(),clock=controller.clockMs,duration=controller.durationMs;
-      batches.update(flights.map(({id,progress})=>({id,progress})),clock,duration,quiet);
+      const ready=images.view===(p.mobile?'mobile':'desktop')&&clips.every(clip=>Boolean(images[clip])),still=quiet||!ready,view=p.view;
+      batches.update(flights.map(({id,progress})=>({id,progress})),clock,duration,still);
       ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,p.width,p.height);
-      ctx.translate(p.x,p.y);ctx.scale(p.factor,p.factor);
-      const action=batches.action(clock,quiet),actor=PLINKO_FILM.actor;
-      const gestureActive=Boolean(action&&images[action.side]);
-      if(current.current.gestureActive&&!gestureActive){
-        // Every supplied action ends in neutral. Resume the idle from that
-        // same pose instead of cutting to a head turn halfway through its loop.
+      ctx.translate(p.nativeX,p.nativeY);ctx.scale(p.nativeFactor,p.nativeFactor);
+      const action=batches.action(clock,still),actor=view.actor;
+      const gestureActive=Boolean(action&&images[action.clip]);
+      if(current.current.gestureActive!==gestureActive){
+        // Idle and complete actions share a neutral pose. An after-clip also
+        // includes the previous hand's return; limbs are never pasted apart.
         try{video.current.currentTime=0;}catch{/* The poster already is neutral. */}
       }
       current.current.gestureActive=gestureActive;
       playback.current?.update({paused:current.current.paused||gestureActive,reducedMotion:quiet});
-      if(action&&images[action.side]){
+      if(action&&images[action.clip]){
         ctx.globalAlpha=action.opacity;
-        ctx.drawImage(images[action.side],action.frame%5*actor.width,Math.floor(action.frame/5)*actor.height,
+        ctx.drawImage(images[action.clip],action.frame%actor.columns*actor.width,Math.floor(action.frame/actor.columns)*actor.height,
           actor.width,actor.height,actor.x,actor.y,actor.width,actor.height);
         ctx.globalAlpha=1;
       }
       for(const effect of controller.getEffects()){
-        const x=960+(effect.bin-4)*61.8,fade=1-effect.progress;
-        ctx.fillStyle=`rgba(145,214,183,${fade*.25})`;ctx.fillRect(x-24,854,48,99);
-        ctx.strokeStyle=`rgba(189,229,206,${fade*.65})`;ctx.lineWidth=1.5;ctx.strokeRect(x-23,918,46,38);
+        const point=view.landing[effect.bin],tray=view.trays[effect.bin],label=view.labels[effect.bin],fade=1-effect.progress;
+        if(!point||!tray||!label)continue;
+        ctx.fillStyle=`rgba(145,214,183,${fade*.25})`;ctx.fillRect(tray.x,tray.y,tray.w,tray.h);
+        ctx.strokeStyle=`rgba(189,229,206,${fade*.65})`;ctx.lineWidth=1.5;ctx.strokeRect(label.x,label.y,label.w,label.h);
         ctx.globalAlpha=fade;
-        drawBall(ctx,x,864+Math.sin(effect.progress*Math.PI*2)*2,7*(1-effect.progress*.4));
+        drawBall(ctx,point.x,point.y+Math.sin(effect.progress*Math.PI*2)*2,view.ballRadius*(1-effect.progress*.4));
         ctx.globalAlpha=1;
       }
       const alive=new Set(flights.map(flight=>flight.id));
       for(const id of current.current.contacts.keys())if(!alive.has(id))current.current.contacts.delete(id);
-      let pin=false;
+      let pin=false,occluded=false;
       for(const flight of flights){
-        const pose=batches.pose(flight,clock,duration,quiet);
+        const pose=batches.pose(flight,clock,duration,still,p.mobile);
         if(!pose.visible)continue;
         if(pose.phase==='board'&&pose.row>=0){
-          const s=pose.boardProgress*9,row=Math.min(7,Math.floor(s)-1),u=s-row-1;
-          if(current.current.contacts.get(flight.id)!==row){
-            current.current.contacts.set(flight.id,row);if(u<.2)pin=true;
+          const u=pose.rowPhase;
+          if(current.current.contacts.get(flight.id)!==pose.row){
+            current.current.contacts.set(flight.id,pose.row);if(u<.2)pin=true;
           }
           if(u<.2){
-            const x=960+flight.path[row]*30.9,y=477+row*48.2;
-            const glow=ctx.createRadialGradient(x,y,1,x,y,25);
+            const {x,y}=pose.contact,r=view.pegRadius*2.5;
+            const glow=ctx.createRadialGradient(x,y,1,x,y,r);
             glow.addColorStop(0,`rgba(182,226,207,${(1-u/.2)*.5})`);glow.addColorStop(1,'rgba(130,210,180,0)');
-            ctx.fillStyle=glow;ctx.fillRect(x-25,y-25,50,50);
+            ctx.fillStyle=glow;ctx.fillRect(x-r,y-r,2*r,2*r);
           }
         }
-        drawBall(ctx,pose.x,pose.y,PLINKO_FILM.ballRadius);
+        drawBall(ctx,pose.x,pose.y,pose.radius);
+        occluded=occluded||Boolean(pose.behindInlet);
+      }
+      // The hopper front is stationary. Restore its photographed pixels over
+      // balls below the rim, using the clean poster rather than a layout guide.
+      if(occluded&&images.poster){
+        ctx.save();ctx.beginPath();view.occluder.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.clip();
+        ctx.drawImage(images.poster,0,0,view.frame.width,view.frame.height);ctx.restore();
       }
       if(pin&&clock-current.current.lastPin>=80){
         current.current.lastPin=clock;try{current.current.onPin?.();}catch{/* Optional presentation cue. */}

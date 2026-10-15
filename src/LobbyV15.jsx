@@ -4,9 +4,9 @@ import { MasqIcon } from './MasqIdentity.jsx';
 
 const SLOT_IDS = Object.freeze(['slots', 'maskhouse', 'lecipher']);
 const CLASSIC_COVERS = Object.freeze({
-  coinflip: '/masq-v36-coinflip.png', dice: '/masq-v36-dice.png?v=45a',
-  plinko: '/plinko-dealer-v46/cover.webp', roulette: '/masq-v36-roulette.png?v=45a',
-  upgrader: '/masq-v36-upgrader.png?v=45a', blackjack: '/blackjack-dealer-poster-v34.webp',
+  coinflip: '/classic-films-v47/coinflip/cover.webp', dice: '/masq-v36-dice.png?v=45a',
+  plinko: '/plinko-dealer-v47/cover.webp', roulette: '/classic-films-v47/roulette/cover.webp',
+  upgrader: '/classic-films-v47/upgrader/cover.webp', blackjack: '/blackjack-dealer-poster-v34.webp',
 });
 const SEARCH_NAMES = Object.freeze({
   slots: 'бонанза bonanza каскады',

@@ -1,0 +1,8 @@
+.upgrader-film-source { position:absolute; pointer-events:none; transform-origin:0 0; }
+.upgrader-film-screen { position:absolute; top:0; left:0; width:240px; height:240px; padding:25px 18px; box-sizing:border-box; transform-origin:0 0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; background:repeating-linear-gradient(0deg,#091c0eeb 0 3px,#122c1ee0 3px 5px); color:#91d2a8; font-family:monospace; text-shadow:0 0 8px #69c39d77; overflow:hidden; }
+.upgrader-film-screen>span { font-size:22px; font-weight:700; letter-spacing:2px; }
+.upgrader-film-screen>strong { font-size:88px; line-height:1; font-weight:700; }
+.upgrader-film-screen>i { display:block; width:160px; height:8px; border:2px solid #8ac9a54a; }
+.upgrader-film-screen>i>b { display:block; height:100%; background:currentColor; }
+.upgrader-film-screen.outcome-denied { color:#d8959e; }
+.upgrader-film-screen.outcome-success { color:#d8edc7; }

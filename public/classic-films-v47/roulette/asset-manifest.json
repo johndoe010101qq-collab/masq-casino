@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "source": "User-supplied masq-anonymous-classic-games-preview-v1",
+  "encoding": "H264 CRF22 preset fast, yuv420p, faststart; poster WebP quality86",
+  "assets": [
+    {
+      "path": "desktop/idle.mp4",
+      "bytes": 914166,
+      "sha256": "71f465e7e2ddcb379c40243ec50791ab0eaad00f2ca79ab662357c67de2bb77d",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "frames": 270
+    },
+    {
+      "path": "desktop/release.mp4",
+      "bytes": 451246,
+      "sha256": "df512d6bffaed77b025e16122101e7d96f10fc89a4c7627af86928ae5725a5b8",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "frames": 82
+    },
+    {
+      "path": "desktop/poster.webp",
+      "bytes": 100684,
+      "sha256": "1faece86cebef849c624e4c5d7a153439a41c6242a9b1666a3044f185b83476a",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "mobile/idle.mp4",
+      "bytes": 345147,
+      "sha256": "f9894834b47aa763640b373951eaa62294476666b75682aa4abbd423cab2bbae",
+      "width": 720,
+      "height": 960,
+      "fps": 30,
+      "frames": 270
+    },
+    {
+      "path": "mobile/release.mp4",
+      "bytes": 174572,
+      "sha256": "9a05e2e28a61a2345149a3ce40ece644206cb724647f2b321a8bc14e9c942cb3",
+      "width": 720,
+      "height": 960,
+      "fps": 30,
+      "frames": 82
+    },
+    {
+      "path": "mobile/poster.webp",
+      "bytes": 39514,
+      "sha256": "691550c8fa578d0d839eb825668466da8ad403114ad6b8ed367b6ef2ff51b738",
+      "width": 720,
+      "height": 960
+    },
+    {
+      "path": "rotor.webp",
+      "bytes": 54622,
+      "sha256": "22f59da3940b18d5186e4aeff5ecadf1145baebe545a5433b4bd26ef94e7d393",
+      "width": 672,
+      "height": 672,
+      "source": "Supplied wheel-topdown-orthographic.png, exact672x672 crop at624,204; no generated artwork"
+    }
+  ]
+}
