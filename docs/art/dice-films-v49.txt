@@ -1,0 +1,33 @@
+MASQ DICE FILMS — 2026-10-19
+
+User supplied masq-anon-dice-all-variants.zip, the last volume of a four-part
+archive. Its sibling.z01/.z02/.z03 volumes were found beside it. The local helper
+joined them into a separate output copy, normalized directory volume offsets,
+checked every CRC and constrained every extracted path to the output folder.
+Original archive volumes were unchanged. No bundled script was executed.
+
+All six actual filmed outcomes are now supplied. The accepted dieValue/value
+chooses roll_1..roll_6 once per round. The film includes the actual die, shadow,
+collisions and final top face; the app neither redraws nor changes the pips.
+Missing/malformed outcomes remain idle rather than falling back to one.
+
+The locked full shot shows the host picking up, shaking and throwing. At source
+frame42 the film cuts to its supplied moving close-up, at the same absolute
+time. It is an intentional camera cut, not a seamless shared camera. Desktop
+masters are1920x1080; mobile masters are720x960. Mobile close-ups are centered
+810x1080 crops from the original desktop close-up, resized to720x960. The die
+is centered by that filmed camera throughout the motion.
+
+The existing3-second public Dice round clock drives the inclusive139-frame
+action, with the source end at4.6seconds. Existing settlement and result hold,
+stakes, odds, RTP settings and payouts remain owned by GameRoom/HallSession.
+Media events never debit or settle. Skip/reduced motion select the matching
+final close-up, and a completed round holds that face on the felt.
+
+Re-encoded26videos keep every supplied frame and30fps, H264/yuv420p, fast-start
+metadata and no audio. Posters are native-sized; the lobby cover is from the
+matching supplied six-face close-up. Source calibration records all six final
+quaternions and timing marks for independent verification.
+
+Checks: test:dice-film and test:classic-films media lifecycle. Native desktop
+and mobile validation checks result readability and consistency with the UI.

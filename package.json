@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "test:coin-camera": "node tests/coin-camera-checks.mjs",
+    "test:dice-film": "node tests/dice-film-checks.mjs && node tests/classic-film-playback-checks.mjs",
     "test:roulette-wheel": "node tests/roulette-wheel-model-v48-checks.mjs && node tests/roulette-wheel-camera-checks.mjs && node tests/classic-film-source-geometry-checks.mjs",
     "test:plinko-dealer": "node tests/plinko-dealer-checks.mjs && node tests/plinko-film-v47-checks.mjs",
     "test:plinko-film": "node tests/plinko-film-v47-checks.mjs",

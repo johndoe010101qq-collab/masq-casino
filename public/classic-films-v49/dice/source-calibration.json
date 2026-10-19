@@ -1,0 +1,248 @@
+{
+  "source": "Four-volume masq-anon-dice-all-variants; CRCs verified before extraction",
+  "fps": 30,
+  "frames": 139,
+  "mobileClose": {
+    "source": "desktop close-up",
+    "crop": [
+      555,
+      0,
+      810,
+      1080
+    ],
+    "output": [
+      720,
+      960
+    ]
+  },
+  "variants": {
+    "1": {
+      "value": 1,
+      "release": 42,
+      "contact": 49,
+      "settled": 72,
+      "holdEnd": 111,
+      "faces": {
+        "+y": 1,
+        "-y": 6,
+        "+z": 2,
+        "-z": 5,
+        "+x": 3,
+        "-x": 4
+      },
+      "last": {
+        "px": [
+          956.6,
+          789.8
+        ],
+        "world": [
+          -0.1093,
+          15.102,
+          8.8086
+        ],
+        "quat": [
+          0,
+          0.48066,
+          0,
+          0.87691
+        ],
+        "visible": true
+      },
+      "sourceSHA256": {
+        "desktop": "8fc474513cc9a01cdb37b238003229cfb1ad700f22237a6f6b33761634d9f633",
+        "close": "daa667f3c328aad1046889bd1a3e909883fe6f521889540d36304c478910ca10",
+        "mobile": "d763a978a62c0a3a9f11c8eb7df277270219f2345a82630b9d4c492d1e28edfe"
+      }
+    },
+    "2": {
+      "value": 2,
+      "release": 42,
+      "contact": 49,
+      "settled": 66,
+      "holdEnd": 105,
+      "faces": {
+        "+y": 1,
+        "-y": 6,
+        "+z": 2,
+        "-z": 5,
+        "+x": 3,
+        "-x": 4
+      },
+      "last": {
+        "px": [
+          899.9,
+          762.8
+        ],
+        "world": [
+          -1.9819,
+          15.102,
+          7.5193
+        ],
+        "quat": [
+          -0.61184,
+          0.35451,
+          0.35448,
+          0.61182
+        ],
+        "visible": true
+      },
+      "sourceSHA256": {
+        "desktop": "3ea27089109a152e64bb2ebe9d3f2ac03a0f023f007da7edae7d741889249137",
+        "close": "98cf7add97925f7e87db0640aa476abd48311f471e5247c33615afd1ef8ff0fc",
+        "mobile": "98f4d8ad2f413ee099af8cda3758f25e5edde7131df9ad1796b37cd55d631ae1"
+      }
+    },
+    "3": {
+      "value": 3,
+      "release": 42,
+      "contact": 50,
+      "settled": 66,
+      "holdEnd": 105,
+      "faces": {
+        "+y": 1,
+        "-y": 6,
+        "+z": 2,
+        "-z": 5,
+        "+x": 3,
+        "-x": 4
+      },
+      "last": {
+        "px": [
+          854.6,
+          811.8
+        ],
+        "world": [
+          -3.4051,
+          15.102,
+          9.836
+        ],
+        "quat": [
+          -0.07212,
+          -0.07212,
+          0.70342,
+          0.70342
+        ],
+        "visible": true
+      },
+      "sourceSHA256": {
+        "desktop": "18cdb63cf93c4d66a03da7dcd7ed0e671e68c85bd3b74e4e80427bd1b0607994",
+        "close": "ff086edb87853319834ca9176e4c3e799e6c494ebc30794c617226fdf0fbebd3",
+        "mobile": "1aa89dac6faebc6c004760c9ea339eb586d1ea37a694f9ed33b6f1cdb80088ee"
+      }
+    },
+    "4": {
+      "value": 4,
+      "release": 42,
+      "contact": 49,
+      "settled": 72,
+      "holdEnd": 111,
+      "faces": {
+        "+y": 1,
+        "-y": 6,
+        "+z": 2,
+        "-z": 5,
+        "+x": 3,
+        "-x": 4
+      },
+      "last": {
+        "px": [
+          1007.6,
+          815.3
+        ],
+        "world": [
+          1.535,
+          15.1019,
+          9.9973
+        ],
+        "quat": [
+          0.65644,
+          -0.65635,
+          -0.26286,
+          0.26306
+        ],
+        "visible": true
+      },
+      "sourceSHA256": {
+        "desktop": "e06f1cd28aab39366c3936247a9fbda7ff21ee3993818a43110a24d4077f4a57",
+        "close": "91fe7e802b6490d14d2dbd370a7b6be3d188c980301ce6f2bebc201c2c393446",
+        "mobile": "89241221ae86d108d022952e6afaac91107a793485801e9c483eeeaca59559a0"
+      }
+    },
+    "5": {
+      "value": 5,
+      "release": 42,
+      "contact": 49,
+      "settled": 70,
+      "holdEnd": 109,
+      "faces": {
+        "+y": 1,
+        "-y": 6,
+        "+z": 2,
+        "-z": 5,
+        "+x": 3,
+        "-x": 4
+      },
+      "last": {
+        "px": [
+          880.4,
+          816.4
+        ],
+        "world": [
+          -2.5674,
+          15.102,
+          10.0478
+        ],
+        "quat": [
+          0.65603,
+          -0.26386,
+          0.26386,
+          0.65603
+        ],
+        "visible": true
+      },
+      "sourceSHA256": {
+        "desktop": "1b012125c9bf9b7f0031c85ff6bbb0a6d781aebe1de81be9a3be06f392e21be8",
+        "close": "fb061befe6eb96b1be66d61a57378f82ce9194506ba5025aca2730879929cb79",
+        "mobile": "cb3b0780e7063b04a7e56342bb2267820ec622ee66c5a74f630e2177c2ed8310"
+      }
+    },
+    "6": {
+      "value": 6,
+      "release": 42,
+      "contact": 49,
+      "settled": 71,
+      "holdEnd": 110,
+      "faces": {
+        "+y": 1,
+        "-y": 6,
+        "+z": 2,
+        "-z": 5,
+        "+x": 3,
+        "-x": 4
+      },
+      "last": {
+        "px": [
+          867,
+          746
+        ],
+        "world": [
+          -3.0885,
+          15.102,
+          6.7054
+        ],
+        "quat": [
+          -0.95809,
+          0,
+          -0.28648,
+          0
+        ],
+        "visible": true
+      },
+      "sourceSHA256": {
+        "desktop": "0ce96874ece68b9bbb0c9088fa361677179698e1981fb10d531c9f257fee98da",
+        "close": "c92c62dc665b71cf7c9fcd2ae0b8278931f32ebaa09e13e126c9e08bd8b31da0",
+        "mobile": "11b57ce0cc5bb856fb7e9f60a1941c34f35417750f0108f2ddd92139eb296ec1"
+      }
+    }
+  }
+}
