@@ -1,5 +1,6 @@
 import {createHash,randomInt,randomUUID} from 'node:crypto';
 import {HuevoError} from './huevo-protocol.mjs';
+import {HUEVO_RTP} from '../src/runtime-rtp-range.js';
 import {quoteHuevoDeposit} from './huevo-economics.mjs';
 import {HallSession} from '../src/hall-session.js';
 import GameMath from '../src/game-math.js';
@@ -7,17 +8,22 @@ import {HUEVO_SLOT_PROFILES,HUEVO_CLASSIC_PROFILES} from '../src/huevo-edition.j
 import {createBlackjackHand,hitBlackjack,standBlackjack,revealBlackjack,dealerStepBlackjack,finishBlackjack,blackjackPublicView,evaluateBlackjack} from '../src/blackjack.js';
 import {blackjackProfileOptions,classicProfileSnapshot} from '../src/classic-rtp-profiles.js';
 
-const settings={rtpProfiles:HUEVO_SLOT_PROFILES,classicRtpProfiles:HUEVO_CLASSIC_PROFILES,fixedRtp:97};
+const settings={rtpProfiles:HUEVO_SLOT_PROFILES,classicRtpProfiles:HUEVO_CLASSIC_PROFILES,fixedRtp:HUEVO_RTP};
 const config=new HallSession(GameMath,randomInt,{...settings,initialBalanceCents:0}).getSnapshot();
 const bjActions={hit:hitBlackjack,stand:standBlackjack,reveal:revealBlackjack,dealer:dealerStepBlackjack,finish:finishBlackjack};
 export const huevoOwner=s=>`${s.mode}:${s.userId}`;
 const fingerprint=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const validKey=id=>typeof id==='string'&&/^[A-Za-z0-9_-]{8,64}$/.test(id);
 const platformAmount=a=>{if(!Number.isSafeInteger(a)||a<1||a>100000)throw new HuevoError(400,'invalid_amount','Сумма — целое число от 1 до 100 000 монэток.');return a;};
+function pinnedBlackjackOptions(state){
+ const p=state.record.rtpProfile;
+ if(!p||!['dealerBoostTickets','playerUnfavorableTickets'].every(k=>Number.isInteger(p[k])&&p[k]>=0&&p[k]<=10000))throw new HuevoError(500,'stored_profile_invalid');
+ return {dealerBoostTickets:p.dealerBoostTickets,playerUnfavorableTickets:p.playerUnfavorableTickets};
+}
 function replayHand(state){
   let index=0;const tape=state.tape.map(x=>[...x]);
   const rng=n=>{const saved=tape[index++];if(saved){if(saved[0]!==n)throw Error('Blackjack RNG replay mismatch');return saved[1];}const v=randomInt(n);tape.push([n,v]);return v;};
-  let hand=createBlackjackHand({randomInt:rng,...blackjackProfileOptions(97)});
+  let hand=createBlackjackHand({randomInt:rng,...pinnedBlackjackOptions(state)});
   for(const action of state.actions)hand=bjActions[action](hand);
   return {hand,tape};
 }
@@ -68,7 +74,7 @@ export function createHuevoService({db,api,now=Date.now}){
       // Shared stake validation and public settings, without drawing a second hand.
       const limits=config.stakeLimits.blackjack;
       if(!Number.isInteger(stake)||stake<limits.min||stake>limits.max||(stake-limits.min)%limits.step||stake*100>w.balance)throw new HuevoError(400,'invalid_stake');
-      state={tape:[],actions:[],record:{id,game:'blackjack',mode:'paid',preview:false,stake,stakeCents:stake*100,chargeCents:stake*100,cost:stake,openingCents:w.balance,rtpProfile:classicProfileSnapshot('blackjack',97),profileRevision:1,settingsRevision:1,stakeLimits:limits,presentation:h.getSnapshot().presentation}};
+      state={tape:[],actions:[],record:{id,game:'blackjack',mode:'paid',preview:false,stake,stakeCents:stake*100,chargeCents:stake*100,cost:stake,openingCents:w.balance,rtpProfile:classicProfileSnapshot('blackjack',HUEVO_RTP),profileRevision:1,settingsRevision:1,stakeLimits:limits,presentation:h.getSnapshot().presentation}};
       ({hand,tape}=replayHand(state));state.tape=tape;handId=id;balance-=stake*100;
       extra=[stmt('INSERT INTO huevo_hands(id,owner,state) VALUES(?,?,?)',id,owner,JSON.stringify(state))];
     }else{
@@ -77,7 +83,7 @@ export function createHuevoService({db,api,now=Date.now}){
       state=JSON.parse(saved.state);({hand,tape}=replayHand(state));
       // Replay with a recorder that retains all new random draws from this move.
       let cursor=0;const rng=n=>{const p=tape[cursor++];if(p){if(p[0]!==n)throw Error('RNG mismatch');return p[1];}const v=randomInt(n);tape.push([n,v]);return v;};
-      hand=createBlackjackHand({randomInt:rng,...blackjackProfileOptions(97)});for(const a of state.actions)hand=bjActions[a](hand);
+      hand=createBlackjackHand({randomInt:rng,...pinnedBlackjackOptions(state)});for(const a of state.actions)hand=bjActions[a](hand);
       try{hand=bjActions[action](hand);}catch(error){throw new HuevoError(400,'invalid_action',error.message);}
       state.tape=tape;state.actions.push(action);handId=roundId;handRevision=saved.revision+1;
       if(hand.phase==='resolved'){const outcome=evaluateBlackjack(hand),payoutCents=state.record.stakeCents*outcome.payoutMultiplier;

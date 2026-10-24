@@ -1,7 +1,7 @@
 // UI scheduling only. No RNG, outcome generation, ledger or financial APIs.
 export const SLOT_AUTO_COUNTS=Object.freeze([10,25,50]);
 export const SLOT_AUTO_BALANCE='balance';
-export const SLOT_PLAYBACK_SPEEDS=Object.freeze([1,1.5,2]);
+export const SLOT_PLAYBACK_SPEEDS=Object.freeze([1,1.5,2,4]);
 export function createSlotPlaybackController({requestSpin,getConditions=()=>({}),onChange=()=>{},
   schedule=(callback,delay)=>setTimeout(callback,delay),cancel=id=>clearTimeout(id),gapMs=600,allowAsync=false}={}) {
   if(typeof requestSpin!=='function')throw new TypeError('A synchronous accepted-spin callback is required.');
@@ -43,7 +43,7 @@ export function createSlotPlaybackController({requestSpin,getConditions=()=>({})
         result.then(value=>acceptedResult(value,token)).catch(()=>{if(token===generation)stop('launch-error');});return;
       }
       acceptedResult(result,token);
-    },gapMs);}
+    },gapMs/speed);}
     emit();
   }
   function acceptedResult(result,token){
@@ -58,8 +58,8 @@ export function createSlotPlaybackController({requestSpin,getConditions=()=>({})
       status=waitingRound?'waiting':'running';pauseReason=null;emit();
       if(!waitingRound)sync();
   }
-  function start(count){if(count!==SLOT_AUTO_BALANCE&&!SLOT_AUTO_COUNTS.includes(count))throw new RangeError('Choose 10, 25, 50 or balance automatic spins.');if(!enabled)return false;generation++;clearScheduled();active=true;remaining=count===SLOT_AUTO_BALANCE?null:count;accepted=0;waitingRound=false;sawBusy=false;status='running';pauseReason=null;sync();return true;}
-  function setSpeed(next){if(!SLOT_PLAYBACK_SPEEDS.includes(next))throw new RangeError('Choose speed 1, 1.5 or 2.');speed=next;emit();}
+  function start(count=SLOT_AUTO_BALANCE){if(count!==SLOT_AUTO_BALANCE&&!SLOT_AUTO_COUNTS.includes(count))throw new RangeError('Choose 10, 25, 50 or balance automatic spins.');if(!enabled)return false;generation++;clearScheduled();active=true;remaining=count===SLOT_AUTO_BALANCE?null:count;accepted=0;waitingRound=false;sawBusy=false;status='running';pauseReason=null;sync();return true;}
+  function setSpeed(next){if(!SLOT_PLAYBACK_SPEEDS.includes(next))throw new RangeError('Unsupported visual speed.');speed=next;emit();}
   function disable(){enabled=false;stop('unmounted');}
   function enable(){enabled=true;}
   return Object.freeze({snapshot,start,stop,sync,setSpeed,disable,enable});

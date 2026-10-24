@@ -65,7 +65,7 @@ function GameCard({ game, slot, onOpen, locked }) {
   return <button type="button" className={`lobby15-card lobby15-card-${slot ? 'slot' : 'classic'} lobby15-game-${game.id}`}
     disabled={locked} aria-label={`Играть в ${game.name}`} onClick={() => onOpen(game.id)}>
     <span className="lobby15-art">
-      <img src={slot?(HUEVO_EDITION?`/studio-slots-v50/${game.id}-cover.webp`:`/masq-v36-${game.id}.png`):CLASSIC_COVERS[game.id]} alt=""
+      <img src={slot?(HUEVO_EDITION?`/original-slots-v54/${game.id}-cover.webp`:`/masq-v36-${game.id}.png`):CLASSIC_COVERS[game.id]} alt=""
         loading="lazy" decoding="async" draggable="false" />
       <span className="lobby15-play" aria-hidden="true"><PlayIcon /></span>
     </span>

@@ -1,3 +1,4 @@
+import {CURRENCY} from './currency.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { uiStakeLimits, uiBoundedStake } from './demo-ui-settings.js';
 import RasterBlackjack from './RasterBlackjack.jsx';
@@ -169,14 +170,14 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
             <div className="blackjack-live-status" data-phase={display.status} role="status" aria-live="polite">
               <span className="bj-status-light" aria-hidden="true" />{view.result?.title ?? statuses[display.status]}
             </div>
-            <span className="bj-table-limit">{limits.min}–{limits.max} АР</span>
+            <span className="bj-table-limit">{limits.min}–{limits.max} {CURRENCY}</span>
           </div>
           <div className="bj-console-controls">
             <div className="bj-console-stake">
               <span className="bj-console-label">Ставка</span>
               <div className="blackjack-stake-tools" role="group" aria-label="Ставка Blackjack">
                 <button type="button" aria-label="Уменьшить ставку" disabled={locked || stake <= limits.min} onClick={() => setStake(n => Math.max(limits.min, n - limits.step))}>−</button>
-                <output aria-label="Текущая ставка">{stake}<span>АР</span></output>
+                <output aria-label="Текущая ставка">{stake}<span>{CURRENCY}</span></output>
                 <button type="button" aria-label="Увеличить ставку" disabled={locked || stake >= limits.max} onClick={() => setStake(n => Math.min(limits.max, n + limits.step))}>+</button>
               </div>
             </div>

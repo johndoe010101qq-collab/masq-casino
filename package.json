@@ -20,7 +20,7 @@
     "admin:server": "node --env-file-if-exists=.env.local server/admin-server.mjs",
     "test:admin": "node tests/server-admin-checks.mjs && node tests/server-admin-client-checks.mjs && node tests/spw-server-session-checks.mjs && node tests/reward-bank-checks.mjs && node tests/server-reward-api-checks.mjs",
     "build:huevo": "node scripts/build-huevo.mjs",
-    "test:huevo": "node tests/huevo-economics-checks.mjs && node tests/embedded-host-checks.mjs && node tests/huevo-97-checks.mjs",
+    "test:huevo": "node tests/huevo-economics-checks.mjs && node tests/embedded-host-checks.mjs && node tests/huevo-rtp-checks.mjs",
     "test:huevo:server": "node tests/huevo-server-checks.mjs && node tests/huevo-autoplay-checks.mjs"
   },
   "dependencies": {

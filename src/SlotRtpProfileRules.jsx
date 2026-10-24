@@ -1,7 +1,10 @@
+import {CURRENCY} from './currency.js';
+import {huevoSlotMeasurement} from './huevo-rtp-evidence.js';
 import React from 'react';
 import {slotProfileSnapshot,validateSlotProfiles} from './slot-rtp-profiles.js';
 import {DEMO_RTP_VALUES} from './rtp-range.js';
 import {universalSlotProfileMeasurement} from './universal-slot-profiles.js';
+import {universalSlotProfileMeasurement as huevoMeasurement} from './huevo-slot-profiles.js';
 import {bonusPurchaseFloorMeasurement} from './bonus-purchase-floor-measurement.js';
 import maskStatistics from './mask-profile-statistics.json';
 import BonanzaFixedProfileRules,{bonanzaFixedProfileMeasurement} from './BonanzaFixedProfileRules.jsx';
@@ -20,6 +23,8 @@ const offers=[
  {game:'lecipher',mode:'paid',featureMode:'rainbow',title:'LeXof · «Радужный спин» ×10'}
 ];
 function measurement(profile,offer){
+ const current=huevoSlotMeasurement(profile,offer);if(current)return current;
+ if(profile.targetReturnPercent===97)return huevoMeasurement(profile,offer);
  if(profile.selectionMethod==='public-whole-candidate-weighting')return universalSlotProfileMeasurement(profile,offer);
  if(offer.game==='slots')return bonanzaFixedProfileMeasurement(profile,offer);
  if(offer.mode==='buy')return bonusPurchaseFloorMeasurement(profile,offer);
@@ -37,7 +42,7 @@ function Parameters({profile,offer}){
  return <>{n(profile.ticketWeight)}/{n(profile.ticketCount??profile.ticketDenominator)}<br/>Билет на +{profile.extraFreeSpins} вращений</>;
 }
 function OfferTable({rows,caption}){return <div className="odds-table-scroll"><table><caption>{caption}</caption>
- <thead><tr><th scope="col">Режим / ориентир</th><th scope="col">Открытая математика</th><th scope="col">Возврат · приближённый 95% интервал</th><th scope="col">Источник оценки</th><th scope="col">Прибыль игрока</th><th scope="col">База / вся цена, АР</th><th scope="col">Крупные выплаты ≥15,8× / ≥30× базы</th></tr></thead>
+ <thead><tr><th scope="col">Режим / ориентир</th><th scope="col">Открытая математика</th><th scope="col">Возврат · приближённый 95% интервал</th><th scope="col">Источник оценки</th><th scope="col">Прибыль игрока</th><th scope="col">База / вся цена, {CURRENCY}</th><th scope="col">Крупные выплаты ≥15,8× / ≥30× базы</th></tr></thead>
  <tbody>{rows.map(({offer,profile,sample})=><tr key={profile.id+profile.offer}>
   <th scope="row">{offer.title}<br/>Ориентир {profile.targetReturnPercent}%</th><td><Parameters profile={profile} offer={offer}/></td>
   <td>{sample?<>{n(sample.meanPercent)}%<br/><small>{sample.ciPercent.map(n).join('–')}%</small></>:'Нет согласованной выборки'}</td>
@@ -61,7 +66,7 @@ export default function SlotRtpProfileRules({rtpProfiles}){
   <p>Повышение RTP таким способом увеличивает долю целых раундов класса «выплата не меньше цены», включая крупные выигрыши этого класса. Оно не доказывает, что выплаты 15,8× или 30× редки. Частоты этих событий приведены только там, где есть отдельный прогон, и выражены относительно базовой ставки, а не цены покупки.</p>
   <h3>Сохранённые профили 50 / 55 / 60</h3>
   <p>Профиль 50 сохраняет исходный поток RNG каждой игры. Bonanza 55/60 используют прежние открытые постоянные веса новых символов. Mask Hou$e и LeXof 55/60 используют прежний независимый билет до первого исхода на четыре настоящих дополнительных вращения один раз за всю платную заявку. Цены, таблицы выплат и максимальный долг этих профилей не изменены.</p>
-  <p>Bonanza запускает бонус с 10 вращениями; только обычный ретриггер за три и более SCATTER в бесплатном вращении даёт +5. Лимит Bonanza — 100 базовых ставок минус 1 АР: начисленные вращения доигрываются, но исчерпанный бюджет не добавляет денег. Лимит Mask Hou$e/LeXof — 40× минус 1 АР; обычные бюджеты House/LeXof — 25×/30×. House доигрывает вращения после обычного бюджета; LeXof сохраняет число несыгранных вращений при остановке. Все ограничения и минимальные доплаты входят в полную оценку возврата.</p>
+  <p>Bonanza запускает бонус с 10 вращениями; только обычный ретриггер за три и более SCATTER в бесплатном вращении даёт +5. Лимит Bonanza — 100 базовых ставок минус 1 {CURRENCY}: начисленные вращения доигрываются, но исчерпанный бюджет не добавляет денег. Лимит Mask Hou$e/LeXof — 40× минус 1 {CURRENCY}; обычные бюджеты House/LeXof — 25×/30×. House доигрывает вращения после обычного бюджета; LeXof сохраняет число несыгранных вращений при остановке. Все ограничения и минимальные доплаты входят в полную оценку возврата.</p>
   <BonanzaFixedProfileRules active={rtpProfiles.slots}/>
   <BonusPurchaseFloorRules/>
   <details><summary>Все 46 открытых профилей: веса, оценки и отдельные проверки</summary>

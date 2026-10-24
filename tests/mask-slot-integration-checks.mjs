@@ -303,7 +303,8 @@ const transformed=await transformWithOxc(rulesSource,'MaskSlotOddsRules.jsx',{js
 const rulesModule=transformed.code
  .replace(/from "react"/g,`from '${new URL('node_modules/react/index.js',site).href}'`)
  .replace(/from "\.\/mask-slots\.js"/g,`from '${engineURL.href}'`)
- .replace(/from "\.\/slot-themes\.js"/g,`from '${new URL('src/slot-themes.js',site).href}'`);
+ .replace(/from "\.\/slot-themes\.js"/g,`from '${new URL('src/slot-themes.js',site).href}'`)
+ .replace(/from "\.\/currency\.js"/g,`from '${new URL('src/currency.js',site).href}'`);
 const {default:RulesDisplay}=await import('data:text/javascript;base64,'+Buffer.from(rulesModule).toString('base64'));
 const display=renderer.renderToStaticMarkup(React.createElement(RulesDisplay,{rules,audits:[]}));
 const strip=text=>text.replace(/<[^>]*>/g,'');

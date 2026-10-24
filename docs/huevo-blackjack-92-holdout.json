@@ -1,0 +1,18 @@
+{
+  "hands": 1000000,
+  "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54",
+  "dealerBoostTickets": 607,
+  "playerUnfavorableTickets": 284,
+  "returnPercent": 92.1064,
+  "return95CI_Percent": [
+    91.9139617768485,
+    92.2988382231515
+  ],
+  "outcomes": {
+    "blackjack": 45354,
+    "win": 360601,
+    "push": 86477,
+    "lose": 507568
+  },
+  "engineSourceSHA256": "97d324d46535194515b982f343e5a28c1ce090f7c4e12fd33c3d5c8ecdad9e5e"
+}

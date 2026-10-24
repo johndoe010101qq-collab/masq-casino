@@ -23,7 +23,7 @@ const board=(columns,rows)=>Array.from({length:columns},(_,c)=>Array.from({lengt
 // Exercise the actual pure Board and Symbol renderer, retaining React keys.
 const roomSource=source['src/MaskSlotRoom.jsx'],start=roomSource.indexOf('function Symbol('),end=roomSource.indexOf('function Purchase(');
 ok(start>=0&&end>start);
-const boardModule=`import React from ${JSON.stringify(new URL('node_modules/react/index.js',site).href)};const fmt=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(n);\n${roomSource.slice(start,end)}\nexport default Board;`;
+const boardModule=`import {CURRENCY,currencyText} from ${JSON.stringify(new URL('src/currency.js',site).href)};import React from ${JSON.stringify(new URL('node_modules/react/index.js',site).href)};const fmt=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(n);\n${roomSource.slice(start,end)}\nexport default Board;`;
 const {default:Board}=await load((await transformWithOxc(boardModule,'MaskSlotBoard.jsx',{jsx:{runtime:'classic'}})).code);
 const atlas={url:'/fixture.png',indices:Object.fromEntries([...kinds,'wild','scatter','bomb'].map((kind,i)=>[kind,i]))};
 const children=node=>{const values=node?.props?.children;return(Array.isArray(values)?values:[values]).flat(Infinity).filter(value=>value!==null&&value!==undefined&&value!==false);};

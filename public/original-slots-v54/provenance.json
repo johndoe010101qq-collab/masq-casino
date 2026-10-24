@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-24",
+  "sources": {
+    "sweet": "https://www.pragmaticplay.com/en/games/sweet-bonanza-slot/",
+    "bandit": "https://www.hacksawgaming.com/games/le-bandit"
+  },
+  "processing": "Original raster textures, first neutral symbol frames, lossless transparent composition then WebP. No generated replacement artwork.",
+  "bandit": [
+    {
+      "name": "coljuegos.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/ui/images/coljuegos.png"
+    },
+    {
+      "name": "juegabien.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/ui/images/juegabien.png"
+    },
+    {
+      "name": "promotion_button.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/ui/images/promotion_button.png"
+    },
+    {
+      "name": "favicon.ico",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/favicon.ico"
+    },
+    {
+      "name": "alphakind.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/assets/default/common/font/localized/en-us/alphakind.png"
+    },
+    {
+      "name": "background.jpg",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/assets/default/common/atlas/background.jpg"
+    },
+    {
+      "name": "mod_bonus.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/mod_bonus.png"
+    },
+    {
+      "name": "rainbow.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/rainbow.png"
+    },
+    {
+      "name": "luck_of_the_bandit.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/luck_of_the_bandit.png"
+    },
+    {
+      "name": "all_is_gold_that_glitters.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/all_is_gold_that_glitters.png"
+    },
+    {
+      "name": "reel_square_active.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/reel_square_active.png"
+    },
+    {
+      "name": "coins.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/coins.png"
+    },
+    {
+      "name": "clover.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/clover.png"
+    },
+    {
+      "name": "pot.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/pot.png"
+    },
+    {
+      "name": "fs.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/fs.png"
+    },
+    {
+      "name": "low_1.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/low_1.png"
+    },
+    {
+      "name": "low_2.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/low_2.png"
+    },
+    {
+      "name": "low_3.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/low_3.png"
+    },
+    {
+      "name": "low_4.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/low_4.png"
+    },
+    {
+      "name": "low_5.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/low_5.png"
+    },
+    {
+      "name": "high_1.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/high_1.png"
+    },
+    {
+      "name": "high_2.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/high_2.png"
+    },
+    {
+      "name": "high_3.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/high_3.png"
+    },
+    {
+      "name": "high_4.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/high_4.png"
+    },
+    {
+      "name": "high_5.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/high_5.png"
+    },
+    {
+      "name": "wild.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/wild.png"
+    },
+    {
+      "name": "ways-showcase.png",
+      "url": "https://static-live.hacksawgaming.com/1309/1.26.1/gameinfoassets/ways-showcase.png"
+    }
+  ]
+}

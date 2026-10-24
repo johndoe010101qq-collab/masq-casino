@@ -45,7 +45,7 @@ export function createBonusPurchaseController(session) {
 }
 
 export function buildBonanzaTimeline(round,{speed=1}={}) {
-  if(![1,1.5,2].includes(speed))throw new RangeError('Unsupported animation speed.');
+  if(![1,1.5,2,4].includes(speed))throw new RangeError('Unsupported animation speed.');
   if (!Array.isArray(round?.spins) || !round.spins.length) {
     throw new TypeError('A complete precomputed Bonanza round is required.');
   }
@@ -160,7 +160,7 @@ export function buildBonanzaTimeline(round,{speed=1}={}) {
 // Host owns settlement: onFinish should call session.complete(round.id) exactly once.
 // No timers survive finish(), skip(), or dispose(). No outcome is generated here.
 export function createBonanzaPlayback(round, {
-  speed=1, onVisual, onCue = () => {}, onPause = () => {}, onFinish,
+  speed=1, manualBonus=false, onVisual, onCue = () => {}, onPause = () => {}, onFinish,
   clock = {now: () => performance.now(), set: (fn, ms) => setTimeout(fn, ms), clear: id => clearTimeout(id)},
   visibility = typeof document === 'undefined' ? null : document
 }) {
@@ -169,14 +169,14 @@ export function createBonanzaPlayback(round, {
   }
   const {steps, terminal} = buildBonanzaTimeline(round,{speed});
   let closed = false, started = false, timer = null, wake = null, rejectWake = null;
-  let remaining = 0, since = 0, disposed = false;
+  let remaining = 0, since = 0, disposed = false, bonusHeld=false;
   const hidden = () => !!visibility?.hidden;
   const clearTimer = () => {
     if (timer !== null) clock.clear(timer);
     timer = null;
   };
   function arm() {
-    if (closed || hidden() || !wake) return;
+    if (closed || hidden() || !wake || bonusHeld) return;
     since = clock.now();
     timer = clock.set(() => {
       timer = null; remaining = 0;
@@ -204,10 +204,10 @@ export function createBonanzaPlayback(round, {
       else throw failure;
     }
   }
-  function wait(ms) {
+  function wait(ms,holdBonus=false) {
     if (closed) return Promise.resolve(false);
     return new Promise((resolve, reject) => {
-      remaining = ms; wake = resolve; rejectWake = reject; arm();
+      remaining = ms; bonusHeld=holdBonus; wake = resolve; rejectWake = reject; arm();
     });
   }
   function finish(reason = 'complete', showTerminal = true) {
@@ -241,7 +241,8 @@ export function createBonanzaPlayback(round, {
           if (closed) return false;
           onCue(step.cue, step.details);
           if (closed) return false;
-          if (!await wait(step.duration)) return false;
+          const hold=manualBonus&&(step.visual.phase==='bonus-summary'||(step.visual.phase==='bonus-intro'&&step.visual.freeSpinIndex===0));
+          if (!await wait(step.duration,hold)) return false;
         }
         return finish();
       } catch (error) {
@@ -250,6 +251,7 @@ export function createBonanzaPlayback(round, {
       }
     },
     skip: () => finish('skip'),
+    continueBonus:()=>{if(closed||!bonusHeld)return false;bonusHeld=false;remaining=0;arm();return true;},
     dispose: () => { disposed = true; return finish('unmount', false); },
     get closed() { return closed; }
   });

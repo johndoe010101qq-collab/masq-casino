@@ -1,3 +1,4 @@
+import {CURRENCY,currencyText} from './currency.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { BONANZA_DEMO_RULES } from './bonanza.js';
 import { BONANZA_PACE, createBonanzaPlayback, createBonusPurchaseController } from './BonanzaPresentation.js';
@@ -9,6 +10,8 @@ import { validateBonusPurchase } from './hall-session.js';
 import { uiStakeLimits, uiBoundedStake, uiPlaybackSpeed } from './demo-ui-settings.js';
 import SlotPlaybackOptions from './SlotPlaybackOptions.jsx';
 import SlotControls from './SlotControls.jsx';
+import OriginalSlotControls from './OriginalSlotControls.jsx';
+import {OriginalSlotIntro,OriginalPurchase,OriginalSlotInfo} from './OriginalSlotDialogs.jsx';
 import { useReducedMotion } from './SceneMotion.jsx';
 import './BonanzaSlot.css';
 import './BonanzaPace.css';
@@ -28,9 +31,10 @@ const symbolNames = {
   scatter:'Маска', bomb:'Множитель'
 };
 const kinds = Object.keys(rules.pays);
-const idleGrid = Array.from({length:6}, (_, column) => Array.from({length:5}, (_, row) => ({
+const idleGrid = HUEVO_EDITION?[['hood','suit','suit','hood','scatter'],['key','lock','usb','laptop','lock'],['laptop','glove','key','hood','suit'],['key','radio','usb','laptop','lock'],['scatter','key','laptop','glove','glove'],['lock','usb','glove','key','radio']].map((cells,c)=>cells.map((kind,r)=>({id:'idle-'+c+'-'+r,kind}))):Array.from({length:6}, (_, column) => Array.from({length:5}, (_, row) => ({
   id:'idle-' + column + '-' + row, kind:kinds[(column * 3 + row * 2) % kinds.length]
 })));
+
 const initialVisual = {
   grid:idleGrid, phase:'settled', winningIds:[], removedIds:[],
   scatterIds:[], incomingIds:[], currentPayoutCents:0, totalPayoutCents:0,
@@ -93,13 +97,13 @@ function PurchaseDialog({request, cancel, confirm, atlas, fallbackFocus}) {
       <span className="bonus-eyebrow">Бесплатные вращения</span>
       <h2 id="bonus-purchase-title">Купить бонус?</h2>
       <p id="bonus-purchase-details"><strong>{request.freeSpins}</strong> бесплатных вращений<br />
-        Ставка {money(request.stake)} АР</p>
-      <strong className="purchase-price">{money(request.cost)} АР</strong>
+        Ставка {money(request.stake)} {CURRENCY}</p>
+      <strong className="purchase-price">{money(request.cost)} {CURRENCY}</strong>
       <p>Это тот же бонус, который выпадает в обычной игре. Выплаты описаны в «Правилах шансов».</p>
-      <p>После покупки бонусный режим останется включён. Каждый следующий запуск снова стоит {money(request.cost)} АР при этой ставке. Выключить режим можно кнопкой «Отменить бонус».</p>
+      <p>После покупки бонусный режим останется включён. Каждый следующий запуск снова стоит {money(request.cost)} {CURRENCY} при этой ставке. Выключить режим можно кнопкой «Отменить бонус».</p>
       <div className="purchase-actions">
         <button type="button" className="purchase-cancel" autoFocus onClick={cancel}>Отмена</button>
-        <button type="submit" className="purchase-confirm">Купить за {money(request.cost)} АР</button>
+        <button type="submit" className="purchase-confirm">Купить за {money(request.cost)} {CURRENCY}</button>
       </div>
     </form>}
   </dialog>;
@@ -107,7 +111,7 @@ function PurchaseDialog({request, cancel, confirm, atlas, fallbackFocus}) {
 
 function EntranceDialog({opened, continueToGame, atlas, fallbackFocus}) {
   const dialog = useRef(null);
-  useModalDialog(opened, dialog, fallbackFocus);
+  useModalDialog(opened && (!HUEVO_EDITION || !!atlas), dialog, fallbackFocus);
   const maskUrl = atlas?.maskUrl || import.meta.env.BASE_URL + 'indictus-mask.png';
   return <dialog ref={dialog} className="bonanza-entrance-dialog"
     aria-labelledby="bonanza-entrance-title" aria-describedby="bonanza-entrance-copy"
@@ -176,7 +180,7 @@ function RulesDialog({opened, close, atlas, fallbackFocus, limits}) {
       один раз за вращение; значения складываются и умножают выплаты обычных символов.</p>
     <p>Покупка бонуса стоит ×{rules.bonusBuyMultiplier} базовой ставки и даёт
       {rules.initialFreeSpins} начальных вращений. Цена списывается один раз за каждый купленный бонус. После покупки режим сохраняется до отмены; следующий запуск покупает новый бонус.</p>
-    <p>Ставки {limits.min}–{limits.max} АР, шаг {limits.step}. Денежные ограничения и реальные вероятности — во вкладке «Правила шансов».</p>
+    <p>Ставки {limits.min}–{limits.max} {CURRENCY}, шаг {limits.step}. Денежные ограничения и реальные вероятности — во вкладке «Правила шансов».</p>
     <p className="slot-rules-demo">Режим счёта указан в верхней панели.</p>
     <button type="button" className="slot-rules-dismiss" onClick={close}>Понятно</button>
   </dialog>;
@@ -197,6 +201,8 @@ export default function BonanzaSlot({
   const [paused, setPaused] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [showRules, setShowRules] = useState(false);
+  const [menuOpen,setMenuOpen]=useState(false);
+  const [bonusGate,setBonusGate]=useState(false);
   const [entranceOpen, setEntranceOpen] = useState(!artPreview);
   const entrance = useRef(!artPreview);
   const [purchase, setPurchase] = useState(null);
@@ -217,7 +223,7 @@ export default function BonanzaSlot({
   const canAffordSpin=current=>bonusMode
     ? !validateBonusPurchase(stake,current.balance,'slots',undefined,uiStakeLimits(current,'slots'))
     : permittedStake(stake,uiStakeLimits(current,'slots'))&&current.balance>=stake;
-  const controls=useSlotPlaybackControls({allowAsync:!!session.remote,busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:entranceOpen||showRules||!!purchase,payoutOpen,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>start(bonusMode?'buy':'paid',stake,settings.speed)});
+  const controls=useSlotPlaybackControls({allowAsync:!!session.remote,busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:menuOpen||entranceOpen||showRules||!!purchase,payoutOpen,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>start(bonusMode?'buy':'paid',stake,settings.speed)});
   const locked = Boolean(snapshot.busy || playing || controls.active);
   useEffect(() => { if (reduced) playback.current?.skip(); }, [reduced]);
 
@@ -325,10 +331,12 @@ export default function BonanzaSlot({
       }
     }
     try {
+      const manualBonus=HUEVO_EDITION&&!controls.active;
       const runner = createBonanzaPlayback(round, {
-        speed,
+        speed,manualBonus,
         onVisual:next => {
           if (!mounted.current) return;
+          setBonusGate(manualBonus&&(next.phase==='bonus-summary'||(next.phase==='bonus-intro'&&next.freeSpinIndex===0)));
           // Keep the previous five symbols behind the incoming strip. Both
           // layers travel the same distance, so a column never flashes empty.
           setOutgoingGrid(next.phase === 'deal' ? shownGrid.current : null);
@@ -373,7 +381,7 @@ export default function BonanzaSlot({
   const announcement = visual.bonusAnnouncement;
   const lastPayout = snapshot.result?.game === 'slots' ? snapshot.result.payout : 0;
 
-  return <section className="bonanza-slot raster-slot minecraft-slot-v36" data-art-style="minecraft" aria-label="MASQ Bonanza"
+  return <section className={'bonanza-slot raster-slot minecraft-slot-v36'+(HUEVO_EDITION?' original-slot original-slot--slots':'')} data-art-style="minecraft" aria-label="MASQ Bonanza"
     style={{'--slot-speed':roundSpeed,...slotRasterStyle('slots')}} data-bonus={visual.isFreeSpin ? 'true' : 'false'}
     data-playback-paused={paused ? 'true' : 'false'} data-reduced={reduced ? 'true' : 'false'}>
     <div className="bonanza-play-layout">
@@ -417,41 +425,47 @@ export default function BonanzaSlot({
             <span className="bonus-eyebrow">{visual.freeSpinIndex > 0 ? 'Ещё бесплатные вращения' : 'Бонус открыт'}</span>
             <strong>{visual.freeSpinIndex > 0 ? '+' : ''}{announcement.added}</strong>
             <span className="bonus-copy">Бесплатных вращений</span>
-            <span>{announcement.bought ? 'Стоимость ' + money(announcement.costCents / 100) + ' АР' : 'Удачи!'}</span>
+            <span>{announcement.bought ? 'Стоимость ' + money(announcement.costCents / 100) + currencyText(' АР') : 'Удачи!'}</span>
           </div>}
           {visual.phase === 'bonus-summary' && <div className="bonanza-announcement bonus-complete" role="status">
             <Sprite kind="scatter" atlas={atlas} className="bonus-mask" />
-            <span className="bonus-eyebrow">Бонус завершён</span><strong>{money(visual.bonusPayoutCents / 100)} <small>АР</small></strong>
+            <span className="bonus-eyebrow">Бонус завершён</span><strong>{money(visual.bonusPayoutCents / 100)} <small>{CURRENCY}</small></strong>
             <span className="bonus-copy">Выплата в бесплатных вращениях</span>
-            <span>Всего за раунд {money(visual.totalPayoutCents / 100)} АР</span>
+            <span>Всего за раунд {money(visual.totalPayoutCents / 100)} {CURRENCY}</span>
           </div>}
           {visual.phase === 'bonus-payment' && visual.bonusPaymentCents > 0 && <div className="bonanza-announcement bonus-minimum-payment" role="status">
             <span className="bonus-eyebrow">Минимальная выплата бонуса</span>
-            <strong>+{money(visual.bonusPaymentCents / 100)} <small>АР</small></strong>
+            <strong>+{money(visual.bonusPaymentCents / 100)} <small>{CURRENCY}</small></strong>
             <span className="bonus-copy">Дополнительно начислено</span>
             <span>Итог бонуса — не менее 10% стоимости покупки</span>
           </div>}
         </div>}
+        {HUEVO_EDITION&&bonusGate&&<button type="button" className="original-bonus-continue" onClick={()=>{setBonusGate(false);playback.current?.continueBonus();}}>ПРОДОЛЖИТЬ</button>}
       </div>
       <div className="bonanza-readout" aria-live="polite">
-        <div className="bonanza-win-total"><span>ВЫИГРЫШ</span><strong>{money(payout / 100)} <small>АР</small></strong></div>
+        <div className="bonanza-win-total"><span>ВЫИГРЫШ</span><strong>{money(payout / 100)} <small>{CURRENCY}</small></strong></div>
         <div className="bonanza-win-detail">
           {paidGroups.slice(0,3).map(group => <span key={group.id} className="bonanza-win-group"
             data-payout-cents={group.payoutCents}>
             {atlas && group.kind && <Sprite kind={group.kind} atlas={atlas}/>}
-            <span>{group.count}<span className="bonanza-group-unit"> шт.</span> · {money(group.payoutCents / 100)} АР</span>
+            <span>{group.count}<span className="bonanza-group-unit"> шт.</span> · {money(group.payoutCents / 100)} {CURRENCY}</span>
           </span>)}
           {visual.phase === 'spin-summary' && visual.spinSummary?.multiplierWinCents > 0 && <span>
-            Множители +{money(visual.spinSummary.multiplierWinCents / 100)} АР
+            Множители +{money(visual.spinSummary.multiplierWinCents / 100)} {CURRENCY}
           </span>}
           {visual.phase === 'spin-summary' && visual.spinSummary?.scatterWinCents > 0 && <span>
-            {HUEVO_EDITION?'Scatter':'Маски'} +{money(visual.spinSummary.scatterWinCents / 100)} АР
+            {HUEVO_EDITION?'Scatter':'Маски'} +{money(visual.spinSummary.scatterWinCents / 100)} {CURRENCY}
           </span>}
         </div>
       </div>
+    {HUEVO_EDITION&&<OriginalSlotControls game="slots" stake={stake} onStakeChange={setStake} balance={snapshot.balance} limits={limits}
+      locked={locked||payoutOpen||showRules||!!purchase||entranceOpen} busy={snapshot.busy} ready={!!atlas} validStake={permittedStake(Number(stake),limits)}
+      controls={controls} onMenuChange={setMenuOpen} onSpin={()=>start(bonusMode?'buy':'paid')} onSkip={()=>{if(bonusGate){setBonusGate(false);playback.current?.continueBonus();}else playback.current?.skip();}} onInfo={()=>setShowRules(true)}
+      onShop={()=>openPurchase({stake:Number(stake)})} buyMultiplier={rules.bonusBuyMultiplier} bonusMode={bonusMode} onCancelBonus={cancelBonusMode}
+      soundEnabled={sfxEnabled} musicEnabled={musicEnabled} onSound={onSound} onMusic={onMusic} error={currencyText(error)}/>}
     </div>
-    <SlotControls stake={stake} onStakeChange={setStake} stakeLimits={limits}
-      balance={snapshot.balance} lastPayout={lastPayout} currency="АР"
+    {!HUEVO_EDITION&&<><SlotControls stake={stake} onStakeChange={setStake} stakeLimits={limits}
+      balance={snapshot.balance} lastPayout={lastPayout} currency={CURRENCY}
       busy={locked} disabled={controls.active || !atlas || payoutOpen || showRules || !!purchase || entranceOpen}
       skipDisabled={!atlas || payoutOpen || showRules || !!purchase || entranceOpen}
       canSpin={!payoutOpen} canBuyBonus={!payoutOpen&&!bonusMode}
@@ -461,11 +475,12 @@ export default function BonanzaSlot({
       showAudioControls={showAudioControls}
       onSound={onSound} onMusic={onMusic}
       onSpin={() => start(bonusMode?'buy':'paid')} onBuyBonus={openPurchase}
-      onSkip={() => playback.current?.skip()} onInfo={() => setShowRules(true)} /><SlotPlaybackOptions game="slots" controls={controls} disabled={locked||!atlas||payoutOpen||entranceOpen||showRules||!!purchase} bonusMode={bonusMode?'Bonanza':null}/>
+      onSkip={() => playback.current?.skip()} onInfo={() => setShowRules(true)} /><SlotPlaybackOptions game="slots" controls={controls} disabled={locked||!atlas||payoutOpen||entranceOpen||showRules||!!purchase} bonusMode={bonusMode?'Bonanza':null}/></>}
     </div>
-    {error && <p className="bonanza-error" role="alert">{error}</p>}
-    <RulesDialog opened={showRules} close={() => setShowRules(false)} atlas={atlas} fallbackFocus={stageFocus} limits={limits}/>
+    {error && <p className="bonanza-error" role="alert">{currencyText(error)}</p>}
+    {!HUEVO_EDITION&&<><RulesDialog opened={showRules} close={() => setShowRules(false)} atlas={atlas} fallbackFocus={stageFocus} limits={limits}/>
     <PurchaseDialog request={purchase} cancel={cancelPurchase} confirm={confirmPurchase} atlas={atlas} fallbackFocus={stageFocus} />
-    <EntranceDialog opened={entranceOpen} continueToGame={continueToGame} atlas={atlas} fallbackFocus={stageFocus} />
+    <EntranceDialog opened={entranceOpen} continueToGame={continueToGame} atlas={atlas} fallbackFocus={stageFocus} /></>}
+    {HUEVO_EDITION&&<><OriginalSlotIntro game="slots" opened={entranceOpen} atlas={atlas} onContinue={continueToGame}/><OriginalSlotInfo game="slots" opened={showRules} onClose={()=>setShowRules(false)} atlas={atlas} limits={limits}/>{purchase&&<OriginalPurchase game="slots" request={purchase} onCancel={cancelPurchase} onConfirm={confirmPurchase}/>}</>}
   </section>;
 }

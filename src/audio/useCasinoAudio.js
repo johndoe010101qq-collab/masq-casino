@@ -3,7 +3,7 @@ import { GameAudio } from './GameAudio.js';
 import { readAudioPreferences, saveAudioPreferences } from './audioPreferences.js';
 function storage() { try { return globalThis.localStorage; } catch { return undefined; } }
 export function useCasinoAudio() {
-  const [prefs, setPrefs] = useState(() => readAudioPreferences(storage()));
+  const [prefs, setPrefs] = useState(() => (typeof location!=='undefined'&&new URLSearchParams(location.search).get('silent')==='1'?{music:false,sfx:false}:readAudioPreferences(storage())));
   const desired = useRef(prefs);
   const ref = useRef(null);
   const [audio, setAudio] = useState(null);

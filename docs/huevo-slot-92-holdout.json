@@ -1,0 +1,192 @@
+{
+  "targetReturnPercent": 92,
+  "stakeCents": 5000,
+  "status": "complete",
+  "limitation": "Monte Carlo estimates with sampling error; no certified exact theoretical slot RTP.",
+  "rows": [
+    {
+      "offer": "slots:paid",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:slots:paid",
+      "returnPercent": 89.08410000000146,
+      "return95CI_Percent": [
+        83.75822723314697,
+        94.40997276685594
+      ],
+      "positiveFrequency": 0.23895,
+      "profitFrequency": 0.21555,
+      "maxChargeMultiplier": 84.41,
+      "meanAttempts": 1.89475,
+      "predictedReturn": 0.9200000001812559,
+      "calibrationStandardError": 0.01666911402504064,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96"
+    },
+    {
+      "offer": "slots:buy",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:slots:buy",
+      "returnPercent": 91.95305799999967,
+      "return95CI_Percent": [
+        91.40048530175885,
+        92.50563069824051
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.61925,
+      "maxChargeMultiplier": 1.9996,
+      "meanAttempts": 18.50735,
+      "predictedReturn": 0.9199999987838207,
+      "calibrationStandardError": 0.0049862209918802,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96"
+    },
+    {
+      "offer": "maskhouse:paid",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:maskhouse:paid",
+      "returnPercent": 95.85491500000136,
+      "return95CI_Percent": [
+        91.44077567746217,
+        100.26905432254054
+      ],
+      "positiveFrequency": 0.31945,
+      "profitFrequency": 0.13635,
+      "maxChargeMultiplier": 25,
+      "meanAttempts": 1.8735,
+      "predictedReturn": 0.9199999993949523,
+      "calibrationStandardError": 0.0129065085422797,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "offer": "maskhouse:buy:sticky",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:maskhouse:buy:sticky",
+      "returnPercent": 91.8154617500111,
+      "return95CI_Percent": [
+        91.3187668628525,
+        92.31215663716969
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.7039,
+      "maxChargeMultiplier": 1.25,
+      "meanAttempts": 6.0487,
+      "predictedReturn": 0.9199999998270424,
+      "calibrationStandardError": 0.0021303260402830075,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "offer": "lecipher:paid",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:lecipher:paid",
+      "returnPercent": 91.07874799999854,
+      "return95CI_Percent": [
+        86.43560968740161,
+        95.72188631259549
+      ],
+      "positiveFrequency": 0.3021,
+      "profitFrequency": 0.1707,
+      "maxChargeMultiplier": 30,
+      "meanAttempts": 1.9786,
+      "predictedReturn": 0.9199999994702206,
+      "calibrationStandardError": 0.014660017215486197,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "offer": "lecipher:buy:luck",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:lecipher:buy:luck",
+      "returnPercent": 92.3561258499837,
+      "return95CI_Percent": [
+        91.90473287372372,
+        92.80751882624368
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.7141,
+      "maxChargeMultiplier": 1.5,
+      "meanAttempts": 12.18565,
+      "predictedReturn": 0.9200000006766867,
+      "calibrationStandardError": 0.0028280209529560193,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "offer": "lecipher:buy:gold",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:lecipher:buy:gold",
+      "returnPercent": 92.09071828000604,
+      "return95CI_Percent": [
+        91.6604274056916,
+        92.52100915432048
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.7066,
+      "maxChargeMultiplier": 1.2,
+      "meanAttempts": 23.3701,
+      "predictedReturn": 0.9199999985583199,
+      "calibrationStandardError": 0.0035591934805923615,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "offer": "lecipher:paid:hunt",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:lecipher:paid:hunt",
+      "returnPercent": 92.0134279999986,
+      "return95CI_Percent": [
+        89.25009183436254,
+        94.77676416563466
+      ],
+      "positiveFrequency": 0.3513,
+      "profitFrequency": 0.23685,
+      "maxChargeMultiplier": 10,
+      "meanAttempts": 1.9365,
+      "predictedReturn": 0.9200000006730208,
+      "calibrationStandardError": 0.008471371192849908,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    },
+    {
+      "offer": "lecipher:paid:rainbow",
+      "profile": 92,
+      "samples": 20000,
+      "seed": "huEVO92-INDEPENDENT-HOLDOUT-v54:lecipher:paid:rainbow",
+      "returnPercent": 92.4611539000004,
+      "return95CI_Percent": [
+        90.73868023045857,
+        94.18362756954224
+      ],
+      "positiveFrequency": 0.38645,
+      "profitFrequency": 0.38045,
+      "maxChargeMultiplier": 3,
+      "meanAttempts": 1.82595,
+      "predictedReturn": 0.9199999995118491,
+      "calibrationStandardError": 0.004768977371126796,
+      "profileRevision": "indictus-public-whole-candidate-profiles-v13",
+      "baseSourceSHA256": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a"
+    }
+  ],
+  "calibrationSourceSHA256": "c1a66c1675650e6033253b568b4d9bea141b41437da19284c8d74edfb22d8109",
+  "engineSourceSHA256": {
+    "bonanza.js": "6868ec7dc51da9aba0a8c8a37f5ee9bb6b2267cab7e14940b62c5ea8270b0d96",
+    "mask-slots.js": "6e79d505a7a76fee47d47083cc5c2706d58e92332450ff541c1e9d659c8e4d0a",
+    "bonus-purchase-floor.js": "9ba39f7cf47abcd4244f3d9ef2e9753c19c518b3d9c6a5b46c31cbb25b581e1f",
+    "stake-limits.js": "def58f5402b8bb86e99d21befaa15273e7ecef4b2c341089aab55dd2c3eecf5f",
+    "profiled-bonanza.js": "d363f4805f708ba6ce61323d6645f7e4d4c2295b3c6b92608061e7d23a13ebec",
+    "bonanza-rtp-profiles.js": "fb6e1488f546df4e2be745a6fa164ab1bc3d49cf3a70c916dd26f1949ac470d9",
+    "bonanza-profile-engine.js": "94d49ce4315f7c788818f393c7aca9c855951f87ef2b2c5787c84b78fcaef4a4",
+    "profiled-mask-slots.js": "0e6d22d504c6e017ccdbb9f75ac132dbc852d4d66edd58f4d69df3506fa427d4",
+    "profiled-mask-core.js": "f1663e96c220e67df17f901f64389b28269d7a0a245c0d9899214a8b59fb18fe",
+    "rtp-profiles.js": "17a5c8f699d61767c2f7ffeccdcadefeb6fed478df353944f33778ec402a63d6"
+  }
+}

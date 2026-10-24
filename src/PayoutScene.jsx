@@ -1,3 +1,4 @@
+import {CURRENCY} from './currency.js';
 import React, {
   Component, Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState,
 } from "react";
@@ -64,7 +65,7 @@ export function describeRound(round) {
 // This component only presents a settled result.
 // It never calls HallSession.begin/complete and never changes the balance.
 export default function PayoutScene({
-  round, onClose, audio, reducedMotion = false, currency = "АР",
+  round, onClose, audio, reducedMotion = false, currency = CURRENCY,
 }) {
   const facts = useMemo(() => describeRound(round), [round]);
   const reduced = useReducedMotion(reducedMotion);

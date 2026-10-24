@@ -1,3 +1,4 @@
+import {CURRENCY} from './currency.js';
 import React from 'react';
 import { BONANZA_STAKE_LIMITS, permittedStake } from './stake-limits.js';
 import { BONANZA_DEMO_RULES } from './bonanza.js';
@@ -19,7 +20,7 @@ export default function SlotControls({
   stake,
   balance,
   lastPayout = 0,
-  currency = 'АР',
+  currency = CURRENCY,
   busy = false,
   disabled = false,
   skipDisabled = disabled,

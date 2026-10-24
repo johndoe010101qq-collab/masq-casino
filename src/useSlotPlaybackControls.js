@@ -1,5 +1,5 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
-import {createSlotPlaybackController} from './slot-playback-controller.js';
+import {SLOT_PLAYBACK_SPEEDS,createSlotPlaybackController} from './slot-playback-controller.js';
 
 // The room resolves its selected ordinary/bonus entry before HallSession accepts
 // a round; requestSpin must synchronously return true only after acceptance.
@@ -22,7 +22,7 @@ export function useSlotPlaybackControls(options) {
   useEffect(()=>{controller.sync();},[controller,options.busy,options.ready,options.modalOpen,options.payoutOpen,options.blocked,options.normalOnly,options.canAfford]);
   // Updating the shared default affects future launches. A room pins each
   // accepted round's timeline separately, so its current animation keeps pace.
-  useEffect(()=>{if([1,1.5,2].includes(options.defaultSpeed))controller.setSpeed(options.defaultSpeed);},[controller,options.defaultSpeed]);
+  useEffect(()=>{if(SLOT_PLAYBACK_SPEEDS.includes(options.defaultSpeed))controller.setSpeed(options.defaultSpeed);},[controller,options.defaultSpeed]);
   return {...state,startAutoplay:count=>controller.start(count),stopAutoplay:()=>controller.stop(),
     setSpeed:value=>controller.setSpeed(value)};
 }

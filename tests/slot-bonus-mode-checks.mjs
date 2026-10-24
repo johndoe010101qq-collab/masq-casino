@@ -4,6 +4,7 @@ import {HallSession,bonusPurchaseConfig,validateBonusPurchase} from '../src/hall
 import {createSlotPlaybackController,SLOT_AUTO_BALANCE} from '../src/slot-playback-controller.js';
 import {uiStakeLimits} from '../src/demo-ui-settings.js';
 import {permittedStake} from '../src/stake-limits.js';
+import {LEXOF_FEATURE_RULES} from '../src/mask-slots.js';
 
 // Actual accepted bought rounds and the common scheduler. This fixture owns
 // selected UI intent only; HallSession owns RNG, charge and once-only credit.
@@ -150,7 +151,7 @@ for(const {file,source} of rooms){
  const roomOffers=file==='BonanzaSlot.jsx'?offers.slice(0,1):offers.slice(1);
  for(const [game,tier,multiplier] of roomOffers){
   const enabled=file==='BonanzaSlot.jsx'?true:tier,disabled=file==='BonanzaSlot.jsx'?false:null;
-  const makeAffordability=bonusMode=>Function('bonusMode','stake','game','validateBonusPurchase','uiStakeLimits','permittedStake','return ('+affordability[1]+');')(bonusMode,5,game,validateBonusPurchase,uiStakeLimits,permittedStake);
+  const makeAffordability=bonusMode=>Function('bonusMode','stake','game','validateBonusPurchase','uiStakeLimits','permittedStake','featureMode','LEXOF_FEATURE_RULES','return ('+affordability[1]+');')(bonusMode,5,game,validateBonusPurchase,uiStakeLimits,permittedStake,null,LEXOF_FEATURE_RULES);
   const snapshot=new HallSession(null,random(74)).getSnapshot(),selected=makeAffordability(enabled),ordinary=makeAffordability(disabled);
   eq(selected({...snapshot,balance:5*multiplier-.01}),false,file+' blocks a bonus when only its base stake is affordable.');
   eq(selected({...snapshot,balance:5*multiplier}),true);eq(ordinary({...snapshot,balance:5}),true);eq(ordinary({...snapshot,balance:4.99}),false);

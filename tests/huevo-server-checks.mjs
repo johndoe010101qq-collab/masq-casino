@@ -7,6 +7,8 @@ import {createHuevoService} from '../server/huevo-service.mjs';
 import {handleHuevoRequest} from '../server/huevo-handler.mjs';
 import {HuevoSession} from '../src/integrations/huevo-session.js';
 import {RemoteBlackjackPresentation} from '../src/RemoteBlackjackPresentation.js';
+import {classicProfileSnapshot} from '../src/classic-rtp-profiles.js';
+import {createBlackjackHand,finishBlackjack,blackjackPublicView,evaluateBlackjack} from '../src/blackjack.js';
 
 const secret='test-fixture-only-never-a-real-secret',now=1800000000000;
 function sign(extra={}){const p={hu_app_id:'221',hu_user_id:'42',hu_username:'tester',hu_display_name:'Имя & =',hu_mode:'test',hu_ts:String(now/1000),hu_future:'✓',...extra};
@@ -70,7 +72,7 @@ const fixtureFunds=await service.deposit(s,{id:'deposit-fixture-10000',amount:10
 const offers=[['coinflip','heads',{}],['dice',6,{}],['plinko','standard',{}],['roulette','red',{}],['upgrader',2,{}],['slots','bonanza',{}],['slots','bonanza',{mode:'buy'}],['maskhouse','maskhouse',{}],['maskhouse','maskhouse',{mode:'buy',bonusTier:'sticky'}],['lecipher','lecipher',{}],['lecipher','lecipher',{mode:'buy',bonusTier:'luck'}],['lecipher','lecipher',{mode:'buy',bonusTier:'gold'}],['lecipher','lecipher',{featureMode:'hunt'}],['lecipher','lecipher',{featureMode:'rainbow'}]];
 for(const [i,[game,choice,options]] of offers.entries()){
  const before=await service.session(s),r=await service.round(s,{id:'server-offer-check-'+i,game,choice,stake:5,options});
- assert.equal(r.wallet.balanceCents,before.wallet.balanceCents-r.round.chargeCents+r.round.payoutCents);assert.equal(r.round.rtpProfile.targetReturnPercent,97);
+ assert.equal(r.wallet.balanceCents,before.wallet.balanceCents-r.round.chargeCents+r.round.payoutCents);assert.equal(r.round.rtpProfile.targetReturnPercent,92);
  assert.deepEqual(await service.operation(s,r.round.id),r);assert.ok(Number.isSafeInteger(r.round.payoutCents));
 }
 const bjRemote=new HuevoSession(await service.session(s),async(path,body)=>{
@@ -81,4 +83,18 @@ const presentation=new RemoteBlackjackPresentation(bjRecord.hand,{transition:(a,
 presentation.onError=e=>{throw e;};presentation.deal();
 for(let step=0;step<200&&!closed;step++){presentation.flushTransitions();if(presentation.snapshot().canAct)presentation.stand();await new Promise(resolve=>setImmediate(resolve));}
 assert.ok(closed,'Network transitions finish through the existing presentation clock');assert.equal(bjRemote.getSnapshot().busy,false);
+// A previously accepted 97% hand retains the exact published draw parameters after the policy changes to 92%.
+const legacyHand=await service.blackjack(s,{id:'legacy-profile-hand-v54',action:'begin',stake:5});
+const legacyState=JSON.parse(sqlite.prepare('SELECT state FROM huevo_hands WHERE id=?').get(legacyHand.round.id).state);
+legacyState.record.rtpProfile=classicProfileSnapshot('blackjack',97);
+sqlite.prepare('UPDATE huevo_hands SET state=? WHERE id=?').run(JSON.stringify(legacyState),legacyHand.round.id);
+assert.equal((await service.session(s)).config.classicRtpProfiles.blackjack,92);
+assert.equal((await service.session(s)).activeBlackjack.rtpProfile.targetReturnPercent,97);
+const legacyFinished=await service.blackjack(s,{id:'legacy-profile-finish-v54',action:'finish',roundId:legacyHand.round.id,version:0});
+const savedLegacy=JSON.parse(sqlite.prepare('SELECT state FROM huevo_hands WHERE id=?').get(legacyHand.round.id).state);let tapeIndex=0;
+const legacyRng=n=>{const [bound,ticket]=savedLegacy.tape[tapeIndex++];assert.equal(bound,n);return ticket;};
+const expectedLegacy=finishBlackjack(createBlackjackHand({randomInt:legacyRng,dealerBoostTickets:100,playerUnfavorableTickets:0}));
+assert.equal(legacyFinished.round.rtpProfile.targetReturnPercent,97);
+assert.deepEqual(legacyFinished.round.hand.dealer,blackjackPublicView(expectedLegacy,{revealed:true,settled:true}).dealer);
+assert.equal(legacyFinished.round.payoutCents,500*evaluateBlackjack(expectedLegacy).payoutMultiplier);
 sqlite.close();console.log('PASS huEVO server: signed identity, replay protection, test/live isolation, atomic cent ledger, deposit dedup, funded blackjack replay, idempotent rounds and withdrawals, lost-response recovery, rollback and async remote presentation. No real platform transactions performed.');

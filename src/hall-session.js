@@ -1,4 +1,5 @@
 import {applyBonusPurchaseFloor} from './bonus-purchase-floor.js';
+import {HUEVO_RTP} from './runtime-rtp-range.js';
 import {
   BONANZA_DEMO_RULES, createCryptoRandomInt
 } from './bonanza.js';
@@ -76,8 +77,8 @@ export class HallSession {
     }
     this.#math = math;
     const settings=validateDemoSettings({rtpProfiles,classicRtpProfiles,stakeLimits:configuredLimits,presentation});
-    if(fixedRtp!==null&&(fixedRtp!==97||[...Object.values(settings.rtpProfiles),...Object.values(settings.classicRtpProfiles)].some(v=>v!==97)))
-      throw new RangeError('huEVO использует единый неизменный профиль 97%.');
+    if(fixedRtp!==null&&(fixedRtp!==HUEVO_RTP||[...Object.values(settings.rtpProfiles),...Object.values(settings.classicRtpProfiles)].some(v=>v!==fixedRtp)))
+      throw new RangeError('huEVO использует единый неизменный профиль '+HUEVO_RTP+'%.');
     this.#fixedRtp=fixedRtp;
     this.#rtpProfiles=settings.rtpProfiles; this.#classicRtpProfiles=settings.classicRtpProfiles;
     this.#stakeLimits=settings.stakeLimits; this.#presentation=settings.presentation;
@@ -112,7 +113,7 @@ export class HallSession {
   setDemoSettings(value,{expectedRevision}={}) {
     const next=validateDemoSettings(value);
     if(this.#fixedRtp!==null&&[...Object.values(next.rtpProfiles),...Object.values(next.classicRtpProfiles)].some(v=>v!==this.#fixedRtp))
-      throw new RangeError('Профиль huEVO зафиксирован на 97%.');
+      throw new RangeError('Профиль huEVO зафиксирован на '+this.#fixedRtp+'%.');
     if(expectedRevision!==undefined&&(!Number.isSafeInteger(expectedRevision)||expectedRevision!==this.#profileRevision))
       throw new RangeError('Настройки уже изменились. Откройте актуальную панель и повторите.');
     if(this.#computing||this.#active.size)throw new RangeError('Завершите принятый раунд перед сменой настроек.');

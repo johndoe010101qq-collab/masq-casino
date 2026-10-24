@@ -1,7 +1,8 @@
+import {HUEVO_RTP} from '../src/runtime-rtp-range.js';
 // Our ledger stores hundredths of a platform coin. huEVO API amounts are
 // whole coins: the adapter multiplies by 100 exactly before applying this fee.
 export const HUEVO_ECONOMICS = Object.freeze({
-  version: 'masq-huevo-v1', targetRtpBps: 9700, depositFeeBps: 500,
+  version: 'masq-huevo-v2-92', targetRtpBps: HUEVO_RTP*100, depositFeeBps: 500,
   personalizedOutcomes: false, bankrollOutcomeAdjustment: false,
 });
 
@@ -19,8 +20,8 @@ export function quoteHuevoDeposit(grossUnits) {
 }
 
 export function validateHuevoEconomics(policy) {
-  if (!policy || policy.targetRtpBps !== 9700 || policy.depositFeeBps !== 500
+  if (!policy || policy.targetRtpBps !== HUEVO_RTP*100 || policy.depositFeeBps !== 500
       || policy.personalizedOutcomes !== false || policy.bankrollOutcomeAdjustment !== false)
-    throw new RangeError('huEVO uses a fixed public policy: RTP target 97%, deposit fee 5%.');
+    throw new RangeError('huEVO uses a fixed public policy: RTP target 92%, deposit fee 5%.');
   return HUEVO_ECONOMICS;
 }

@@ -201,6 +201,7 @@ try {
       'const { React, Component, Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } = globalThis.__v10AuditHooks;')
     .replace(/^import "[^"\n]+\.css";\s*/gm, '')
     .replace(/from ['"]\.\/MasqIdentity\.jsx['"]/g, 'from ' + JSON.stringify(identityModule))
+    .replace(/from ['"]\.\/currency\.js['"]/g, 'from '+JSON.stringify(new URL('src/currency.js',site).href))
     .replaceAll('import.meta.env.BASE_URL', '"/"');
   const transformed = (await transformWithOxc(payoutModule, 'PayoutScene.jsx', { jsx: { runtime: 'classic' } })).code;
   const { default: PayoutScene, describeRound } = await import('data:text/javascript;base64,' + Buffer.from(transformed).toString('base64'));

@@ -1,3 +1,4 @@
+import {CURRENCY} from './currency.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { PLINKO_MULTIPLIERS } from './game-math.js';
 import { uiStakeLimits, uiBoundedStake, uiPlaybackSpeed } from './demo-ui-settings.js';
@@ -57,11 +58,11 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
       </div>
     </div>
     <div className="room-bet plinko-bet">
-      <label htmlFor="plinko-stake">Ставка <span>{limits.min}–{limits.max} АР</span></label>
+      <label htmlFor="plinko-stake">Ставка <span>{limits.min}–{limits.max} {CURRENCY}</span></label>
       <div className="plinko-stake-tools" role="group" aria-label="Ставка">
         <button type="button" aria-label="Уменьшить ставку" disabled={locked || stake <= limits.min}
           onClick={() => setStake(value => Math.max(limits.min, value - limits.step))}>−</button>
-        <output id="plinko-stake" aria-label="Текущая ставка">{stake} АР</output>
+        <output id="plinko-stake" aria-label="Текущая ставка">{stake} {CURRENCY}</output>
         <button type="button" aria-label="Увеличить ставку" disabled={locked || stake >= limits.max}
           onClick={() => setStake(value => Math.min(limits.max, value + limits.step))}>+</button>
       </div>

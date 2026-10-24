@@ -1,5 +1,5 @@
 // A presentation timeline consumes the immutable result; it never generates it.
-export function maskSlotSteps(round,openingGrid=null) {
+export function maskSlotSteps(round,openingGrid=null,{originalUi=false}={}) {
  const steps=[];let free=round.initialFreeSpins||0,credited=0,serial=0;
  const add=(visual,ms)=>steps.push({...visual,ms,serial:++serial,...(visual.phase==='reel'?{reelDurationMs:1600,reelDelayMs:40}:{})});
  let previous=openingGrid,previousGold=[],activeTier=round.bonusPurchaseTier||null,cellPayouts=[];
@@ -51,6 +51,7 @@ export function maskSlotSteps(round,openingGrid=null) {
   if(gift)add({phase:'profile-gift',grid:spin.terminal,wins:[],goldenCells:spin.goldenCells,freeRemaining:free,added:gift,totalPayoutCents:credited,bonusTier:activeTier},1800);
   previous=spin.terminal;previousGold=spin.goldenCells;
  }
+ if(originalUi&&round.spins.some(spin=>spin.freeSpin))add({phase:'bonus-summary',grid:round.spins.at(-1).terminal,wins:[],cellPayouts,goldenCells:round.spins.at(-1).goldenCells,freeRemaining:0,totalPayoutCents:round.payoutCents,bonusTier:activeTier,freeSpinsPlayed:round.spins.filter(spin=>spin.freeSpin).length},2400);
  return {steps,terminal:{phase:'settled',grid:round.spins.at(-1).terminal,wins:[],cellPayouts,goldenCells:round.spins.at(-1).goldenCells,freeRemaining:0,totalPayoutCents:round.payoutCents,capped:round.capReached,bonusTier:activeTier},duration:steps.reduce((sum,s)=>sum+s.ms,0)};
 }
 
