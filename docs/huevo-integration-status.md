@@ -40,7 +40,8 @@ only public cards reach the browser. Completed animations merely reveal the
 already committed funds. Closing/reloading cannot reroll an accepted round.
 
 Client secret is an encrypted server deployment secret, outside source control.
-`HUEVO_LIVE_ENABLED=false` in BOTH environments. Draft platform launches also
+As of v55 (2026-10-25), production accepts correctly signed live launches;
+preview remains `HUEVO_LIVE_ENABLED=false`. Draft platform launches still
 force test mode. Standalone browsing remains explicitly nonredeemable demo.
 
 The platform frame is configured as large, 3:2 to fit the game canvas.
@@ -64,13 +65,13 @@ The platform frame is configured as large, 3:2 to fit the game canvas.
 
 ## Economics and remaining publication gate
 
-Fixed public target RTP 97%, deposit fee 5%, no personalized outcome adjustment.
+Fixed public target RTP 92%, deposit fee 5%, no personalized outcome adjustment.
 Classic ticket maps are exhaustive; blackjack and slots have independent
-holdout evidence and are empirical targets, not a certified exact 97% theorem.
+holdout evidence and are empirical targets, not a certified exact 92% theorem.
 See huevo-release-v50.md and its measurement files.
 
 App remains unpublished on huEVO, visible only to owner/testers/admins. A live
 launch, real transfers and production capacity acceptance are separate from
-this test integration. Do not enable the live flag until platform moderation
-and real deployment acceptance have been completed. Free Cloudflare quotas
+this test integration. The platform must publish the application before it can supply live launches.
+See slot-wallet-v55.md for the current wallet UI and production configuration. Free Cloudflare quotas
 are finite; no paid plan or new bankroll/outcome adjustment was enabled.

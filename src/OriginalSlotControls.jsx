@@ -3,6 +3,7 @@ import {SLOT_AUTO_BALANCE} from './slot-playback-controller.js';
 import {adjustedStake} from './stake-limits.js';
 import {CURRENCY,currencyText} from './currency.js';
 import './OriginalSlots.css';
+import './OriginalSlotPolish.css';
 
 export const ORIGINAL_SPEEDS=Object.freeze([{value:1,label:'Обычная'},{value:2,label:'Быстрая'},{value:4,label:'Турбо'}]);
 export function SpinArrow(){return <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M49 19A23 23 0 1 0 54 42" fill="none" stroke="currentColor" strokeWidth="7"/><path d="m39 18 18 2-7 17z" fill="currentColor"/></svg>;}
@@ -29,12 +30,11 @@ export default function OriginalSlotControls({game,stake,onStakeChange,balance,l
    <button type="button" className="original-minus" disabled={locked||Number(stake)<=limits.min} aria-label="Уменьшить ставку" onClick={()=>change(-1)}>−</button>
    <button type="button" className="original-spin" disabled={!busy&&(disabled||balance<Number(stake))} aria-label={busy?'Пропустить анимацию':'Спин'} onClick={busy?onSkip:onSpin}><SpinArrow/></button>
    <button type="button" className="original-plus" disabled={locked||Number(stake)>=limits.max} aria-label="Увеличить ставку" onClick={()=>change(1)}>+</button>
-   <button type="button" className="original-speed" aria-label={'Скорость: '+speed.label} title={speed.label} onClick={cycle} data-fast={controls.speed>1}>{controls.speed===4?'»»':controls.speed===2?'»':'›'}</button>
+   <button type="button" className="original-speed" aria-label={'Скорость: '+speed.label} title={speed.label} onClick={cycle} data-fast={controls.speed>1}>{controls.speed===4?'4×':controls.speed===2?'2×':'1×'}</button>
    <button type="button" className="original-auto" aria-label={controls.active?'Остановить автоспины':'Автоспины до остановки'} aria-pressed={controls.active} disabled={disabled&&!controls.active} onClick={auto}>{controls.active?'СТОП':bandit?'⟳':'АВТОИГРА'}</button>
   </div>
   {bonusMode&&<button className="original-mode" type="button" onClick={onCancelBonus}>БОНУС ВКЛЮЧЁН · ОТМЕНИТЬ</button>}
   {feature&&<button className="original-feature" type="button" disabled={busy} onClick={feature.onDisable}>FEATURESPINS · {feature.name} · ОТМЕНИТЬ</button>}
-  {controls.active&&<span className="original-auto-status" role="status">{controls.status==='paused'?'ПАУЗА':'АВТОИГРА'} · ∞</span>}
   {error&&<p className="original-error" role="alert">{currencyText(error)}</p>}
   {menu&&<div className={'original-popup original-popup--'+menu} role="dialog" aria-label={menu==='main'?'Меню слота':'Настройки ставки'}>
    <button className="original-popup-close" type="button" aria-label="Закрыть меню" onClick={()=>setMenu(null)}>×</button>

@@ -169,7 +169,7 @@ export function createBonanzaPlayback(round, {
   }
   const {steps, terminal} = buildBonanzaTimeline(round,{speed});
   let closed = false, started = false, timer = null, wake = null, rejectWake = null;
-  let remaining = 0, since = 0, disposed = false, bonusHeld=false;
+  let remaining = 0, since = 0, disposed = false, bonusHeld=false, currentSpeed=speed;
   const hidden = () => !!visibility?.hidden;
   const clearTimer = () => {
     if (timer !== null) clock.clear(timer);
@@ -207,7 +207,7 @@ export function createBonanzaPlayback(round, {
   function wait(ms,holdBonus=false) {
     if (closed) return Promise.resolve(false);
     return new Promise((resolve, reject) => {
-      remaining = ms; bonusHeld=holdBonus; wake = resolve; rejectWake = reject; arm();
+      remaining = ms*speed/currentSpeed; bonusHeld=holdBonus; wake = resolve; rejectWake = reject; arm();
     });
   }
   function finish(reason = 'complete', showTerminal = true) {
@@ -251,6 +251,12 @@ export function createBonanzaPlayback(round, {
       }
     },
     skip: () => finish('skip'),
+    setSpeed:next=>{
+      if(![1,1.5,2,4].includes(next))throw new RangeError('Unsupported animation speed.');
+      if(closed)return false;
+      if(timer!==null){remaining=Math.max(0,remaining-(clock.now()-since));clearTimer();}
+      remaining=remaining*currentSpeed/next;currentSpeed=next;arm();return true;
+    },
     continueBonus:()=>{if(closed||!bonusHeld)return false;bonusHeld=false;remaining=0;arm();return true;},
     dispose: () => { disposed = true; return finish('unmount', false); },
     get closed() { return closed; }

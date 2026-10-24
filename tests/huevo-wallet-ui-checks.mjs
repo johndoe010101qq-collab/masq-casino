@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {runHuevoWalletOperation} from '../src/integrations/huevo-wallet-operations.js';
+let calls=[],confirmed=[],wallets=[],status='pending',receipt='succeeded',failDialog=false;
+const connection={request:async(path,body)=>{calls.push({path,body});return path==='/deposits'?{intentId:'pi_same',status}:path.startsWith('/deposits/')?{status:receipt,wallet:{balanceCents:9500,revision:1}}:{status:'pending',wallet:{balanceCents:9000,revision:2}};},sdk:{confirmPayment:async id=>{confirmed.push(id);if(failDialog)throw Error('cancel');}}};
+const session={syncWallet:w=>wallets.push(w)},op={kind:'deposit',id:'stable-operation',amount:100};
+await runHuevoWalletOperation(connection,session,op,{confirm:true});assert.deepEqual(confirmed,['pi_same']);assert.equal(wallets.at(-1).balanceCents,9500);assert.equal(calls.at(-1).path,'/deposits/pi_same');
+confirmed=[];status='succeeded';await runHuevoWalletOperation(connection,session,op,{confirm:true});assert.equal(confirmed.length,0,'A recovered paid intent never requests payment again');
+status='pending';await runHuevoWalletOperation(connection,session,op);assert.equal(confirmed.length,0,'Checking an uncertain operation never opens another approval dialog');
+failDialog=true;receipt='cancelled';const cancelled=await runHuevoWalletOperation(connection,session,op,{confirm:true});assert.equal(cancelled.status,'cancelled','The server decides the receipt even after SDK rejection');
+const pending=await runHuevoWalletOperation(connection,session,{kind:'withdraw',id:'stable-withdrawal',amount:5});assert.equal(pending.status,'pending');assert.equal(calls.at(-1).body.id,'stable-withdrawal');
+console.log('PASS wallet UI: server receipts, recovered payment, cancellation, same-key retry and uncertain withdrawal. No platform funds moved.');

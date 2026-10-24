@@ -224,7 +224,9 @@ export default function BonanzaSlot({
     ? !validateBonusPurchase(stake,current.balance,'slots',undefined,uiStakeLimits(current,'slots'))
     : permittedStake(stake,uiStakeLimits(current,'slots'))&&current.balance>=stake;
   const controls=useSlotPlaybackControls({allowAsync:!!session.remote,busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:menuOpen||entranceOpen||showRules||!!purchase,payoutOpen,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>start(bonusMode?'buy':'paid',stake,settings.speed)});
+  const selectedSpeed=useRef(controls.speed);selectedSpeed.current=controls.speed;
   const locked = Boolean(snapshot.busy || playing || controls.active);
+  useEffect(()=>{setRoundSpeed(controls.speed);playback.current?.setSpeed(controls.speed);},[controls.speed]);
   useEffect(() => { if (reduced) playback.current?.skip(); }, [reduced]);
 
   useEffect(() => {
@@ -269,7 +271,7 @@ export default function BonanzaSlot({
     if (entrance.current || !atlas || payoutOpen || showRules || purchaseController.current || playback.current || session.getSnapshot().busy) return false;
     setError('');
     let round;
-    try {round = session.begin('slots', 'bonanza', requestedStake, {mode});if(session.remote)return round.then(r=>{if(!r)return false;playRound(r,speed);return true;}).catch(failure=>{setError(failure.message);return false;});}
+    try {round = session.begin('slots', 'bonanza', requestedStake, {mode});if(session.remote)return round.then(r=>{if(!r)return false;playRound(r,selectedSpeed.current);return true;}).catch(failure=>{setError(failure.message);return false;});}
     catch (failure) {setError(failure.message); return false;}
     if (!round) return false;
     playRound(round,speed);return true;
@@ -313,7 +315,7 @@ export default function BonanzaSlot({
     setBonusMode(false);
   }
 
-  function playRound(round,speed=controls.speed) {
+  function playRound(round,speed=selectedSpeed.current) {
     setPaidGroups([]);
     setRoundSpeed(speed);
     setPlaying(true);
@@ -433,7 +435,7 @@ export default function BonanzaSlot({
             <span className="bonus-copy">Выплата в бесплатных вращениях</span>
             <span>Всего за раунд {money(visual.totalPayoutCents / 100)} {CURRENCY}</span>
           </div>}
-          {visual.phase === 'bonus-payment' && visual.bonusPaymentCents > 0 && <div className="bonanza-announcement bonus-minimum-payment" role="status">
+          {!HUEVO_EDITION && visual.phase === 'bonus-payment' && visual.bonusPaymentCents > 0 && <div className="bonanza-announcement bonus-minimum-payment" role="status">
             <span className="bonus-eyebrow">Минимальная выплата бонуса</span>
             <strong>+{money(visual.bonusPaymentCents / 100)} <small>{CURRENCY}</small></strong>
             <span className="bonus-copy">Дополнительно начислено</span>
@@ -477,7 +479,7 @@ export default function BonanzaSlot({
       onSpin={() => start(bonusMode?'buy':'paid')} onBuyBonus={openPurchase}
       onSkip={() => playback.current?.skip()} onInfo={() => setShowRules(true)} /><SlotPlaybackOptions game="slots" controls={controls} disabled={locked||!atlas||payoutOpen||entranceOpen||showRules||!!purchase} bonusMode={bonusMode?'Bonanza':null}/></>}
     </div>
-    {error && <p className="bonanza-error" role="alert">{currencyText(error)}</p>}
+    {!HUEVO_EDITION && error && <p className="bonanza-error" role="alert">{currencyText(error)}</p>}
     {!HUEVO_EDITION&&<><RulesDialog opened={showRules} close={() => setShowRules(false)} atlas={atlas} fallbackFocus={stageFocus} limits={limits}/>
     <PurchaseDialog request={purchase} cancel={cancelPurchase} confirm={confirmPurchase} atlas={atlas} fallbackFocus={stageFocus} />
     <EntranceDialog opened={entranceOpen} continueToGame={continueToGame} atlas={atlas} fallbackFocus={stageFocus} /></>}

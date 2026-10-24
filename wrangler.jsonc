@@ -7,7 +7,7 @@
   "vars": {
     "HUEVO_APP_ID": "221",
     "HUEVO_CLIENT_ID": "578c478ad16670b5",
-    "HUEVO_LIVE_ENABLED": "false"
+    "HUEVO_LIVE_ENABLED": "true"
   },
   "d1_databases": [{
     "binding": "HUEVO_DB",

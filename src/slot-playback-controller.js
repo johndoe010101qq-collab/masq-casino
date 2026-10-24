@@ -59,7 +59,7 @@ export function createSlotPlaybackController({requestSpin,getConditions=()=>({})
       if(!waitingRound)sync();
   }
   function start(count=SLOT_AUTO_BALANCE){if(count!==SLOT_AUTO_BALANCE&&!SLOT_AUTO_COUNTS.includes(count))throw new RangeError('Choose 10, 25, 50 or balance automatic spins.');if(!enabled)return false;generation++;clearScheduled();active=true;remaining=count===SLOT_AUTO_BALANCE?null:count;accepted=0;waitingRound=false;sawBusy=false;status='running';pauseReason=null;sync();return true;}
-  function setSpeed(next){if(!SLOT_PLAYBACK_SPEEDS.includes(next))throw new RangeError('Unsupported visual speed.');speed=next;emit();}
+  function setSpeed(next){if(!SLOT_PLAYBACK_SPEEDS.includes(next))throw new RangeError('Unsupported visual speed.');speed=next;clearScheduled();if(active)sync();else emit();}
   function disable(){enabled=false;stop('unmounted');}
   function enable(){enabled=true;}
   return Object.freeze({snapshot,start,stop,sync,setSpeed,disable,enable});

@@ -35,12 +35,12 @@
 .indictus-app.indictus-app .raster-slot .slot-grid {background:#1b2028; overflow:hidden; box-shadow:inset 0 3px 18px #0008;}
 .indictus-app.indictus-app .raster-slot .slot-outgoing-grid {position:absolute; inset:0; pointer-events:none;}
 .indictus-app.indictus-app .raster-slot .slot-grid[data-phase="deal"]>.slot-cell {
-  animation:raster-symbol-enter 920ms cubic-bezier(.13,.68,.23,1) both;
-  animation-delay:calc(var(--column,0) * 90ms); transition:none;
+  animation:raster-symbol-enter calc(920ms / var(--slot-speed,1)) cubic-bezier(.13,.68,.23,1) both;
+  animation-delay:calc(var(--column,0) * 90ms / var(--slot-speed,1)); transition:none;
 }
 .indictus-app.indictus-app .raster-slot .slot-grid[data-phase="deal"] .slot-cell.is-outgoing {
-  animation:raster-symbol-leave 920ms cubic-bezier(.13,.68,.23,1) both;
-  animation-delay:calc(var(--column,0) * 90ms); transition:none;
+  animation:raster-symbol-leave calc(920ms / var(--slot-speed,1)) cubic-bezier(.13,.68,.23,1) both;
+  animation-delay:calc(var(--column,0) * 90ms / var(--slot-speed,1)); transition:none;
 }
 @keyframes raster-symbol-enter {
   from {transform:translate(calc(var(--column) * 100%),calc((var(--row) - 5) * 100%)); opacity:1;}

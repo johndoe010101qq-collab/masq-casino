@@ -31,4 +31,16 @@ film.start();for(let t=0;t<=300&&frames.size;t+=100){const [n,fn]=frames.entries
 assert.equal(progress,.2);assert.equal(frames.size,0);assert.equal(completed,0);assert.equal(film.resume(),true);
 let stamp=5000;while(frames.size){const [n,fn]=frames.entries().next().value;frames.delete(n);fn(stamp);stamp+=100;}
 assert.equal(completed,1);assert.equal(progress,1);assert.equal(JSON.stringify(round),original);
+// Changing speed in-flight preserves the visible phase and accepted outcome.
+timers.clear();time=0;let liveFinished=0;
+const live=createBonanzaPlayback(round,{clock,visibility:null,onVisual:v=>phase=v.phase,onFinish:()=>liveFinished++});
+const liveCompletion=live.start();const firstDuration=[...timers.values()][0].ms;
+time=100;live.setSpeed(4);assert.equal([...timers.values()][0].ms,(firstDuration-100)/4);
+live.setSpeed(2);assert.equal([...timers.values()][0].ms,(firstDuration-100)/2);
+live.skip();await liveCompletion;assert.equal(liveFinished,1);assert.equal(timers.size,0);assert.equal(JSON.stringify(round),original);
+frames.clear();id=0;progress=0;completed=0;
+const accelerated=createRoundPlayback({duration:1000,requestFrame:fn=>{frames.set(++id,fn);return id;},cancelFrame:n=>frames.delete(n),isHidden:()=>false,onProgress:p=>progress=p,onComplete:()=>completed++});
+accelerated.start();let nfn=frames.entries().next().value;frames.delete(nfn[0]);nfn[1](0);accelerated.setRate(4);
+for(const stamp of [100,200,300]){nfn=frames.entries().next().value;frames.delete(nfn[0]);nfn[1](stamp);}
+assert.equal(progress,1);assert.equal(completed,1);
 console.log('PASS original slot presentation: turbo preserves accepted results, explicit bonus/summary gates, dispose while held, continuous autoplay past ten, Stop and resumable media clock.');
