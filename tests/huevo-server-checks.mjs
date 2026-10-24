@@ -58,6 +58,12 @@ const login=await handleHuevoRequest(request('/login',{query:signed}),env,{api,n
 assert.equal((await handleHuevoRequest(request('/login',{query:sign({hu_mode:'live'})}),env,{api,now:()=>now})).status,403);
 assert.equal((await handleHuevoRequest(request('/rounds',{id:'forged-0001',game:'dice',choice:1,stake:5},'fake'),env,{api,now:()=>now})).status,401);
 assert.equal((await handleHuevoRequest(new Request('https://game.example/api/huevo/health'),{})).status,200);
+const eventBody=Buffer.from(JSON.stringify({event:'payment',app_id:221,intent_id:d.intentId,user_id:42,test:true,status:'succeeded',note:'Проверка байтов'}));
+const eventSignature=createHmac('sha256',createHash('sha256').update(secret).digest()).update(eventBody).digest('hex');
+const callback=body=>new Request('https://game.example/api/huevo/callback',{method:'POST',headers:{'Content-Type':'application/json','X-Huevo-Signature':eventSignature},body});
+assert.equal((await handleHuevoRequest(callback(eventBody),env,{api,now:()=>now})).status,204);
+assert.equal((await handleHuevoRequest(callback(Buffer.concat([eventBody,Buffer.from(' ')])),env,{api,now:()=>now})).status,401);
+assert.equal((await handleHuevoRequest(callback(Buffer.alloc(16385)),env,{api,now:()=>now})).status,413);
 // Local presentation completion cannot alter the authoritative receipt or balance.
 const initial=await service.session(s),latestRound=await service.round(s,{id:'round-remote-0001',game:'dice',choice:1,stake:5}),remote=new HuevoSession(initial,async()=>latestRound);const rr=await remote.begin('dice',1,5);assert.equal(rr.id,latestRound.round.id);assert.equal(remote.getSnapshot().balance,(latestRound.wallet.balanceCents-latestRound.round.payoutCents)/100);remote.complete(rr.id);assert.equal(remote.getSnapshot().balance,latestRound.wallet.balanceCents/100);assert.equal(remote.complete(rr.id),false);
 const fixtureFunds=await service.deposit(s,{id:'deposit-fixture-10000',amount:10000});payments.get('deposit-fixture-10000').status='succeeded';await service.reconcile(s,fixtureFunds.intentId);
