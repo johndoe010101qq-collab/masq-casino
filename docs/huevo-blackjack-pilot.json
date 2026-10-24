@@ -1,0 +1,17 @@
+{
+  "hands": 500000,
+  "seed": "huevo-pilot-v1",
+  "dealerBoostTickets": 200,
+  "playerUnfavorableTickets": 0,
+  "returnPercent": 95.8974,
+  "return95CI_Percent": [
+    95.62472704252288,
+    96.17007295747713
+  ],
+  "outcomes": {
+    "blackjack": 22708,
+    "win": 189512,
+    "push": 43693,
+    "lose": 244087
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hands": 1000000,
+  "seed": "huevo-calibration-q100-v1",
+  "dealerBoostTickets": 100,
+  "playerUnfavorableTickets": 0,
+  "returnPercent": 97.07645000000001,
+  "return95CI_Percent": [
+    96.883460303668,
+    97.269439696332
+  ],
+  "outcomes": {
+    "blackjack": 45629,
+    "win": 385014,
+    "push": 86664,
+    "lose": 482693
+  }
+}

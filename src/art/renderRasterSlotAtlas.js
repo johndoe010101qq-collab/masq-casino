@@ -1,11 +1,21 @@
 import {slotRasterArt,SLOT_RASTER_KINDS} from '../slot-raster-art.js';
 import {drawCanonicalSlotAtlas} from './rasterSlotIconLayout.js';
+import {HUEVO_EDITION} from '../huevo-edition.js';
+import {STUDIO_SLOT_NAMES} from '../studio-slot-names.js';
 const pending=new Map(),base=import.meta.env.BASE_URL||'/';
 const LEGACY_ART={slots:'bonanza-commercial-atlas-v13.webp',maskhouse:'maskhouse-symbols-packed-v13.webp',lecipher:'lexof-symbols-packed-v13.webp'};
 const LEGACY_KINDS=['hood','suit','glove','laptop','usb','lock','key','radio','flag','scatter','bomb'];
 const legacyBonanzaNames={hood:'Капюшон',suit:'Костюм',glove:'Перчатка',laptop:'Ноутбук',usb:'USB',lock:'Чип',key:'Шляпа',radio:'Рация',flag:'Флаг',scatter:'Маска',bomb:'Множитель'};
 function loadImage(url){return new Promise((resolve,reject)=>{const image=new Image(),timeout=setTimeout(()=>finish(new Error('Не удалось загрузить изображения слота.')),10000);function finish(error){clearTimeout(timeout);image.onload=image.onerror=null;error?reject(error):resolve(image);}image.onload=()=>finish(image.naturalWidth>0&&image.naturalHeight>0?null:new Error('Invalid slot image dimensions.'));image.onerror=()=>finish(new Error('Не удалось загрузить изображения слота.'));image.src=url;});}
 async function load(game){
+ if(HUEVO_EDITION){
+  const url=game==='maskhouse'?base+'doghouse-reference-v51/symbols.webp':base+'studio-slots-v50/'+game+'-symbols.webp',image=await loadImage(url),w=image.naturalWidth/4,h=image.naturalHeight/3;
+  const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');
+  const glyph=index=>{ctx.clearRect(0,0,w,h);ctx.drawImage(image,index%4*w,Math.floor(index/4)*h,w,h,0,0,w,h);return canvas.toDataURL('image/png');};
+  return Object.freeze({url,atlasUrl:url,width:image.naturalWidth,height:image.naturalHeight,columns:4,rows:3,kinds:SLOT_RASTER_KINDS,
+   indices:Object.freeze(Object.fromEntries(SLOT_RASTER_KINDS.map((kind,i)=>[kind,i]))),maskUrl:glyph(9),names:STUDIO_SLOT_NAMES[game],
+   collectionGlyphs:Object.freeze({booster:glyph(11),collector:glyph(5)}),raster:true,minecraft:false,reference:game==='maskhouse'});
+ }
  const art=slotRasterArt(game),raw=await loadImage(base+art.atlas),prepared=art.ready.atlas&&Array.isArray(art.atlasRects),image=prepared?raw:await loadImage(base+LEGACY_ART[game]);
  const canonical=prepared?drawCanonicalSlotAtlas(raw,art.atlasRects,{tileSize:362,padding:.08}):null,url=canonical?canonical.toDataURL('image/png'):base+LEGACY_ART[game],source=canonical||image,width=canonical?.width||image.naturalWidth,height=canonical?.height||image.naturalHeight;
  const mask=base+'anonymous-mask-minimal.png';await loadImage(mask);

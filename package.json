@@ -18,7 +18,9 @@
     "test:liability": "node tests/mask-cap-liability-checks.mjs",
     "art": "node scripts/render-assets.mjs",
     "admin:server": "node --env-file-if-exists=.env.local server/admin-server.mjs",
-    "test:admin": "node tests/server-admin-checks.mjs && node tests/server-admin-client-checks.mjs && node tests/spw-server-session-checks.mjs && node tests/reward-bank-checks.mjs && node tests/server-reward-api-checks.mjs"
+    "test:admin": "node tests/server-admin-checks.mjs && node tests/server-admin-client-checks.mjs && node tests/spw-server-session-checks.mjs && node tests/reward-bank-checks.mjs && node tests/server-reward-api-checks.mjs",
+    "build:huevo": "node scripts/build-huevo.mjs",
+    "test:huevo": "node tests/huevo-economics-checks.mjs && node tests/embedded-host-checks.mjs && node tests/huevo-97-checks.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^9.8.1",

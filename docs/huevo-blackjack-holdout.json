@@ -1,0 +1,17 @@
+{
+  "hands": 1000000,
+  "seed": "huevo-INDEPENDENT-HOLDOUT-q100-v1",
+  "dealerBoostTickets": 100,
+  "playerUnfavorableTickets": 0,
+  "returnPercent": 96.8882,
+  "return95CI_Percent": [
+    96.69522815651041,
+    97.0811718434896
+  ],
+  "outcomes": {
+    "blackjack": 45598,
+    "win": 384098,
+    "push": 86691,
+    "lose": 483613
+  }
+}

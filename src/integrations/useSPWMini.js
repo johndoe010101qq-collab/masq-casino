@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import SPWMini from 'spwmini/client';
 import { SPW_APP_ID } from './spw-app-config.js';
+import { embeddedHost } from './embedded-host.js';
 
 const SPW_ORIGIN = 'https://spworlds.ru';
 const appId = SPW_APP_ID;
@@ -69,7 +70,8 @@ export default function useSPWMini({ verifyIdentity = null } = {}) {
 
   useEffect(() => {
     const embedded = window.parent !== window;
-    if (!embedded) {
+    const host = embeddedHost({embedded,referrer:document.referrer,search:window.location.search});
+    if (!embedded || host === 'huevo') {
       setState(initialState);
       return;
     }

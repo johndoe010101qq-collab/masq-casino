@@ -3,6 +3,7 @@ import { CANDIDATE_RULES } from './blackjack.js';
 import { permittedStake } from './stake-limits.js';
 import {DEMO_RTP_VALUES} from './rtp-range.js';
 import blackjackProfiles from './blackjack-rtp-profile-table.js';
+import {HUEVO_BLACKJACK_PROFILE} from './huevo-blackjack-profile.js';
 
 // Public global DEMO presets. A preset is committed before drawing a ticket.
 // There are no player IDs, history, bankroll, timer, or after-result adjustments.
@@ -13,8 +14,8 @@ const freeze = value => {
   return value;
 };
 export const CLASSIC_PROFILE_GAMES = freeze(['coinflip','dice','plinko','roulette','upgrader','blackjack']);
-export const CLASSIC_EXACT_PROFILE_VALUES = DEMO_RTP_VALUES;
-export const BLACKJACK_PROFILE_VALUES = DEMO_RTP_VALUES;
+export const CLASSIC_EXACT_PROFILE_VALUES = Object.freeze([...DEMO_RTP_VALUES,97]);
+export const BLACKJACK_PROFILE_VALUES = Object.freeze([...DEMO_RTP_VALUES,97]);
 export const DEFAULT_CLASSIC_PROFILES = freeze(Object.fromEntries(CLASSIC_PROFILE_GAMES.map(game => [game,70])));
 export const CLASSIC_PROFILE_REVISION = 'indictus-public-classic-profiles-50-95-v1';
 export function classicProfileValues(game) {
@@ -96,12 +97,12 @@ export function classicProfileSnapshot(game,value=70,{choice}={}) {
   const common={id:'rtp'+value,game,revision:CLASSIC_PROFILE_REVISION,targetReturnPercent:value,
     global:true,committedBeforeRng:true,payoutsUnchanged:true};
   if(game==='blackjack'){
-    const preset=blackjackProfiles.profiles['rtp'+value];
+    const preset=value===97?HUEVO_BLACKJACK_PROFILE:blackjackProfiles.profiles['rtp'+value];
     if(!preset)throw new RangeError('Для этого профиля Blackjack нет опубликованных параметров.');
     const {dealerBoostTickets,playerUnfavorableTickets}=preset;
     const p=playerUnfavorableTickets/10000,q=dealerBoostTickets/10000;
     const n=value=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:4}).format(value);
-    return freeze({...common,revision:blackjackProfiles.version,kind:'approximate',decks:6,dealerStandsSoft17:true,ticketCount:10000,
+    return freeze({...common,revision:value===97?'masq-huevo-blackjack97-v50':blackjackProfiles.version,kind:'approximate',decks:6,dealerStandsSoft17:true,ticketCount:10000,
       dealerBoostTickets,playerUnfavorableTickets,
       engineSourceSHA256:blackjackProfiles.engineSHA256,parametersSHA256:blackjackProfiles.paramsSHA256,
       payouts:CANDIDATE_RULES.payouts,

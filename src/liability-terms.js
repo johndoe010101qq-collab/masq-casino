@@ -7,7 +7,7 @@ import { BLACKJACK_RULES, CANDIDATE_RULES } from './blackjack.js';
 import { stakeLimits, permittedStake } from './stake-limits.js';
 import { SLOT_PROFILE_GAMES, slotProfileSnapshot } from './slot-rtp-profiles.js';
 import { CLASSIC_PROFILE_GAMES, classicProfileSnapshot, classicRules } from './classic-rtp-profiles.js';
-import {isDemoRtp} from './rtp-range.js';
+import {isRuntimeRtp} from './runtime-rtp-range.js';
 
 const integer = (value, name) => {
   if (!Number.isSafeInteger(value) || value < 0) throw new RangeError(`${name} must be nonnegative integer cents.`);
@@ -34,7 +34,7 @@ export function liabilityTerms({ game, choice, stake, mode = 'paid', bonusTier, 
   const feature = empty(featureMode) ? null : LEXOF_FEATURE_RULES[featureMode];
   if (!empty(rtpProfile)) {
     if(SLOT_PROFILE_GAMES.includes(game)){
-      if(!isDemoRtp(rtpProfile))throw new RangeError('Unsupported public slot profile.');
+      if(!isRuntimeRtp(rtpProfile))throw new RangeError('Unsupported public slot profile.');
       slotProfileSnapshot(game,rtpProfile,{mode,bonusTier,featureMode});
     }
     else if(CLASSIC_PROFILE_GAMES.includes(game))classicProfileSnapshot(game,rtpProfile,{choice});

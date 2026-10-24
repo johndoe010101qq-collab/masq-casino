@@ -17,6 +17,7 @@ import MinecraftSlotScene from './MinecraftSlotScene.jsx';
 import {bonanzaShownPayoutCents} from './bonanza-mascot-presentation.js';
 import './MinecraftSlotScene.css';
 import {slotRasterStyle} from './slot-raster-art.js';
+import {HUEVO_EDITION} from './huevo-edition.js';
 
 
 const rules = BONANZA_DEMO_RULES;
@@ -130,8 +131,8 @@ function EntranceDialog({opened, continueToGame, atlas, fallbackFocus}) {
       </section>
       <section className="entrance-rule-panel">
         <div className="entrance-rule-art">{atlas ? <Sprite kind="scatter" atlas={atlas} /> : <img src={maskUrl} alt="" />}</div>
-        <strong>Поймай 4 маски</strong>
-        <p>4 маски дают 10 бесплатных вращений. Ещё 3 маски в бонусе добавляют 5.</p>
+        <strong>{HUEVO_EDITION?'Поймай 4 Scatter':'Поймай 4 маски'}</strong>
+        <p>{HUEVO_EDITION?'4 леденца Scatter дают 10 вращений. Ещё 3 в бонусе добавляют 5.':'4 маски дают 10 бесплатных вращений. Ещё 3 маски в бонусе добавляют 5.'}</p>
       </section>
       <section className="entrance-rule-panel">
         <div className="entrance-rule-art" aria-hidden="true">{atlas && <Sprite kind="bomb" atlas={atlas} />}<b>×2–×25</b></div>
@@ -443,7 +444,7 @@ export default function BonanzaSlot({
             Множители +{money(visual.spinSummary.multiplierWinCents / 100)} АР
           </span>}
           {visual.phase === 'spin-summary' && visual.spinSummary?.scatterWinCents > 0 && <span>
-            Маски +{money(visual.spinSummary.scatterWinCents / 100)} АР
+            {HUEVO_EDITION?'Scatter':'Маски'} +{money(visual.spinSummary.scatterWinCents / 100)} АР
           </span>}
         </div>
       </div>

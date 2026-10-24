@@ -27,6 +27,8 @@ import {SERVER_ADMIN_ENABLED} from './integrations/spw-app-config.js';
 import LobbyV15 from './LobbyV15.jsx';
 import { MasqMark, MasqIcon } from './MasqIdentity.jsx';
 import './MinecraftInterface.css';
+import './StudioSlots.css';
+import {HUEVO_EDITION,HUEVO_SLOT_PROFILES,HUEVO_CLASSIC_PROFILES} from './huevo-edition.js';
 const BonanzaSlot = lazy(() => import('./BonanzaSlot.jsx'));
 const MaskSlotRoom = lazy(() => import('./MaskSlotRoom.jsx'));
 const RoundArt = lazy(() => import('./RoundArt.jsx'));
@@ -102,13 +104,15 @@ function GameRoom({game,session,snapshot,reduced,audio,onSettled,payoutOpen}) {
 }
 function GameHall() {
   const [adminClient] = useState(()=>createServerAdminClient());
-  const [session]=useState(()=>new HallSession(GameMath,undefined,{rtpProfiles:{slots:55,maskhouse:55,lecipher:55}})), snapshot=useSyncExternalStore(session.subscribe,session.getSnapshot,session.getSnapshot);
-  const [game,setGame]=useState(null), [chanceRules,setChanceRules]=useState(false), [resetEpoch,setResetEpoch]=useState(0), [payout,setPayout]=useState(null);
+  const [session]=useState(()=>new HallSession(GameMath,undefined,HUEVO_EDITION
+    ?{rtpProfiles:HUEVO_SLOT_PROFILES,classicRtpProfiles:HUEVO_CLASSIC_PROFILES,fixedRtp:97}
+    :{rtpProfiles:{slots:55,maskhouse:55,lecipher:55}})), snapshot=useSyncExternalStore(session.subscribe,session.getSnapshot,session.getSnapshot);
+  const [game,setGame]=useState(()=>{const requested=new URLSearchParams(window.location.search).get('game');return GAME_META.some(item=>item.id===requested)?requested:null;}), [chanceRules,setChanceRules]=useState(false), [resetEpoch,setResetEpoch]=useState(0), [payout,setPayout]=useState(null);
   const {audio,musicEnabled,sfxEnabled,toggleMusic,toggleSfx}=useCasinoAudio(), reduced=useReducedMotion(), profile=useSPWMini({verifyIdentity:SERVER_ADMIN_ENABLED?adminClient.authenticate:null}), mainRef=useRef(null);
   const [adminOpen,setAdminOpen]=useState(false);
   const [lobbyCategory,setLobbyCategory]=useState('all');
   const activeCategory=chanceRules?null:game?['slots','maskhouse','lecipher'].includes(game)?'slots':'classics':lobbyCategory;
-  const demoAdminAllowed=canOpenDemoAdmin({embedded:window.parent!==window,url:window.location.href});
+  const demoAdminAllowed=!HUEVO_EDITION&&canOpenDemoAdmin({embedded:window.parent!==window,url:window.location.href});
   const serverAdminAllowed=SERVER_ADMIN_ENABLED&&profile.verified&&profile.capabilities?.includes('settings:read')&&adminClient.authenticated;
   useEffect(()=>{if(adminOpen==='server'&&!serverAdminAllowed)setAdminOpen(false);},[adminOpen,serverAdminAllowed]);
   const locked=snapshot.busy||!!payout||adminOpen;
@@ -120,7 +124,7 @@ function GameHall() {
   function openChanceRules() {if(session.getSnapshot().busy||payout||adminOpen)return;setGame(null);setChanceRules(true);requestAnimationFrame(()=>{mainRef.current?.focus();window.scrollTo({top:0,behavior:'instant'});});}
   function openLobby(category='all') {if(locked)return;setLobbyCategory(category);openGame(null);}
   useSiteTools({session,game,chanceRules,openGame,openChanceRules});
-  return <div className="indictus-app app-shell36" data-view={chanceRules?'chance-rules':game||'hall'} data-motion={reduced?'reduced':'full'}><a className="skip-link" href="#hall-content">К играм</a>
+  return <div className="indictus-app app-shell36" data-slot-style={HUEVO_EDITION?'studio':'minecraft'} data-view={chanceRules?'chance-rules':game||'hall'} data-motion={reduced?'reduced':'full'}><a className="skip-link" href="#hall-content">К играм</a>
     <header className="indictus-header shell14-header"><button className="hall-brand" onClick={()=>openLobby()} disabled={locked} aria-label="MASQ — все игры"><MasqMark/><span className="brand-type"><span className="wordmark">MASQ<span>.</span></span></span></button><nav className="header-nav" aria-label="Навигация"><button className={!game&&!chanceRules?'active':''} aria-current={!game&&!chanceRules?'page':undefined} onClick={()=>openLobby()} disabled={locked}>Все игры</button><button className={chanceRules?'active':''} aria-current={chanceRules?'page':undefined} onClick={openChanceRules} disabled={locked}>Правила шансов</button></nav>
       <div className="shell14-account-tools"><div className="hall-wallet" aria-label="Демонстрационный баланс"><span>Демо-баланс</span><strong>{fmt(snapshot.balance)}<small>АР</small></strong></div><div className="shell14-sound-controls"><button className={'audio-button '+(sfxEnabled?'active':'')} aria-pressed={sfxEnabled} aria-label={sfxEnabled?'Отключить звук':'Включить звук'} onClick={toggleSfx}><MasqIcon name="sound"/></button><button className={'audio-button '+(musicEnabled?'active':'')} aria-pressed={musicEnabled} aria-label={musicEnabled?'Отключить музыку':'Включить музыку'} onClick={toggleMusic}><MasqIcon name="music"/></button></div><span className="shell14-profile"><span className="shell14-avatar" aria-hidden="true"><MasqMark flat/></span><span className="shell14-profile-copy"><span className="profile-name">{profile.user?.username||'Гость'}</span><small>Демо-сеанс</small></span></span></div>{serverAdminAllowed&&<button className="demo-admin-entry" disabled={locked} onClick={()=>setAdminOpen('server')}>Управление</button>}{demoAdminAllowed&&<button className="demo-admin-entry" disabled={locked} onClick={()=>setAdminOpen(true)}>Демо-панель</button>}
     </header>{profile.isEmbedded&&<div className="shell14-connection" role="status"><span>{profile.verified?'Профиль SP Worlds подтверждён':profile.status==='connecting'?'Подключение к SP Worlds…':profile.status==='verifying'?'Проверка профиля…':profile.error||'Профиль получен без серверного подтверждения.'}</span><span>Игры используют демо-фишки.</span></div>}<nav className="shell15-desktop-nav" aria-label="Каталог игр"><div className="shell15-nav-categories">{[['all','Все игры'],['slots','Слоты'],['classics','Классика']].map(([category,label])=><button key={category} className={'shell15-nav-category '+(activeCategory===category?'active':'')} aria-current={activeCategory===category?'page':undefined} disabled={locked} onClick={()=>openLobby(category)}><span className={'shell15-nav-art shell15-nav-art-'+category} aria-hidden="true"><MasqIcon name={category}/></span><span>{label}</span><span className="shell15-nav-arrow" aria-hidden="true">›</span></button>)}</div><button className="shell15-nav-rules" disabled={locked} onClick={openChanceRules}><MasqIcon name="rules"/><span>Правила и шансы</span></button></nav><main id="hall-content" ref={mainRef} tabIndex={-1} className={'indictus-main'+(game==='slots'?' slot-room':'')}>

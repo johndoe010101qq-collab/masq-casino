@@ -3,9 +3,14 @@ import {minecraftSlotReaction} from './minecraft-slot-presentation.js';
 import {slotRasterArt,SLOT_RASTER_POSE_FRAMES} from './slot-raster-art.js';
 import {getMinecraftSlotMascot} from './art/renderRasterSlotMascot.js';
 import './MinecraftSlotScene.css';
+import {HUEVO_EDITION} from './huevo-edition.js';
 const base=import.meta.env.BASE_URL||'/';
 
-export default function MinecraftSlotScene({game='slots',visual,reducedMotion=false}){
+export default function SlotScene(props){
+ if(HUEVO_EDITION)return <div className={'studio-slot-world studio-slot-world--'+(props.game||'slots')} aria-hidden="true"><i/><i/><i/></div>;
+ return <MinecraftScene {...props}/>;
+}
+function MinecraftScene({game='slots',visual,reducedMotion=false}){
  const art=slotRasterArt(game),[finishedVisual,setFinishedVisual]=useState(null),[mascot,setMascot]=useState(null),[mascotStatus,setMascotStatus]=useState('loading');
  useEffect(()=>{
   let active=true;setMascot(null);setMascotStatus('loading');

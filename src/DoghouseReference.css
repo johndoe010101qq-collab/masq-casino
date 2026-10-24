@@ -1,0 +1,51 @@
+/* Source reference native canvas1258x850. Percentages below are measured from
+   the supplied screenshot; this is one scene, including all footer controls. */
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference{width:100%;max-width:1258px;container-type:inline-size}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .room-layout{display:block;width:100%;position:relative}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-slot-stage{width:100%;height:auto;min-height:0;aspect-ratio:1258/850;border:0;border-radius:0;overflow:visible;background:url('/doghouse-reference-v51/scene.webp') center/100% 100% no-repeat;isolation:isolate}
+[data-slot-style="studio"] .doghouse-reference .studio-slot-world{display:none!important}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-cabinet-title{left:27%;right:24.5%;top:3.2%;height:11.4%;font:1000 5.2cqw/1 'Arial Black','Golos Text',Arial,sans-serif;letter-spacing:-.035em;text-shadow:0 .45cqw 0 #6b260d,.18cqw .18cqw 0 #6b260d;color:#ffe45b;-webkit-text-stroke:.15cqw #7d310c;white-space:nowrap}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-slot-grid{left:12.16%;right:11.13%;top:15.76%;bottom:23.53%;width:auto;height:auto;aspect-ratio:auto;padding:0;border:0;border-radius:0;box-shadow:none;background:none;gap:0;overflow:hidden}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-reel-window{background:none;border:0;overflow:hidden}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-slot-cell{padding:0;container-type:size;border:0;background:none;box-shadow:none;overflow:visible}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-slot-symbol{width:min(100cqw,100cqh);height:min(100cqw,100cqh);max-width:none;max-height:none;filter:drop-shadow(0 .45cqw .15cqw #21060199)}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .mask-wild-mark{left:12%;right:10%;bottom:5%;top:auto;border:0;background:none;box-shadow:none;padding:0;color:#ffe352;font:1000 32cqw/1 'Arial Black',Arial,sans-serif;-webkit-text-stroke:1.5cqw #753500;text-shadow:1cqw 2cqw 0 #4b2000;transform:none}
+
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .slot-win-readout{left:27%;right:24%;bottom:1.6%;height:11.5%;top:auto;gap:.3cqw;z-index:7;color:white;pointer-events:none}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .slot-win-readout[data-total-cents="0"] .slot-win-total{display:none}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .slot-win-caption{font:1000 1.45cqw/1.2 'Arial Black',Arial,sans-serif;text-shadow:0 .2cqw .3cqw #000;color:#fff}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .slot-win-total{gap:1cqw}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .slot-win-total>span{font:800 2.2cqw/1 Arial,sans-serif;color:#ffd93d;text-shadow:0 .2cqw .2cqw #492000}
+[data-slot-style="studio"].indictus-app.indictus-app.app-shell36 .minecraft-slot-v36.doghouse-reference .slot-win-total>strong{font:1000 4.4cqw/1 'Arial Black',Arial,sans-serif;color:#fff;text-shadow:0 .25cqw .2cqw #39250e}
+[data-slot-style="studio"] .doghouse-reference .slot-win-detail{font-size:1.2cqw!important;min-height:0!important;gap:.4cqw!important;color:#fff!important}
+[data-slot-style="studio"] .doghouse-reference .room-heading{display:none!important}
+.doghouse-controls{position:absolute;inset:0;z-index:8;pointer-events:none;font-family:'Arial Black',Arial,sans-serif;color:#fff}
+.doghouse-controls button,.doghouse-controls input,.doghouse-controls select{font-family:inherit;pointer-events:auto;cursor:pointer}
+.doghouse-controls button{box-sizing:border-box;box-shadow:none;text-shadow:none;margin:0;padding:0;min-width:0;min-height:0;line-height:1;transition:background .12s}
+.doghouse-controls button:disabled{opacity:.4;cursor:default}
+.doghouse-controls button:focus-visible{outline:.2cqw solid #fff067;outline-offset:.3cqw}
+.doghouse-controls .dog-info{position:absolute;left:1.7%;bottom:1.9%;width:4.3%;aspect-ratio:1;border:.15cqw solid #fff;border-radius:50%;background:#e9e9e9;color:#111;font:italic 900 3cqw/1 Georgia,serif}
+.dog-credit,.dog-stake{position:absolute;left:7.2%;display:flex;align-items:center;gap:.7cqw;font-weight:1000;font-size:1.35cqw;text-shadow:0 .15cqw .2cqw #162006;white-space:nowrap}
+.dog-credit{bottom:5.5%}.dog-stake{bottom:1.75%}
+.dog-credit>span,.dog-stake>span{color:#ffce00;min-width:5.4cqw;font-weight:1000;letter-spacing:.025em}
+.dog-credit>strong{display:flex;gap:.35cqw;align-items:center;color:white;font-size:1.65cqw;font-weight:1000}
+.dog-stake>button{display:flex;align-items:center;gap:.35cqw;padding:.3cqw .45cqw;border:1px solid #96a46b6b;border-radius:0;background:#162509b3;color:#fff;font-size:1.65cqw;font-weight:1000}
+.dog-stake small{color:#ffe65c;font-size:1cqw;margin-left:.2cqw}.dog-coin{color:#0062d5;font-size:1.4cqw;text-shadow:.05cqw .08cqw #001159;line-height:1}
+.doghouse-controls .dog-spin{position:absolute;right:8%;bottom:4.05%;width:8.6%;aspect-ratio:1;border:.23cqw solid #fff;border-radius:50%;background:#25450b55;color:#fff;display:grid;place-items:center}
+.dog-spin svg{display:block;width:60%;height:60%}
+.doghouse-controls :is(.dog-minus,.dog-plus){position:absolute;bottom:2.75%;width:3.55%;aspect-ratio:1;border:.16cqw solid #fff;border-radius:50%;background:#172c0a66;color:white;font:500 2.1cqw/1 Arial,sans-serif}
+.doghouse-controls .dog-minus{right:19.65%}.doghouse-controls .dog-plus{right:1.65%}
+.dog-auto{position:absolute;right:6.3%;bottom:1.45%;width:12%;height:3.8%;display:flex;pointer-events:auto;border:.15cqw solid #fff;border-radius:3cqw;background:#111;overflow:hidden}
+.dog-auto button{border:0;background:none;color:#fff;border-radius:0;font-weight:1000}
+.dog-auto .dog-turbo{width:24%;font-size:2cqw;line-height:.7;color:#d3bd00;border-right:.15cqw solid #fff;transform:skew(-12deg)}
+.dog-auto .dog-auto-label{flex:1;font-size:1cqw;line-height:1.1;letter-spacing:-.02em}
+.doghouse-controls .dog-bonus-active{position:absolute;left:35%;bottom:13%;padding:.6cqw 1cqw;border:1px solid #dbc67c;border-radius:4px;background:#232b10e6;color:#ffed7d;font-size:1cqw}
+.dog-popup{position:absolute;right:6%;bottom:16%;width:25%;padding:1.5cqw;background:#171b13f5;border:.15cqw solid #d9d9c7;border-radius:.7cqw;color:#fff;box-shadow:0 1cqw 4cqw #0007;pointer-events:auto;z-index:20;font:600 1.2cqw/1.4 Arial,sans-serif}
+.dog-popup h3{margin:0 0 1cqw;font-size:1.6cqw;color:#ffe350}.dog-popup label{display:flex;flex-direction:column;gap:.4cqw}.dog-popup :is(input,select){width:100%;box-sizing:border-box;font-size:1.4cqw;padding:.6cqw;background:#f5f1e4;color:#111;border:1px solid #999;border-radius:3px}
+.dog-popup>button:not(.dog-popup-close),.dog-popup-steps button{border:1px solid #d8ddc6;border-radius:4px;background:#42532c;color:white;padding:.7cqw;font-size:1.1cqw;margin-top:.8cqw}
+.dog-popup .dog-popup-close{position:absolute;right:.6cqw;top:.4cqw;background:none;border:0;color:#fff;font-size:2cqw}
+.dog-popup-steps{display:flex;gap:.6cqw}.dog-popup-steps button{flex:1;font-size:2cqw}
+.dog-error{position:absolute;left:30%;right:25%;bottom:13%;padding:.8cqw;background:#4e1717e8;color:#fff;text-align:center;font:600 1.1cqw/1.3 Arial,sans-serif}
+[data-slot-style="studio"] .doghouse-reference>.mask-slot-rules{position:absolute;left:15%;right:15%;top:17%;z-index:30;padding:18px;background:#182112f5;color:#fff;border:1px solid #d1cd99;border-radius:8px;font:500 14px/1.5 Arial,sans-serif;max-height:60%;overflow:auto}
+.dog-rules-close{float:right;background:none;border:0;color:white;font-size:24px;cursor:pointer}
+@media(max-width:700px){.dog-popup{width:49%;font-size:2.4cqw;padding:2.5cqw}.dog-popup h3{font-size:3cqw}.dog-popup :is(input,select){font-size:3cqw;padding:1.3cqw}.dog-popup>button:not(.dog-popup-close){font-size:2.6cqw;padding:1.4cqw}.dog-popup .dog-popup-close{font-size:4cqw}.dog-error{font-size:2cqw}}

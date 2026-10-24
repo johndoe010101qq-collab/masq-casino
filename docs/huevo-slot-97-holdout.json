@@ -1,0 +1,161 @@
+{
+  "targetReturnPercent": 97,
+  "stakeCents": 5000,
+  "status": "complete",
+  "limitation": "Monte Carlo estimates with sampling error; no certified exact theoretical slot RTP.",
+  "rows": [
+    {
+      "offer": "slots:paid",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:slots:paid",
+      "returnPercent": 96.04225000000068,
+      "return95CI_Percent": [
+        90.43971224968159,
+        101.64478775031975
+      ],
+      "positiveFrequency": 0.248,
+      "profitFrequency": 0.226,
+      "maxChargeMultiplier": 99.98,
+      "meanAttempts": 2.0243,
+      "predictedReturn": 0.9699999994304118,
+      "calibrationStandardError": 0.0175534814113308
+    },
+    {
+      "offer": "slots:buy",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:slots:buy",
+      "returnPercent": 97.43849199999963,
+      "return95CI_Percent": [
+        96.90985959087931,
+        97.96712440911993
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.69665,
+      "maxChargeMultiplier": 1.9996,
+      "meanAttempts": 20.6955,
+      "predictedReturn": 0.969999995616855,
+      "calibrationStandardError": 0.004874693301931
+    },
+    {
+      "offer": "maskhouse:paid",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:maskhouse:paid",
+      "returnPercent": 95.31520200000189,
+      "return95CI_Percent": [
+        91.01366429424898,
+        99.61673970575478
+      ],
+      "positiveFrequency": 0.32185,
+      "profitFrequency": 0.14305,
+      "maxChargeMultiplier": 25,
+      "meanAttempts": 1.9633,
+      "predictedReturn": 0.9699999997747552,
+      "calibrationStandardError": 0.013554937113031417
+    },
+    {
+      "offer": "maskhouse:buy:sticky",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:maskhouse:buy:sticky",
+      "returnPercent": 97.22716855001022,
+      "return95CI_Percent": [
+        96.78167909474377,
+        97.67265800527666
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.78425,
+      "maxChargeMultiplier": 1.25,
+      "meanAttempts": 6.65065,
+      "predictedReturn": 0.9700000004742912,
+      "calibrationStandardError": 0.0018451502592496199
+    },
+    {
+      "offer": "lecipher:paid",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:lecipher:paid",
+      "returnPercent": 100.08913599999913,
+      "return95CI_Percent": [
+        95.14496960496969,
+        105.0333023950286
+      ],
+      "positiveFrequency": 0.3121,
+      "profitFrequency": 0.1834,
+      "maxChargeMultiplier": 30,
+      "meanAttempts": 2.1123,
+      "predictedReturn": 0.9700000000196665,
+      "calibrationStandardError": 0.015444800858702833
+    },
+    {
+      "offer": "lecipher:buy:luck",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:lecipher:buy:luck",
+      "returnPercent": 97.58763489997833,
+      "return95CI_Percent": [
+        97.18327375366954,
+        97.99199604628711
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.79445,
+      "maxChargeMultiplier": 1.5,
+      "meanAttempts": 13.64525,
+      "predictedReturn": 0.9699999999729106,
+      "calibrationStandardError": 0.0024834750620214966
+    },
+    {
+      "offer": "lecipher:buy:gold",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:lecipher:buy:gold",
+      "returnPercent": 97.25315416000628,
+      "return95CI_Percent": [
+        96.86734622998343,
+        97.63896209002911
+      ],
+      "positiveFrequency": 1,
+      "profitFrequency": 0.79355,
+      "maxChargeMultiplier": 1.2,
+      "meanAttempts": 26.0311,
+      "predictedReturn": 0.9699999963496729,
+      "calibrationStandardError": 0.003012045894240444
+    },
+    {
+      "offer": "lecipher:paid:hunt",
+      "profile": 97,
+      "samples": 100000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:lecipher:paid:hunt",
+      "returnPercent": 95.77945306666294,
+      "return95CI_Percent": [
+        94.51607879617428,
+        97.0428273371516
+      ],
+      "positiveFrequency": 0.35682,
+      "profitFrequency": 0.24594,
+      "maxChargeMultiplier": 10,
+      "meanAttempts": 2.03826,
+      "predictedReturn": 0.9700000007362504,
+      "calibrationStandardError": 0.008864419448807986
+    },
+    {
+      "offer": "lecipher:paid:rainbow",
+      "profile": 97,
+      "samples": 20000,
+      "seed": "huEVO97-INDEPENDENT-HOLDOUT-v1:lecipher:paid:rainbow",
+      "returnPercent": 97.7915001000001,
+      "return95CI_Percent": [
+        96.05116672276488,
+        99.53183347723534
+      ],
+      "positiveFrequency": 0.40855,
+      "profitFrequency": 0.4033,
+      "maxChargeMultiplier": 3,
+      "meanAttempts": 1.9343,
+      "predictedReturn": 0.969999999862063,
+      "calibrationStandardError": 0.004885221468331077
+    }
+  ]
+}

@@ -66,16 +66,19 @@ export class HallSession {
   #math; #randomInt; #id = 0; #reservationId = 0; #computing = false;
   #active = new Map(); #holds = new WeakMap(); #hands = new WeakMap(); #listeners = new Set();
   #balanceCents; #snapshot; #reserve; #initialBalanceCents; #rtpProfiles; #profileRevision = 1;
-  #classicRtpProfiles; #stakeLimits; #presentation; #pendingPayoutCaps = 0n;
+  #classicRtpProfiles; #stakeLimits; #presentation; #pendingPayoutCaps = 0n; #fixedRtp;
   constructor(math = globalThis.IndictusDemoMath, randomInt,
     { initialBalanceCents = 100000, houseCapitalCents = 1000000, rtpProfiles = DEFAULT_SLOT_PROFILES,
       classicRtpProfiles = DEFAULT_CLASSIC_PROFILES, stakeLimits: configuredLimits = DEFAULT_DEMO_STAKE_LIMITS,
-      presentation = DEFAULT_DEMO_PRESENTATION } = {}) {
+      presentation = DEFAULT_DEMO_PRESENTATION, fixedRtp = null } = {}) {
     if (!Number.isSafeInteger(initialBalanceCents) || initialBalanceCents < 0) {
       throw new RangeError('Некорректный демо-баланс.');
     }
     this.#math = math;
     const settings=validateDemoSettings({rtpProfiles,classicRtpProfiles,stakeLimits:configuredLimits,presentation});
+    if(fixedRtp!==null&&(fixedRtp!==97||[...Object.values(settings.rtpProfiles),...Object.values(settings.classicRtpProfiles)].some(v=>v!==97)))
+      throw new RangeError('huEVO использует единый неизменный профиль 97%.');
+    this.#fixedRtp=fixedRtp;
     this.#rtpProfiles=settings.rtpProfiles; this.#classicRtpProfiles=settings.classicRtpProfiles;
     this.#stakeLimits=settings.stakeLimits; this.#presentation=settings.presentation;
     this.#randomInt = randomInt || createCryptoRandomInt();
@@ -108,6 +111,8 @@ export class HallSession {
   }
   setDemoSettings(value,{expectedRevision}={}) {
     const next=validateDemoSettings(value);
+    if(this.#fixedRtp!==null&&[...Object.values(next.rtpProfiles),...Object.values(next.classicRtpProfiles)].some(v=>v!==this.#fixedRtp))
+      throw new RangeError('Профиль huEVO зафиксирован на 97%.');
     if(expectedRevision!==undefined&&(!Number.isSafeInteger(expectedRevision)||expectedRevision!==this.#profileRevision))
       throw new RangeError('Настройки уже изменились. Откройте актуальную панель и повторите.');
     if(this.#computing||this.#active.size)throw new RangeError('Завершите принятый раунд перед сменой настроек.');
