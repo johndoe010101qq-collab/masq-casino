@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { uiStakeLimits, uiBoundedStake } from './demo-ui-settings.js';
 import RasterBlackjack from './RasterBlackjack.jsx';
 import { BlackjackPresentation } from './blackjack-presentation.js';
+import {RemoteBlackjackPresentation} from './RemoteBlackjackPresentation.js';
 import { BLACKJACK_DEALER_PRESENTATION_TIMING, BLACKJACK_DEALER_CLIPS } from './blackjack-dealer-clips.js';
 import { advanceBlackjackDealerMedia } from './blackjack-dealer-media-clock.js';
 import { useReducedMotion, usePageVisible } from './SceneMotion.jsx';
@@ -62,6 +63,7 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
   }, [session]);
   useEffect(() => { if (reduced) { stopClock(); startClock(); if(pendingResult.current) finishReaction(pendingResult.current.token); } }, [reduced]);
   useEffect(()=>{setStake(value=>uiBoundedStake(value,limits));setError('');},[limits.min,limits.max,limits.step]);
+  useEffect(()=>{if(session.remote&&session.resumedHand)play();},[session]);
 
   function finishReaction(token) {
     const pending = pendingResult.current;
@@ -112,15 +114,20 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
       // Hall admits the worst-case liability, then creates the funded hand.
       // An unavailable RNG releases the local hold before any wallet debit.
       record = session.beginBlackjack(stake);
+      if(session.remote){record.then(acceptHand).catch(failure=>setError(failure.message));return;}
       hand = record?.hand;
     } catch (failure) { setError(failure.message); return; }
-    if (!record) return;
+    if (!record) return;acceptHand(record);
+  }
+  function acceptHand(record){
+    if(!record)return;const hand=record.hand;
     setRoundId(record.id);
-    const presentation = new BlackjackPresentation(hand, {
+    const Presentation=session.remote?RemoteBlackjackPresentation:BlackjackPresentation;
+    const presentation = new Presentation(hand, {
       timing: BLACKJACK_DEALER_PRESENTATION_TIMING,
       transition: (action, current) => session.advanceBlackjack(record.id, action, current),
       publicView: (current, options) => session.blackjackView(record.id, current, options),
-      onUpdate: next => { if (mounted.current) setDisplay(next); },
+      onUpdate: next => { if (mounted.current) {setDisplay(next);if(session.remote)queueMicrotask(startClock);} },
       onCard: () => {},
       onResolved: finished => {
         const accepted = session.completeBlackjack(record.id, finished);
@@ -137,6 +144,7 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
         }
       }
     });
+    presentation.onError=failure=>{if(mounted.current)setError(failure.message);};
     active.current = { record, presentation, failedStep: null }; presentation.deal(); startClock();
   }
   function action(name) {
@@ -150,6 +158,7 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
   const { view } = display;
   const locked = snapshot.busy || payoutOpen || reacting;
   return <section className="blackjack-room" aria-label="Blackjack">
+    {display.status==='connection-error'&&<button className="primary" onClick={()=>active.current?.presentation.retry?.()}>Повторить проверку раздачи</button>}
     <div className="room-layout">
       <div id="bj-live-stage" className={'physical-stage blackjack-stage bj-video-stage ' + (display.status === 'resolved' ? 'blackjack-resolved' : '')}>
         <RasterBlackjack view={view} motion={display.motion}
@@ -180,7 +189,7 @@ export default function BlackjackRoom({ session, snapshot, audio, onSettled, pay
           <div className="bj-console-information">
             <dl className="blackjack-returns"><div><dt>Blackjack</dt><dd>×2,5</dd></div><div><dt>Победа</dt><dd>×2</dd></div><div><dt>Ничья</dt><dd>×1</dd></div></dl>
             <details className="blackjack-rules"><summary>Правила раздачи</summary><p className="blackjack-rule-copy">Blackjack — ×2,5. Победа — ×2, ничья — ×1. Выплата включает ставку. Туз — 11 или 1. Дилер останавливается на 17, включая мягкие 17. {snapshot.classicRtpProfiles?.blackjack===98?'Активен вариант с равномерной колодой и добором без возвращения.':'В активном варианте добор игрока и дилера имеет фиксированные неравные вероятности.'} Механизм описан во вкладке «Правила шансов».</p></details>
-            <span className="bj-demo-note">Демо-баланс</span>
+            <span className="bj-demo-note">{session.remote?(snapshot.mode==='test'?'Тест huEVO':'Баланс huEVO'):'Демо-баланс'}</span>
           </div>
         </div>
         <div className="blackjack-accessible-hands">

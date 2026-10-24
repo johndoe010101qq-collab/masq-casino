@@ -70,7 +70,7 @@ export default function PlinkoRoom({ session, snapshot, audio }) {
         onClick={play}>Запустить шар</button>
       {activeCount > 0 && <p className="plinko-flight-status">В полёте: {activeCount}. Можно запускать следующий шар.</p>}
       {error && <p className="error-banner" role="alert">{error}</p>}
-      <p className="demo-explanation">Демонстрационный баланс.</p>
+      <p className="demo-explanation">{session.remote?(snapshot.mode==='test'?'Тест huEVO. Реальные монэтки не перемещаются.':'Баланс huEVO.'):'Демонстрационный баланс.'}</p>
     </div>
   </section>;
 }

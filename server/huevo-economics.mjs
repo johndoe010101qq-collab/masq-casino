@@ -1,5 +1,5 @@
-// Amounts are integer minor units. The platform adapter must explicitly map
-// huEVO's documented amount unit before enabling deposits.
+// Our ledger stores hundredths of a platform coin. huEVO API amounts are
+// whole coins: the adapter multiplies by 100 exactly before applying this fee.
 export const HUEVO_ECONOMICS = Object.freeze({
   version: 'masq-huevo-v1', targetRtpBps: 9700, depositFeeBps: 500,
   personalizedOutcomes: false, bankrollOutcomeAdjustment: false,

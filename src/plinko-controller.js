@@ -109,7 +109,12 @@ export class PlinkoFlightController {
   launch(stake) {
     if (!this.attached) return null;
     const round = this.session.begin('plinko', 'standard', stake);
+    if(this.session.remote)return round.then(r=>this.acceptLaunch(r)).catch(e=>{this.onError(e);return null;});
+    return this.acceptLaunch(round);
+  }
+  acceptLaunch(round){
     if (!round) return null;
+    if(!this.attached){this.session.complete(round.id);return round.id;}
     this.flights.set(round.id, { round, startedAt: this.clockMs, progress: 0, row: -1 });
     this.sound('ui');
     this.onChange();

@@ -1,49 +1,76 @@
-# MASQ / huEVO integration
+# MASQ / huEVO integration — v52
 
-Application 221, client ID `578c478ad16670b5`, draft, owned by KorolbNyboB.
-Game URL: https://masq-casino.pages.dev/ . No real deposits were made.
+Application 221, public client ID `578c478ad16670b5`, owned by KorolbNyboB.
+Game URL: https://masq-casino.pages.dev/ . Developer: deathlain.
 
-Observed in the authenticated official developer panel on 2026-10-24:
+## Official protocol
 
-- API root: `https://huevo.su/api/apps/v1`.
-- Server authentication: Basic(client_id:client_secret). Never use in browser.
-- Success `ok:true`; errors `ok:false,error:{code,message}`.
-- Limits: 3000 requests/min/app; 600/min/method; 429 with Retry-After.
-- Launch fields: hu_app_id, hu_user_id, hu_username, hu_display_name,
-  hu_avatar, hu_mode, hu_scheme, hu_ts, hu_hash.
-- Payment callbacks: raw-body HMAC-SHA256 with sha256(client_secret) key,
-  X-Huevo-Signature header. At-least-once delivery; deduplicate intent_id.
-- Draft payments and payouts are test-only. Wallet can be funded after approval.
-- App-wallet funds may only be credited to players, not withdrawn to owner.
+The owner supplied https://t.me/huevodev on 2026-10-24. Its announcement links
+https://huevo-docs.lunnaholy.workers.dev/apps/ . This replaces the previous
+missing-method-documentation blocker.
 
-## Pending protocol information
+- Launch verification: all decoded hu_* fields except hu_hash, sorted by key,
+  joined with newlines; HMAC-SHA256 using binary SHA256(client_secret).
+  The server checks app 221, timestamp freshness, user ID and signed test/live mode.
+- The frontend loads the official SDK from https://huevo.su/static/js/huevo-apps-v1.js.
+  SDK messages and init data alone never authenticate or credit a wallet.
+- Server Basic authentication calls `/payments`, `/payments/{intent_id}` and
+  `/credits`. Platform amounts are whole monétkas. Our ledger uses hundredths:
+  1 internal AR = 1 platform coin; fractions remain in the account until playable
+  or withdrawable as whole coins.
+- `/wallet` is the APPLICATION wallet, never the player's casino balance.
+- Deposits are credited only after server GET confirmation of succeeded and
+  exact user, amount and mode match. A 100-coin deposit credits 95.00, fee 5.00.
+- Withdrawals debit the internal ledger atomically before the platform credit.
+  An uncertain response retains the pending hold and reuses the platform key.
+  Definite rejection refunds once; success can never pay twice.
+- Callback handler `/api/huevo/callback` verifies raw-body HMAC, app and mode,
+  then reconciles through the API. The callback URL has been saved in the
+  platform developer panel. Active polling and login recovery also cover
+  missed callbacks.
 
-The API panel exposes no method paths or request/response schemas. Obtain the
-official method reference for user lookup, launch canonicalization (sorting,
-encoding, timestamp tolerance, signature representation), payment intents and
-confirmation flow, intent status, app-wallet credits, idempotency guarantees,
-amount denomination, callback schema and test/live isolation. Do not infer
-these from similarly named APIs or probe money-moving methods.
+## Deployed server
 
-## Economics and implementation gate
+Cloudflare Pages Functions with D1 database `masq-huevo` (separate test/live
+owner keys, SQL transactions and optimistic revision guards). The browser
+cannot supply results or payouts: all nine game engines run on the server.
+Complete slot results are committed with the balance before they are returned.
+Blackjack stores a private RNG tape and action history for exact recovery;
+only public cards reach the browser. Completed animations merely reveal the
+already committed funds. Closing/reloading cannot reroll an accepted round.
 
-Requested fixed target RTP: 97%; deposit fee: 5% of gross, explicitly quoted.
-`server/huevo-economics.mjs` implements integer-only fee/credit conservation.
-Map platform amount units only after their denomination is documented.
+Client secret is an encrypted server deployment secret, outside source control.
+`HUEVO_LIVE_ENABLED=false` in BOTH environments. Draft platform launches also
+force test mode. Standalone browsing remains explicitly nonredeemable demo.
 
-Current live MASQ is still a demo. Legacy profiles cover 50–95%; v50 adds a
-fixed huEVO 97% target with independent evidence (see huevo-release-v50.md). Slot values
-are empirical targets, blackjack is strategy dependent. Merely adding 97 to
-the slider or relabelling the demo is NOT a validated 97% production engine.
-No claim of certified exact slot/blackjack 97% is made. Complete-round v50
-measurements include feature prices/bonuses and the published blackjack strategy.
-Disable any history/player/bankroll-dependent reward intervention in this mode.
+The platform frame is configured as large, 3:2 to fit the game canvas.
 
-Production requires server-authoritative RNG, amounts, accepted rounds and
-settlement, durable transactional ledger, idempotent deposit callbacks and
-withdrawal reconciliation. Browser results are presentation only. Requested
-absence of additional bankroll admission limits must never allow changing an
-accepted outcome, fabricating funding or silently forfeiting an owed payout.
+## Verified 2026-10-24
 
-Do not publish financial activation while these gates remain incomplete.
-Secrets are outside the repository and must be deployment secrets only.
+- Local SQLite tests: signature tampering, duplicates/future/old launch fields,
+  test/live separation, deposit deduplication, wrong-owner rejection, idempotent
+  rounds, blackjack replay after service restart, uncertain withdrawal recovery,
+  definite rejection refund, SQL rollback and asynchronous card presentation.
+- Production: health configured=true, liveEnabled=false; forged login HTTP 401.
+- Real signed huEVO iframe launch authenticated successfully.
+- Official TEST payment dialog showed 100 requested, 5 fee, 95 credited.
+  Confirmed test payment produced an internal balance of 95.00.
+- A TEST Mask House round used the authoritative ledger: stake 5.00, payout
+  14.70, balance 104.70. Test withdrawal 5.00 succeeded; reload kept 99.70.
+- Native iframe blackjack also completed a funded TEST deal, hit, stand, dealer
+  reveal/draw and final settlement through asynchronous server transitions.
+- Read-only application wallet API returned balance 0 and frozen=false.
+  No real payment, payout or funding operation was performed.
+
+## Economics and remaining publication gate
+
+Fixed public target RTP 97%, deposit fee 5%, no personalized outcome adjustment.
+Classic ticket maps are exhaustive; blackjack and slots have independent
+holdout evidence and are empirical targets, not a certified exact 97% theorem.
+See huevo-release-v50.md and its measurement files.
+
+App remains unpublished on huEVO, visible only to owner/testers/admins. A live
+launch, real transfers and production capacity acceptance are separate from
+this test integration. Do not enable the live flag until platform moderation
+and real deployment acceptance have been completed. Free Cloudflare quotas
+are finite; no paid plan or new bankroll/outcome adjustment was enabled.

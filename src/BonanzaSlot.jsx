@@ -177,7 +177,7 @@ function RulesDialog({opened, close, atlas, fallbackFocus, limits}) {
     <p>Покупка бонуса стоит ×{rules.bonusBuyMultiplier} базовой ставки и даёт
       {rules.initialFreeSpins} начальных вращений. Цена списывается один раз за каждый купленный бонус. После покупки режим сохраняется до отмены; следующий запуск покупает новый бонус.</p>
     <p>Ставки {limits.min}–{limits.max} АР, шаг {limits.step}. Денежные ограничения и реальные вероятности — во вкладке «Правила шансов».</p>
-    <p className="slot-rules-demo">Игра на демонстрационных фишках.</p>
+    <p className="slot-rules-demo">Режим счёта указан в верхней панели.</p>
     <button type="button" className="slot-rules-dismiss" onClick={close}>Понятно</button>
   </dialog>;
 }
@@ -217,7 +217,7 @@ export default function BonanzaSlot({
   const canAffordSpin=current=>bonusMode
     ? !validateBonusPurchase(stake,current.balance,'slots',undefined,uiStakeLimits(current,'slots'))
     : permittedStake(stake,uiStakeLimits(current,'slots'))&&current.balance>=stake;
-  const controls=useSlotPlaybackControls({busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:entranceOpen||showRules||!!purchase,payoutOpen,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>start(bonusMode?'buy':'paid',stake,settings.speed)});
+  const controls=useSlotPlaybackControls({allowAsync:!!session.remote,busy:snapshot.busy,getBusy:()=>session.getSnapshot().busy,ready:!!atlas,defaultSpeed:uiPlaybackSpeed(snapshot.presentation),modalOpen:entranceOpen||showRules||!!purchase,payoutOpen,canAfford:canAffordSpin(snapshot),getCanAfford:()=>canAffordSpin(session.getSnapshot()),requestSpin:settings=>start(bonusMode?'buy':'paid',stake,settings.speed)});
   const locked = Boolean(snapshot.busy || playing || controls.active);
   useEffect(() => { if (reduced) playback.current?.skip(); }, [reduced]);
 
@@ -263,7 +263,7 @@ export default function BonanzaSlot({
     if (entrance.current || !atlas || payoutOpen || showRules || purchaseController.current || playback.current || session.getSnapshot().busy) return false;
     setError('');
     let round;
-    try {round = session.begin('slots', 'bonanza', requestedStake, {mode});}
+    try {round = session.begin('slots', 'bonanza', requestedStake, {mode});if(session.remote)return round.then(r=>{if(!r)return false;playRound(r,speed);return true;}).catch(failure=>{setError(failure.message);return false;});}
     catch (failure) {setError(failure.message); return false;}
     if (!round) return false;
     playRound(round,speed);return true;
@@ -294,6 +294,7 @@ export default function BonanzaSlot({
     try {
       const round = purchaseController.confirm(selected.id);
       setPurchase(null);
+      if(session.remote){round.then(r=>{if(r){setBonusMode(true);playRound(r);}}).catch(failure=>setError(failure.message));return;}
       if (round) {setBonusMode(true);playRound(round);}
     } catch (failure) {
       setPurchase(null);

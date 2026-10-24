@@ -9,6 +9,7 @@ export function useSlotPlaybackControls(options) {
   const mounted=useRef(false);
   const [state,setState]=useState({active:false,remaining:0,accepted:0,speed:1,status:'idle',pauseReason:null});
   const controller=useMemo(()=>createSlotPlaybackController({
+    allowAsync:!!options.allowAsync,
     requestSpin:settings=>latest.current.requestSpin(settings),
     getConditions:()=>{const o=latest.current;return {...o,busy:o.getBusy?o.getBusy():o.busy,canAfford:o.getCanAfford?o.getCanAfford():o.canAfford,hidden:typeof document!=='undefined'&&document.hidden};},
     onChange:next=>{if(mounted.current)setState(next);}

@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "masq-casino",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "HUEVO_APP_ID": "221",
+    "HUEVO_CLIENT_ID": "578c478ad16670b5",
+    "HUEVO_LIVE_ENABLED": "false"
+  },
+  "d1_databases": [{
+    "binding": "HUEVO_DB",
+    "database_name": "masq-huevo",
+    "database_id": "16d3e871-fb93-433a-aa30-1050c03795fc"
+  }],
+  "env": {
+    "preview": {
+      "vars": {
+        "HUEVO_APP_ID": "221",
+        "HUEVO_CLIENT_ID": "578c478ad16670b5",
+        "HUEVO_LIVE_ENABLED": "false"
+      },
+      "d1_databases": [{
+        "binding": "HUEVO_DB",
+        "database_name": "masq-huevo",
+        "database_id": "16d3e871-fb93-433a-aa30-1050c03795fc"
+      }]
+    }
+  }
+}

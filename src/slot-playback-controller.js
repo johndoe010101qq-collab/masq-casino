@@ -3,7 +3,7 @@ export const SLOT_AUTO_COUNTS=Object.freeze([10,25,50]);
 export const SLOT_AUTO_BALANCE='balance';
 export const SLOT_PLAYBACK_SPEEDS=Object.freeze([1,1.5,2]);
 export function createSlotPlaybackController({requestSpin,getConditions=()=>({}),onChange=()=>{},
-  schedule=(callback,delay)=>setTimeout(callback,delay),cancel=id=>clearTimeout(id),gapMs=600}={}) {
+  schedule=(callback,delay)=>setTimeout(callback,delay),cancel=id=>clearTimeout(id),gapMs=600,allowAsync=false}={}) {
   if(typeof requestSpin!=='function')throw new TypeError('A synchronous accepted-spin callback is required.');
   if(!Number.isFinite(gapMs)||gapMs<0||gapMs>10000)throw new RangeError('Invalid playback gap.');
   let enabled=true,active=false,remaining=0,accepted=0,speed=1,status='idle',pauseReason=null;
@@ -38,6 +38,15 @@ export function createSlotPlaybackController({requestSpin,getConditions=()=>({})
       let result;
       try{result=requestSpin(Object.freeze({mode:'paid',featureMode:null,speed}));}
       catch{stop('launch-error');return;}
+      if(allowAsync&&result&&typeof result.then==='function'){
+        status='waiting';pauseReason=null;emit();
+        result.then(value=>acceptedResult(value,token)).catch(()=>{if(token===generation)stop('launch-error');});return;
+      }
+      acceptedResult(result,token);
+    },gapMs);}
+    emit();
+  }
+  function acceptedResult(result,token){
       if(token!==generation||!enabled||!active)return;
       // Promises/objects/undefined are never treated as accepted rounds.
       if(result!==true){stop('launch-rejected');return;}
@@ -48,8 +57,6 @@ export function createSlotPlaybackController({requestSpin,getConditions=()=>({})
       sawBusy=conditions().busy;waitingRound=sawBusy;
       status=waitingRound?'waiting':'running';pauseReason=null;emit();
       if(!waitingRound)sync();
-    },gapMs);}
-    emit();
   }
   function start(count){if(count!==SLOT_AUTO_BALANCE&&!SLOT_AUTO_COUNTS.includes(count))throw new RangeError('Choose 10, 25, 50 or balance automatic spins.');if(!enabled)return false;generation++;clearScheduled();active=true;remaining=count===SLOT_AUTO_BALANCE?null:count;accepted=0;waitingRound=false;sawBusy=false;status='running';pauseReason=null;sync();return true;}
   function setSpeed(next){if(!SLOT_PLAYBACK_SPEEDS.includes(next))throw new RangeError('Choose speed 1, 1.5 or 2.');speed=next;emit();}
